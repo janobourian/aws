@@ -29,3 +29,35 @@ Item is divided in:
 ```bash
 aws dynamodb list-tables --endpoint-url http://localhost:8000
 ```
+
+Create Table
+
+```bash
+aws dynamodb create-table --table-name  test --attribute-definitions AttributeName=PK,AttributeType=S AttributeName=SK,AttributeType=S  --key-schema AttributeName=PK,KeyType=HASH AttributeName=SK,KeyType=RANGE --provisioned-throughput ReadCapacityUnits=1,WriteCapacityUnits=1 --endpoint-url http://localhost:8000
+```
+
+Add items
+
+```bash
+aws dynamodb put-item --table-name test --item "{\"PK\": {\"S\": \"doe@example.com\"}, \"SK\": {\"S\": \"John Doe\"}, \"Age\": {\"N\": \"31\"}}" --endpoint-url http://localhost:8000
+
+aws dynamodb put-item --table-name  test --item "{\"PK\": {\"S\": \"doe@example.com\"}, \"SK\": {\"S\": \"Jane Doe\"}, \"Age\": {\"N\": \"28\"}}" --endpoint-url   http://localhost:8000
+```
+
+Read All Items
+
+```bash
+aws dynamodb scan --table-name  test --endpoint-url http://localhost:8000
+```
+
+Get specific items
+
+```bash
+aws dynamodb get-item  --table-name test --key "{\"PK\": {\"S\": \"doe@example.com\"}, \"SK\": {\"S\": \"John Doe\"}}" --endpoint-url   http://localhost:8000
+```
+
+Delete Table
+
+```bash
+aws dynamodb delete-table --table-name  test --endpoint-url   http://localhost:8000
+```
