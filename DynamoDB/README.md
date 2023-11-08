@@ -23,6 +23,7 @@ Item is divided in:
 * [AWS Toolkit for Visual Studio Code](https://marketplace.visualstudio.com/items?itemName=AmazonWebServices.aws-toolkit-vscode)
 * [Git](https://github.com/git-guides/install-git)
 * [JRE](https://docs.oracle.com/javase/10/install/installation-jdk-and-jre-microsoft-windows-platforms.htm#JSJIG-GUID-96EB3876-8C7A-4A25-9F3A-A2983FEC016A)
+* [Course Repository](https://github.com/acloudfan/DynamoDB-For-Architects)
 
 ## Commands examples
 
@@ -61,3 +62,31 @@ Delete Table
 ```bash
 aws dynamodb delete-table --table-name  test --endpoint-url   http://localhost:8000
 ```
+
+## Fundamentals 
+
+### Storage And Charges
+
+* Charged for amount of storage
+* Charged for number of Read and Write
+* Charged for other features.
+
+Storage Classes:
+* Standard
+* Standard - IA
+
+RRU means Read Request Unit: 4KB chunks of data
+Strongly consistent read: IO operations in primary partition (1 RRU)
+Eventually consistent read: IO operations in secondary partition (0.5 RRU)
+
+WRU means Write Request Unit: 1KB chunks of data
+
+RCU means Read Capacity Unit
+WRU means Write Capacity Unit
+
+Maximun numbers of reads/second: 
+* 3000 Strongly consistent reads of 4KB chunks
+* 6000 Eventually consistent reads of 4KB chunks
+
+Maximun numbers of writes/second:
+* 1000 writes of 1KB chunks
