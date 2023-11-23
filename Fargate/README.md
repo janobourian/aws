@@ -20,5 +20,20 @@
     - Task
         - Instantiation of a task in the last step.
 
+### Create First Fargate Cluster
+
+To get the fast starting we need to put the classic view.
+
+- Container definition
+- Task Definition
+- Service
+- Cluster 
+
+If you increase the number of cluster you will have more ips direction, to avoid this is necessary to use a load balancer.
+
+### Cost of ECS
+
+Shutdown the clusters
+
 ## Docker Fundamentals
 
