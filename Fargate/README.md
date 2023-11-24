@@ -38,3 +38,25 @@ Shutdown the clusters
 ## Docker Fundamentals
 
 [Docker fundamentals](https://github.com/stacksimplify/docker-fundamentals)
+
+Advantages to use Docker: 
+- Flexible
+- Lightweight
+- Portable 
+- Loosely Coupled 
+- Scalable
+- Secure
+
+Docker terminology:
+- Docker Host
+- Docker Daemon: 
+    - The Docker daemon listens for Docker API requests and managers Docker objects such as images, containers, networks, and volumes.
+- Docker Client:
+    - The Docker client is th eprimary way that many Docker users interact with Docker
+    - The Docker client communicates with Docker Daemon
+- Docker Images:
+    - Read-only template with instructions for creating a Docker container
+- Docker Containers:
+    - Runnable instance of Docker Images. 
+- Docker registry or Docker Hub:
+    - A docker registry stores Docker images
