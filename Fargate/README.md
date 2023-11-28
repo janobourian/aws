@@ -63,6 +63,21 @@ Docker terminology:
 
 ### Docker Pull Images
 
+```docker
+docker version
+docker login
+docker logout
+docker pull stacksimplify/dockerintro-springboot-helloworld-rest-api:1.0.0-RELEASE
+docker images
+docker ps
+docker ps -a
+docker run --name app1 -p 80:8080 -d stacksimplify/dockerintro-springboot-helloworld-rest-api:1.0.0-RELEASE
+docker ps -a -q
+docker exec --it <container_name> <commands>
+docker stop <container_name>
+docker rm <container_name>
+docker rmi <image_name>
+```
 
 ### Build Docker Images
 
