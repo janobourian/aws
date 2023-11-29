@@ -119,3 +119,15 @@ docker top <container_id>
 ```
 
 ## Understand Clusters, Task Definitions, Tasks and Services
+
+### Cluster introduction
+
+ECS Cluster Types:
+- Fargate (Serverless)
+- EC2 (Linux)
+- EC2 (Windows)
+
+An ECS cluster is a logical grouping of tasks or services. 
+Clusters are Region-specific. 
+
+### Create a VPC
