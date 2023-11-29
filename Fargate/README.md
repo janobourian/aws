@@ -88,6 +88,15 @@ docker tag <your_docker_hub_id>/<container_name>:<version> <your_docker_hub_id>/
 docker push <your_docker_hub_id>/<container_name>:<version>
 ```
 
+Once you have your Dockerfile the next step is to create your new image, create your container and push it to the Docker Hub. 
+
+```bash
+docker build -t janobourian/rabbit:v1 .
+docker run -d --name rabbit_starlette -p 8000:8000 --restart=always -it janobourian/rabbit:v1
+docker tag janobourian/rabbit:v1 janobourian/rabbit:v1-checked
+docker push janobourian/rabbit:v1-checked
+``` 
+
 ### Essential Docker Commands
 
 ```bash
