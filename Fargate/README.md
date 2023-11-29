@@ -63,7 +63,7 @@ Docker terminology:
 
 ### Docker Pull Images
 
-```docker
+```bash
 docker version
 docker login
 docker logout
@@ -73,16 +73,40 @@ docker ps
 docker ps -a
 docker run --name app1 -p 80:8080 -d stacksimplify/dockerintro-springboot-helloworld-rest-api:1.0.0-RELEASE
 docker ps -a -q
-docker exec --it <container_name> <commands>
+docker exec -it <container_name> <commands>
 docker stop <container_name>
 docker rm <container_name>
 docker rmi <image_name>
+docker tag <your_docker_hub_id>/<container_name>:<version> <your_docker_hub_id>/<new_tag_for_container>:<version>
+docker push <your_docker_hub_id>/<container_name>:<version>
 ```
 
 ### Build Docker Images
 
+```bash
+docker tag <your_docker_hub_id>/<container_name>:<version> <your_docker_hub_id>/<new_tag_for_container>:<version>
+docker push <your_docker_hub_id>/<container_name>:<version>
+```
 
 ### Essential Docker Commands
 
+```bash
+docker ps
+docker ps -a
+docker stop <container_id>
+docker start <container_name>
+docker restart <container_id>
+docker port <container_id>
+docker rm <container_id>
+docker rm -f <container_id>
+docker pull image <image_name>
+docker exec -it <container_name> <commands>
+docker rmi <image_id>
+docker login
+docker logout
+docker stats 
+docker versions
+docker top <container_id>
+```
 
 ## Understand Clusters, Task Definitions, Tasks and Services
