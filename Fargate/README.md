@@ -3,6 +3,7 @@
 ## General Information
 
 [Github Repository](https://github.com/stacksimplify/aws-fargate-ecs-masterclass)
+ECR and Docker Hub are the service to pull the Docker Images
 
 ## First steps
 
@@ -11,10 +12,14 @@
     - Task Definition:
         - Multiple Container Definition
         - Settings
+        - How many containers
     - Service:
         - Number of simultaneous instances of a task definition
     - Cluster:
         - Fargate
+            - Set provision services
+            - cpu
+            - memory
         - EC2 Linux
         - EC2 Windows
     - Task
