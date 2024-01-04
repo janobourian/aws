@@ -49,3 +49,64 @@ Connect EC2 using putty
 - Describe EC2 instances, Describe Get EBS Volumes, Describe EIPs. <- Lambda -> Simple Email Service -> User Inbox
 - EventBridge for triggers 
 - AWS Cloud Formation 
+
+# AWS VPC & Networking Fundamentals
+
+## Overview (The Big Picture)
+
+Communication: User -> Internet -> Region -> Internet Gateway -> VPC -> Main Route Table -> Local Router -> Availability Zones -> Public Subnet -> EC2 Instance
+
+### The common case
+
+![Alt text](img\image.png)
+
+### Using EC2 Instances
+
+![Alt text](img\image-2.png)
+
+### Using a database
+
+![Alt text](img\image-3.png)
+
+### Using a database replication
+
+![Alt text](img\image-4.png)
+
+### Communicated out of the application
+
+![Alt text](img\image-5.png)
+
+### Regional services (Don't use NAT Gateway in those cases)
+
+#### VPC Endpoint (gateway)
+
+![Alt text](img\image-6.png)
+
+#### VPC Endpoint (interface) + Private Link
+
+![Alt text](img\image-7.png)
+
+#### Service VPC
+
+![Alt text](img\image-8.png)
+
+### Peering connection
+
+![Alt text](img\image-9.png)
+
+### Transit Gateway
+
+![Alt text](img\image-10.png)
+
+### On Premises
+
+![Alt text](img\image-11.png)
+
+### Direct connect
+
+![Alt text](img\image-12.png)
+
+### Client VPN
+
+![Alt text](img\image-13.png)
+
