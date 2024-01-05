@@ -110,3 +110,18 @@ Communication: User -> Internet -> Region -> Internet Gateway -> VPC -> Main Rou
 
 ![Alt text](img/image-13.png)
 
+## VPC Introduction
+
+Typical comunnication schema:
+
+![Alt text](img/image-14.png)
+
+VPC is a Virtual Private Cloud, is similar to VLAN-X
+
+![Alt text](img/image-15.png)
+
+Scopes for each VPC:
+
+![Alt text](img/image-16.png)
+
+# Glosary
