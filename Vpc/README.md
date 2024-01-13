@@ -124,4 +124,31 @@ Scopes for each VPC:
 
 ![Alt text](img/image-16.png)
 
+## VPC Building blocks
+
+### VPC Routing
+
+CIDR: Classless Inter Domain Router, range of ips for the networks. CIDR 10.0.0.0/16
+Subnets: 
+Route Tables: 
+
+### VCP Security
+
+Security groups: Any traffic will in or will out of your EC2
+Network ACL: Access Control List, its scope is in subnet level
+
+### Internet connection
+
+Internet Gateway: Allows the communication with the outside world
+VPN Gateway: Connect DataCenter with our AWS Region. In some cases we will use Direct Connect
+DNS: Route53
+
+![Alt text](img/image-17.png)
+
+## First Hands-on
+
+### CIDR
+
+Maybe is the most confusing component to understand. We need to review the two types of IPs: IPv4 and IPv6 addresses.
+
 # Glosary
