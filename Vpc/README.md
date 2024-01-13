@@ -145,10 +145,33 @@ DNS: Route53
 
 ![Alt text](img/image-17.png)
 
-## First Hands-on
+## How to address VPC?
 
-### CIDR
+Maybe is the most confusing component to understand. We need to review the two types of IPs: IPv4 and IPv6 addresses. Example: 192.168.0.0/16 means IPv4/CIDR
 
-Maybe is the most confusing component to understand. We need to review the two types of IPs: IPv4 and IPv6 addresses.
+![Alt text](img/image-18.png)
+
+Another example:
+
+![Alt text](img/image-19.png)
+
+Practical example:
+
+![Alt text](img/image-20.png)
+
+![Alt text](img/image-21.png)
+
+Example with subnets:
+
+![Alt text](img/image-22.png)
+
+![Alt text](img/image-23.png)
+
+## In console
+
+VPCs > Create VPC
+Subnets > Create Subnet
+
+## Summary
 
 # Glosary
