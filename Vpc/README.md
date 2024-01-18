@@ -128,20 +128,20 @@ Scopes for each VPC:
 
 ### VPC Routing
 
-CIDR: Classless Inter Domain Router, range of ips for the networks. CIDR 10.0.0.0/16
-Subnets: 
-Route Tables: 
+- CIDR: Classless Inter Domain Router, range of ips for the networks. CIDR 10.0.0.0/16
+- Subnets: 
+- Route Tables: 
 
 ### VCP Security
 
-Security groups: Any traffic will in or will out of your EC2
-Network ACL: Access Control List, its scope is in subnet level
+- Security groups: Any traffic will in or will out of your EC2
+- Network ACL: Access Control List, its scope is in subnet level
 
 ### Internet connection
 
-Internet Gateway: Allows the communication with the outside world
-VPN Gateway: Connect DataCenter with our AWS Region. In some cases we will use Direct Connect
-DNS: Route53
+- Internet Gateway: Allows the communication with the outside world
+- VPN Gateway: Connect DataCenter with our AWS Region. In some cases we will use Direct Connect
+- DNS: Route53
 
 ![Alt text](img/image-17.png)
 
@@ -169,8 +169,8 @@ Example with subnets:
 
 ## In console
 
-VPCs > Create VPC
-Subnets > Create Subnet
+- VPCs > Create VPC
+- Subnets > Create Subnet
 
 ## Summary
 
