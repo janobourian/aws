@@ -169,8 +169,35 @@ Example with subnets:
 
 ## In console
 
-- VPCs > Create VPC
-- Subnets > Create Subnet
+- VPCs > Create VPC (10.10.0.0/16)
+- Subnets > Create Subnet (10.10.0.0/24 and 10.10.1.0/24)
+
+## Subnets, Route Tables and Internet Gateway
+
+Case when all the components can comunicate with the internet:
+
+![Alt text](img/image-24.png)
+
+Case when only one or two componentes need to comunicate with the internet:
+
+![Alt text](img/image-25.png)
+
+Rules for Route Table:
+
+![Alt text](img/image-26.png)
+
+Public Subnet has a route for Internet Gateway, on the other hand, Private Subnet doesn't have a route for it.
+
+## IP Addresses in VPC
+
+- IPv4, IPv6
+    - Private IP, Public IP and Elastic IP
+
+![Alt text](img/image-27.png)
+
+Elastic IP is to set a static IP for our instance
+
+![Alt text](img/image-28.png)
 
 ## Summary
 
