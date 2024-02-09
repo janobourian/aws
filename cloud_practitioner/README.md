@@ -72,6 +72,24 @@ Pricing of the cloud:
 - Storage (Pay for data stored in the Cloud) (S3)
 - Data transfer OUT of the cloud
 
+### AWS Cloud overview
+
+AWS Global infrastructure:
+- AWS Regions
+    - Compliance
+    - Proximity
+    - Available services
+    - Pricing
+- AWS Availability Zones
+- AWS Data Centers
+- AWS Edge Locations / Points of Presence
+
+### Shared Responsability Model diagram
+
+Customers are responsible "on" the cloud, AWS is responsible "of" the cloud.
+
+![alt text](image-4.png)
+
 ## IAM - Identity and Access Management
 
 ## EC2 - Elastic Cloud Computer
