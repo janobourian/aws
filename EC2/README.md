@@ -34,6 +34,11 @@ ssh -i "*.pem" ec2-user@Public-IPv4-DNS
 
 ## Security group
 
+* Control how traffic is allowed or denied into or out of our EC2 Machines
+* Security groups are in the middle of EC2 Machine and The internet
+    * Inbound traffic
+    * Outbound traffic
+
 ## Public vs Private IP
 
 ## EC2 User Data - Overview
