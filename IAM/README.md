@@ -1,5 +1,7 @@
 # IAM (Identity and Access Management)
 
+Identity and access management is a Global service and it manages who can do what.
+
 ## Introduction
 
 We have basic steps:
@@ -46,19 +48,42 @@ Max users by account: 5000
 
 Type of users:
 * Root User:
+    * One per account
     * Owner
+    * Able to delete account
     * All permissions
     * Don not use this user
 * Team Members:
-    * IAM Users
+    * A set of IAM Users
 * Federated Users:
     * Identity Management Solution like Active Directory
+    * MyCorporation/Jane + Password
+    * A single sign on to access some AWS Services
 * Application:
     * It uses Access Key and Secret Key
+    * SDK and APIs communications doesn't allow User + Password
 * External users:
+    * Venders, Consultants and Partnerships
 * Cross Account Users
 * Customers
 
+### Access Key
+
+* AWS CLI (Command Line Interface)
+* AWS SDK (Software Development Kit)
+
+You can have up to two access keys.
+
+### IAM Group
+
+Steps:
+* Group name
+* Attach policy 
+* Review
+
+You can add users in a group using the Group menu or the User menu.
+User can belong up to ten groups and a group can have another group.
+Account has up to 300 IAM Groups. 
 
 ## IAM Policy
 
@@ -72,6 +97,10 @@ Type of users:
 ### CLI commands
 
 ```bash
+aws configure
 aws iam list-users
 aws iam help
+aws s3api create-bucket --bucket janobourian-demo-03 --region us-east-1
+aws s3 ls
+aws s3 ls janobourian-demo-01
 ```
