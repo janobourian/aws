@@ -159,7 +159,23 @@ SEPARC.
 * Condition:
 
 ```json
-
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Sid": "S3Policy",
+			"Effect": "Allow",
+			"Action": [
+			    "S3:DeleteObject",
+			    "S3:GetBucketLocation",
+			    "S3:GetObject*"
+			    ],
+			"Resource": [
+			    "arn:aws:s3:::janobourian-demo-*"
+			    ]
+		}
+	]
+}
 ``` 
 
 ## IAM Role
