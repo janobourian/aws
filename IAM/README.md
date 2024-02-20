@@ -87,14 +87,86 @@ Account has up to 300 IAM Groups.
 
 ## IAM Policy
 
+### Introduction
+
+IAM Policy is Authorization, that means all actions that one user can do.
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": "logs:CreateLogGroup",
+            "Resource": "arn:aws:logs:us-east-1:153266797400:*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:CreateLogStream",
+                "logs:PutLogEvents"
+            ],
+            "Resource": [
+                "arn:aws:logs:us-east-1:153266797400:log-group:/aws/lambda/get_s3_update:*"
+            ]
+        }
+    ]
+}
+```
+
+Exits two types of Policies:
+* Customer Managed Policy (You can create, edit, delete)
+* AWS Managed Policy (Read Only)
+
+### IAM policy structure
+
+```json
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Sid": "Statement1",
+			"Effect": "Allow",
+			"Action": [],
+			"Resource": []
+		}
+	]
+}
+``` 
+
+SEPARC. 
+
+* Version: The version
+* Statement: A list of policies, the main or root part in the JSON structure
+* Sid (Statement ID): It needs to be unique and is a good way to retrieve information fast.
+* Effect: It has two values "Deny" and "Allow", by default explicit "Deny" override "Allow" policy.
+* Principal:
+* Action:To specify action related with an AWS Resources.
+    * "ServicePrefix:Action" -> "S3:ListBucket" Check the next [link](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html)
+    * Action: ["S3:DeleteBucket", "S3:CreateBucket", "S3:ListBucket"]
+    * Action: ["S3:*" ]
+    * Action: ["S3:Get*" ]
+    * Action: ["S3:\*Bucket\*" ] 
+    * Action: ["*" ]
+* Resource: 
+    * ARN: Amazon Resource Name
+        * arn:partition:service:region:account-id:resource-id/path
+        * arn:aws:cloud9:us-east-1:153289687400:environment:4567
+    * Resource: ["*" ]
+    * ? <- Question mark means one character after the string, only one character.
+        * arn:aws:cloud9:us-east-1:153289687400:environment:456? 
+    * Action needs a Resource Type (*Required)
+* Condition:
+
+```json
+
+``` 
 
 ## IAM Role
 
 ## IAM Full Picture
 
-## Apendix
-
-### CLI commands
+## CLI commands
 
 ```bash
 aws configure
