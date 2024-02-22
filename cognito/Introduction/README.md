@@ -93,6 +93,20 @@ curl --location 'https://janobourian.auth.us-east-1.amazoncognito.com/login?resp
 
 ## Tokens
 
+Tokens retrieved:
+* ID Token: About identity username
+* Access Token: Authorization information for resources
+* Refresh Token: Information about the refresh token
+
+JWT:
+* Open standard
+* JSON format
+* 3 parts:
+    * Header
+    * Payload
+    * Signature
+
+
 ## OAuth Flows
 
 ## Lambda triggers
