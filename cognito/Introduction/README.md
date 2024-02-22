@@ -77,6 +77,33 @@ Features:
 
 ![alt text](image-1.png)
 
+## Create User Pool
+
+Cognito Dashboard > User Pools > Create User Pool
+Follow the steps
+
+Users can be asigned to a group
+
+## Hosted UI
+
+```curl
+curl --location 'https://janobourian.auth.us-east-1.amazoncognito.com/login?response_type=code&client_id=xxxxxxxxx&redirect_uri=https%3A%2F%2Fwww.google.com.mx%2F' \
+--header 'Cookie: XSRF-TOKEN=b093437d-e1de-4e4b-b4e5-d29e66d9a5b8'
+```
+
+## Tokens
+
+## OAuth Flows
+
+## Lambda triggers
+
+
+## Federation
+
+## Using tokens
+
+## Securing API Gateway Requests
+
 # Section 2
 
 Topics:
