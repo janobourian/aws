@@ -141,6 +141,9 @@ SEPARC.
 * Sid (Statement ID): It needs to be unique and is a good way to retrieve information fast.
 * Effect: It has two values "Deny" and "Allow", by default explicit "Deny" override "Allow" policy.
 * Principal:
+    * who
+    * Resource Based Policy
+    * Cross Account Access
 * Action:To specify action related with an AWS Resources.
     * "ServicePrefix:Action" -> "S3:ListBucket" Check the next [link](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_actions-resources-contextkeys.html)
     * Action: ["S3:DeleteBucket", "S3:CreateBucket", "S3:ListBucket"]
@@ -187,7 +190,13 @@ SEPARC.
 			],
 			"Resource": [
 				"arn:aws:s3:::janobourian-demo-*"
-			], 
+			],
+            "Principal":{
+                "AWS": [
+                    "arn:aws:iam::137263457400:user/bob",
+                    "arn:aws:iam::137263457400:user/asha"
+                ]
+            },
 			"Condition": {
 			    "StringEquals": {
 			        "aws:username": [
@@ -221,6 +230,7 @@ SEPARC.
 
 ```bash
 aws configure
+aws iam get-user
 aws iam list-users
 aws iam help
 aws s3api create-bucket --bucket janobourian-demo-03 --region us-east-1
