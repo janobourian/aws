@@ -60,6 +60,23 @@ Topics:
 * Cognito service core features
 * User pool and Identity pool
 
+## User pool
+
+You can use the Cognito Interface or Social Media Interface.
+
+Features:
+* Sign up
+* Sign in
+* Authentication flows:
+    * Change and forgot password
+    * MFA
+    * Email and mobile verification
+* Custom lambda triggers
+* Hosted customizable UI and SDK
+* Federation using Facebook, Google, Amazon or SAML and OIDC IDP.
+
+![alt text](image-1.png)
+
 # Section 2
 
 Topics:
