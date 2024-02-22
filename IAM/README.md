@@ -157,6 +157,21 @@ SEPARC.
         * arn:aws:cloud9:us-east-1:153289687400:environment:456? 
     * Action needs a Resource Type (*Required)
 * Condition:
+    * {"{condition-operator}": {"{condition-key}":"{condition-value}"}}
+    * {"StringEquals": {"aws:username":"janobourian"}}
+    * Some conditions:
+        * StringEquals
+        * StringEqualsIgnoreCase
+    * condition-operator: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_condition_operators.html
+    * condition-key: 
+        * Global: https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_condition-keys.html
+        * Service: https://docs.aws.amazon.com/service-authorization/latest/reference/reference_policies_actions-resources-contextkeys.html#context_keys_table
+    * Tag Based Policy:
+        * {"DataSecurity" : "General"}
+        * {"DataSecurity" : "Confidential"}
+        * {"DataSecurity" : "Secret"}
+        * {"DataSecurity" : "General"}
+        * None
 
 ```json
 {
@@ -166,14 +181,34 @@ SEPARC.
 			"Sid": "S3Policy",
 			"Effect": "Allow",
 			"Action": [
-			    "S3:DeleteObject",
-			    "S3:GetBucketLocation",
-			    "S3:GetObject*"
-			    ],
+				"S3:DeleteObject",
+				"S3:GetBucketLocation",
+				"S3:GetObject*"
+			],
 			"Resource": [
-			    "arn:aws:s3:::janobourian-demo-*"
-			    ]
-		}
+				"arn:aws:s3:::janobourian-demo-*"
+			], 
+			"Condition": {
+			    "StringEquals": {
+			        "aws:username": [
+                        "janobourian",
+                        "bob",
+                        "jenny"
+                    ],
+                    "aws:principaltype": [
+                        "User",
+                        "FederatedUser"
+                    ],
+                    "s3:ExistingObjectTag/DataSecurity": [
+                        "General"
+                    ]
+			    },
+                "DateGreaterThan":{
+                    "aws:CurrentTime": "2019-10-15T12:00:00Z"
+                }
+			}
+		},
+
 	]
 }
 ``` 
@@ -191,4 +226,6 @@ aws iam help
 aws s3api create-bucket --bucket janobourian-demo-03 --region us-east-1
 aws s3 ls
 aws s3 ls janobourian-demo-01
+aws s3api get-object --bucket janobourian-demo-01 --key <file_name>
+aws s3api get-object-tagging --bucket janobourian-demo-01 --key <file_name>
 ```
