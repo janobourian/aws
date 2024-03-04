@@ -75,6 +75,11 @@ Topics:
 * Cognito service core features
 * User pool and Identity pool
 
+# Section 2
+
+Topics:
+* User pool details with lab
+
 ## User pool
 
 You can use the Cognito Interface or Social Media Interface.
@@ -159,12 +164,36 @@ JWT:
 
 The flow is the same as an Authorization with Lambda function
 
-# Section 2
-
-Topics:
-* User pool details with lab
 
 # Section 3
 
 Topics:
 * Identity pool with lab
+
+## What is Identity Pool?
+
+* Provides temporary AWS credentials
+* Direct access to AWS services from app controlled by IAM role
+* Authenticated and unauthenticated users
+
+![alt text](image-8.png)
+
+![alt text](image-9.png)
+
+## Create an Identity Pool
+
+Using Facebook IDP 
+
+![alt text](image-10.png)
+
+## Identity Pool with User Pool
+
+![alt text](image-11.png)
+
+## Common Usage Scenario
+
+![alt text](image-12.png)
+
+![alt text](image-13.png)
+
+![alt text](image-14.png)
