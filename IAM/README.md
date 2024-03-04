@@ -224,6 +224,15 @@ SEPARC.
 
 ## IAM Role
 
+### Assuming IAM Role
+
+Create a role using the AWS console:
+Identity and Access Management (IAM) > Roles > Create role
+
+### Cross Account Access using Role
+
+### Federated Access using Role
+
 ## IAM Full Picture
 
 ## CLI commands
