@@ -149,7 +149,15 @@ JWT:
 
 ## Using tokens
 
+![alt text](image-5.png)
+
+![alt text](image-6.png)
+
+![alt text](image-7.png)
+
 ## Securing API Gateway Requests
+
+The flow is the same as an Authorization with Lambda function
 
 # Section 2
 
