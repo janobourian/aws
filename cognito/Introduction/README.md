@@ -10,6 +10,21 @@ Another AWS Services:
 * Lambda
 * Dynamo DB
 
+## Difference between Cognito user pool and Cognito identity pool
+
+User pools are for authentication. Your app users can sign in through the user pool, or federate through a third-party identity provider (IdP). Identity pools are for authorization. You can use identity pools to create unique identities for users, and give them access to other AWS services.
+
+Use a user pool in the following scenarios:
+* Design sign-up and sign-in webpages for your app.
+* Access and manage user data.
+* Track your user device, location, and IP address, and adapt to sign-in requests of different risk levels.
+* Use a custom authentication flow for your app.
+
+Use an identity pool in the following scenarios:
+* Give your users access to AWS resources, such as an Amazon Simple Storage Service (Amazon S3) bucket or an Amazon DynamoDB table.
+* Generate temporary AWS credentials for unauthenticated users.
+
+
 ## Identity
 
 You know who is and provides access levels.
@@ -109,10 +124,28 @@ JWT:
 
 ## OAuth Flows
 
+1.- Implicit grant
+    response_type = token
+    Returns ID and Access Token (No refresh token)
+    SPA
+2.- Authorization code grant
+    response_type = code
+    Return "Authorization code"
+    Authorization code exchanged for ID, access and refresh token
+    Server-side logic for exchanging authorization code for token
+3.- Client credentials
+    Machine to machine requests
+    App client must have client secret in addition to app client id
+
+![alt text](image-2.png)
+
 ## Lambda triggers
 
+![alt text](image-3.png)
 
 ## Federation
+
+![alt text](image-4.png)
 
 ## Using tokens
 
