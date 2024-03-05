@@ -1,5 +1,29 @@
 # Cloud practitioner
 
+## Index
+- [What is cloud computing?](#section1)
+- [IAM - Identity and Access Management](#section2)
+- []
+- []
+- []
+- []
+- []
+- []
+- []
+- []
+- []
+- []
+- []
+- []
+- []
+- []
+- []
+- []
+- []
+- []
+
+<div id="section1"> </div>
+
 ## What is cloud computing?
 
 ### Traditional IT Overview
@@ -90,12 +114,78 @@ Customers are responsible "on" the cloud, AWS is responsible "of" the cloud.
 
 ![alt text](image-4.png)
 
+<div id="section2"> </div>
+
 ## IAM - Identity and Access Management
+
+<div id="section3"> </div>
 
 ## EC2 - Elastic Cloud Computer
 
+<div id="section4"> </div>
+
 ## EC2 Instance Storage
+
+<div id="section5"> </div>
 
 ## ELB & ASG - Elastic Load Balancer and Auto Scaling Groups
 
+<div id="section6"> </div>
+
 ## Amazon S3 - Amazon Simple Storage Service 
+
+<div id="section7"> </div>
+
+## Databases & Analytics
+
+<div id="section8"> </div>
+
+## Other Compute Services: ECS, Lambda, Batch, Lightsail
+
+<div id="section9"> </div>
+
+## Deployments & Managing Infrastructure at Scale
+
+<div id="section10"> </div>
+
+## Leveraging the AWS Global Infrastructure
+
+<div id="section11"> </div>
+
+## Cloud Integrations
+
+<div id="section12"> </div>
+
+## Cloud Monitoring
+
+<div id="section13"> </div>
+
+## VPC & Networking
+
+<div id="section14"> </div>
+
+## Security and Compliance
+
+<div id="section15"> </div>
+
+## Machine Learning
+
+<div id="section16"> </div>
+
+## Account Management, Billing & Support
+
+<div id="section17"> </div>
+
+## Advanced Identity
+
+<div id="section18"> </div>
+
+## Other Services
+
+<div id="section19"> </div>
+
+## AWS Architencting & Ecosystem
+
+<div id="section20"> </div>
+
+## Preparing for the Exam + Practice Exam
