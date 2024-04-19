@@ -101,3 +101,12 @@ Layers:
             * Reduce the probability of repetition of special characters such as whitespaces, punctuations, etcetera
 
 ## Pricing
+
+* On demand mode:
+    * Text generation models: 
+        * Charged for every input token processed and every output token generated
+    * Image generation models: 
+        * Charged for every image generated
+* Provisioned Throughput
+    * Large consistent inference workloads that need guaranteed troughput
+    * Custome models
