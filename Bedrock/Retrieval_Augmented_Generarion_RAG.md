@@ -35,3 +35,34 @@
     * KNN is a supervised machine learning algorithm used classification and regression tasks.
     * ANN: Approximate Nearest Neighbor
 * Search
+
+## Architecture of the Use Case
+
+* Retrieve
+    * Retrieve contet from the data store
+* Augmented
+    * Question + Context
+* Generation
+    * Generate a response
+* Data Ingestion Workflow:
+    * Load the data in memory
+        * PyPDFLoader
+    * Transform the Data - Chunking:
+        * RecursiveCharacterTextSplit
+    * Create Vector Embeddings:
+        * Text embedding - Titan Text
+    * Store vectors:
+        * Vector Store - FAISS
+            * Index
+* Frontend flow:
+    * Text embedding with Titan Text
+    * Similarity search
+    * Get Store Vectors
+    * Initial question + Context (get from the data store)
+        * Amazon Bedrock - Claude FM
+    * Generate answer
+
+![alt text](image.png)
+
+## RAG Process
+
