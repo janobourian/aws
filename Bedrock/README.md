@@ -59,3 +59,17 @@ Model/Foundation Model: Algorithm + Training Data
         * Jurassic-2: LLM for text generation
         * Claude: LLM for conversations, question answering and workflow automation
         * Stable Diffusion: generation of unique images, art, logos and designs
+
+## Architecture
+
+Layers:
+* Client:
+    * AWS Lambda
+    * Browser
+    * CLI
+* AWS Bedrock Service Account
+* Model Provider Escrow Account
+
+## Inference parameters
+
+## Pricing
