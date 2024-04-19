@@ -39,3 +39,23 @@ Model/Foundation Model: Algorithm + Training Data
 * Amazon Sagemaker JumpStart: Provides pretained, open-soure models. Deploy open sources FMs with custom configuration
 * Amazon codewhisperer: An AI coding companion in 15+ programming languages for code generation
 * Amazon Bedrock: Fully manged serverlles service 
+
+## Amazon Bedrock, deep dive
+
+* Fully managed serverless service from AWS
+* Make base Foundation Models from Amazon and third-party model providers accessible through an API
+* How does Amazon Bedrock work?:
+    * AWS Console / AWS CLI / SDK
+    * Bedrock API:
+        * prompt
+        * temperature
+        * max_tokens
+        * modelId
+        * contentType
+        * accept
+    * Amazon Bedrock Service
+    * Foundation Models:
+        * Amazon titan: general purpose models
+        * Jurassic-2: LLM for text generation
+        * Claude: LLM for conversations, question answering and workflow automation
+        * Stable Diffusion: generation of unique images, art, logos and designs
