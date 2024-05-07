@@ -5,7 +5,7 @@ https://explore.skillbuilder.aws/learn/mycourses
 ## Index
 
 - [Introducción a Amazon Web Services](#section1)
-- []()
+- [Cómputo en la nube](#section2)
 
 <div id="section1"> </div>
 
@@ -54,6 +54,29 @@ Well-Architected Framework
 <div id="section2"> </div>
 
 ## Cómputo en la nube
+
+Amazon Elastic Compute Cloud (IaaS)
+
+* Tipos de instancias
+* Opciones de facturación
+* Amazon EC2 Auto Scaling
+* Elastic Load Balancing
+* Amazon SNS and Amazon SQS
+
+Tenencia múltiple, el hypervisor coordina y AWS administra.
+
+Configuraciones:
+* SO:
+    * Windows
+    * Linux
+* Aplicaciones empresariales internas
+* Aplicaciones web
+* Bases de datos
+* Software de terceros
+
+Escalado vertical
+Escalado Horizontal
+Controlar aspectos de red de EC2
 
 <div id="section3"> </div>
 
