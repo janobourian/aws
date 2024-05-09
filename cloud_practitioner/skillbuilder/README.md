@@ -78,6 +78,30 @@ Escalado vertical
 Escalado Horizontal
 Controlar aspectos de red de EC2
 
+### Tipo de instancias EC2
+
+Capacidades de cómputo, memoria, redes y almacenamiento.
+
+* De uso general:
+    * Recursos equilibrados
+    * Cargas de trabajo diversas
+    * Servidores Web
+    * Repositorios de código
+* Optimizada para cómputo:
+    * Altos niveles de cómputo
+    * Servidores de juego
+    * Cómputo de alto rendimiento (HPC)
+    * Modelado científico
+* Optimizadas para memoria
+    * Tareas de alto uso de memoria
+* Cómputo acelerado
+    * Cálculos de números en coma flotante
+    * Procesamiento gráfico
+    * Coincidencias de patrones de datos
+    * Utilizar aceleradores de software
+* Optimizadas para almacenamiento
+    * Alto rendimiento para datos almacenados localmente
+
 <div id="section3"> </div>
 
 ## Infraestructura global y fiabilidad
