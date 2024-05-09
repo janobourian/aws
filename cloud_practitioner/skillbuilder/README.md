@@ -102,6 +102,19 @@ Capacidades de cómputo, memoria, redes y almacenamiento.
 * Optimizadas para almacenamiento
     * Alto rendimiento para datos almacenados localmente
 
+### Precios de instancias EC2
+
+* Bajo demanda
+* Savings Plans: 
+    * Compromiso de uso constante en 1 o 3 años. 
+    * Ahorros de hasta 72%.
+    * Compromiso de gasto por hora a una familia de instancias 
+* Instancia reservadas: Uso predecible. Hasta 75%
+    * Standard: Indicas la familia y el tamaño, la plataforma, la tenencia y la región de la instancia.
+    * Convertibles: Zonas de disponibilidad diferentes
+* Instancias tipo spot: Cómputo adicional con hasta 90%. Carga de trabajo por lotes. 
+* Servidores dedicados: No son compartidos. 
+
 <div id="section3"> </div>
 
 ## Infraestructura global y fiabilidad
