@@ -139,7 +139,16 @@ Grupo de Autoscaling:
 * Es regional
 * Balanceo de carga
 
+### Amazon SQS and Amazon SNS
 
+* SQS: Servicios de colas:
+    * Enviar, almacenar y recibir mensajes entre componentes de software a cualquier volumen
+    * Carga: datos en un mensaje
+* SNS: Servicios de mensajes
+    * Enviar mensajes entre servicios
+    * Enviar mensajes a usuarios finales mediante email, sms o notificaciones push
+    * Pub/Sub: Modelo publicación subscripción
+    * Enviar mensaje a tema que a su vez envía mensaje a usuarios de ese tema
 
 <div id="section3"> </div>
 
