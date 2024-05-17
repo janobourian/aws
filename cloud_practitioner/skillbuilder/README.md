@@ -115,6 +115,22 @@ Capacidades de cómputo, memoria, redes y almacenamiento.
 * Instancias tipo spot: Cómputo adicional con hasta 90%. Carga de trabajo por lotes. 
 * Servidores dedicados: No son compartidos. 
 
+### Escalado de Amazon EC2
+
+Servicio: Amazon EC2 Autoscaling:
+* Escalado dinámico: responde a la demanda cambiante
+* Escalado predictivo: programa automáticamente el número correcto de instancias de Amazon EC2 en función de la demanda prevista
+* Escalado Horizontal
+* Escalado Vertical
+
+Grupo de Autoscaling:
+* Mínimo
+* Capacidad deseada
+* Capacidad máxima
+
+### Elastic Load Balancer
+
+
 <div id="section3"> </div>
 
 ## Infraestructura global y fiabilidad
