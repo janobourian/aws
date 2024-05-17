@@ -128,7 +128,17 @@ Grupo de Autoscaling:
 * Capacidad deseada
 * Capacidad máxima
 
-### Elastic Load Balancer
+### Arquitecturas desacopladas
+* Elastic Load Balancing
+* Simple Queu Service
+* Simple Notification Service
+
+### Elastic Load Balancing
+
+* Servicio administrado
+* Es regional
+* Balanceo de carga
+
 
 
 <div id="section3"> </div>
