@@ -150,6 +150,15 @@ Grupo de Autoscaling:
     * Pub/Sub: Modelo publicación subscripción
     * Enviar mensaje a tema que a su vez envía mensaje a usuarios de ese tema
 
+### Servicios de cómputo adicionales
+
+
+* Amazon Elastic Container Service (ECS)
+* Amazon Elastic Kubernetes Service (EKS)
+* Serverless:
+    * AWS Lambda
+    * AWS Fargate (For ECS and EKS)
+
 <div id="section3"> </div>
 
 ## Infraestructura global y fiabilidad
