@@ -7,6 +7,7 @@ https://explore.skillbuilder.aws/learn/mycourses
 - [Introducción a Amazon Web Services](#section1)
 - [Cómputo en la nube](#section2)
 - [Infraestructura Y Fiabilidad Global](#section3)
+- [Redes](#section4)
 
 <div id="section1"> </div>
 
@@ -217,6 +218,45 @@ Key points:
 <div id="section4"> </div>
 
 ## Redes
+
+* Amazon Virtual Private Cloud (VPC)
+* Subred pública y subred privada
+
+### VPC
+
+* Virtual Private Cloud (VPC)
+    * subredes
+        * públicas
+        * privadas
+    * Puerta de enlace de Internet 
+        * Elastic Load Balancer (own security group)
+        * Autoscaling Group
+        * EC2 Instances (own security group)
+        * Database (own security group)
+    * Puerta de enlace privada virtual
+    * AWS Direct Connect
+
+### Listas de control de acceso o Access Control List (ACL)
+
+Inside VPC.
+IGW (Internet Gateway)
+ACL de red (subred): 
+* verifica permisos de entrada o salida
+* permite entrada y salida por default
+* en un ACL personalizado se deniega todo y se debe ser explícito de quién sí y quién no
+* no cuenta con estado
+Grupo de seguridad (security group):
+* no permite tráfico de entrada pero sí de salida
+* cuenta con estado
+
+### Redes globales 
+
+* Route 53 (DNS): 
+    * Enrutamiento basado en latencia
+    * DNS de geolocalización
+    * Enrutamiento de geoproximidad
+    * Weighted Round Robin
+* Amazon Cloudfront (CDN) Content Delivery Network:
 
 <div id="section5"> </div>
 
