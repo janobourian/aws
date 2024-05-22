@@ -6,6 +6,7 @@ https://explore.skillbuilder.aws/learn/mycourses
 
 - [Introducción a Amazon Web Services](#section1)
 - [Cómputo en la nube](#section2)
+- [Infraestructura Y Fiabilidad Global](#section3)
 
 <div id="section1"> </div>
 
@@ -162,6 +163,56 @@ Grupo de Autoscaling:
 <div id="section3"> </div>
 
 ## Infraestructura global y fiabilidad
+
+* Alta disponibilidad
+* Infraestructura global
+
+### Regiones de AWS
+
+* Factores empresariales de elección:
+    * Cumplimiento
+    * Proximidad
+    * Disponibilidad de servicios
+    * Precios
+
+### Zonas de disponibilidad
+
+* AZ es un único centro de datos o un grupo de centros de datos
+* Cada región cuenta con varias zonas de disponibilidad
+* Siempre ejecuta dos zonas de disponibilidad en una región. 
+* Servicios regionales se ejecutan en zonas de disponibilidad: ELB
+
+### Ubicaciones perimetrales
+
+* Almacenar datos en caché
+* CDN: Amazon Cloud Front utiliza ubicaciones de borde
+* DNS: Amazon Route53
+* AWS Outposts: AWS instala una mini región dentro de su propio centro de datos.
+
+Key points: 
+* Regiones son áreas aisladas geográficamente
+* Las regiones contienen zonas de disponibilidad
+* Las zonas de disponibilidad dan persistencia
+* Ubicaciones de borde ejecutan Amazon Cloud Front
+
+### Aprovisionar recursos
+
+* API: En AWS todo es una llamada a API. 
+    * Consola
+    * CLI
+    * SDK
+    * AWS Cloud Formation
+    * AWS CDK
+    * Otras herramientas
+* AWS Elastic Beanstalk
+    * Facilita el manejo de EC2
+    * Ajuste de capacidad
+    * Balanceo de carga
+    * Escalado automático
+    * Supervisión del estado de las aplicaciones
+* AWS Cloud Formation
+    * Infraestructura como código IaaC
+
 
 <div id="section4"> </div>
 
