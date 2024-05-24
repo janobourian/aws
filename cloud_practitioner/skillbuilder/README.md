@@ -341,6 +341,16 @@ Almacena y recupera una cantidad ilimitada de datos.
     * Hasta 15 réplicas de lectura
     * Respaldo continuo en Amazon S3
 
+### Amazon DynamoDB
+
+* Base de datos serverless
+* Organización:
+    * Tablas -> Datos -> Elementos -> Aributos
+* NoSQL Database
+
+* Amazon RDS para relaciones complejas
+* Amazon DynamoDB para tablas únicas
+
 <div id="section6"> </div>
 
 ## Seguridad
