@@ -8,6 +8,7 @@ https://explore.skillbuilder.aws/learn/mycourses
 - [Cómputo en la nube](#section2)
 - [Infraestructura Y Fiabilidad Global](#section3)
 - [Redes](#section4)
+- [Almacenamiento y bases de datos](#section5)
 
 <div id="section1"> </div>
 
@@ -261,6 +262,20 @@ Grupo de seguridad (security group):
 <div id="section5"> </div>
 
 ## Almacenamiento y bases de datos
+
+### Almacenes de instancias y Amazon Elastic Block Store (Amazon EBS)
+
+* Almacenamiento a nivel de bloques
+* Volúmenes de almacen de instancias (Adyacentes a las instancias de EC2)
+* Amazon Elastic Block Store (Amazon EBS): 
+    * Se crea un disco virtual no relacionado al host
+    * Características:
+        * Tamaño
+        * Tipo 
+        * Configuración
+    * Instantáneas:
+        * Copias de seguridad
+
 
 <div id="section6"> </div>
 
