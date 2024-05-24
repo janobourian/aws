@@ -276,6 +276,39 @@ Grupo de seguridad (security group):
     * Instantáneas:
         * Copias de respaldo progresivas
 
+### Amazon Simple Storage Service
+
+Almacena y recupera una cantidad ilimitada de datos.
+
+* Amazon S3: 
+    * Se almacenan datos como objetos
+    * Almacenar objetos en buckets
+    * Cargue un objeto con un tamaño máximo de 5TB
+    * Versiones de objeto
+    * Políticas para mover objetos entre las clases de almacenamiento
+
+* Clases de almacenamiento:
+    * Amazon S3 Standard: 99.999999999% de durabilidad
+    * Alojamiento de sitios web estáticos 
+    * Amazon S3 Standard-Infrequent Access (S3-Standard IA):
+        * Datos con menos frecuencia pero acceso rápido
+    * S3 One Zone (Acceso poco frecuente) S3 One Zone-IA:
+        * Sólo una zona de disponibilidad
+    * S3 Intelligent Tiering:
+        * Amazon supervisa los patrones de acceso a los objetos
+        * Trabaja entre Standard y Standard-IA
+    * S3 Glacier Instant Retrieval
+    * Amazon S3 Glacier Flexible Retriever:
+        * Datos para auditoria
+        * Se puede implementar un bloqueo de almacenamiento
+        * Escribir una vez, leer muchas veces (WORM)
+        * Se recupera en minutos u horas
+    * S3 Glacier Deep Archive
+        * Se recuperan entre 12 y 48 horas
+    * S3 Outposts
+
+* Almacenamiento por bloques: Sólo se cambia una porción de bits
+* Almacenamiento por objetos: Se actualiza todo el objeto cada vez que se cambia
 
 <div id="section6"> </div>
 
