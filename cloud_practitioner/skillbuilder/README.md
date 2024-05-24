@@ -318,6 +318,29 @@ Almacena y recupera una cantidad ilimitada de datos.
 * Sistema de archivos Linux
 * Recurso regional
 
+### Amazon Relational Database Service (Amazon RDS)
+
+* Sistema de administración de bases de datos relacionales (RDBMS)
+* Bases de datos:
+    * MySQL
+    * PostgreSQL
+    * Oracle
+    * Microsoft SQL Server
+* Transportar y cambiar migraciones
+
+* Amazon RDS:
+    * Parches
+    * Backups
+    * Redundancia
+
+* Amazon Aurora:
+    * MySQL
+    * PostgreSQL
+    * 1/10 del costo de las bases de datos comerciales
+    * Replicación de datos 
+    * Hasta 15 réplicas de lectura
+    * Respaldo continuo en Amazon S3
+
 <div id="section6"> </div>
 
 ## Seguridad
