@@ -310,6 +310,14 @@ Almacena y recupera una cantidad ilimitada de datos.
 * Almacenamiento por bloques: Sólo se cambia una porción de bits
 * Almacenamiento por objetos: Se actualiza todo el objeto cada vez que se cambia
 
+### Amazon Elastic File System (Amazon EFS)
+
+* Almacenamiento de archivos
+* Varias instancias pueden acceder al mismo tiempo
+* Se escala automáticamente
+* Sistema de archivos Linux
+* Recurso regional
+
 <div id="section6"> </div>
 
 ## Seguridad
