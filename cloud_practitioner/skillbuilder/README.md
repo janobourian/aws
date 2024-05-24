@@ -266,7 +266,7 @@ Grupo de seguridad (security group):
 ### Almacenes de instancias y Amazon Elastic Block Store (Amazon EBS)
 
 * Almacenamiento a nivel de bloques
-* Volúmenes de almacen de instancias (Adyacentes a las instancias de EC2)
+* Volúmenes de almacén de instancias (Adyacentes a las instancias de EC2)
 * Amazon Elastic Block Store (Amazon EBS): 
     * Se crea un disco virtual no relacionado al host
     * Características:
@@ -274,7 +274,7 @@ Grupo de seguridad (security group):
         * Tipo 
         * Configuración
     * Instantáneas:
-        * Copias de seguridad
+        * Copias de respaldo progresivas
 
 
 <div id="section6"> </div>
