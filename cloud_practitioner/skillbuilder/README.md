@@ -364,6 +364,15 @@ Almacena y recupera una cantidad ilimitada de datos.
 * Consolidación de bases de datos
 * Replicación continua de bases de datos
 
+### Servicios de bases de datos adicionales
+
+* Amazon DocumentDB
+* Amazon Neptune 
+* Amazon Quantum Ledger Database (Amazon QLDB)
+* Amazon Managed Blockchain
+* Amazon ElastiCache
+* Acelerador de Amazon DynamoDB
+
 <div id="section6"> </div>
 
 ## Seguridad
