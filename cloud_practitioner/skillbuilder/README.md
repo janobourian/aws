@@ -351,6 +351,12 @@ Almacena y recupera una cantidad ilimitada de datos.
 * Amazon RDS para relaciones complejas
 * Amazon DynamoDB para tablas únicas
 
+### Amazon Redshift
+
+* Big Data
+* Datos históricos en lugar de Datos operativos 
+* Almacén de datos
+
 <div id="section6"> </div>
 
 ## Seguridad
