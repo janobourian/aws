@@ -357,6 +357,13 @@ Almacena y recupera una cantidad ilimitada de datos.
 * Datos históricos en lugar de Datos operativos 
 * Almacén de datos
 
+### Amazon Database Migration Service (Amazon DMS)
+
+* Base de datos fuente y destino no deben ser del mismo tipo
+* Desarrollo y prueba de migraciones de bases de datos
+* Consolidación de bases de datos
+* Replicación continua de bases de datos
+
 <div id="section6"> </div>
 
 ## Seguridad
