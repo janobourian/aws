@@ -399,6 +399,17 @@ Almacena y recupera una cantidad ilimitada de datos.
     * Software:
         * cómputo, almacenamiento, base de datos y redes
 
+### Permisos y accesos del usuario
+
+User root: The owner of the aws account, is not recommendable use this user for any action
+AWS IAM: AWS Identity and Access Management
+Principio del menor privilegio
+
+User:
+Policy:
+Groups:
+Roles:
+
 <div id="section7"> </div>
 
 ## Monitoreo y análisis
