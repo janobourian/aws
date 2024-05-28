@@ -9,6 +9,7 @@ https://explore.skillbuilder.aws/learn/mycourses
 - [Infraestructura Y Fiabilidad Global](#section3)
 - [Redes](#section4)
 - [Almacenamiento y bases de datos](#section5)
+- [Seguridad](#section6)
 
 <div id="section1"> </div>
 
@@ -376,6 +377,27 @@ Almacena y recupera una cantidad ilimitada de datos.
 <div id="section6"> </div>
 
 ## Seguridad
+
+### Modelo de responsabilidad compartida de AWS
+
+* Modelo de responsabilidad compartida AWS:
+    * AWS: Responsable de la seguridad de la nube
+    * Cliente: Responsable de la seguridad en la nube
+
+* Cliente:
+    * Datos del cliente
+    * Plataforma, aplicaciones e Identity and Access Management (IAM)
+    * Sistemas operativos y configuración de red y firewall
+    * Cifrado de datos del lado del cliente, cifrado de datos del lado del servidor y protección de tráfico de redes
+
+* AWS:
+    * Capa Física:
+        * Red
+        * Hipervisor
+    * Hardware:
+        * región, zona de disponibilidad y ubicación perimetral
+    * Software:
+        * cómputo, almacenamiento, base de datos y redes
 
 <div id="section7"> </div>
 
