@@ -435,6 +435,17 @@ Roles:
 * AWS Shield and AWS WAF
 * AWS Shield Advance
 
+## Servicios de Seguridad adicionales
+
+* Cifrado: Proteger mensaje o datos para que sólo accedan las partes interesadas
+    * Cifrado en reposo:
+        * DynamoDB: AWS Key Management Service (AWS KMS)
+    * Cifrado en tránsito
+        * Amazon Redshift communicating with SQL
+
+* AWS Key Management Service (AWS KMS)
+* Amazon Inspector: Ejecución de seguridad automatizada en la infraestructura
+* Amazon Guard Duty: Flujos continuos de metadatos de Amazon Cloudtrail and VPC
 
 <div id="section7"> </div>
 
