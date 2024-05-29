@@ -410,6 +410,17 @@ Policy:
 Groups:
 Roles:
 
+### AWS Organizations
+
+* Concentra varias cuentas en una ubicación central
+* Administración centralizada de todas las cuentas de AWS
+* Facturación unificada
+* Descuento por volumen
+* Agrupaciones jerárquicas de cuentas
+* OU: Organizative Unity
+* Control de acceso a las acciones de API y servicios de AWS
+* Service Control Policy: Políticas de control de servicios
+
 <div id="section7"> </div>
 
 ## Monitoreo y análisis
