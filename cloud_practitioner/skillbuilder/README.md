@@ -427,6 +427,15 @@ Roles:
 * HIPAA: Ley de portabilidad y responsabilidad de los seguros médicos
 * AWS Artifact: Acceso a los informes de cumplimiento
 
+## DDOS Denegación de Servicio distribuido
+
+* Inundación UDP: Grupos de seguridad
+* Ataques de Nivel HTTP: 
+* Ataque Slowloris: Elastic Load Balancing
+* AWS Shield and AWS WAF
+* AWS Shield Advance
+
+
 <div id="section7"> </div>
 
 ## Monitoreo y análisis
