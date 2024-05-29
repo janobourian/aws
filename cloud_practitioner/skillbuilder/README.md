@@ -421,6 +421,12 @@ Roles:
 * Control de acceso a las acciones de API y servicios de AWS
 * Service Control Policy: Políticas de control de servicios
 
+### Cumplimiento
+
+* RGPD: Reglamento General de Protección de Datos
+* HIPAA: Ley de portabilidad y responsabilidad de los seguros médicos
+* AWS Artifact: Acceso a los informes de cumplimiento
+
 <div id="section7"> </div>
 
 ## Monitoreo y análisis
