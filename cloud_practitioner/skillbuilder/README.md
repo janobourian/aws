@@ -471,7 +471,7 @@ Supervisión: observación de sistemas, recopilación de métricas y uso de dato
 * Rendimiento
 * Seguridad
 * Tolerancia a fallas
-* Límites de servicioS
+* Límites de servicios
 
 <div id="section8"> </div>
 
