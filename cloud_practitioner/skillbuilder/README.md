@@ -461,6 +461,10 @@ Supervisión: observación de sistemas, recopilación de métricas y uso de dato
 * Alarma de Cloudwatch
 * Reduzca el MTTR y mejore el TCO
 
+### AWS Cloud Trail
+
+* Auditoria de APIS
+
 <div id="section8"> </div>
 
 ## Precios y soporte
