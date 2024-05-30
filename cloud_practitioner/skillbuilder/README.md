@@ -465,6 +465,14 @@ Supervisión: observación de sistemas, recopilación de métricas y uso de dato
 
 * Auditoria de APIS
 
+### AWS Trusted Advisor
+
+* Optimización de costos
+* Rendimiento
+* Seguridad
+* Tolerancia a fallas
+* Límites de servicioS
+
 <div id="section8"> </div>
 
 ## Precios y soporte
