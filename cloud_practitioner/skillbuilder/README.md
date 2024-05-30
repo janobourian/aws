@@ -10,6 +10,7 @@ https://explore.skillbuilder.aws/learn/mycourses
 - [Redes](#section4)
 - [Almacenamiento y bases de datos](#section5)
 - [Seguridad](#section6)
+- [Supervisión y Análisis](#section7)
 
 <div id="section1"> </div>
 
@@ -449,7 +450,16 @@ Roles:
 
 <div id="section7"> </div>
 
-## Monitoreo y análisis
+## Supervisión y análisis
+
+Supervisión: observación de sistemas, recopilación de métricas y uso de datos para tomar decisiones. In
+
+### Amazon Cloudwatch
+
+* Supervisar infraestructura y aplicaciones en tiempo real
+* Métrica: variable vinculada a los recursos
+* Alarma de Cloudwatch
+* Reduzca el MTTR y mejore el TCO
 
 <div id="section8"> </div>
 
