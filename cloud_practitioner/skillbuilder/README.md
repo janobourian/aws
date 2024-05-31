@@ -491,6 +491,24 @@ Servicios en nivel gratuito:
 - Amazon DynamoDB
 - Amazon Cognito
 
+### Conceptos de precios de AWS
+
+AWS Pricing calculator
+
+* Pago por uso
+* Pague menos al reservar
+* Pague menos por descuentos de acuerdo al volumen
+
+
+Amazon S3:
+* Almacenamiento:
+    * tamaño de los objetos
+    * tipo de almacenamiento
+    * tiempo de almacenamiento
+* Solicitudes y obtenciones de datos
+* Transferencia de datos
+* Administración y replicación
+
 <div id="section9"> </div>
 
 ## Migración e innovación
