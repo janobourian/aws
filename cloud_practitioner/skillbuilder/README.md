@@ -543,6 +543,8 @@ Todo el cargo en una cuenta
 
 ## AWS Marketplace
 
+* Catálogo digital para gestionar software de terceros
+
 <div id="section9"> </div>
 
 ## Migración e innovación
