@@ -11,6 +11,7 @@ https://explore.skillbuilder.aws/learn/mycourses
 - [Almacenamiento y bases de datos](#section5)
 - [Seguridad](#section6)
 - [Supervisión y Análisis](#section7)
+- [Precios y soportes](#section8)
 
 <div id="section1"> </div>
 
@@ -476,6 +477,19 @@ Supervisión: observación de sistemas, recopilación de métricas y uso de dato
 <div id="section8"> </div>
 
 ## Precios y soporte
+
+### Nivel gratuito de AWS
+
+* Siempre gratis
+* 12 meses gratis
+* Pruebas
+
+Servicios en nivel gratuito:
+
+- Amazon Sagemaker
+- Amazon Comprehend Medical
+- Amazon DynamoDB
+- Amazon Cognito
 
 <div id="section9"> </div>
 
