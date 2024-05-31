@@ -509,6 +509,14 @@ Amazon S3:
 * Transferencia de datos
 * Administración y replicación
 
+## Panel de Facturación
+
+* Billing
+
+## Facturación unificada
+
+Todo el cargo en una cuenta
+
 <div id="section9"> </div>
 
 ## Migración e innovación
