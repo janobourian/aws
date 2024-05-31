@@ -517,6 +517,32 @@ Amazon S3:
 
 Todo el cargo en una cuenta
 
+## AWS Budgets
+
+* Notificaciones cuando se llega a un cierto umbral
+
+## AWS Cost Explorer
+
+* Ver los gastos de los servicios
+
+## Planes de AWS Support
+
+* Basic Support
+    * AWS Trusted Advisor
+    * AWS Personal Health Dashboard
+* Developer Support
+    * Correo
+* Business support
+    * Acceso telefónico
+* AWS Enterprise On-Ramp Support
+    * Technical Account Managers
+    * Tiempo de respuesta de 30 minutos
+* AWS Enterprise Support:
+    * 15 minutos de respuesta
+    * TAM designado
+
+## AWS Marketplace
+
 <div id="section9"> </div>
 
 ## Migración e innovación
