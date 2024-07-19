@@ -151,6 +151,7 @@ Infraestructura global de aws:
 - Regiones
 - Zonas de disponibilidad
 - Puntos de presencia (Edge Location)
+- Zonas locales
 
 Acceso:
 - Consola + MFA
@@ -163,3 +164,13 @@ Acceso:
 - Cost Explorer
 - Cost explorer informes
 - Amazon Budgets and alerts
+
+## Create Budgets
+
+* Create Tags in each service, key-value pairs.
+
+To create budget:
+* Billing and Cost Management
+* |> Create budget section
+* |> Templates (Monthly cost budget)
+* |> Create budget
