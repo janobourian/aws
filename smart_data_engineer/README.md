@@ -83,6 +83,7 @@ Data Lakehouse:
 * Permite el esquema de escritura y el esquema de lectura
 * Por lo general se construyen sobre arquitecturas distribuidas o en la nube
 * Llevan transacciones ACID a Big Data
+ACID: Atomicity, Consistency, Isoltaion and Durability
 
 Ejemplos:
 * AWS Lake Formation (con S3 y Redshift Spectrum)
@@ -92,3 +93,50 @@ Data Mesh:
 * Productos de datos para casos de uso
 * Habla de gestión de datos
 * Gestión de datos basadas en dominio
+
+Ejemplos:
+* AWS Lake Formation
+* AWS Data Exchange
+* AWS Glue
+
+## Overview about Big Data AWS
+
+Solution components:
+* Datos sin procesar ->
+* Ingestar / recopilar ->
+* Alamacenamiento ->
+* Procesar / analizar ->
+* Consumir / Visualizar ->
+* Respuestas e información
+
+AWS Big Data Services:
+* Ingesta
+    - Amazon Kinesis
+    - AWS DMS
+    - AWS Snowball
+    - Amazon SQS
+    - AWS Direct Connect
+    - AWS IoT Core
+* Almacenamiento
+    - Amazon DynamoDB
+    - Amazon S3 - Glacier
+    - Amazon RDS
+    - Amazon Elastic Cache
+* Procesamiento
+    - AWS Lambda
+    - Amazon EMR
+    - Amazon ML
+    - AWS Glue
+    - AWS Data Pipeline
+    - Amazon SageMaker
+* Análisis y Visualización
+    - Amazon OpenSearch
+    - Amazon Athena
+    - Amazon Redshift
+    - Amazon Quicksight
+* Seguridad
+    - AWS IAM
+    - AWS KMS
+    - AWS CloudHSM
+    - Amazon CLoudWatch
+    - AWS CloudTrail
