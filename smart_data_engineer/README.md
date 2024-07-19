@@ -40,3 +40,14 @@ Type of clouds:
 * Gestiona el ciclo de vida de datos:
     * Ingestion -> Transformation -> Serving
     * Undercurrents: Security, Data management, DataOps, Data architecture, Orchestation, Software engineering
+
+## Big data information
+
+* Volumen
+* Velocidad
+* Variedad
+
+Tipos de datos: 
+* Estructurados: CSV, Tables
+* No estructurados: Videos, Audios, Images, Emails, Documents
+* Semi estructurados: XML, JSON, Logs, is a mix of structured data and non-structured data
