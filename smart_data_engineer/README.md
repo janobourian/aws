@@ -156,3 +156,10 @@ Acceso:
 - Consola + MFA
 - CLI
 - SDK
+
+## Administración de facturación
+
+- Etiquetas
+- Cost Explorer
+- Cost explorer informes
+- Amazon Budgets and alerts
