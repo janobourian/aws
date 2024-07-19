@@ -111,32 +111,32 @@ Solution components:
 
 AWS Big Data Services:
 * Ingesta
-    - Amazon Kinesis
-    - AWS DMS
-    - AWS Snowball
-    - Amazon SQS
-    - AWS Direct Connect
-    - AWS IoT Core
+    - Amazon Kinesis: Ingesta de datos en tiempo real, como streaming.
+    - AWS DMS (Database Migration Service): Llevar datos a la nube, migrar información.
+    - AWS Snowball: Cargar datos off-line, de manera física.
+    - Amazon SQS: Simple Queue Service
+    - AWS Direct Connect: Conexión directa entre los servidores privados y la nube
+    - AWS IoT Core: 
 * Almacenamiento
-    - Amazon DynamoDB
-    - Amazon S3 - Glacier
-    - Amazon RDS
-    - Amazon Elastic Cache
+    - Amazon DynamoDB: NoSQL
+    - Amazon S3 - Glacier: Almacenamiento de datos, en general.
+    - Amazon RDS:
+    - Amazon Elastic Cache: Base de datos en memoria.
 * Procesamiento
-    - AWS Lambda
-    - Amazon EMR
+    - AWS Lambda: Reaccionar a evento.
+    - Amazon EMR (Amazon Elastic MapReduce): Procesamiento de aplicaciones Hadoop with spark
     - Amazon ML
-    - AWS Glue
-    - AWS Data Pipeline
+    - AWS Glue: ETL serverless
+    - AWS Data Pipeline: 
     - Amazon SageMaker
 * Análisis y Visualización
-    - Amazon OpenSearch
-    - Amazon Athena
-    - Amazon Redshift
-    - Amazon Quicksight
+    - Amazon OpenSearch: Base de datos de indexamiento
+    - Amazon Athena: Consultar datos desde S3 sin cargar los datos
+    - Amazon Redshift: Almacen de datos
+    - Amazon Quicksight: Dashboard
 * Seguridad
     - AWS IAM
     - AWS KMS
-    - AWS CloudHSM
+    - AWS CloudHSM: Llaves a nivel de hardware
     - Amazon CLoudWatch
-    - AWS CloudTrail
+    - AWS CloudTrail: Monitorear llamado a APIs.
