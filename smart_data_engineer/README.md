@@ -32,3 +32,11 @@ Type of clouds:
 * Private
 * Hybrid
 * Public
+
+## Definición de ingeniería de datos
+
+* Diseño, desarrollo, implementación y mantenimiento de sistemas y procesos que toman datos sin procesar y producen alta calidad e información.
+* Intersección entre seguridad, gestión de datos, DataOps, arquitectura de datos, orquestación e ingeniería de software.
+* Gestiona el ciclo de vida de datos:
+    * Ingestion -> Transformation -> Serving
+    * Undercurrents: Security, Data management, DataOps, Data architecture, Orchestation, Software engineering
