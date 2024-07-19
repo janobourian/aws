@@ -140,3 +140,19 @@ AWS Big Data Services:
     - AWS CloudHSM: Llaves a nivel de hardware
     - Amazon CLoudWatch
     - AWS CloudTrail: Monitorear llamado a APIs.
+
+## Benefits of AWS
+
+* Cómputo: Paga por el tiempo de cómputo
+* Almacenamiento: Paga por lo que almacenas
+* Transferencia de datos: La entrada de datos es gratuita
+
+Infraestructura global de aws:
+- Regiones
+- Zonas de disponibilidad
+- Puntos de presencia (Edge Location)
+
+Acceso:
+- Consola + MFA
+- CLI
+- SDK
