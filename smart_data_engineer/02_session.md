@@ -104,19 +104,19 @@ Servicios regionales:
     * Applications
     * Identity and Access Management
 
-Seguridad física del centro de datos
-Seguridad EC2:
+- Seguridad física del centro de datos
+- Seguridad EC2:
     * hypervisor
     * Sistema operativo Host
     * Firewall con estado: Tráfico entrante se deniega, tráfico de salida se permite, configuración mediante grupos de seguridad
-Seguridad de la red
-Administración de configuración
-Construido para "Disponibilidad Continua":
+- Seguridad de la red
+- Administración de configuración
+- Construido para "Disponibilidad Continua":
     * Servicios escalables y tolerantes a fallos
     * Todas las AZ están siempre disponibles
     * Conectividad robusta a internet
-Administración de discos
-Desmantelamiento de dispositivos de almacenamiento
+- Administración de discos
+- Desmantelamiento de dispositivos de almacenamiento
 
 ## Acceder a aws
 
@@ -126,12 +126,16 @@ Desmantelamiento de dispositivos de almacenamiento
 
 ## IAM
 
-AAA con AWS:
+- AAA con AWS:
     * Authenticate: IAM Access
     * Authorize: IAM POlicies
     * Audit: CloudTrail
 
-IAM:
+* Los usuarios pueden o no pertenecer a un grupo.
+* Los usuarios pueden pertenecer a muchos grupos.
+* Los grupos sólo contienen usuarios, no otros grupos. 
+
+- IAM:
     * Users
     * Groups
     * Policies
@@ -143,6 +147,7 @@ IAM:
 ### Policy
 
 * Principio de mínimos privilegios
+* SEPARC. 
 * Structure:
     * Version
     * Id (optional)
@@ -153,6 +158,154 @@ IAM:
         * Action: Lista de acciones de la política
         * Resource: Lista de recursos
         * Condition (optional): condiciones para cuando esta política esté vigente
+
+```json
+{
+	"Version": "2012-10-17",
+	"Statement": [
+		{
+			"Sid": "VisualEditor0",
+			"Effect": "Deny",
+			"Action": "iam:ListUsers",
+			"Resource": "*"
+		}
+	]
+}
+```
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "sns:publish"
+            ],
+            "Resource": [
+                "*"
+            ]
+        }
+    ]
+}
+```
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "S3Policy",
+            "Effect": "Allow",
+            "Action": [
+                "S3:DeleteObject",
+                "S3:GetBucketLocation",
+                "S3:GetObject*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::janobourian-demo-*"
+            ],
+            "Condition": {
+                "StringEquals": {
+                    "aws:username": "janobourian"
+                }
+            }
+        }
+    ]
+}
+```
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Sid": "AllowListActions",
+            "Effect": "Allow",
+            "Action": [
+                "iam:ListUsers",
+                "iam:ListVirtualMFADevices"
+            ],
+            "Resource": "*"
+        },
+        {
+            "Sid": "AllowUserToCreateVirtualMFADevice",
+            "Effect": "Allow",
+            "Action": [
+                "iam:CreateVirtualMFADevice"
+            ],
+            "Resource": "arn:aws:iam::*:mfa/*"
+        },
+        {
+            "Sid": "AllowUserToManageTheirOwnMFA",
+            "Effect": "Allow",
+            "Action": [
+                "iam:EnableMFADevice",
+                "iam:ListMFADevices",
+                "iam:ResyncMFADevice"
+            ],
+            "Resource": "arn:aws:iam::*:user/${aws:username}"
+        },
+        {
+            "Sid": "AllowUserToDeactivateTheirOwnMFAOnlyWhenUsingMFA",
+            "Effect": "Allow",
+            "Action": [
+                "iam:DeactivateMFADevice"
+            ],
+            "Resource": [
+                "arn:aws:iam::*:user/${aws:username}"
+            ],
+            "Condition": {
+                "Bool": {
+                    "aws:MultiFactorAuthPresent": "true"
+                }
+            }
+        },
+        {
+            "Sid": "BlockMostAccessUnlessSignedInWithMFA",
+            "Effect": "Deny",
+            "NotAction": [
+                "iam:CreateVirtualMFADevice",
+                "iam:EnableMFADevice",
+                "iam:ListMFADevices",
+                "iam:ListUsers",
+                "iam:ListVirtualMFADevices",
+                "iam:ResyncMFADevice"
+            ],
+            "Resource": "*",
+            "Condition": {
+                "BoolIfExists": {
+                    "aws:MultiFactorAuthPresent": "false"
+                }
+            }
+        }
+    ]
+}
+```
+
+* IAM Credentials Report (account-level)
+* IAM Access Advisor (user-level)
+
+CLI: https://aws.amazon.com/es/cli/
+Documentation: https://awscli.amazonaws.com/v2/documentation/api/latest/index.html
+
+```bash
+aws --version
+aws configure
+aws iam list-users
+aws quicksight list-dashboards --aws-account-id <Account_id>
+```
+
+### Roles
+
+Una instancia de EC2 tenga que ejecutar acciones en otro servicio. 
+No insertar access keys dentro de la instancia: use roles.
+Los roles pueden ser usados por usuarios. 
+
+Roles comunes:
+* Roles de instancia EC2
+* Roles de la función Lambda
+* Funciones para CloudFormation
     
 ## Support plans
 
