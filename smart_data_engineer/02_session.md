@@ -79,7 +79,41 @@ Servicios globales:
 * WAF
 
 Servicios regionales:
-* Amazon EC2
-* Elastic BeanStalk
+* Amazon EC2 (IaaS)
+* Elastic BeanStalk (PaaS)
 * Lambda
-* Rekognition
+* Rekognition (SaaS)
+
+## Responsabilidad compartida
+
+* AWS es responsable de la seguridad DE la nube:
+    * Regions
+    * Availability Zones
+    * Edge Locations
+    * Compute
+    * Storage
+    * Databases
+    * Networking
+* Los clientes son responsables de la seguridad y cumplimiento EN la nube:
+    * Client-side Data Encryption
+    * Network Traffic Protection
+    * Operating system
+    * Network
+    * Firewall
+    * Platform
+    * Applications
+    * Identity and Access Management
+
+Seguridad física del centro de datos
+Seguridad EC2:
+    * hypervisor
+    * Sistema operativo Host
+    * Firewall con estado: Tráfico entrante se deniega, tráfico de salida se permite, configuración mediante grupos de seguridad
+Seguridad de la red
+Administración de configuración
+Construido para "Disponibilidad Continua":
+    * Servicios escalables y tolerantes a fallos
+    * Todas las AZ están siempre disponibles
+    * Conectividad robusta a internet
+Administración de discos
+Desmantelamiento de dispositivos de almacenamiento
