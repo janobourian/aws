@@ -117,3 +117,39 @@ Construido para "Disponibilidad Continua":
     * Conectividad robusta a internet
 Administración de discos
 Desmantelamiento de dispositivos de almacenamiento
+
+## Acceder a aws
+
+* Consola
+* CLI
+* SDK
+
+## IAM
+
+AAA con AWS:
+    * Authenticate: IAM Access
+    * Authorize: IAM POlicies
+    * Audit: CloudTrail
+
+IAM:
+    * Users
+    * Groups
+    * Policies
+    * Roles
+    * Credenciales de seguridad temporales:
+        * Acceso a servicios específicos
+        * Acceso a consola y/o APIs
+
+### Policy
+
+* Principio de mínimos privilegios
+* Structure:
+    * Version
+    * Id (optional)
+    * Statement:
+        * Sid (optional): 
+        * Effect: DENY or ALLOW
+        * Principal: Account, role o user for this policy
+        * Action: Lista de acciones de la política
+        * Resource: Lista de recursos
+        * Condition (optional): condiciones para cuando esta política esté vigente
