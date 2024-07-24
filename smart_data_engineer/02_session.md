@@ -153,3 +153,45 @@ IAM:
         * Action: Lista de acciones de la política
         * Resource: Lista de recursos
         * Condition (optional): condiciones para cuando esta política esté vigente
+    
+## Support plans
+
+* AWS Basic:
+    * Servicio al cliente
+    * Trusted Advisor
+    * AWS Personal Health Dashboard
+* Developer:
+    * Acceso por correo electrónico en horario comercial a los asociados de soporte en la nube
+    * Casos ilimitados / 1 contacto primario
+    * Gravedad del caso:
+        * Orientación general < 24 horas hábiles
+        * Sistema deteriorado < 12 horas hábiles
+* Business
+    * Para cargas de trabajo en producción
+    * Trusted advisor + acceso a la API
+    * Acceso por teléfono, correo electrónico y chat 24/7 
+    * Casos ilimitados / contactos ilimitados
+    * Acceso a la gestión de eventos de infraestructura por una tarifa adicional
+    * Gravedad del caso: 
+        * Orientación general < 24 horas hábiles
+        * Sistema deteriorado < 12 horas hábiles
+        * Sistema en producción deteriorado < 4 horas
+        * Sistema en producción inactivo < 1 hora
+* Enterprise On-Ramp:
+    * Para cargar críticas en producción o para el negocio
+    * Acceso a grupo de gestores técnicos de cuenta (TAM)
+    * Equipo de soporte de conserjería (para conocer las mejores prácticas de facturación y cuentas)
+    * Gestión de eventos de infraestructura, revisión de operaciones y buena arquitectura
+    * Gravedad del caso:
+        * Sistema en producción deteriorado < 4 horas
+        * Sistema de producción inactivo < 1 hora
+        * Sistema crítico para el negocio < 30 minutos
+* Enterprise:
+    * Diseñado para usarse si tiene cargas de trabajo críticas
+    * Plan de AWS Business
+    * Acceso a un Gestor Técnico de Cuentas (TAM) designado
+    * Gestión de eventos de infraestructura, revisión de operaciones y buena arquitectura
+    * Gravedad del caso:
+        * Sistema en producción deteriorado < 4 horas
+        * Sistema de producción inactivo < 1 hora
+        * Sistema crítico para el negocio < 15 minutos
