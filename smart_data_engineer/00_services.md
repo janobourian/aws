@@ -1,5 +1,68 @@
 # Viewed Services
 
+* Analytics: 
+    * [] Amazon Athena
+    * [] Amazon EMR
+    * [] AWS Glue
+    * [] AWS Glue DataBrew
+    * [] AWS Lake Formation
+    * [] Amazon Kinesis Data Firehose
+    * [] Amazon Kinesis Data Streams
+    * [] Amazon Managed Service for Apache Flink
+    * [] Amazon Managed Streaming for Apache Kafka (Amazon MSK)
+    * [] Amazon OpenSearch Service
+    * [] Amazon Quicksight
+* Application Integration:
+    * [] Amazon AppFlow
+    * [] Amazon EventBridge
+    * [] Amazon Managed Workflows for Apache Airflow (Amazon MWAA)
+    * [] Amazon Simple Notification Service (Amazon SNS)
+    * [] Amazon Simple Queue Service (Amazon SQS)
+    * [] AWS Step Functions
+* Cloud Financial Management:
+    * [] AWS Budgets
+    * [] AWS Cost Explorer
+* Compute:
+    * [] AWS Batch
+    * [] Amazon EC2
+    * [] AWS Lambda
+    * [] AWS Serverless Application Model (AWS SAM)
+* Containers:
+    * [] Amazon Elastic Container Registry (Amazon ECR)
+    * [] Amazon Elastic Container Service (Amazon ECS)
+    * [] Amazon Elastic Kubernetes Service (Amazon EKS)
+* Database:
+    * [] Amazon DocumentDB (with MongoDB compatibility)
+    * [] Amazon DynamoDB
+    * [] Amazon Keyspaces (for Apache Cassandra)
+    * [] Amazon MemoryDB for Redis
+    * [] Amazon Neptune
+    * [] Amazon RDS
+    * [] Amazon Redshift
+* Developer Tools:
+    * [] AWS CLI
+    * [] AWS Cloud9
+    * [] AWS Cloud Development Kit (AWS CDK)
+    * [] AWS CodeBuild
+    * [] AWS CodeCommit
+    * [] AWS CodeDeploy
+    * [] AWS CodePipeline
+* Frontend Web and Mobile:
+    * [] Amazon API Gateway
+* Machine Learning
+    * []  Amazon SageMaker
+* Management and Governance:
+* Migration and Transfer:
+* Networking and Content Delivery:
+* Security, Identity, and Compliance:
+* Storage:
+    * [] AWS Backup
+    * [] Amason Elastic Block Store (Amazon EBS)
+    * [] Amazon Elastic File System (Amazon EFS)
+    * [] Amazon S3
+    * [] Amazon S3 Glacier
+
+
 * Ingesta:
     * [] Amazon Kinesis
     * [] AWS DMS

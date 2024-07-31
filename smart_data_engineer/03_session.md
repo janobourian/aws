@@ -64,6 +64,8 @@ It is useful versus non-planed deletes
 
 ### Amazon S3 - Replicación (CRR & SRR)
 
+Replicación: https://docs.aws.amazon.com/es_es/AmazonS3/latest/userguide/replication-walkthrough-2.html
+
 * CRR: Cross-Region Replication (by region), cobro por transferencia
 * SRR: Same-Region Replication (by AZ)
 * Sólo se replican objetos nuevos
@@ -73,13 +75,45 @@ It is useful versus non-planed deletes
 
 ### Amazon S3 - Clases de almacenamiento
 
-* Amazon S3 Standard - General Purpose
-* Amazon S3 Standard - Infrequent Access (IA)
-* Amazon S3 One Zone - Infrequent Access 
-* Amazon S3 Glacier Instant Retrieval
-* Amazon S3 Glacier Flexible Retrieval
-* Amazon S3 Glacier Deep Archive
-* Amazon S3 Intelligent Tiering
+* Amazon S3 Standard - General Purpose:
+    * Propósito general
+* Amazon S3 Standard - Infrequent Access (IA):
+    * Menos frecuencias pero acceso rápido
+    * Disponibilidad 99.9%
+    * Copias de seguridad
+* Amazon S3 One Zone - Infrequent Access:
+    * Menos frecuencias pero acceso rápido
+    * Disponibilidad 99.5%
+    * Copias de seguridad secundarias
+    * Datos que se puedan recrear
+* Amazon S3 Glacier Instant Retrieval:
+    * Precio de almacenamiento + coste de recuperación de objetos
+    * Recuperación de milisegundos
+    * Datos de acceso una vez al trimestre
+    * Duración mínima de almacenamiento de 90 días
+* Amazon S3 Glacier Flexible Retrieval:
+    * Precio de almacenamiento + coste de recuperación de objetos
+    * Recuperación:
+        * Expedited (1 a 5 minutos)
+        * Standard (3 a 5 horas)
+        * Bulk (5 a 12 horas)
+    * Duración mínima de almacenamiento de 90 días
+* Amazon S3 Glacier Deep Archive:
+    * Precio de almacenamiento + coste de recuperación de objetos
+    * Recuperación:
+        * Standard (12 horas)
+        * Bulk (48 horas)
+    * Duración mínima de almacenamiento de 180 días
+* Amazon S3 Intelligent Tiering:
+    * Pequeña tarifa de supervisión y estratificación automática
+    * Mueve objetos automáticamente entre niveles de acceso en función de uso
+    * No hay cargos de recuperación en S3 Intelligent-Tiering
+    * Niveles:    
+        * Frequent Access tier (automático)
+        * Infrequent Access tier (automático) primeros 30 días
+        * Archive Instant Access tier (automático) primeros 90 días
+        * Archive Access tier (opcional) 90 días a 700+ días
+        * Deep Archive Access tier (opcional) 180 a 700+ días
 
 ### Amazon S3 - Lifecycle Rules
 
