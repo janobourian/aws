@@ -60,9 +60,26 @@ To convert our bucket in a public bucket we need to change the `Block public acc
 
 ### Amazon S3 - Versionamiento
 
+It is useful versus non-planed deletes
+
 ### Amazon S3 - Replicación (CRR & SRR)
 
+* CRR: Cross-Region Replication (by region), cobro por transferencia
+* SRR: Same-Region Replication (by AZ)
+* Sólo se replican objetos nuevos
+* S3 Batch Replication: Puede replicar objetos existentes
+* No hay "encadenamiento" de replicación
+* Replicación unidireccional
+
 ### Amazon S3 - Clases de almacenamiento
+
+* Amazon S3 Standard - General Purpose
+* Amazon S3 Standard - Infrequent Access (IA)
+* Amazon S3 One Zone - Infrequent Access 
+* Amazon S3 Glacier Instant Retrieval
+* Amazon S3 Glacier Flexible Retrieval
+* Amazon S3 Glacier Deep Archive
+* Amazon S3 Intelligent Tiering
 
 ### Amazon S3 - Lifecycle Rules
 
