@@ -31,6 +31,7 @@
     * [] Amazon CloudWatch
     * [] AWS CloudTrail
 * Others:
+    * [] AWS Trusted Advisor
     * [] AWS Support
     * [] Elastic Compute Cloud (EC2)
     * [] Elastic Beanstalk
