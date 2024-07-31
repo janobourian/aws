@@ -162,6 +162,96 @@ Replicación: https://docs.aws.amazon.com/es_es/AmazonS3/latest/userguide/replic
 
 ### Cifrado Amazon S3
 
+* Server-side Encryption (SSE):
+    * Amazon S3-Managed Keys (SSE-S3):
+        * AES-256
+        * HTTPS request using "x-amz-server-side-encryption":"AES256"
+    * KMS Keys stored in AWS KMS (SSE-KMS):
+        * Control de usuarios + uso de claves de auditoría mediante CloudTrail
+        * HTTPS request using "x-amz-server-side-encryption":"aws:kms"
+        * Tarda en cargar por el llamado a KMS GenerateDataKey
+        * Tradar en descargar por el llamado a la API de Decrypt
+        * Cuota de KMS por segundo (5500, 10000, 30000)
+        * Solicitar aumento de cuota mediante Service Quotas Console
+    * Customer-Provided Keys (SSE-C):
+        * Amazon S3 NO almacena la clave de cifrado que usted proporciona
+        * Se debe utilizar HTTPS
+        * La clave de cifrado debe proporcionarse en los encabezados HTTP para cada solicitud HTPP realizada
+* Client-side Encryption:
+    * Utiliza bibliotecas como Amazon S3 Client-Side Encryption Library
+    * Los clientes se encargan del encriptado
+    * El cliente descencripta el archivo
+    * El cliente gestiona completamente las claves y el ciclo de cifrado
+
+* El cifrado en tránsito también se denomina SSL/TLS
+* Amazon S3 expone dos puntos de enlace:
+    * HTTP Endpoint - No Encriptado
+    * HTTPS Endpoint - Encriptación en tránsito
+* Se recomienda HTTPS
+* HTTPS es obligatorio para SSE-C
+* La mayoría de los clientes usarían el punto de conexión HTTPS de forma predeterminada
+
+We can force encryption with the next condition:
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statment": [
+        {
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": "s3:GetObject",
+            "Resource": "arn:aws:s3:::my-bucket/*",
+            "Condition": {
+                "Bool": {
+                    "aws:SecureTransport": "false"
+                }
+            }
+        }
+    ]
+}
+```
+
+Opcionalmente se puede forzar el cifrado mediante una política de bucket y rechazar cualquier llamada a la API PUT de un objeto S3 sin encabezados de cifrado (SSE-KMS o SSE-C)
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statment": [
+        {
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": "s3:PutObject",
+            "Resource": "arn:aws:s3:::my-bucket/*",
+            "Condition": {
+                "StringNotEquals": {
+                    "s3:x-amz-server-side-encryption": "aws:kms"
+                }
+            }
+        }
+    ]
+}
+```
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statment": [
+        {
+            "Effect": "Deny",
+            "Principal": "*",
+            "Action": "s3:PutObject",
+            "Resource": "arn:aws:s3:::my-bucket/*",
+            "Condition": {
+                "Null": {
+                    "s3:x-amz-server-side-encryption-customer-algorithm": "true"
+                }
+            }
+        }
+    ]
+}
+```
+
 ### Amazon S3 - Access Point
 
 ## Amazon Elastick Block Store (EBS)

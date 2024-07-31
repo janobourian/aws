@@ -52,9 +52,34 @@
 * Machine Learning
     * []  Amazon SageMaker
 * Management and Governance:
+    * [] AWS CloudFormation
+    * [] AWS CloudTrail
+    * [] Amazon CloudWatch
+    * [] Amazon CloudWatch Logs
+    * [] AWS Config
+    * [] Amazon Managed Grafana
+    * [] AWS System Manager
+    * [] AWS Well-Architected Tool
 * Migration and Transfer:
+    * [] AWS Application Discovery Service
+    * [] AWS Application Migration Service
+    * [] AWS Database Migration Service (AWS DMS)
+    * [] AWS DataSync
+    * [] AWS Schema Conversion Tool (AWS SCT)
+    * [] AWS Snow Family
+    * [] AWS Transfer Family
 * Networking and Content Delivery:
+    * [] Amazon CloudFront
+    * [] AWS PrivateLink
+    * [] Amazon Route 53
+    * [] Amazon VPC
 * Security, Identity, and Compliance:
+    * [] AWS Identity and Access Management (IAM)
+    * [] AWS Key Management Service (AWS KMS)
+    * [] Amazon Macie
+    * [] AWS Secrets Manager
+    * [] AWS Shield
+    * [] AWS WAF
 * Storage:
     * [] AWS Backup
     * [] Amason Elastic Block Store (Amazon EBS)
