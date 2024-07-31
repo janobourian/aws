@@ -117,7 +117,48 @@ Replicación: https://docs.aws.amazon.com/es_es/AmazonS3/latest/userguide/replic
 
 ### Amazon S3 - Lifecycle Rules
 
+* Acciones de transición:
+    * Configurar objetos para realizar la transición a otra clase de almacenamiento
+    * Mover objetos entre clases pasado cierto tiempo
+* Acciones de expiración: 
+    * Configurar objetos para que caduquen
+    * Eliminar versiones antiguas de archivos
+    * Eliminar cargas incompletas de Multi-Part upload
+    * Se pueden crear reglas para un determinado prefijo
+    * Se pueden crear reglas para cierto objetos (Etiquetas)
+
 ### Amazon S3 and Event Bridge
+
+* events -> Amazon S3:
+    * -> SNS with its SNS Resource (Access) Policy
+    * -> SQS with its SQS Resource (Access) Policy
+    * -> Lambda with its Lambda Resource Policy
+
+* events -> Amazon S3:
+    * -> Amazon EventBridge:
+        * -> Over 18 AWS services as destination
+
+* Filtrado avanzado
+* Múltiples destinos
+* Capacidades EventBridge
+
+* 3,500 PUT/COPY/POST/DELETE por prefijo
+* 5,500 GET/HEAD por prefijo
+
+* Multi-Part upload:
+    * Archivos > 100mb, obligatorio con > 5gb
+* S3 Transfer Acceleration:
+    * Edge Location
+
+* S3 Byte-Range Fetches:
+    * Paralelizar GET rangos de bytes específicos
+    * Mejor resilencia en caso de fallos
+    * Se puede utilizar para recuperar solo datos parciales (por ejemplo, el encabezado de un archivo)
+
+* S3 Select & Glacier Select:
+    * https://aws.amazon.com/blogs/aws/s3-glacier-select/
+    * Filtering using server-side filtering
+    * We can retrieve information using SQL
 
 ### Cifrado Amazon S3
 
