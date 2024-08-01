@@ -39,3 +39,27 @@ Infraestructura como software instead of infrastructure as a Hardware
     * Elasticidad
     * Alta disponibilidad y tolerancia a fallos
     * Agilidad
+
+* Pagos:
+    * Tiempo de uso/procesamiento
+    * Almacenamiento
+    * Transferencia de datos (de salida)
+
+* Infraestructura global:
+    * Regions
+    * Availability zones
+    * Data centers
+    * Edge Locations: Almacena información por cierto tiempo, time to live.
+    * Local zones son puntos más cercanos al usuario, no todos los servicios están disponibles, siempre están conectados a una región
+
+* Criterios de elección de región:
+    * Cumplimiento
+    * Proximidad
+    * Servicios disponibles
+    * Precios
+
+* Servicios globales:
+    * IAM
+    * Route 53
+    * CloudFront
+    * WAF
