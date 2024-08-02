@@ -254,6 +254,22 @@ Opcionalmente se puede forzar el cifrado mediante una política de bucket y rech
 
 ### Amazon S3 - Access Point
 
+Acceso a ciertos prefijos:
+
+* /finance/
+* /sales/
+
+* Access Points:
+    * VPC endpoint with its policy (El VPC endpoint permite comunicarse con otros servicios de AWS)
+    * Access Point:
+        * Gateway with its policy
+        * Interface Endpoint with its policy
+
+* S3 - Object Lambda Access Point
+    * Conversión entre formatos de datos como la conversión de XML a JSON
+    * Cambiar el tamaño de las imágenes y ponerle marcas de agua sobre la marcha
+
+
 ## Amazon Elastick Block Store (EBS)
 
 ## Amazon Elastic File System (EFS)
