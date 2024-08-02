@@ -2,6 +2,8 @@
 
 ## Amazon Simple Storage Service (S3)
 
+Almacenamiento a nivel de objeto
+
 * Use cases:
     * Copia de seguridad y almacenamiento
     * Recuperación ante desastres
@@ -272,4 +274,36 @@ Acceso a ciertos prefijos:
 
 ## Amazon Elastick Block Store (EBS)
 
+* Almacenamiento a nivel de bloque
+* Un volumen de EBS (Elastic Block Store) es una unidad de red que se puede conectar a las instancias mientras se ejecutan
+* Persiste los datos de las instancias
+* Sólo se pueden montar en una instancia a la vez
+* Están enlazados a una zona de disponibilidad específica
+* Configura lo que pasa con el EBS en Delete on Termination
+* Puedes realizar una copia de seguridad (snapshot) de su volumen de EBS en un momento dado
+* Puede copiar instantáneas en zonas de disponibilidad o regiones
+* Volúmenes elásticos:
+    * No se debe reiniciar para aprovisionar
+    * Solo puedes aumentar el tamaño, no disminuirlo
+    * Puedes cambiar el tipo de volumen
+    * Puede aumentar o reducir el rendimiento
+
+## Almacén de Instancias EC2
+
+* Efímero
+* Ideal para información de caché
+* Nosotros debemos encargarnos de las copias de seguridad y la replicación
+
 ## Amazon Elastic File System (EFS)
+
+* Múltiples instancias pueden conectarse
+* Multi zona de disponibilidad
+* Es elástico
+* Casos de uso: gestión de contenido
+* Sólo está disponible en AMI basada en Linux
+* Clases de almacenamiento:
+    * Standard
+    * Infrequent access
+* Availability and durability:
+    * Standard: Multi-AZ
+    * One zone
