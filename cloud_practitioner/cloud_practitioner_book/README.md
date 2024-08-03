@@ -29,6 +29,20 @@
         * You can add up to five security groups
         * They are at instance level
         * They can accept itself traffic
-        * They are stateless
+        * They are stateless: you need to configure inbound and outbound rules
         * You can allow rules, but can not deny rules
         * You can separate the rules by protocols (HTTP, HTTPS, SSH)
+    * NACL (Network Access Control Lists):
+        * By default is configured in every VPC
+        * By default it allows all inbound and outbound traffice
+        * They are stateless: you need to configure inbound and outbound rules
+    * NAT (Network Address Translation)
+        * It works as a proxy
+        * NAT Gateway allows to connect EC2 instances with private IPV4
+    * VPC peering
+        * Connection between two vpcs
+        * They do not use the internet, for that reason they have greatest levels of bandwith
+        * You can configure cross account and cross account regions
+    * VPC transit gateway:
+        * You can connect your VPC with a single point in VPC Transit Gateway
+        * It follow a hub-and-spoke model
