@@ -46,3 +46,9 @@
     * VPC transit gateway:
         * You can connect your VPC with a single point in VPC Transit Gateway
         * It follow a hub-and-spoke model
+    * VPN Virtual Private Network:
+        * You need to connect a Virtual Private Gateway
+        * It depends of the internet and its velocity, AWS has a limit of 1.26 Gbps
+    * Direct Connect:
+        * Is a connecti with fiber optic.
+        * You can get 1Gbps, 10Gbps or 100Gbps
