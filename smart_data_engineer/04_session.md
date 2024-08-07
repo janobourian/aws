@@ -78,3 +78,24 @@ AMI: Amazon Machine Images
 * Conexión mediante SSH:
     * cd /var/log
     * sudo car *.log
+
+## Opciones de compra Amazon EC2
+
+* Instancias bajo demanda
+* Saving Plans
+* Instancias reservadas
+* Instancias de spot
+* Dedicated Hosts
+* Instancias dedicadas
+* Reservas de capacidad
+
+* Servicios:
+    * Amazon EC2 auto scaling
+    * EC2 Fleet
+    * Amazon Elastic Container Service (Amazon ECS)
+    * Amazon Elastic Kubernetes Service (Amazon EKS)
+    * AWS Thinkbox
+    * Amazon EMR
+    * AWS CloudFormation
+    * AWS Batch
+
