@@ -133,3 +133,17 @@ More information: https://aws.amazon.com/es/elasticloadbalancing/features/
     * Application Load Balancer: Es el común para servidores web, microservicios. 
     * Network Load Balancer: Alto rendimiento como aplicaciones de millones de solicitudes (juegos en tiempo real). Datos de IoT
     * Gateway Load Balancer: Para implementar aplicaciones de seguridad de terceros. 
+
+## Amazon EC2 AutoScaling
+
+AWS Auto Scaling
+
+* Opciones de escalado:
+    * Manual
+    * Programado
+    * Dinámico o bajo demanda
+    * Predictivo
+* Grupo de AutoScaling:
+    * Tamaño mínimo
+    * Capacidad deseada
+    * Tamaño máximo
