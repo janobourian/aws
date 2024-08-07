@@ -118,3 +118,18 @@ AMI: Amazon Machine Images
     * Sistemas distribuidos
 * Alta disponibilidad:
     * Ejecución en dos o más centros de datos
+
+## Elastic Load Balancing
+
+More information: https://aws.amazon.com/es/elasticloadbalancing/features/
+
+* Distribuye el tráfico entrante de las aplicaciones o de la red entre varios destinos en una única zona de disponibilidad o en varias zonas de disponibilidad
+* Tipos:
+    * Balanceador de carga de aplicaciones (capa 7)
+    * Balanceador de carga de red (capa 4)
+    * Balanceador de carga clásico 
+    * Balanceador Gateway (capa 3)
+* Balanceadores actuales:
+    * Application Load Balancer: Es el común para servidores web, microservicios. 
+    * Network Load Balancer: Alto rendimiento como aplicaciones de millones de solicitudes (juegos en tiempo real). Datos de IoT
+    * Gateway Load Balancer: Para implementar aplicaciones de seguridad de terceros. 
