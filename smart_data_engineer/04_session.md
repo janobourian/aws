@@ -78,6 +78,7 @@ AMI: Amazon Machine Images
 * Conexión mediante SSH:
     * cd /var/log
     * sudo car *.log
+    * ssh -i "name.pem" ec2-user@ec2-.compute-1.amazonaws.com
 
 ## Opciones de compra Amazon EC2
 
@@ -99,3 +100,21 @@ AMI: Amazon Machine Images
     * AWS CloudFormation
     * AWS Batch
 
+* Lab: create EFS
+    * Create default VPC (three public subnets)
+    * Create EFS (regional level)
+    * Create instance in one public subnet and connect with the EFS
+    * commands:
+        * ls /mnt/efs/fs1
+        * sudo su
+        * echo "hello world" > /mnt/efs/fs1/hello.txt
+        * cat /mnt/efs/fs1/hello.txt
+
+## Escalabilidad
+
+* Escalabilidad Vertical: Crecer la instancia
+    * RDS y ElastiCache
+* Escalabilidad Horizontal: Crecer el número de la instancia
+    * Sistemas distribuidos
+* Alta disponibilidad:
+    * Ejecución en dos o más centros de datos
