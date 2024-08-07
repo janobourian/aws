@@ -80,6 +80,18 @@ AMI: Amazon Machine Images
     * sudo car *.log
     * ssh -i "name.pem" ec2-user@ec2-.compute-1.amazonaws.com
 
+```bash
+#!/bin/bash
+# Install Apache Web Server
+yum install -y httpd
+
+# Turn on web server
+systemctl enable httpd.service
+systemctl start  httpd.service
+
+echo "<h1>Hola, bienvenidos a mi web &#128512;</h1>" > /var/www/html/index.html
+```
+
 ## Opciones de compra Amazon EC2
 
 * Instancias bajo demanda
@@ -147,3 +159,20 @@ AWS Auto Scaling
     * Tamaño mínimo
     * Capacidad deseada
     * Tamaño máximo
+
+### Lab
+
+```bash
+#!/bin/bash
+# Install Apache Web Server
+yum install -y httpd
+
+# Turn on web server
+systemctl enable httpd.service
+systemctl start  httpd.service
+
+echo "<h1>Hello from $(hostname -f)</h1>" > /var/www/html/index.html
+```
+
+* Actions > Images and Templates > Create template from instance
+* Create Auto Scaling Group using Template
