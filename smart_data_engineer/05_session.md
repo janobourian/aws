@@ -30,6 +30,8 @@ WorkShop: https://ecsworkshop.com/
 
 ## Amazon Elastic BeanStalk
 
+Sólo cargar el código y la configuración se desplega por si sola.
+
 PaaS
 
 * Web App 3-tier:
@@ -40,3 +42,12 @@ PaaS
     * Instancia única
     * ELB + ASG
     * Sólo ASG
+
+* Lab:
+    * Create application
+    * Inside application, create a new environment:
+        * Crear un nuevo perfil de instancia (Role):
+            * AWSElasticBeanstalkMulticontainerDocker
+            * AWSElasticBeanstalkWebTier
+            * AWSElasticBeanstalkWorkerTier
+        
