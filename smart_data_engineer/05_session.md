@@ -15,6 +15,19 @@ Docker Daemon is something like Hypervisor
 
 WorkShop: https://ecsworkshop.com/
 
+## Elastic Container Service
+
+* Lab:
+    * Create Clúster in ECS
+    * Create Task Definition
+    * Create Service inside our Clúster:
+        * Servicio: webapp
+        * Tarea: Algo en específico
+    * Para borrar:
+        * Eliminar Tarea
+        * Eliminar Servicio
+        * Eliminar Clúster
+
 ## Amazon Elastic BeanStalk
 
 PaaS

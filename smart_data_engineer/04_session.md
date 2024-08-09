@@ -177,16 +177,3 @@ echo "<h1>Hello from $(hostname -f)</h1>" > /var/www/html/index.html
 * Actions > Images and Templates > Create template from instance
 * Create Auto Scaling Group using Template
     * Inside of this you should create Elastic Load Balancer to communicate with the internet.
-
-## Elastic Container Service
-
-* Lab:
-    * Create Clúster in ECS
-    * Create Task Definition
-    * Create Service inside our Clúster:
-        * Servicio: webapp
-        * Tarea: Algo en específico
-    * Para borrar:
-        * Eliminar Tarea
-        * Eliminar Servicio
-        * Eliminar Clúster
