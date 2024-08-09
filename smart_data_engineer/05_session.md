@@ -80,4 +80,43 @@ Serverless implies that you do not manage servers anymore.
     * Dynamic web sites
     * Stateless applications
 
-* Lambda lab
+* Lambda lab:
+    * Create layer
+    * Create two Buckets
+    * Create IAM policy and role
+
+```json
+{
+    "Version": "2012-10-17",
+    "Statement": [
+        {
+            "Effect": "Allow",
+            "Action": [
+                "logs:PutLogEvents",
+                "logs:CreateLogGroup",
+                "logs:CreateLogStream"
+            ],
+            "Resource": "arn:aws:logs:*:*:*"
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "s3:*"
+            ],
+            "Resource": [
+                "arn:aws:s3:::janobourian-lambda-lab-01/*",
+                "arn:aws:s3:::janobourian-lambda-lab-01",
+                "arn:aws:s3:::janobourian-lambda-lab-02/*",
+                "arn:aws:s3:::janobourian-lambda-lab-02"
+            ]
+        },
+        {
+            "Effect": "Allow",
+            "Action": [
+                "glue:*"
+            ],
+            "Resource": "*"
+        }
+    ]
+}
+```
