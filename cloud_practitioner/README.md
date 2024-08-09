@@ -178,6 +178,65 @@ Customers are responsible "on" the cloud, AWS is responsible "of" the cloud.
 
 ## Machine Learning
 
+### Amazon Rekognition
+
+* Find objects, people, text, scenes in images and videos using ML
+* Facial Analysis
+* Create a database of `familiar faces`
+
+### Amazon Transcribe 
+
+* Transcribe speech to text
+* It protects your personal
+
+### Amazon Polly
+
+* You can create audios based on text
+
+### Amazon Translate
+
+* It helps you to translate large volumes of text efficiently
+
+### Amazon Lex + Amazon Connect
+
+* Amazon Lex: is the same technology that powers Alexa:
+    * Automatic Speech Recognition
+    * Natural language understanding
+    * Helps build chatbots, callcenters bots
+* Amazon connect: Receive calls:
+    * Creates contact flows, cloud-based virtual contact center
+    * No upfront payments
+
+### Amazon Comprehend
+
+* For Natural Language Processing - NLP
+* Analyze customer interactions
+
+### Amazonn SageMaker
+
+* Fully managed to build ML models
+* Label -> Build ML model -> Train and Tune
+
+### Amazon Forecast
+
+* ML models to create forecasting models
+* Upload data -> Amazon S3 -> Amazon Forecast -> Forecasting Model -> Future sales
+
+### Amazon Kendra
+
+* Document search service
+* Extract answers from within a document
+
+### Amazon Personalize
+
+* Real time recomendations
+* Amazon S3 / Real time API ->  Amazon Personalize -> Customized personalized API
+
+### Amazon Textract
+
+* Extract text for any document
+* You can use it in financial services
+
 <div id="section16"> </div>
 
 ## Account Management, Billing & Support
