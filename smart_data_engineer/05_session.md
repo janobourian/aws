@@ -50,4 +50,34 @@ PaaS
             * AWSElasticBeanstalkMulticontainerDocker
             * AWSElasticBeanstalkWebTier
             * AWSElasticBeanstalkWorkerTier
-        
+
+## Lambda
+
+Serverless implies that you do not manage servers anymore.
+* EventBridge + Lambda + S3 are a good fit
+* You can use SQS, APIGateway, Amazon Kinesis Data Streams, Amazon DynamoDB, SNS, Amazon Kinesis Data Analytics
+* Lambda and Redshift
+* Lambda and Kinesis
+* Disparadores de lambdas:
+    * Amazon S3
+    * Amazon SNS
+    * Amazon Kinesis
+    * Amazon DynamoDB
+    * Amazon SES
+    * Amazon SQS
+    * AWS Config
+    * AWS IoT 
+    * Amazon Lex
+    * Amazon CloudWatch
+    * AWS Cloudformation
+    * Amazon API Gateway
+    * Amazon CloudFront
+    * Amazon Cognito
+    * AWS CodeCommit
+
+* Antipatterns:
+    * Long time applications
+    * Dynamic web sites
+    * Stateless applications
+
+* Lambda lab
