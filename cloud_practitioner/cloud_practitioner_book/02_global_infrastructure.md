@@ -20,7 +20,7 @@
         * Identity Access Management (IAM)
         * Amazon Cloud Front
         * Amazon Route53
-        * Amazon Simplre Storage Service (S3)
+        * Amazon Simple Storage Service (S3)
     * On-Premises services:
         * Amazon Snow Family
             * Snowball Edge Devices
@@ -33,6 +33,36 @@
 
 # Support plans
 
-# AWS Health Dashboard
+* Basic Support plan:
+    * Free plan
+    * Seven Trusted Advisor checks
+* Developer Support plan:
+    * non-production workloads
+    * You can get support via email in business hours
+    * Ilimite cases
+    * 24 hours for general guidance
+    * 12 hours for system-impaired issues
+    * Seven Trusted Advisor checks
+* Business Support plan:
+    * For production environments
+    * 24/7 support via email, call, and chat
+    * Full AWS Trusted Advisor checks
+    * Cloud Support Engineers
+* Enterprise Support plan:
+    * Technical Account Manager (TAM)
+    * SLAs (service-level agreements)
+    * Response in less of 15 minutes for business-critical technical issues
+    * Cloud Support Engineers
 
-# The AWS AuP
+1.- C, D
+2.- C
+3.- D
+4.- B
+5.- B
+6.- A
+7.- C
+8.- B
+9.- A, E
+10.- A, B
+11.- C
+12.- C
