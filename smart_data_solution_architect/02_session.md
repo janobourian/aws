@@ -30,3 +30,31 @@ Check: https://aws.amazon.com/es/compliance/shared-responsibility-model/
 * Root 
 * Users, groups, and roles
 * Temporal Security Credentials
+
+### Policy
+
+* Version
+* Id
+* Statement
+    * SEPARC:
+        * Sid
+        * Effect
+        * Principal
+        * Action
+        * Resources
+        * Condition
+
+### IAM Security Tools
+
+* IAM Credential Report
+* IAM Access Analyzer
+
+### Multi account strategy
+
+* AWS Organizations
+* Multi account:
+    * Organization Units (OUs):
+        * Strategies:
+            * Business Unit
+            * Environmental Lifecycle
+            * Project-based
