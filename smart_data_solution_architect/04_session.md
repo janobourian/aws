@@ -100,6 +100,110 @@
 
 ## Introducción a la alta escalabilidad y alta disponibilidad
 
+* Escalabilidad
+    * Capacidad de una aplicación o sistema para adaptarse
+    * Horizontal -> Elasticidad
+    * Escalabilidad vertical:
+        * Bases de datos
+        * Sistemas no distribuidos
+        * RDS y ElastiCache
+    * Escalabilidad horizontal (Elasticidad):
+        * Incrementar el número de instancias
 
+* Alta disponibilidad:
+    * Capacidad de una aplicación o sistema operativo de permanecer accesible
+    * Dos o más zonas de disponibilidad
 
+* Caso de EC2
+    * Escalabilidad: más poder de cómputo
+    * Escalado horizontal: Más instancias
+        * Grupo de Auto Scaling
+        * Balanceador de carga
+    * Alta disponibilidad: Varias zonas de disponibilidad
+        * Grupo de Auto Scaling
+        * Balanceador de carga
+        * Ambos multi AZ
+    
+## Amazon Elastic Load Balancing
 
+* Único punto de entrada que reenvía el tráfico a varios servidores
+* Distribuye el tráfico entrante
+* Escala el balanceador de carga
+* Stick cookies: mantener a un cliente en la misma instancia
+* Comprobación de estado
+    * Health check
+
+* Tipos de balanceadores de carga:
+    * Classic Load Balancer (capa 7 y capa 4 transporte)
+    * Application Load Balancer 
+    * Network Load Balancer (capa 4)
+    * Balanceador de carga de puerta de enlace (capa 3)
+        * Dirigir tráfico a firewall
+
+* Load Balancer Security Group
+    * Allow traffic
+
+## ALB, NLB and GWLB
+
+* Application Load Balancer:
+    * Capa 7
+    * Soporta contenedores
+    * HTTP/2 and WebSocket
+    * Puede ser configurado por 
+        * Path /user
+        * Subdomain
+        * Query Parameters
+    * Target Groups
+        * Instancias EC2 (Pueden ser administradas por un Auto Scaling Group)
+        * Tareas de ECS 
+        * Funciones Lambda
+        * Direcciones IP
+        * ALB varios grupos de objetivos
+        * La IP del cliente no se ve directamente
+
+* Network Load Balancer:
+    * Capa 4
+    * Equilibrador de carga de red
+    * Rendimiento extremo
+    * Necesita IP estática
+    * No incluído en la capa gratuita de AWS
+    * Baja latencia como videojuegos en tiempo real
+    * Target Groups:
+        * EC2
+        * On Premises
+        * ALB
+
+* Gateway Load Balancer:
+    * Firewalls, detección de intrusos
+    * Funciona en capa 3, de red
+    * Target Groups:
+        * EC2 
+        * Onpremises
+
+* Sticky Sessions:
+    * Mismo cliente a la misma instancia
+    * Controlamos la fecha de vencimiento de la cookie
+    * Casos de uso:
+        * Asegurar que el usuario no pierda los datos de sesión
+    * Puede provocar un desequilibrio en la carga
+    * Cookie personalizada:
+        * Basadas en aplicación
+        * Basadas en la duración
+
+* Equilibrio de carga entre zonas:
+    * With Cross Zone Load Balancing
+    * Without Cross Zone Load Balancing
+    * Habilitado para ALB, sin cobro
+    * Deshabilitado para NLB, GWLB con cobro
+    * Deshabilitado para CLB, sin cobro
+
+* SSL/TSL:
+    * Se puede adjuntar al ELB
+    * Un servicio que se puede utilizar es AWS CM (Certificate Manager)
+
+* SNI:
+    * Service Name Indication
+    * Balancea según el certificado y el dominio
+
+* Drenaje de conexión:
+    * Se completan las solicitudes en curso mientras se apaga la instancia por escalamiento o por errores
