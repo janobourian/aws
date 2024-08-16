@@ -61,6 +61,8 @@
 
 ## ElasticCache
 
-
+* Administra Redis o Memcached
+* Almacena en memoria la información para aliviar la carga a la base de datos
+* Discount: https://pages.awscloud.com/GLOBAL-ln-GC-Traincert-Associate-Certification-Challenge-Registration-2024.html
 
 ## Amazon DynamoDB
