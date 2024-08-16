@@ -100,3 +100,16 @@
 
 
 ## Cloudfront
+
+* It works with Edge Locations
+* Orígenes:
+    * Bucket S3:
+        * Distribuir archivos
+        * Cargar archivos
+    * Orígenes Personalizados HTTP:
+        * Balanceador de carga de aplicaciones
+        * Instancias EC2
+        * Sitio web S3
+        * Cualquier backend HTTP que desees
+* S3 Transfer Acceleration:
+    * Aumenta la velocidad de transferencia entre puntos de ubicación
