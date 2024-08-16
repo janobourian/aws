@@ -22,12 +22,45 @@
 * Amazon ElasticCache
 * Amazon KeySpaces
 
-
-
 ## Amazon RDS
+
+* Relational Database Service
+* PostgreSQL, MySQL, MariaDB, Oracle, SQL Server, Aurora
+
+* Key points:
+    * Réplicas
+    * Configuración Multi AZ para DR (Disaster Recovery)
+    * Respaldado por EBS
+    * No puedes conectarte mediante SSH a tus instancias
 
 ## Amazon Aurora
 
+* Patentada por AWS
+* PostgreSQL y MySQL son compatibles con Aurora
+* De 10GB hasta 128TB
+* Cuesta un 20% más que RDS, pero es más eficiente
+* No en el nivel gratuito
+
+* Aurora Serverless:
+    * Pago por segundo
+    * Casos de uso:
+        * Cargas de trabajo poco frecuentes, intermitentes o impredecibles
+
+* Read Replicas:
+    * Puede crear hasta 15 réplicas
+    * Sólo se escriben en la instancia principal
+* Multi AZ:
+    * Los datos sólo se van a leer y escribir en la principal
+    * Sólo como conmutación de error
+* Multi Region:
+    * Recuperación ante desastres 
+    * Rendimiento local 
+    * Costo de replicación
+
+### Laboratorio
+
 ## ElasticCache
+
+
 
 ## Amazon DynamoDB
