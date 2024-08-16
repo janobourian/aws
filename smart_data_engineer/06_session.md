@@ -72,4 +72,31 @@
 
 ## Route53
 
+* It works with DNS
+* Registrador de dominio: Amazon Route53, GoDaddy
+* Registros DNS: A, AAAA, CNAME, NS, ...
+* Zone File: Contiene registros DNS
+* Name Server: resuelve consultas DNS
+* Dominio de nivel superior (TLD): .com, .us
+* Dominio de segundo nivel (SLD): amazon.com, google.com
+* DNS Autoritativo: Podemos actualizar los DNS
+* Registros:
+    * A: Host IPv4
+    * AAAA: Host IPv4
+    * CNAME: Asigna un nombre de Host a otro nombre de Host
+    * DNS: servidores de nombres para la zona alojada
+* Zonas alojadas:
+    * Pública: Cómo se enruta el tráfico en internet
+    * Privada: cómo se enruta el tráfico dentro de una VPC
+* Políticas de routeo:
+    * Simple: No health checks (the common case)
+    * Weighted routing policy: Política de reglas ponderadas:
+        * Asignar destinos con base en pesos
+    * Latency Routing Policy:
+        * The closest instance is going to receive the near user
+    * Failover routing policy:
+        * Primary instance
+        * Failover instance
+
+
 ## Cloudfront
