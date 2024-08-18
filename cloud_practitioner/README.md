@@ -210,24 +210,56 @@ Customers are responsible "on" the cloud, AWS is responsible "of" the cloud.
     * Redshift Serverless
 
 * EMR
+    * Elastic Map Reduce 
+    * Hadoop clusters
+    * Configure all EC2 instancies 
+    * Auto-scaling and integrated with Spot instances
+    * Use Cases:
+        * data processing, machine learning, web indexing, big data
 
 * Athena
+    * Serverless query service to perfomr analytics against S3 objects
+    * Uses standard SQL language to query the files
+    * Supports CSV, JSON, ORC, Avro, and Parquet
+    * Use cases:
+        * BI, Analytics, reporting, analyze, and VPC flow logs, ELB logs, CloudTrail trails
+    * Exam Tip: Analyze data in S3 using serverless SQL use Athena
 
 * Quicksight
+    * Serveless machine learning-powered business intelligence service to create interactive dashboards
 
-* DOcumentDB
+* DocumentDB
+    * Is the same for MongoDB
+    * MongoDB is used to store, query and index JSON data
+    * Similar "deploymeny concepts" as Aurora
 
 * Neptune
+    * Fully managed graph database
+    * A popular graph dataset woul be a social network
+    * HA across 3 AZ, with up to 15 read replicas
 
 * Timestream
+    * Fully managed fast, scalable, serverlees time series database
 
-* QLDB
+* QLDB:
+    * Quantum Ledger Database
+    * A ledger is a book recording financial transactions
+    * You can use SQL
 
 * Managed Blockchain
+    * Blockchain makes it possible to build applicaions where multiple parties can execute transactions without the need for a trusted, central authority
 
 * Glue
+    * Managed extract, transform, and load (ETL) service
+    * Useful to prepare and tranform data for analytics
+    * Glue Data Catalog
 
 * Data Migration Service
+    * Migrate information
+    * Supports:
+        * Homogeneous migration
+        * Heterogeneous migrations
+    * It can transform the data
 
 
 <div id="section8"> </div>
