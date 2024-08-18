@@ -7,7 +7,7 @@
 - []
 - []
 - []
-- []
+- [Databases and Analytics](#section7)
 - []
 - []
 - []
@@ -146,6 +146,41 @@ Customers are responsible "on" the cloud, AWS is responsible "of" the cloud.
 <div id="section7"> </div>
 
 ## Databases & Analytics
+
+* Database
+    * Relational Databases
+    * No Relational Databases
+
+* Amazon Relational Database Service (Amazon RDS)
+    * Postgres, MySQL, MariaDB, Oracle, Microsoft SQL Server, IBM DB2, Aurora
+    * Is better to use RDS instead of a DB in EC2
+    * You Can not SSH into your instances
+    * Classic solution Architecture:
+        * Elastic Load Balancer > Auto Scaling Groups > EC2 Instances > Database with RDS 
+    * Aurora:
+        * Is not open source
+        * Support Postgres and MySQL
+        * Aurora storage automatically grows in increments od 10GB, up to 128TB
+        * Aurora costs more than RDS (20%)
+        * Not in the free tier
+    * Amazon Aurora Serverless
+        * Pey per second
+        * Use cases:
+            * good for infrequent
+            * intermittent or unpredictable workloads
+        * It uses a Proxy Fleet
+
+* RDS Deployments
+    * Read Replicas
+        * Can Create up to 15 Read Replicas
+    * Multi-AZ
+        * Failover in case of AZ outage
+    * Multi-Region
+        * Read Replicas
+        * Disaster recovery
+        * Local performance
+        * Replication cost
+
 
 <div id="section8"> </div>
 
