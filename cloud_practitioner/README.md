@@ -202,6 +202,34 @@ Customers are responsible "on" the cloud, AWS is responsible "of" the cloud.
     * Accesible with low latency in multiple-regions
     * Active-Active replication (read/write to any AWS Region)
 
+* Amazon Redshift
+    * Redshift is based on PostgreSQL, but it is not used for OLTP (Online transactions process)
+    * It is for OLAP (Online Analytical Processing, analytics and data warehousing)
+    * Columnar Storage of data
+    * Massively Parallel Query Execution (MPP)
+    * Redshift Serverless
+
+* EMR
+
+* Athena
+
+* Quicksight
+
+* DOcumentDB
+
+* Neptune
+
+* Timestream
+
+* QLDB
+
+* Managed Blockchain
+
+* Glue
+
+* Data Migration Service
+
+
 <div id="section8"> </div>
 
 ## Other Compute Services: ECS, Lambda, Batch, Lightsail
