@@ -181,6 +181,10 @@ Customers are responsible "on" the cloud, AWS is responsible "of" the cloud.
         * Local performance
         * Replication cost
 
+* ElastiCache
+    * Is for Redis or Memcached
+    * Caches are in-memory databases with high performance, low latency
+    * It reduces the pressure of the main database
 
 <div id="section8"> </div>
 
