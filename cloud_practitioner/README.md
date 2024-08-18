@@ -186,6 +186,22 @@ Customers are responsible "on" the cloud, AWS is responsible "of" the cloud.
     * Caches are in-memory databases with high performance, low latency
     * It reduces the pressure of the main database
 
+* DynamoDB:
+    * Serverlees and it has a millions of requests per second
+    * Integrated with IAM for security, authorization and administration
+    * Low cost and auto scaling capabilities
+    * Standard and Infrequent Access (IA) Table Class
+    * Type of data:
+        * key/value
+            * Partiton Key + Sort Key = Primary Key
+
+* DynamoDB Accelerator - DAX
+    * Give you best performance
+
+* DynamoDB Global Tables:
+    * Accesible with low latency in multiple-regions
+    * Active-Active replication (read/write to any AWS Region)
+
 <div id="section8"> </div>
 
 ## Other Compute Services: ECS, Lambda, Batch, Lightsail
