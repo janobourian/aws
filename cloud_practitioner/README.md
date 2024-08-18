@@ -58,6 +58,7 @@ The deployment models of the cloud:
 - Private Cloud (rackspace)
 - Public Cloud (Azure, Google Cloud Platform, Amazon Web Service)
 - Hybrid cloud (private cloud and public cloud)
+- Multi Cloud
 
 Five characeristics of Cloud Computing:
 - On-deman self service
@@ -87,7 +88,7 @@ Problems solved by the cloud:
 Types of cloud computing:
 - Infrastructure as a Service (IaaS) - EC2
 - Platform as a Service (PaaS) - Elastic Beanstalk, Heroku
-- Software as a Service (SaaS) - Rekognition, Zoom
+- Software as a Service (SaaS) - Rekognition, Zoom, Amazon Chime
 
 ![alt text](image-3.png)
 
