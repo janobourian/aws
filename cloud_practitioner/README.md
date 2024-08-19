@@ -532,6 +532,23 @@ Customers are responsible "on" the cloud, AWS is responsible "of" the cloud.
         * AWS Cost and Usage Report
         * AWS News Blog
 
+* Sustainability:
+    * Focuses on minimizing the environmental impacts of running cloud workloads
+    * Design Principle:
+        * Understand your impact
+        * Establish sustainability goals
+        * Maximize Utilization
+        * Anticipate and adopt new, more efficient hardware and software offerings
+        * Use managed services
+        * Reduce the downstream impact of your cloud workloads
+    
+* Sustainability AWS Services:
+    * EC2 Auto Scaling, Serverless Offering
+    * Cost explorer, AWS Graviton 2, EC2 T instances, Spot Instances
+    * ESF-IA, Amazon S3 Glacier
+    * S3 lifecycle COnfigurations
+    * Read Local, Write Global
+
 <div id="section20"> </div>
 
 ## Preparing for the Exam + Practice Exam
