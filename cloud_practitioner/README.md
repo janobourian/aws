@@ -554,6 +554,33 @@ Customers are responsible "on" the cloud, AWS is responsible "of" the cloud.
 
 * AWS Customer Carbon Footprint Tool
 
+* AWS Cloud Adoption Framework (AWS CAF):
+    * Helps you build and the execute a comprehensive plan for your digital transformation
+    * Created with the best practices
+    * Organizational capabilities
+    * Six perspective:
+        * Business
+        * People
+        * Governance
+        * Platform
+        * Security
+        * Operations
+    * Transformation domains:
+        * Technology
+        * Process
+        * Organization
+        * Product
+    * Transformation Phases:
+        * Envision 
+        * Align
+        * Launch
+        * Scale
+    * Business:
+        * Reduce business risk
+        * Improve ESG
+    * Outcomes:
+        * Grow revenue
+        * Increase operational efficiency
 
 <div id="section20"> </div>
 
