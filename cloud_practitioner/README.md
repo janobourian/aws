@@ -617,6 +617,15 @@ Customers are responsible "on" the cloud, AWS is responsible "of" the cloud.
         * APN Competency Program
         * APN Navigate Program
 
+* AWS IQ and re:Post
+    * Quickly find professional help you for your AWS Projects
+
+* AWS Knowledge center:
+    * Contains the most frequent and common questions and requests
+
+* AWS Managed Services (AMS):
+    * Provides infrastructre and application support on AWS
+
 <div id="section20"> </div>
 
 ## Preparing for the Exam + Practice Exam
