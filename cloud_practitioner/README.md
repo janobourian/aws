@@ -582,6 +582,41 @@ Customers are responsible "on" the cloud, AWS is responsible "of" the cloud.
         * Grow revenue
         * Increase operational efficiency
 
+* Right Sizing
+    * CloudWatch
+    * Cost Explorer
+    * Trusted Advisor
+
+* AWS Ecosystem
+    * AWS Blogs
+    * AWS Forums
+    * AWS Whitepapers and Guides
+    * AWS Partner Solutions
+    * AWS Solutions
+    * AWS Support
+        * Developer
+        * Business
+        * Enterprise
+    * AWS Marketplace:
+        * Digital catalog from independent software vendors
+        * Custom AMI
+        * CloudFormation templates
+        * Software as a Service Provider
+        * Containers
+    * AWS Training
+        * AWS Digital and Classroom training
+        * AWS Private Training
+        * Training and Certification for the US Goverment
+        * Training and Certification for the Enterprise
+        * AWS Academy
+    * AWS Professional Services and Partner Network
+        * APN = AWS Partner Network
+        * APN Technology Partners
+        * APN COnsulting Partners
+        * APN Training Partners
+        * APN Competency Program
+        * APN Navigate Program
+
 <div id="section20"> </div>
 
 ## Preparing for the Exam + Practice Exam
