@@ -451,6 +451,33 @@ Customers are responsible "on" the cloud, AWS is responsible "of" the cloud.
         * Amazon CloudFormation
         * Amazon CloudWatch Events
 
+* Reliability:
+    * Ability of a system to recover from infrastructure or service disruptions, dynamically acquire computing resources to meet demand, and mitigate disruptions such as misconfigurations or transient network issues
+    * Desing Principles:
+        * Test recovery procedures
+        * Automatically recover from failure
+        * Scale horizontally to increase aggregate system availability
+        * Stop guessing capacity
+        * Mange change in automation
+
+* Reliability AWS Services:
+    * Foundations
+        * IAM
+        * Amazon VPC
+        * Service Quotas
+        * AWS Trusted Advisor
+    * Change Management
+        * AWS Auto Scaling
+        * Amazon CloudWatch
+        * AWS CloudTrail
+        * AWS Config
+    * Failure Managment
+        * Backups
+        * AWS CloudFormation
+        * Amazon S3
+        * Amazon S3 Glacier
+        * Amazon Route 53
+
 <div id="section20"> </div>
 
 ## Preparing for the Exam + Practice Exam
