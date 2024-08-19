@@ -57,14 +57,27 @@
         * Data stored in 6 replicas, accross 3 AZ
         * Compute: CLuster of DB Instance accross Multiple AZ
         * Clúster: Custome endpoints for writer and reader
-        * Security as RDS
-        * Aurora Serverless
-        * Aurora Global
-        * Aurora Machine Learning
-        * Aurora Database Cloning: New cluster from existing one, faster than restoring a snapchost
+    * Security as RDS
+    * Aurora Serverless
+    * Aurora Global
+    * Aurora Machine Learning
+    * Aurora Database Cloning: New cluster from existing one, faster than restoring a snapchost
 
 * Amazon ElastiCache:
     * Managed Redis / Memchached
     * You need to modify your code
     * The maintainance is similar to RDS
 
+* DynamoDB:
+    * NoSQL
+    * AWS property technology
+    * Capacity modes:
+        * provisioned capacity
+        * on-demand capacity
+    * DAX: for read cache
+    * DynamoDB Streams:
+        * Integration with Lambda
+        * Integration with Kinesis Data Streams
+    * Global Table Feature: active-active setup
+    * Automated Backups up to 35 days
+    * Export to S3 withput using RCU
