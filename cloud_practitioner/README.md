@@ -413,6 +413,44 @@ Customers are responsible "on" the cloud, AWS is responsible "of" the cloud.
         * AWS CodeBuild
         * AWS CodeDeploy
 
+* Security:
+    * Includes the ability to protect information, systems, and assets while delivering business value through risk assesment and mitigation strategies
+    * Design Principles:
+        * Implement a strong identity foundation
+        * Enable traceability
+        * Apply security at all layers
+        * Automate security best practices
+        * Protect data in transint and at rest
+        * Keep people away from data
+        * Prepare for security events
+    
+* Security AWS Services
+    * Identity and Access Management
+        * IAM
+        * AWS-STS
+        * MFA token
+        * AWS Organizations
+    * Detective Controls
+        * AWS Config
+        * AWS CloudTrail
+        * Amazon CloudWatch
+    * Infrastructure Protection
+        * Amazon CLoudFront
+        * Amazon VPC
+        * AWS Shield
+        * AWS WAF
+        * Amazon Inspector
+    * Data protection
+        * KMS
+        * S3
+        * Elastic Load Balancing
+        * Amazon EBS
+        * Amazon RDS
+    * Incident Response
+        * IAM
+        * Amazon CloudFormation
+        * Amazon CloudWatch Events
+
 <div id="section20"> </div>
 
 ## Preparing for the Exam + Practice Exam
