@@ -81,3 +81,47 @@
     * Global Table Feature: active-active setup
     * Automated Backups up to 35 days
     * Export to S3 withput using RCU
+
+* S3:
+    * For objects
+    * Big objects
+    * Serverless
+    * 5gb documents and 5TB for maximum storage
+    * Tiers:
+        * Standard Access
+        * Infrequent Access
+        * Inteligent Tier
+        * Glacier
+        * Life policies
+    * Features:
+        * Versioning
+        * Encryption
+        * Replication
+        * MFA-Delete
+        * Access Log
+    * Security:
+        * IAM
+        * Bucket Policies
+        * Acess COntrol List
+        * Bucket Control List
+        * Object Lambda
+        * CORS
+        * Object/Value Lock
+    * Encryption:
+        * SSE-S3
+        * SSE-KMS
+        * SSE-C
+        * Client Side
+        * TLS in transit
+        * Default encryption
+    * Batch Operations:
+        * S3 Batch
+    * Performance:
+        * Multi part upload
+        * S3 Transfer Acceleration
+        * S3 Select 
+    * Automation:
+        * SNS
+        * SQS
+        * Lambda
+        * EventBridge
