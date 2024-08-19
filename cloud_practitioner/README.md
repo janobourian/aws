@@ -478,6 +478,33 @@ Customers are responsible "on" the cloud, AWS is responsible "of" the cloud.
         * Amazon S3 Glacier
         * Amazon Route 53
 
+* Performance Efficiency:
+    * Includes the ability to use computing resources efficiently to meet system requirmentes, and to mantain that efficiency
+    * Desing Principles
+        * Democratize advanced technologies
+        * Go global in minutes
+        * Use serverless architectures
+        * Experiment more often
+        * Mechanical sympathy
+
+* Performance Efficiency AWS Services
+    * Selection:
+        * AWS Auto Scaling
+        * AWS Lambda
+        * Amazon Elastic Block Store
+        * Amazon S3
+        * Amazon RDS
+    * Review:
+        * AWS CloudFormation
+    * Monitoring:
+        * Amazon CloudWatch
+        * AWS Lambda
+    * Tradeoffs:
+        * Amazon RDS
+        * Amazon ElastiCache
+        * AWS Snowball
+        * Amazon CloudFront
+
 <div id="section20"> </div>
 
 ## Preparing for the Exam + Practice Exam
