@@ -62,3 +62,9 @@
         * Aurora Global
         * Aurora Machine Learning
         * Aurora Database Cloning: New cluster from existing one, faster than restoring a snapchost
+
+* Amazon ElastiCache:
+    * Managed Redis / Memchached
+    * You need to modify your code
+    * The maintainance is similar to RDS
+
