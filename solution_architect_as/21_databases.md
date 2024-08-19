@@ -125,3 +125,43 @@
         * SQS
         * Lambda
         * EventBridge
+
+* DocumentDB
+    * Is the same for MongoDB
+
+* Neptune
+    * Graph database
+    * A popular graph dataset is a social network
+    * High availability accross 3 AZ with up to 15 read replicas
+    * Use cases:
+        * Social Networks
+        * Fraud detection
+        * Recommendation engines
+
+* Amazon Neptune Streams
+    * Real time ordered sequence of every change to your graph data
+    * No duplicates, strict order
+    * Data Streams is accessible in an HTTP REST API
+    * Use cases:
+        * Send notifications when certain changes 
+        * Maintain your grpah data syncronized
+        * Replicate data across regions in Neptune
+
+* Keyspaces:
+    * for Apache Cassandra
+    * Apache Cassandra is an open-source NoSQL distributed database
+    * Serverless and fully managed by AWS
+    * Using the Cassandra Query Language
+
+* QLDB:
+    * Quantum Ledger Database
+    * A ledger is a book recording financial transactions
+    * Immutable system
+    * Used to review history of all changes made to your application data
+    * Centralized information
+
+* Amazon Managed Blockchain:
+    * Decentralized
+
+* Timestream:
+    * For time series
