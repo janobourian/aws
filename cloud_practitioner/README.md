@@ -505,6 +505,33 @@ Customers are responsible "on" the cloud, AWS is responsible "of" the cloud.
         * AWS Snowball
         * Amazon CloudFront
 
+* Cost Optimization:
+    * Includes the ability to run systems to deliver business value at the lowest price point
+    * Desing Principles:
+        * Adopt a consumption mode
+        * Measure overall efficiency
+        * Stop spending money on data centers operations
+        * Analyze and attribute expenditure
+        * Use managed and application level services to reduce cost of ownership
+
+* Cost optimization AWS Services:
+    * Expenditure Awareness:
+        * AWS Budgets
+        * AWS Cost and Usage Reports
+        * AWS Cost Explore
+        * Reserved Instance Reporting
+    * Cost-effective Resources:
+        * Spot instances
+        * Reserved Instance 
+        * Amazon S3 Glacier
+    * Matching supply and demand:
+        * AWS Auto Scaling
+        * AWS Lambda
+    * Optimizing Over time:
+        * AWS Trusted Advisor
+        * AWS Cost and Usage Report
+        * AWS News Blog
+
 <div id="section20"> </div>
 
 ## Preparing for the Exam + Practice Exam
