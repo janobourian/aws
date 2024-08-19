@@ -51,4 +51,14 @@
     * Support for IAM authentication, integration with Secrets Manager
     * RDS Custom for access to and customize the underlying instance (Oracle and SQL Server)
 
-* Amazon Athena:
+* Amazon Aurora (RDS):
+    * Compatible with PostgreSQL and MySQL
+    * Storage:
+        * Data stored in 6 replicas, accross 3 AZ
+        * Compute: CLuster of DB Instance accross Multiple AZ
+        * Clúster: Custome endpoints for writer and reader
+        * Security as RDS
+        * Aurora Serverless
+        * Aurora Global
+        * Aurora Machine Learning
+        * Aurora Database Cloning: New cluster from existing one, faster than restoring a snapchost
