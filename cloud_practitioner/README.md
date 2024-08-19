@@ -549,6 +549,12 @@ Customers are responsible "on" the cloud, AWS is responsible "of" the cloud.
     * S3 lifecycle COnfigurations
     * Read Local, Write Global
 
+* AWS Well-Architected Tool
+    * Free tool to review your architecture against the six pillar Well-Architected Framework
+
+* AWS Customer Carbon Footprint Tool
+
+
 <div id="section20"> </div>
 
 ## Preparing for the Exam + Practice Exam
