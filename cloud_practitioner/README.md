@@ -385,8 +385,34 @@ Customers are responsible "on" the cloud, AWS is responsible "of" the cloud.
     * Cost Optimization
     * Sustainability
 
+* Operational Excellence:
+    * Includes the ability to run and monitor systems to deliver business value and to continually improve supporting processes and procedures
+    * Design principles:
+        * Perform operations as code
+        * Make frequent, small, reversible changes
+        * Refine operations procedures frequently
+        * Anticipate failure
+        * Learn from all operational faliures
+        * Use Managed Services
+        * Implement observability
 
-    
+* Operational Excellence AWS Services:
+    * Prepare 
+        * AWS Cloudformation
+        * AWS Config
+    * Operate
+        * AWS CloudFormation
+        * AWS Config
+        * AWS CloudTrail
+        * AWS CloudWatch
+        * AWS X-Ray
+    * Evolve
+        * AWS CloudFormation
+        * AWS CodePipeline
+        * AWS CodeCommit
+        * AWS CodeBuild
+        * AWS CodeDeploy
+
 <div id="section20"> </div>
 
 ## Preparing for the Exam + Practice Exam
