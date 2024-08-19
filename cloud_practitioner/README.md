@@ -19,7 +19,7 @@
 - []
 - []
 - []
-- []
+- [AWS Architecting and Ecosystem](#section19)
 - []
 
 <div id="section1"> </div>
@@ -369,6 +369,24 @@ Customers are responsible "on" the cloud, AWS is responsible "of" the cloud.
 
 ## AWS Architencting & Ecosystem
 
+* Well Architected Framework:
+    * Best Practices:
+        * Scalability
+        * Disposable Resources
+        * Automation
+        * Loose Coupling
+        * Services, not Servers
+
+* Six pillars:
+    * Operational Excellence
+    * Security 
+    * Reliability
+    * Performance Efficiency
+    * Cost Optimization
+    * Sustainability
+
+
+    
 <div id="section20"> </div>
 
 ## Preparing for the Exam + Practice Exam
