@@ -236,3 +236,13 @@
 
 * Tiempos de reutilización de escalado
     * Debes configurar una AMI para reducir el tiempo de configuración (Golden AMIs)
+
+* Lab steps:
+    * Create an EC2 instance with two instances
+    * Create a Load Balancing
+        * Create a Target Group
+    * Change the security group to get traffic only from ELB
+    * Create a Template for AutoScalingGroup
+    * Create the ASG using the last template
+
+* Elastic Load Balancing (ALB, NLB, GWLB, CLB) -> ASG -> Instances
