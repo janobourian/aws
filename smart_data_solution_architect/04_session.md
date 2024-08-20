@@ -207,3 +207,32 @@
 
 * Drenaje de conexión:
     * Se completan las solicitudes en curso mientras se apaga la instancia por escalamiento o por errores
+
+## Autoscaling groups
+
+* Auto escalado:
+    * Manual
+    * Programado:
+        * Anticipar basado en patrones
+        * Para días de mayor venta
+    * Dinámico:
+        * Based on metrics
+    * Bajo demanda 
+    * Predictivo:
+        * Usando Machine Learning
+
+* Se crean grupos de Auto scaling
+* AWS CloudWatch is a good service that fits with AutoScaling
+* Es gratuito
+* Capacidades:
+    * Mínima
+    * Deseada
+    * Máxima
+
+* Métricas para escalar:
+    * CPUUtilization
+    * RequestCountPerTarget
+    * Promedio de entrada por red
+
+* Tiempos de reutilización de escalado
+    * Debes configurar una AMI para reducir el tiempo de configuración (Golden AMIs)
