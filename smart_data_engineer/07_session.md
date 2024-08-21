@@ -156,3 +156,39 @@
 * Indexes:
     * Local Secondary Index (LSI)
     * Global Secondary Index (GSI)
+
+* DynamoDB Accelerator (DAX):
+    * Caché en memoria totalmente administrada
+    * No requiere la modificación de la lógica de la aplicación
+    * 5 minutos for TTL
+    * Hasta 10 nodos en el clúster
+    * Mínimo 3 nodos para producción (recomendación)
+
+* DynamoDB Streams:
+    * Flujo ordenado de modificaciones a nivel de elemento
+    * Retención de datos durante un máximo de 24 horas
+    * Casos de uso:
+        * Reaccionar a los cambios en tiempo real
+        * Analítica
+        * Insertar en OpenSearch Service
+        * Implementación de las réplicas entre regiones
+        * Los registros no se llenan de manera retroactiva
+    * DynamoDB Stream and AWS Lambda
+    * Puede trabajar como Trigger
+
+* DynamoDB TTL
+    * Elimina automáticamente items después de una marca de tiempo de caducidad
+
+* DynamoDB Objetos grandes:
+    * Guarda la metadata solamente
+
+* Seguridad
+    * VPC Endpoints disponibles para acceder a DynamoDB sin usar internet
+    * Acceso totalmente controlado por IAM
+    * Cifrado en reposo mediante KMS
+    * Cifrado en tránsito mediante SSL/TLS
+    * Copia de seguridad y restauración disponible
+    * Global Tables:
+        * Multiregión
+        * Active-Active
+    * Amazon Database Migration Service se puede utilizar para migrar DynamoDB de Mongo, Oracle, MySQL, S3
