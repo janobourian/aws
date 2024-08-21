@@ -178,6 +178,7 @@
 
 * DynamoDB TTL
     * Elimina automáticamente items después de una marca de tiempo de caducidad
+    * Se debe agregar un valor numérico en la tabla con el nombre TTL
 
 * DynamoDB Objetos grandes:
     * Guarda la metadata solamente
@@ -192,3 +193,34 @@
         * Multiregión
         * Active-Active
     * Amazon Database Migration Service se puede utilizar para migrar DynamoDB de Mongo, Oracle, MySQL, S3
+
+## Amazon DocumentDB
+
+* Para almacén de documentos similar a MongoDB
+
+## Amazon MemoryDB for Redis
+
+* Base de datos en memoria para Redis
+* Casos de uso:
+    * Aplicaciones Web y móviles
+    * Juegos en línea
+    * Transmisión de medios
+
+## Amazon Keyspaces (Apache Cassandra)
+
+* Serverless
+* Es básicamente un Apache Cassandra
+* Apache Cassandra:
+    * Base de datos distribuida NoSQL de código abierto
+* CQL: Cassandra Query Language
+
+## Amazon Neptune
+
+* Base de datos de grafos
+* Ejemplo: Red Social
+
+## Amazon TimeStream
+
+* Para series de tiempo 
+* Compatibilidad con SQL
+* Funciones integradas de análisis de series de temporales
