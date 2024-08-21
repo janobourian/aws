@@ -66,3 +66,93 @@
 * Discount: https://pages.awscloud.com/GLOBAL-ln-GC-Traincert-Associate-Certification-Challenge-Registration-2024.html
 
 ## Amazon DynamoDB
+
+* NoSQL
+* No admite combinación de consultas
+* Se escalan horizontalmente
+
+* Amazon DynamoDB:
+    * High availability
+    * IAM for security
+    * Permite el uso de programación basada en eventos con DynamoDB Streams
+    * Clases de tabla de acceso estándar y poco frecuente (IA)
+    * Components:
+        * Tables
+        * Primary Key al momento de la creación
+        * Items (filas)
+            * Maximum Size: 400kb
+        * Data types:
+            * Escalares: String, Number, Binary, Boolean, Null
+            * Documentos: List, Map
+            * Conjuntos: String set, Number set, Binary set
+    * Primary keys: 
+        * HASH
+    * Partition Key + Sort Key:
+        * HASH + RANGE
+    * Amazon DynamoDB en Big Data:
+
+* DynamoDB read/write capacity:
+    * Provisioned Mode:
+        * Pago por unidades de capacidad de lectura y escritura aprovisionadas
+    * On-Demand Mode:
+        * Pago por lo que usas
+    * Se puede cambiar el modo cada 24 horas. 
+
+* Modo de capacidad R/W - Provisionado:
+    * Read Capacity Units (RCU)
+        * ConsistentRead: True
+        * Eventually Consistent Read -> 2 RCU por segundo de hasta 4KB
+        * Strongly Consistent Read -> 1 RCU por segundo de hasta 4KB
+    * Write Capacity Units (WCU)
+        * Representa una escritura por segundo para un elemento de hasta 1KB
+        * Se redonde hacia arriba
+
+* Particiones Internas:
+    * Maximum of (# of partitions by capacity, # of partitions by size)
+
+* DynamoDB Throttling:
+    * Si superamos las RCU o WCU aprovisionadas
+    * Razones:
+        * Hot Keys
+        * Hot partitions
+        * Items muy grandes
+
+* DynamoDB using SDK:
+    * PutItem
+    * UpdateItem
+    * ConditionalWrites
+    * GetItem:
+        * ProjectionExpression se puede especificar para recuperar solo ciertos atributos
+    * DeleteItem
+    * DeleteTable
+
+* DynamoDB - Query:
+    * KeyConditionExpression:
+        * Partition Key (=)
+        * Sort Key (another expressions)
+    * FilterExpression:
+        * Atributos que no son clave
+    * Se devuelve:
+        * El número de ítems en Limit
+        * Hasta 1 MB
+        * Se puede paginar
+    * Scan (usualmente en consola)
+
+* DynamoDB - Operaciones por lote:
+    * BatchWriteItem
+    * BatchGetItem
+    * Casos de uso:
+        * Escrituras muy frecuentes
+
+* PartiQL:
+    * Ejecución de consultas en varias tablas de DynamoDB
+    * Se puede ejecutar desde:
+        * AWS Management Console
+        * NoSQL Workbench for DynamoDB
+        * DynamoDB APIs
+        * AWS CLI
+        * AWS SDK
+
+* Indexes:
+    * Local Secondary Index (LSI)
+    * Global Secondary Index (GSI)
