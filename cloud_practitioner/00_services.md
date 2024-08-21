@@ -1,22 +1,22 @@
 # Services
 
 * Analytics:
-    * [] Amazon Athena
+    * [X] Amazon Athena
     * [] AWS Data Exchange
-    * [] Amazon EMR
-    * [] AWS Glue
+    * [X] Amazon EMR
+    * [X] AWS Glue
     * [] Amazon Kinesis
     * [] Amazon Managed Streaming for Apache Kafka (Amazon MSK)
     * [] Amazon OpenSearch Service
-    * [] Amazon Quicksight
-    * [] Amazon Redshift
+    * [X] Amazon Quicksight
+    * [X] Amazon Redshift
 * Application Integration:
     * [] Amazon EventBridge
     * [] Amazon Simple Notification Service (Amazon SNS)
     * [] Amazon Simple Queue Service (Amazon SQS)
     * [] AWS Step Functions
 * Business Applications:
-    * []  Amazon Connect
+    * [] Amazon Connect
     * [] Amazon Simple Email Service (Amazon SES)
 * Cloud Financial Management:
     * [] AWS Billing Conductor
@@ -42,11 +42,11 @@
     * [] AWS Managed Services (AMS)
     * [] AWS Support
 * Database:
-    * [] Amazon Aurora
-    * [] Amazon DynamoDB
-    * [] Amazon MemoryDB for Redis
-    * [] Amazon Neptune
-    * [] Amazon RDS
+    * [X] Amazon Aurora
+    * [X] Amazon DynamoDB
+    * [X] Amazon MemoryDB for Redis
+    * [X] Amazon Neptune
+    * [X] Amazon RDS
 * Developer Tools:
     * [] AWS AppConfig
     * [] AWS CLI
@@ -71,15 +71,15 @@
     * [] AWS IoT Core
     * [] AWS IoT Greengrass
 * Machine Learning:
-    * [] Amazon Comprenhend
-    * [] Amazon Kendra
-    * [] Amazon Lex
-    * [] Amazon Polly
-    * [] Amazon Rekognition
-    * [] Amazon SageMaker
-    * [] Amazon Textract
-    * [] Amazon Transcribe
-    * [] Amazon Translate
+    * [X] Amazon Comprenhend
+    * [X] Amazon Kendra
+    * [X] Amazon Lex
+    * [X] Amazon Polly
+    * [X] Amazon Rekognition
+    * [X] Amazon SageMaker
+    * [X] Amazon Textract
+    * [X] Amazon Transcribe
+    * [X] Amazon Translate
 * Management and Governance:
     * [] AWS Auto Scaling
     * [] AWS CloudFormation
