@@ -26,5 +26,36 @@
     * Automate boot tasks using scripts as root user
 
 * EC2 instance types:
-    * 
+    * General purpose:
+        * The common Ec2 instance
+    * Compute optimized:
+        * Batch processing workloads
+        * Media transcoding
+        * Scientific modeling and machine learning
+        * Dedicated gaming services
+    * Memory optimized:
+        * Large datasets in memory
+        * RDB
+        * BI 
+    * Accelera0te optimized
+        * Graphics
+        * Floating point number
+    * Storage optimized
+        * OLTP
+        * Datawarehouse
+    * HPC
+
+* Security:
+    * Security groups
+        * Access to ports
+        * Control inbound and outbound rules
+        * Locked down to a region/VPC combination
+
+* Classic ports:
+    * 21 FTP
+    * 22 SSH
+    * 22 SFTP
+    * 80 HTTP
+    * 433 HTPS
+    * 3389 RDP
     
