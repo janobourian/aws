@@ -88,3 +88,50 @@
 
 * Create a Budget:
     * To allow, in root session, to get access to Billing and Management service
+
+
+## Amazon Bedrock and Generative AI
+
+* What is Generative AI?
+    * Is a subset of Deep Learning
+    * Generate new data similar to the data it was trained
+    * Unlabeled Data > Foundation Model > Broad range of general tasks
+    * Foundation Model:
+        * Are trained on wide variety of input data
+        * GTP-4o, OpenAI, Meta, Amazon, Google, Anthropic
+        * OpenSource: Meta, GoogleBERT
+        * Commercial License: OpenAI, Anthropic
+    * Large Language Models LLM:
+        * Type of AI designed to generate coherent human-like text
+    * Generative Language Models:
+        * We usually interact with the LLM by giving a prompt
+        * Non-deterministic: the generated text may be different for every user that uses the same prompt
+        * Works word by word: After the rain, the streets were flooded
+    * Generative AI for images
+        * Generates the images based on prompts
+        * Prompt -> images
+        * Images -> images
+        * Text -> images
+    * Diffusion Models
+        * Picture -> Training: Forward diffusion process -> Noise
+        * Noise -> Generating: Reverse diffusion process -> Picture
+    
+* Amazon Bedrock Overview and Hands On:
+    * Build Generative AI applications on AWS
+    * Foundation Models:
+        * AI21labs
+        * Cohere
+        * Stability.ai
+        * Amazon
+        * Anthropic
+        * Meta
+        * Mistral AI
+    * None of your data is using to train the Foundation Models
+    * Using Bedrock:
+        * Select model
+        * Insert the prompt
+        * Knowledge Bases in RAG
+            * More relevant and accurate responses
+        * Fine-Tuning:
+            * Update the model with your data
+        * Output
