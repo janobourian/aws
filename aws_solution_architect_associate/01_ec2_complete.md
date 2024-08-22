@@ -59,3 +59,46 @@
     * 433 HTPS
     * 3389 RDP
     
+* Connect using SSH:
+    * ssh -i "*.pem" ec2-user@.us-west-2.compute.amazonaws.com
+
+* Instance purchasing options:
+    * On demand:
+        * Pay-as-you-go
+    * Reserved Instances
+        * Convertible reserved instances
+    * Saving Plans
+        * Commitment to an amount of usage
+        * Locked for specific instance family
+    * Spot Instances
+        * Can lse instances
+    * Dedicated Instance
+        * Hardware for you
+    * Dedicated host
+        * A complete physical server for you
+    * Capacity reservation:
+        * Reserve by AZ for any duration
+
+* Spot instances and Spot Fleet
+    * Define a max spot price
+    * Spot Block*
+    * Request type: one-time | persistent
+    * Finish them: Cancel request > Terminate
+    * Spot fleets = Spot Instances + On-Demand Instances
+        * lowestPrice
+        * diversified
+        * capacityOptimized
+        * priceCapacityOptimized
+
+* Shared responsability model for EC2:
+    * AWS
+        * Infrastructure
+        * Isolation
+        * Replacing faulty hardware
+        * Compliance validation
+    * EC2
+        * Security groups rules
+        * Operating-system patches and updates
+        * Software and utilities installed
+        * IAM 
+        * Data security on your instance
