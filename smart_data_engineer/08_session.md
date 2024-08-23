@@ -222,3 +222,14 @@
         * Amazon S3 
         * Amazon EFS
         * Amazon FSx
+
+## AWS Database Migration Service (DMS)
+
+* Migración de DB a DB
+* La base de datos permanece disponible
+* Migraciones:
+    * Homogéneas: Oracle - Oracle
+    * Heterogéneas: Microsoft SQL Server - Aurora
+* AWS Schema Convertion Tool (AWS SCT):
+    * motor origen - motor destino
+* Continuos Replication
