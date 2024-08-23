@@ -233,3 +233,14 @@
 * AWS Schema Convertion Tool (AWS SCT):
     * motor origen - motor destino
 * Continuos Replication
+
+## AWS Containers and Docker Containers
+
+* Services:
+    * AWS ECR
+    * AWS ECS
+    * AWS EKS
+    * AWS Fargate: Serverless
+* Key concepts:
+    * Docker Daemon is similar to Hypervisor
+    * Docker container is similar to ECS Tasks
