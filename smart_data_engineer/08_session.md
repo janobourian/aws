@@ -185,3 +185,30 @@
     * El costo se carga a RDS
     * Se incorporan datos en tiempo real
     * Evita las canalizaciones ETL
+
+## Snow Family
+
+* Migración de datos:
+    * Snowcone
+    * Snowball Edge
+    * Snowmobile
+* Computación perimetral
+    * Snowcone
+    * Snowball Edge
+
+* Snowcone:
+    * 8Tb o 14TB
+* Snowball Edge:
+    * TB o PB
+* Snowmobile:
+    * 100 PB
+    * Usarlo si vas a transferir más de 10PB
+
+* Edge computing:
+    * Ubicaciones sin internet o sin infraestructura
+    * Snowcone and snowcone SSD
+    * Snowball edge - compute optimized
+    * Snowball edge - storage optimized
+
+* AWS OpsHub:
+    * Software para administrar la familia Snow*
