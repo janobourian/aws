@@ -212,3 +212,13 @@
 
 * AWS OpsHub:
     * Software para administrar la familia Snow*
+
+## DataSync
+
+* Mover datos:
+    * On-premise - Cloud or Cloud - On-premise (with agent)
+    * AWS to AWS (without agent)
+    * Se puede sincronizar con:
+        * Amazon S3 
+        * Amazon EFS
+        * Amazon FSx
