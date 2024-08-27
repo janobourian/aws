@@ -129,3 +129,6 @@
             * Gobernanza: Sólo algunos pueden borrarlo
     * Access Point: Separar por prefijo y brindar políticas
     * Access Point - VPC Origin: Para que sea accesible solo desde dentro de la VPC
+        * Modo Gateway (más barato)
+        * Modo Interface Endpoint
+    * Object Lambda
