@@ -172,7 +172,17 @@ SnowBall no se puede enviar directamente a Amazon Glacier
     * FTP
     * FTPS
     * SFTP
-    
+
 * AWS Transfer for FTP
 * AWS Transfer for FTPS
 * AWS Transfer for SFTP
+
+## DataSync
+
+* Se instala AWS DataSync Agent en los servidores On-Premises
+* También se puede realizar la transferencia entre los servicios de almacenamiento
+
+* Se puede sincronizar con:
+    * S3
+    * EFS
+    * FSx
