@@ -155,3 +155,15 @@ SnowBall no se puede enviar directamente a Amazon Glacier
 * FSx para Lustre: Machine Learning and HCP
 * FSx para ONTAP de NetApp
 * FSx para OpenZFS
+
+## Almacenamiento Híbrido
+
+* AWS Storage Gateway:
+    * Puente entre los datos locales y los datos en la nube
+* Amazon S3 File Gateway:
+    * 
+* Amazon FSx File Gateway:
+    * 
+* Volumen Gateway
+    * 
+* Tape Gateway
