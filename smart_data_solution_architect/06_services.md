@@ -160,10 +160,19 @@ SnowBall no se puede enviar directamente a Amazon Glacier
 
 * AWS Storage Gateway:
     * Puente entre los datos locales y los datos en la nube
-* Amazon S3 File Gateway:
-    * 
-* Amazon FSx File Gateway:
-    * 
-* Volumen Gateway
-    * 
-* Tape Gateway
+    * Tipos:
+        * Amazon S3 File Gateway
+        * Amazon FSx File Gateway
+        * Volumen Gateway
+        * Tape Gateway
+
+## AWS Transfer Family
+
+* Realizar migración de datos por los siguientes protocolos:
+    * FTP
+    * FTPS
+    * SFTP
+    
+* AWS Transfer for FTP
+* AWS Transfer for FTPS
+* AWS Transfer for SFTP
