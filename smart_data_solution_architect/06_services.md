@@ -42,3 +42,90 @@
         * Vuelve fácilmente a la versión anterior
         * Los objetos cargados antes de la versión tendrán id null
         * La suspensión del control de versiones no elimina las versiones anteriores
+
+* Replicación
+    * Replication
+        * CRR: Cross Region Replication
+        * SRR: Same Region Replication
+    * Crear versionamiento
+    * Asíncrona
+
+* Clases de almacenamiento
+    * Standard
+    * Infrequent access
+        * Standard: 
+            * Recuperación ante desastres
+        * One Zone: 
+            * Tiene la menor disponibilidad
+            * Almacenamiento de copias de seguridad secundaria 
+            * Datos que se pueden volver a generar
+    * Intelligent Tiering
+        * Utiliza ML:
+        * Tipos:
+            * Frequent Access tier
+            * Infrequent Access tier
+            * Archive Instant Access Tier
+            * Archive Access Tier
+            * Deep Archive Access Tier
+    * Glacier
+        * Instant retrieval
+            * Duración mínima de 90 días
+        * Flexible retrieval
+            * Duración mínima de 90 días
+            * Modos:
+                * Expedited: 1 a 5 minutos
+                * Standard: 3 a 5 horas
+                * Bulk: 5 a 12 horas
+        * Deep Archive
+            * Duración mínima de 180 días
+            * Modos:
+                * Standard: 12 horas
+                * Bulk: 48 horas
+
+* Life Cycle Rules:
+    * Transición
+    * Expiración
+
+* Requester Pays Bucket:
+    * El solicitante paga
+
+* Eventos
+    * SNS
+    * SQS
+    * Lambda
+
+* Rendimiento:
+    * Multipart Upload
+    * Transfer Acceleration
+    * S3-Byte Range Fetches
+    * S3 Select and Glacier Select
+    * S3 Batch Operations
+    * S3 Storage Lens
+        * Metricas
+            * Métricas de resumen
+            * Métricas de optimización de costos
+            * Métricas de protección de datos
+            * Métricas de gestión de acceso
+            * Métricas de eventos
+            * Métricas de rendimiento
+            * Métricas de actividad
+            * Métricas detalladas del código de acceso
+
+* Cifrados
+    * Server-Side Encryption (SSE-S3)
+    * Server-Side Encryption with KMS (SSE-KMS)
+    * Server-Side Encryption with Customer-Provided Keys (SSE-C)
+    * Clien-Side Encryption
+
+* Additional Features:
+    * CORS
+    * Eliminación MFA
+    * Registros de acceso de S3
+    * Presigned URLs
+    * S3 Glacier VaultLock: Write Once Read Many
+    * S3 Object Lock: Write Once Read Many
+        * Modos de retención:
+            * Cumplimiento: Nadie puede borrarlo
+            * Gobernanza: Sólo algunos pueden borrarlo
+    * Access Point: Separar por prefijo y brindar políticas
+    * Access Point - VPC Origin: Para que sea accesible solo desde dentro de la VPC
