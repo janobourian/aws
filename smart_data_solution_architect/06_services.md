@@ -148,3 +148,10 @@
     * Software para administrar el dispositivo Snow
 
 SnowBall no se puede enviar directamente a Amazon Glacier
+
+## AWS FSx
+
+* FSx para Windows
+* FSx para Lustre: Machine Learning and HCP
+* FSx para ONTAP de NetApp
+* FSx para OpenZFS
