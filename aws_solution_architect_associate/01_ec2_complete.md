@@ -102,3 +102,56 @@
         * Software and utilities installed
         * IAM 
         * Data security on your instance
+
+## EC2 for solution Architect
+
+* Public:
+    * To be identified on the internet
+* Private
+    * In a local network
+* Elastic IP
+    * Is to have a fixed public IP on EC2
+
+## Placement Groups
+
+* Strategies:
+    * Cluster: Cluster instances into a low-latency group in a Single AZ
+        * 10 Gps of bandwith
+        * Big data jobs
+        * App that needs low latency
+    * Spread: Spreads instances across underlying hardware (max 7 instances per group per AZ) - critical applications
+        * Multiple AZ
+        * Different hardware
+        * Isolated the failure
+    * Partition: spreads instances across many different partitions within an AZ. Scale to 100s of EC2 instances per group
+        * Multiple AZ
+        * Each partition has a rack 
+        * Use cases: Cassandra, Hadoop, Kafka
+
+## Elastic Network Interface
+
+* Logical component in a VPC that represents a Virtual Network Card
+* It can have a primary private IPv4 and one or more secondary IPv4
+* One Elastic IP per private IOv4
+* One public IPv4
+* One or more security gruop
+* Limited by AZ
+
+## Hibernate
+
+* Options
+    * Stop
+    * Terminate (EBS root volumen will be destoyed)
+    * Hibernate:
+        * RAM state is preserved
+        * The instance boot is much faster
+        * The root EBS volume must be encrypted
+        * RAM size must be less than 150 GB
+        * Root Volume must be EBS, encrypted, not instance store and large
+        * Not suported for bare metal instances
+        * Not be hibernated more than 60 years
+        * Use cases:
+            * Long-running processing
+            * Saving the RAM state
+            * Service take too long
+
