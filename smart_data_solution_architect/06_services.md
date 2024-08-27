@@ -132,3 +132,19 @@
         * Modo Gateway (más barato)
         * Modo Interface Endpoint
     * Object Lambda
+
+## Snow Family
+
+* Migración de datos
+    * Snowcone: 8 TB - 14 TB, DataSync
+    * Snowball Edge: 80 TB
+    * SnowMobile: 100 PB
+
+* Computación perimetral:
+    * Snowcone
+    * Snowball Edge
+
+* AWS OpsHub
+    * Software para administrar el dispositivo Snow
+
+SnowBall no se puede enviar directamente a Amazon Glacier
