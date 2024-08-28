@@ -10,6 +10,9 @@ Check: https://aws.amazon.com/es/compliance/shared-responsibility-model/
 * Access: CLI, SDK, and Console
 * Máximo dos Access Keys por usuario
 
+* AWS Service Health Dashboard
+* AWS Personal Health Dashboard
+
 ## Gestión de Identidad y Acceso (IAM - Identity and Access Management)
 
 ¿Cómo sabemos que eres quien dices ser?
@@ -33,6 +36,8 @@ Check: https://aws.amazon.com/es/compliance/shared-responsibility-model/
 
 ### Policy
 
+* VIS + SEPARC
+
 * Version
 * Id
 * Statement
@@ -50,6 +55,9 @@ Check: https://aws.amazon.com/es/compliance/shared-responsibility-model/
 * IAM Access Analyzer
 
 ### Multi account strategy
+
+* Service Control Policy (SCP):
+    * Restringir los privilegios de la cuenta mediante políticas de control de servicios
 
 * AWS Organizations
 * Multi account:
