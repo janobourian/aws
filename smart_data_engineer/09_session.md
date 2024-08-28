@@ -100,3 +100,6 @@ DAG: Directed Acyclic Graph
         * SSL en tránsito
         * IAM
         * CloudWatch and CloudTrail
+
+LAB: https://catalog.us-east-1.prod.workshops.aws/workshops/976050cc-0606-4b23-b49f-ca7b8ac4b153/en-US
+LAB: https://catalog.us-east-1.prod.workshops.aws/workshops/976050cc-0606-4b23-b49f-ca7b8ac4b153/en-US/600
