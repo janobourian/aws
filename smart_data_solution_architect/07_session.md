@@ -68,3 +68,65 @@
     * Oracle and Microsoft SQL Server
     * Acceder al sistema operativo
     * SSH connection
+
+## Aurora
+
+* Compatible with:
+    * PostgreSQL (3x)
+    * MySQL (5x)
+    
+* Features
+    * Increase in 10GB to 128TB
+    * It costes 20% more
+    * Not available in free tier 
+    * Six copies in three AZ
+    * Almacenamiento se divide en 100 volúmenes
+        * Replicación
+        * Autoreparación
+        * Autoexpansión
+    * Two endpoints
+        * Write endpoint
+        * Read endpoint
+    * Good features:
+        * Conmutación automática por error
+        * Copia de seguridad y recuperación
+        * Aislamiento y seguridad
+        * Cumplimiento con la industria
+
+* Custom endpoints:
+    * Custom CPU for each instance
+    * Writer endpoint
+    * Reader endpoint
+    * Analytical Queries
+
+* Aurora Serverless
+    * Proxy Fleet
+    * Cargas de trabajo poco frecuentes, intermitentes o impredecibles
+
+* Global Aurora:
+    * Aurora Cross Region
+    * Primary Region for read and write
+    * Until five regions for read
+
+* Aurora Machine Learning:
+    * Prediction based on ML using SQL
+    * Services:
+        * Amazon SageMaker
+        * Amazon Comprehend
+    * Use cases:
+        * Fraude detection
+        * Ads
+        * Sentiment Analysis
+        * Product recomendations
+
+* Copias de seguridad en RDS
+    * Copia diaria
+    * Retenión 1 a 35 días
+    * Instantáneas manuales
+
+* Restauración usando S3
+* Clonación a partir de un clúster existente
+* Amazon RDS Proxy:
+    * Permite que las aplicaciones agrupen y compartan las conexiones de base de datos establecidas con la base de datos
+    * Serverless
+
