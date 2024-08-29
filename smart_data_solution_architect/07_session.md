@@ -141,3 +141,43 @@
 * Se van generando los datos según el dato que se traiga
 * Casos de uso:
     * Clasificación de juegos
+
+## Amazon DynamoDB
+
+* NoSQL
+* Millones de filas, millones de solicitudes, 100Tb de almacenamiento
+* Tablas de acceso estándar and IA
+
+* Tablas:
+    * Primary Key:
+        * Partition Key
+        * Partition Key + Sort Key
+    * Tamaño máximo de un elemento es de 400KB
+    * Datos:
+        * Escalares: cadena, número, binario, booleano, nulo
+        * Documentos: lista, mapa
+        * Conjuntos: cadenas, números, binarios
+
+* Modos de capacidad
+    * Aprovisionado
+        * Número de RCU, WCU
+    * On demand
+        * Cargas de trabajo impredecibles
+
+* DynamoDB Accelerator (DAX):
+    * Caché en memoria totalmente administrada
+    * Son cachés
+    * No requiere modificación de lógica
+    * 5 minutos de TTL
+
+* DynamoDB Streams
+    * Casos de uso
+        * Reaccionar a los cambios en tiempo real
+        * Análisis de uso en tiempo real
+        * Invocar AWS Lambda en los cambios realizados en la tabla de DynamoDB
+    * DynamoDB Streams
+        * Retención de 24 horas
+        * Lambda and EC2 (With KCL Adapter)
+    * Amazon Kinesis Streams
+        * Un año de retención
+        * Kinesis Data Firehose
