@@ -130,3 +130,14 @@
     * Permite que las aplicaciones agrupen y compartan las conexiones de base de datos establecidas con la base de datos
     * Serverless
 
+## Lab
+
+## Amazon ElastiCache
+
+* Implica cambios en el código de la aplicación
+* Redis o MemCached
+* Reduce la carga de RDS
+* Debe tener una estrategia de invalidación para asegurarse de que solo se usan los datos más recientes. 
+* Se van generando los datos según el dato que se traiga
+* Casos de uso:
+    * Clasificación de juegos
