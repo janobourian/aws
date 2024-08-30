@@ -1,15 +1,15 @@
 # Services
 
 * Analytics:
-    * [X] Amazon Athena
+    * [] Amazon Athena
     * [] AWS Data Exchange
-    * [X] Amazon EMR
-    * [X] AWS Glue
+    * [] Amazon EMR
+    * [] AWS Glue
     * [] Amazon Kinesis
     * [] Amazon Managed Streaming for Apache Kafka (Amazon MSK)
     * [] Amazon OpenSearch Service
-    * [X] Amazon Quicksight
-    * [X] Amazon Redshift
+    * [] Amazon Quicksight
+    * [] Amazon Redshift
 * Application Integration:
     * [] Amazon EventBridge
     * [] Amazon Simple Notification Service (Amazon SNS)
@@ -42,11 +42,11 @@
     * [] AWS Managed Services (AMS)
     * [] AWS Support
 * Database:
-    * [X] Amazon Aurora
-    * [X] Amazon DynamoDB
-    * [X] Amazon MemoryDB for Redis
-    * [X] Amazon Neptune
-    * [X] Amazon RDS
+    * [] Amazon Aurora
+    * [] Amazon DynamoDB
+    * [] Amazon MemoryDB for Redis
+    * [] Amazon Neptune
+    * [] Amazon RDS
 * Developer Tools:
     * [] AWS AppConfig
     * [] AWS CLI
@@ -71,15 +71,15 @@
     * [] AWS IoT Core
     * [] AWS IoT Greengrass
 * Machine Learning:
-    * [X] Amazon Comprenhend
-    * [X] Amazon Kendra
-    * [X] Amazon Lex
-    * [X] Amazon Polly
-    * [X] Amazon Rekognition
-    * [X] Amazon SageMaker
-    * [X] Amazon Textract
-    * [X] Amazon Transcribe
-    * [X] Amazon Translate
+    * [] Amazon Comprenhend
+    * [] Amazon Kendra
+    * [] Amazon Lex
+    * [] Amazon Polly
+    * [] Amazon Rekognition
+    * [] Amazon SageMaker
+    * [] Amazon Textract
+    * [] Amazon Transcribe
+    * [] Amazon Translate
 * Management and Governance:
     * [] AWS Auto Scaling
     * [] AWS CloudFormation
