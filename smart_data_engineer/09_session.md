@@ -103,3 +103,35 @@ DAG: Directed Acyclic Graph
 
 LAB: https://catalog.us-east-1.prod.workshops.aws/workshops/976050cc-0606-4b23-b49f-ca7b8ac4b153/en-US
 LAB: https://catalog.us-east-1.prod.workshops.aws/workshops/976050cc-0606-4b23-b49f-ca7b8ac4b153/en-US/600
+
+## AWS Lake Formation
+
+* Permite configurar y administrar un lago de datos en AWS
+* Cargar datos y supervisar flujos de datos
+* Construido sobre Glue
+* Gobernanza sobre los datos. 
+    * Crawler
+    * ETL
+    * Data Catalog
+    * Security
+    * ACL
+    * Cleaning
+    * Transformations
+* Inputs:
+    * S3
+    * RDBMS
+    * NoSQL
+* Outputs
+    * Athena
+    * Redshift
+    * EMR
+* AWS Lake Formation es gratis
+* Servicios subyacentes son costosos
+
+* Steps:
+    * Create user
+    * Glue connection to get data
+    * Create bucket
+
+* AWS Resource Access Manager para cuentas externas a su organización
+* Tablas gobernadas admiten transacciones ACID en S3 (nuevo tipo de tabla)
