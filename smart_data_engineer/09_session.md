@@ -135,3 +135,58 @@ LAB: https://catalog.us-east-1.prod.workshops.aws/workshops/976050cc-0606-4b23-b
 
 * AWS Resource Access Manager para cuentas externas a su organización
 * Tablas gobernadas admiten transacciones ACID en S3 (nuevo tipo de tabla)
+* Permisos por columnas o por filtro (SELECT de SQL)
+
+## Amazon Athena
+
+* Leer datos desde S3 utilizando SQL
+* Utiliza Presto
+* Serverless
+* CSV, TSV, JSON, ORC, Parquet, Avro, Compresión
+* Datos estructurados, semiestructurados, no estructurados
+
+* Integraciones:
+    * Jupyter, Zeppelin, RStudio
+    * Quicksight
+    * ODBC/JDBC
+
+* Common pattern:
+    * Amazon S3 -> AWS Glue (Crawler, job, Glue Catalog) -> Amazon Athena -> Quicksight
+
+* Athena Workgroups
+    * Organizar
+        * Usuarios
+        * Equipos
+        * Aplicaciones
+        * Cargas de trabajo
+    * Se pueden limitar los datos a los que se acceden
+
+* Modelo de costes de Athena:
+    * Pago por uso
+        * 5 USD por TB escaneado
+        * Consultas correctas y canceladas cuentas, las fallidas no
+        * No cargos por DDL (CREATE/ALTER/DROP)
+    * Se ahorra mucho en ORC y Parquet
+
+* Seguridad:
+    * Políticas de IAM, ACL y bucket de S3
+    * Cifrados en reposo de S3
+    * Cifrado en tránsito entre Athena y S3
+
+* Antipatterns:
+    * Informes/Visualizaciones
+        * Usar QuickSight
+    * ETL
+        * Usar Glue
+
+* Optimización
+    * Optimización en columnas ORC, Parquet
+    * Un número pequeño de archivos grandes funciona mejor que un gran número de archivos pequeños
+    * Usar particiones
+
+* Transacciones ACID:
+    * Desarrollado por Apache Iceberg
+    * Compatible con EMR, Spark
+    * Elimina la necesidad de un bloqueo de registro personalizado
+    * Operaciones de viaje en el tiempo
+    * Tablas gobernadas por AWS Lake Formation
