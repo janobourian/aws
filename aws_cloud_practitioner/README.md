@@ -170,6 +170,34 @@ Customers are responsible "on" the cloud, AWS is responsible "of" the cloud.
     * Build an AMI - this will also create EBS snapshot
     * Laun instances from another AMI
 
+### EC2 Image Builder
+
+* Used to automate the creation of VM or Container Images
+    * Used for validate and test EC2 AMIs
+    * Can be run on a schedule
+    * Free service (only pay for the underlying resources)
+
+### EC2 Instance Store
+
+* EBS volumes are network drives with good but limited performance
+* If you need a high-performance hardware disk, use EC2 Instance Store
+* Better I/O performance
+* EC2 Instance Store lose their storage if the are stopped (ephemeral)
+* Risk of data loss if hardware fails
+
+### Elastic File System (EFS)
+
+* Managed NFS (network file system) that can be mounted on 100s of EC2
+* Works with Linux EC2 instances in multi-AZ
+* They use a EFS Mount Target
+* EFS Infrequent Access (EFS-IA)
+    * Storage class that is cost-optimized
+    * You can use a Lifecycle Policy
+
+### Amazon FSx Overview
+
+* for Lustre, WIndows File Server, NetApp ONTAP
+
 <div id="section5"> </div>
 
 ## ELB & ASG - Elastic Load Balancer and Auto Scaling Groups
