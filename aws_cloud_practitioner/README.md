@@ -135,6 +135,8 @@ Customers are responsible "on" the cloud, AWS is responsible "of" the cloud.
 
 ## EC2 Instance Storage
 
+### Elastic Block Store (EBS)
+
 * EBS (Elastic Block Store)
     * Attach to EC2
     * One instance at a time
@@ -153,6 +155,20 @@ Customers are responsible "on" the cloud, AWS is responsible "of" the cloud.
         * Takes within 24 to 72 hours for restoring
     * Recycle Bin for EBS Snapshots:
         * Retention from 1 day to 1 year
+
+### Amazon Machine Image (AMI)
+
+* AMI are a customization of an EC2 instance that
+* AMI are built for a specific region (and can be copied across regions)
+* You can launch EC2 instances from:
+    * A Public AMI
+    * Your own AMI
+    * An AWS Marketplace AMI
+* Process:
+    * Start an EC2 instance
+    * Stop the instance (for data integrity)
+    * Build an AMI - this will also create EBS snapshot
+    * Laun instances from another AMI
 
 <div id="section5"> </div>
 
