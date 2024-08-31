@@ -135,6 +135,25 @@ Customers are responsible "on" the cloud, AWS is responsible "of" the cloud.
 
 ## EC2 Instance Storage
 
+* EBS (Elastic Block Store)
+    * Attach to EC2
+    * One instance at a time
+    * One specific AZ
+    * Multiple EBS volume for instance
+    * Network usb stick
+    * It is a network drive and for that reason we can have a bit latency
+    * To migrate EBS volumen first you need to take a snapshot
+    * You can set the GB and IOPS
+
+* EBS Snapshots:
+    * Make a backup of your EBS volumen
+    * Do not need to detach the instance
+    * Can copy snapshots across AZ or Region
+    * EBS Snapshot Archive:
+        * Takes within 24 to 72 hours for restoring
+    * Recycle Bin for EBS Snapshots:
+        * Retention from 1 day to 1 year
+
 <div id="section5"> </div>
 
 ## ELB & ASG - Elastic Load Balancer and Auto Scaling Groups
