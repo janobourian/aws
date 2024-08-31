@@ -202,6 +202,71 @@ Customers are responsible "on" the cloud, AWS is responsible "of" the cloud.
 
 ## ELB & ASG - Elastic Load Balancer and Auto Scaling Groups
 
+### Scalability and High Availability
+
+* Vertical Scalability
+* Horizontal Scalability (elasticity)
+    * Auto Scaling Group
+    * Elastic Load Balancer
+* High availability means running your app/system in at least 2 Availability Zones
+
+### Elastic Load Balancing (ELB)
+
+* Managed by AWS
+* It forward internet traffic to multiple servers
+* Expose a single point of access (DNS) to your application
+* Do regular health checks to your instances
+* Provide SSL termination (HTTPS) for your website
+* High Availability across zones
+* Kinds:
+    * Application Load Balancer (HTTP/HTTPS) layer 7
+    * Network Load Balancer (TCP/UDP) layer 4
+        * Static IP through Elastic IP
+    * Gateway Load Balancer - Layer 3
+        * GENEVE Protocol on IP Packets
+        * Route traffic to Firewalls
+    * Classic Load Balncer - Layer 4 and 7
+
+* Lab
+    * Create two EC2 Instances
+    * Create a new security group for an ELB
+    * Create a new target group for an EC2 instances
+    * Create the ELB
+
+```bash
+#!/bin/bash
+# Use this for your user data (script from top to bottom)
+# install httpd (Linux 2 version)
+yum update -y
+yum install -y httpd
+systemctl start httpd
+systemctl enable httpd
+echo "<h1>Hello from @janobourian in $(hostname -f)</h1>" > /var/www/html/index.html
+```
+
+### Auto Scaling Group (ASG)
+
+* In real-life, the load on your websites and application can change
+* Set the minimum and the maximum number of machines running
+* ASG:
+    * Minimum Size
+    * Actual Size
+    * Maximum Size
+* Process:
+    * Load Balancer -> Auto Scaling Group -> EC2 instances
+* Lab:
+    * Create Base instance
+    * Create Template
+    * Create ASG based on our template
+    * Configure ELB pointed our ASG
+* Autoscaling strategies:
+    * Manual Scaling
+    * Dynamic Scaling
+        * Simple / Step Scaling
+    * Target Tracking Scaling
+    * Schedule Scaling
+    * Predictive Scaling
+
 <div id="section6"> </div>
 
 ## Amazon S3 - Amazon Simple Storage Service 
