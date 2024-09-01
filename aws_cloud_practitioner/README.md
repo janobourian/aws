@@ -538,9 +538,24 @@ echo "<h1>Hello from @janobourian in $(hostname -f)</h1>" > /var/www/html/index.
 * Building a serverless API
 * Support sockets
 
-### Batch
+### AWS Batch
+
+* Batch processing
+    * Jobs start and end
+    * Launch EC2 instances or Spot Instances
+    * Batch jobs are defined as Docker images and run on ECS
 
 ### LightSail
+
+* Virtual servers, storage, databases, and networking
+* Low and predictable pricing
+* Great for people with little cloud experience
+* Use cases:
+    * Simple Web applications
+    * Websites
+    * Dev/Test environment
+* It has High Availability but no auto-scaling 
+* Some limitations to integrate AWS Services
 
 <div id="section9"> </div>
 
