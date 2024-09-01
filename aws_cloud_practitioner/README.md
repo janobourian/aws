@@ -359,10 +359,10 @@ echo "<h1>Hello from @janobourian in $(hostname -f)</h1>" > /var/www/html/index.
     * Up to terabytes
     * 8TB - 14TB
 * Snowball Edge
-    * Up to Terabytes
+    * Up to Petabytes
     * 80TB - 210TB
 * Snow Mobile
-    * Up to Petabytes
+    * Up to Hexabytes
 
 * Process:
     * Request Snowball device
