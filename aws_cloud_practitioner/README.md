@@ -519,10 +519,24 @@ echo "<h1>Hello from @janobourian in $(hostname -f)</h1>" > /var/www/html/index.
     * DynamoDB
     * Fargate
     * AWS Lambda
+    * EventBridge
 
-### Lambda 
+### Lambda
+
+* Key concepts:
+    * On demand
+    * 15 minutes is the maximum
+    * Pay:
+        * Per request 1,000,000
+        * Per time 400,000 GBs
+    * Event-Driven
+    * AWS CloudWatch
+    * Until 10Gb per function
 
 ### API Gateway
+
+* Building a serverless API
+* Support sockets
 
 ### Batch
 
