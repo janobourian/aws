@@ -271,6 +271,41 @@ echo "<h1>Hello from @janobourian in $(hostname -f)</h1>" > /var/www/html/index.
 
 ## Amazon S3 - Amazon Simple Storage Service 
 
+### Amazon Simple Storage Service
+
+* Amazon has "infinity" storage
+* Use cases:
+    * Backup and storage
+    * Disaster recovery
+    * Archive
+    * Hybrid Cloud Storage
+    * Hosting Application
+    * Data lakes
+    * Big data analytics
+* Buckets
+    * Regional level
+* Objects
+    * Key is the FULL path
+        * prefix + object name
+    * No concept of directories
+    * Max object size 5TB
+    * Object with more than 5GB must use "multi-part-upload"
+    * Versioning
+
+### Amazon S3 - Security
+
+### Amazon S3 - Versioning
+
+### Amazon S3 - Replication
+
+### Amazon S3 - Storage Classes
+
+### Amazon S3 and IAM
+
+### AWS Snow Family
+
+### Storage Gateway Overview
+
 <div id="section7"> </div>
 
 ## Databases & Analytics
