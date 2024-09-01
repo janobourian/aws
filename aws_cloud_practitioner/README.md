@@ -495,6 +495,39 @@ echo "<h1>Hello from @janobourian in $(hostname -f)</h1>" > /var/www/html/index.
 
 ## Other Compute Services: ECS, Lambda, Batch, Lightsail
 
+### Containers
+
+* Docker
+    * Docker Daemon is similar to Hypervisor
+    * Storage:
+        * Docker Hub
+        * Elastic Container Registry
+
+* Elastic Container Service
+    * You must provision and mantain the infrastructure
+    * Has integration with the ALB
+* Amazon Fargate
+    * Launch Docker Container as Serverless
+* Elastic Container Registry:
+    * Private Docker Registry on AWS
+    * They can run on ECS or Fargate
+
+### Serverless
+
+* Main Stack:
+    * Amazon S3
+    * DynamoDB
+    * Fargate
+    * AWS Lambda
+
+### Lambda 
+
+### API Gateway
+
+### Batch
+
+### LightSail
+
 <div id="section9"> </div>
 
 ## Deployments & Managing Infrastructure at Scale
