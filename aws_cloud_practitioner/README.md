@@ -450,6 +450,7 @@ echo "<h1>Hello from @janobourian in $(hostname -f)</h1>" > /var/www/html/index.
     * Serverless query service to perfomr analytics against S3 objects
     * Uses standard SQL language to query the files
     * Supports CSV, JSON, ORC, Avro, and Parquet
+    * $5 USD per TB
     * Use cases:
         * BI, Analytics, reporting, analyze, and VPC flow logs, ELB logs, CloudTrail trails
     * Exam Tip: Analyze data in S3 using serverless SQL use Athena
@@ -460,7 +461,7 @@ echo "<h1>Hello from @janobourian in $(hostname -f)</h1>" > /var/www/html/index.
 * DocumentDB
     * Is the same for MongoDB
     * MongoDB is used to store, query and index JSON data
-    * Similar "deploymeny concepts" as Aurora
+    * Similar "deployment concepts" as Aurora
 
 * Neptune
     * Fully managed graph database
@@ -479,9 +480,13 @@ echo "<h1>Hello from @janobourian in $(hostname -f)</h1>" > /var/www/html/index.
     * Blockchain makes it possible to build applicaions where multiple parties can execute transactions without the need for a trusted, central authority
 
 * Glue
+    * Serverless
+    * Sources: S4 Bucket and Amazon RDS
+    * Targets Redshift
     * Managed extract, transform, and load (ETL) service
     * Useful to prepare and tranform data for analytics
-    * Glue Data Catalog
+    * Glue Data Catalog:
+        * Catalog of datasets
 
 * Data Migration Service
     * Migrate information
