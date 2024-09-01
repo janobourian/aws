@@ -303,22 +303,74 @@ echo "<h1>Hello from @janobourian in $(hostname -f)</h1>" > /var/www/html/index.
         * Object Access Control List (OACL)
         * Bucket Access Control List (BACL)
     * Encription:
-        * SS3
-        * KMS
-        * SSC
-        * Cliente Encryption
+        * SSE: Service Side Encryption
+        * KMS: Key Management Access
+        * SSC: Client Side Encryption
+        * Client Encryption
 
 ### Amazon S3 - Versioning
 
+* You can version your files in Amazon S3
+* Enable at bucket level
+
 ### Amazon S3 - Replication
+
+* CRR
+    * Cross Region Replication
+* SRR
+    * Same Region Replication
+* Buckets can be in different AWS Accounts
+* Copying is asynchronous
+* Hands-On:
+    * Create first bucket
+    * Create target bucket
 
 ### Amazon S3 - Storage Classes
 
+* S3 Storage Classes:
+    * Standard
+    * Standard Infrequent Access
+    * Infrequent Access One Zone
+    * Intelligent Tiering
+        * Frequent Access 
+        * Infrequent Access (30 days)
+        * Archive Instant Access (90 days)
+        * Archive Access  (90 days)
+        * Deep Archive Access (180 days)
+    * Glacier Instant Retrieval (90 days)
+    * Glacier Flexible Retrieval:
+        * Expedited (1 to 5 minutes)
+        * Standard (3 to 5 hours)
+        * Bulk (5 to 12 hours)
+    * Glacier Deep Archive (180 days)
+        * Standard (12 hours)
+        * Bulk (48 hours)
+
+
+* Life Cycle rules
+
 ### Amazon S3 and IAM
+
+* IAM Access Analyzer for S3
 
 ### AWS Snow Family
 
+* SnowCone:
+    * Up to terabytes
+    * 8TB - 14TB
+* Snowball Edge
+    * Up to Terabytes
+    * 80TB - 210TB
+* Snow Mobile
+    * Up to Petabytes
+
+* Process:
+    * Request Snowball device
+    * Install the snowball client / AWS OpsHub
+
 ### Storage Gateway Overview
+
+* AWS is pushing for "hybrid cloud"
 
 <div id="section7"> </div>
 
