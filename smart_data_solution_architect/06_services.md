@@ -86,6 +86,11 @@
     * Transición
     * Expiración
 
+* Amazon S3 Analytics:
+    * Trabaja en Standard and Standard IA
+    * Ideal to start to know the life cycle
+    * 24 to 48 to start to see the analysis
+
 * Requester Pays Bucket:
     * El solicitante paga
 
