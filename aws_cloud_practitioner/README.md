@@ -500,6 +500,68 @@ echo "<h1>Hello from @janobourian in $(hostname -f)</h1>" > /var/www/html/index.
 
 ## Other Compute Services: ECS, Lambda, Batch, Lightsail
 
+### Containers
+
+* Docker
+    * Docker Daemon is similar to Hypervisor
+    * Storage:
+        * Docker Hub
+        * Elastic Container Registry
+
+* Elastic Container Service
+    * You must provision and mantain the infrastructure
+    * Has integration with the ALB
+* Amazon Fargate
+    * Launch Docker Container as Serverless
+* Elastic Container Registry:
+    * Private Docker Registry on AWS
+    * They can run on ECS or Fargate
+
+### Serverless
+
+* Main Stack:
+    * Amazon S3
+    * DynamoDB
+    * Fargate
+    * AWS Lambda
+    * EventBridge
+
+### Lambda
+
+* Key concepts:
+    * On demand
+    * 15 minutes is the maximum
+    * Pay:
+        * Per request 1,000,000
+        * Per time 400,000 GBs
+    * Event-Driven
+    * AWS CloudWatch
+    * Until 10Gb per function
+
+### API Gateway
+
+* Building a serverless API
+* Support sockets
+
+### AWS Batch
+
+* Batch processing
+    * Jobs start and end
+    * Launch EC2 instances or Spot Instances
+    * Batch jobs are defined as Docker images and run on ECS
+
+### LightSail
+
+* Virtual servers, storage, databases, and networking
+* Low and predictable pricing
+* Great for people with little cloud experience
+* Use cases:
+    * Simple Web applications
+    * Websites
+    * Dev/Test environment
+* It has High Availability but no auto-scaling 
+* Some limitations to integrate AWS Services
+
 <div id="section9"> </div>
 
 ## Deployments & Managing Infrastructure at Scale

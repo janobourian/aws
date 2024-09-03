@@ -47,3 +47,8 @@
 * Utilizar etiquetas de recursos
 * No se puede usar para administrar instantáneas o AMI creadas fuera de DLM
 * No se puede usar para administrar AMI respaldadas por el almacé de instancias
+
+### EFS - Access Point
+
+* Restringir el acceso a un directorio dentro del sistema de archivos
+* Se puede restringir el acceso desde políticas de IAM
