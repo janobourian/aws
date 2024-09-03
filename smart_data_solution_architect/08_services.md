@@ -56,3 +56,19 @@
 * NAT Gateway
     * Common case, IG => NATG => Private EC2 Instance
     * High Availability: Create a NATG for each AZ
+
+## VPC Security
+
+* NACL
+    * ALLOW and DENY
+    * Sin estado
+    * Sólo IPs
+    * Input and Output allow by defect
+* Security Groups
+    * ALLOW
+    * IPs and Security Groups
+    * With Estado
+    * AWS Verified Access
+* VPC Flow Logs
+    * Information about IP traffic
+    * The data could forward to S3, CloudWatch Logs, and Kinesis Data Firehose
