@@ -72,3 +72,9 @@
 * VPC Flow Logs
     * Information about IP traffic
     * The data could forward to S3, CloudWatch Logs, and Kinesis Data Firehose
+
+* Labs:
+    - Create a VPC
+    - Create a new subnet
+    - Edit Route tables to add the new subnets
+    - Launch EC2 instance
