@@ -76,3 +76,14 @@ aws kinesis get-records --shard-iterator AAAAAAAAAAFj6XjGfJEseRRQSorxyxYzStkMtpl
 * Convert JSON to Parquet/ORC (only for S3)
 * Compresions in GZIP (Redshift only admit this), ZIP, SNAPPY
 * Buffer Sizing se vacía según las reglas de tiempo y tamaño
+
+## Kinesis Data Analytics
+
+* To create tables for analysis from Kinesis Data Streams and Kinesis Data Firehose
+* It uses Apache Flink
+* Use cases:
+    * Streaming ETL
+    * Continuos generation of Insights
+    * Analytics
+* RANDOM_CUT_FOREST:
+    * Help you to detect anomaly columns
