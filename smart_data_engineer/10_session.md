@@ -68,3 +68,11 @@ aws kinesis describe-stream --stream-name rabbit-kds
 aws kinesis get-shard-iterator --stream-name rabbit-kds --shard-id shardId-000000000000 --shard-iterator-type TRIM_HORIZON
 aws kinesis get-records --shard-iterator AAAAAAAAAAFj6XjGfJEseRRQSorxyxYzStkMtpl3o7RNxref/mvYD+TX9enZUKscx9uKnZ8dyPHSl/W/pFT0hC40CzY3uHznrVMA6lOewMzu0WG3gjQlqgWu+a2tDKG0xtGdGh1lT3DBMb/puLqXeXmJXJdNH3T5Hk2asN1GPzlXocibUP0KEt6ccJbvEu2RlreTgC3tjPrCmuXzBSFCZ+ZicGlPPbwU8MMhevqsZ+VLM9U/cRep9A==
 ```
+
+## Amazon Kinesis Data Firehose
+
+* Near Real Time
+* Send information to Redshift/Amazon S3/OpenSearch/Splunk
+* Convert JSON to Parquet/ORC (only for S3)
+* Compresions in GZIP (Redshift only admit this), ZIP, SNAPPY
+* Buffer Sizing se vacía según las reglas de tiempo y tamaño
