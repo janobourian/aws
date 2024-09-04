@@ -87,3 +87,22 @@ aws kinesis get-records --shard-iterator AAAAAAAAAAFj6XjGfJEseRRQSorxyxYzStkMtpl
     * Analytics
 * RANDOM_CUT_FOREST:
     * Help you to detect anomaly columns
+
+## Amazon Managed Streaming for Apache Kafka
+
+* Alternativa a Kinesis
+* Puede implementar clúster Multi-AZ
+* Los datos se almacenan en EBS
+* Puede crear Producers and Consumers
+* Seguridad:
+    * Encriptación
+    * Grupos de seguridad
+    * Autenticación y Autorización
+* Monitoreo:
+    * CloudWatch
+    * Prometheus
+    * Broker Log Delivery:
+        * CloudWatch Logs
+        * Amazon S3
+        * Kinesis Data Stream
+* También tiene versión Serverless
