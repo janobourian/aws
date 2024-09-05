@@ -106,3 +106,9 @@
     * For backup we can use a site-to-site VPN
 * AWS Private Link
     * Exponer un servicio a miles de VPC
+
+## AWS Network Firewall
+
+* Protección a nivel de VPC
+    * De capa tres a siete
+    * Filtrado de tráfico
