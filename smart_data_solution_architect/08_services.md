@@ -78,3 +78,14 @@
     - Create a new subnet
     - Edit Route tables to add the new subnets
     - Launch EC2 instance
+
+## Conectivity options
+
+* VPC Peering
+* AWS Transit Gateway
+* VPC Endpoint
+    * Interface
+    * Gateway
+        * S3
+        * DynamoDB
+* VPC Flow Logs
