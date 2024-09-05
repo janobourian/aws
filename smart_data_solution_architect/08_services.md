@@ -89,3 +89,20 @@
         * S3
         * DynamoDB
 * VPC Flow Logs
+
+## On-premises
+
+* Site-to-site VPN
+    * Public internet
+        * AWS side:
+            * Virtual Private Gateway
+        * Customer side:
+            * Customer Gateway
+    * AWS VPN CloudHub
+* Direct Connect (DX)
+    * Conexión física
+        * Conexiones dedicadas
+        * Conexiones alojadas
+    * For backup we can use a site-to-site VPN
+* AWS Private Link
+    * Exponer un servicio a miles de VPC
