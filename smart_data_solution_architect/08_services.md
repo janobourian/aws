@@ -112,3 +112,23 @@
 * Protección a nivel de VPC
     * De capa tres a siete
     * Filtrado de tráfico
+
+## Route53
+
+* DNS Service
+* Hosted Zone
+* Routing:
+    * Simple
+    * Weightleng (ponderado)
+    * Latency
+    * Conmutación por error
+    * State (conmutación por error)
+    * Geolozalization
+    * Geoproximity
+    * IP Routing
+    * Multi-value
+* Health Checker
+
+## CloudFront
+
+## AWS Global Accelerator
