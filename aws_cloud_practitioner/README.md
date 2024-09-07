@@ -743,6 +743,58 @@ echo "<h1>Hello from @janobourian in $(hostname -f)</h1>" > /var/www/html/index.
 
 ## Cloud Integrations
 
+* Communicate applications
+    * Synchronous
+        * Application to Application
+    * Asyncrhonous / Event Based
+        * Application to Queue to Application
+
+### SQS
+
+* Queue model
+* Producers (send) / Queue / Consumers (poll)
+* Serverless to deocuple application
+* Scales from 1 message per second to 10,000s
+* Default retantion 4 days to maximum of 14
+* Types:
+    * FIFO: First In First Out
+    * Standard
+
+### Kinesis
+
+* Real-time data streaming model
+* Collect, process, and Analyze real-time streaming
+* Services:
+    * Kinesis Data Streams
+        * Low latency streaming to ingest data 
+    * Kinesis Data Firehose
+        * Load streams into S3, Redshift, ElasticSearch
+    * Kinesis Data Analytics
+        * Perform real-time analytics on streams using SQL
+    * Kinesis Video Streams
+        * Perform real-time video streams for analytics or ML
+* Pattern: 
+    * Kinesis Data Streams
+    * Kinesis Data Analytics
+    * Kinesis Data Firehose
+
+### SNS
+
+* pub/sub model using SNS topic
+* One message to many receivers
+* Limits:
+    * 12,500,000 subscriptions per topic
+    * 100,000 topics limit
+
+### Amazon MQ
+
+* Protocols such as MQTT, AMQP, STOMP on premises
+* We can usw MQ:
+    * Managed Message Broker
+    * Services:
+        * RabbitMQ
+        * ActiveMQ
+
 <div id="section12"> </div>
 
 ## Cloud Monitoring
