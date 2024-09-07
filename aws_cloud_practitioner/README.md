@@ -640,6 +640,105 @@ echo "<h1>Hello from @janobourian in $(hostname -f)</h1>" > /var/www/html/index.
 
 ## Leveraging the AWS Global Infrastructure
 
+* Key concepts:
+    * Regions
+    * Edge Locations
+    * Latency
+    * Disaster Recovery (DR)
+    * Hard to attack
+
+### Route53
+
+* Managed DNS
+* Hosted Zones
+* Records:
+    * A
+    * AAAA
+    * CNAME: Hostname to Hostname
+    * Alias: AWS Resources
+* Routing Policies:
+    * Simple
+    * Weighted
+    * Latency
+    * Failover
+    * Geolocalization
+    * IPs range
+
+### CloudFront
+
+* Content Delivery Network
+* Improves read performance, content is cached at the edge
+* DDoS protection, integration with Shield and AWS Web Application Firewall
+* Origins:
+    * S3 Bucket
+        * CloudFront Origin Access Control
+    * Custom Origin (HTTP)
+        * Application Load Balancer
+        * EC2
+        * S3 Website
+        * Any HTTP
+* CloudFront vs S3 Cross Region Replication
+    * CloudFront
+        * Global Edge Network
+    * S3 Cross Region Replication
+        * Read only
+* Labs:
+    * Create CloudFront
+    * Create Control Settings
+    * Set default object
+    * Create Bucket policy to add Cloud Front
+
+### S3 Transfer Acceleration
+
+* Transfer S3 Bucket content to another Region using Edge Location
+
+### AWS Global Accelerator
+
+* Improve global application availability and performance
+* It uses Edge Location
+* Using AWS Network
+
+### AWS Outposts
+
+* Hybrid CLoud Service
+* AWS Outposts are "server racks" in your corporation data center.
+* Extension of AWS Service
+* Services:
+    * Amazon EC2
+    * Amazon EBS
+    * Amazon S3
+    * Amazon EKS
+    * Amazon ECS
+    * Amazon RDS
+    * Amazon EMR
+
+### AWS WaveLenght
+
+* 5G networks
+* Brings AWS Services to the edge of the 5G networks
+* It can be connected with some AWS Region
+
+### AWS Local Zones
+
+* Places AWS Services closer to the end users to run latency-sensitive applications
+* Process:
+    * Activate the local zone
+    * Create a subnet for that local zone
+    * Deploy an EC2 instance to work with your VPC but in the local zone
+
+### Global Application Architecture
+
+* Points to evaluate:
+    * High Availability
+    * Global Latency
+    * Configuration
+
+* Single Region, Single AZ
+* Single Region, Multiple AZ
+* Multi Region, Active-Pasive
+* Multi Region, Active-Active
+
+
 <div id="section11"> </div>
 
 ## Cloud Integrations
