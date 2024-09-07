@@ -566,6 +566,76 @@ echo "<h1>Hello from @janobourian in $(hostname -f)</h1>" > /var/www/html/index.
 
 ## Deployments & Managing Infrastructure at Scale
 
+### CLoudFormation
+
+* You could automation deletion of templates
+* Productivity
+* Do not re-invent the wheel
+* Application Composer (A visual way to work with your resources)
+
+### CDK
+
+* AWS Cloud Development Kit
+* CDK CLI -> CLoudFormation Template -> CloudFormation
+
+### Beanstalk
+
+* PaaS
+* Web App 3-tier:
+    * ELB -> EC2 -> DataBase
+* Three Architecture Models:
+    * Single Instance deployment
+    * ELB + ASG preproduction
+    * ASG only
+* Health agent and Checks for app health
+
+### CodeDeploy
+
+* AWS CodeDeploy
+    * Hybrid Services
+        * CodeDeploy Agent
+    * Works with EC2
+
+* AWS CodeCommit
+    * Repository Manager
+
+* AWS CodeBuild
+    * Compile source code
+    * Create packages ready to deploys
+    * Serverless
+
+* AWS CodePipeline:
+    * Code -> Build -> Test -> Provision -> Deploy
+    * CI/CD Tool
+
+* AWS CodeArtifact
+    * Install dependencies
+    * Artifact Manager
+    * Works with common dependecies such npm or pip
+
+### Systems Manager (SSM)
+
+* Hybrid Service
+* Helps you manage your EC2 and On-premises system at scale
+* Keys:
+    * Patch
+    * Run a command
+    * Configure
+    * Works using SSM Agent
+
+### SSM Session Manager
+
+* Allows you to start a secure shell on your EC2 and on-premises servers
+* No SSH access, bastion hosts, or SSH keys
+* No port 22 needed
+* AmazonSSMManagedInstanceCore
+
+### SSM Parameter Store
+
+* Secure storage for configuration and secrets
+* Serverless
+* Control access permissions using IAM
+
 <div id="section10"> </div>
 
 ## Leveraging the AWS Global Infrastructure
