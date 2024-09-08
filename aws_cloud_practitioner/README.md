@@ -877,6 +877,79 @@ echo "<h1>Hello from @janobourian in $(hostname -f)</h1>" > /var/www/html/index.
 
 ## Security and Compliance
 
+### Shared Responsibility Model
+
+* AWS: Security OF the Cloud
+* Custome: Security IN the Cloud
+
+### DDoS Protection: Shield and WAF
+
+* Distributed Denial-of-Service
+* AWS Shield:
+    * Layer 3 and layer 4
+    * Standard
+    * Advanced: Premium
+* AWS WAF
+    * Filer content based on Web Access Control List
+    * Layer 7
+    * Deploy on:
+        * ALB
+        * AGW
+        * CloudFront
+* CloudFront
+* Route53
+* AWS Auto-Scaling
+
+### AWS Network Firewall
+
+* Protect all VPC
+* Layer 3 to Layer 7
+
+### AWS Firewall Manager
+
+* Manage security Based on AWS Organization
+
+### Penetration Testing
+
+* Attack your own infrastructure
+* Eight Services:
+    * EC2, ELB and NAT Gateways
+    * RDS
+    * CloudFront
+    * Aurora
+    * AGW
+    * AWS Lambda
+    * Lightsail
+    * Elastic Beanstalk
+
+### Encryption with KMS and CloudHSM
+
+* Data at rest
+* Data in transit
+* CloudHSM => Hardware Security Module
+
+### AWS Certificate Manager (ACM)
+
+### Secrets Manager
+
+### Artifact Overview
+
+### GuardDuty
+
+### Inspector
+
+### Config
+
+### Macie
+
+### Security Hub
+
+### Amazon Detective
+
+### AWS Abuse
+
+### IAM Access Analyzer
+
 <div id="section15"> </div>
 
 ## Machine Learning
