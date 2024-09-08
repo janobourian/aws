@@ -799,6 +799,76 @@ echo "<h1>Hello from @janobourian in $(hostname -f)</h1>" > /var/www/html/index.
 
 ## Cloud Monitoring
 
+### CloudWatch
+
+* Metrics for every service in AWS
+* CloudWatch Dashboard Metrics
+* Services:
+    * EC2 Instances:
+        * RAM is not available
+    * EBS Volumes
+    * S3 Buckets
+    * Billing
+    * Service Limits
+    * Custom Metrics
+* Alarms:
+    * Trigger notifications for any metrics
+    * States:
+        * OK
+        * INSUFICIENT_DATA
+        * ALARM
+* Logs:
+    * Collect logs froms:
+        * Elastic Beanstalk
+        * EC2
+        * CloudWatch log agents
+
+### EventBridge
+
+* Schedule: Cron jobs (scheduled scripts)
+* Events:
+    * Default Event Bus
+    * Partner Event Bus
+    * Custom Event Bus
+* Schema Registry
+* You can archive events
+
+### CloudTrail
+
+* Provides governance, compliance and audit for your AWS account
+* Put logs
+    * CloudWatch Logs
+    * S3
+* Can be applied to All Regions or only One Region
+
+### X-Ray
+
+* Visual Analysis of our application
+* Full picture of each service
+* Advantages:
+    * Microservice architecture
+    * Pinpoint
+    * Performan
+    * SLA (Service Leavel Agreement)
+
+### Code Guru
+
+* Key concepts:
+    * Machine Learning service
+    * Detect bugs
+    * Automated code reviews
+    * Application performance recommendations
+    * Cost recommendations
+    * Cloud and On-premises
+
+### AWS Health Dashboard
+
+* Service History:
+    * All regions
+* Your Account:
+    * Personal Health Dashboard
+    * About events that may impact you
+
 <div id="section13"> </div>
 
 ## VPC & Networking
