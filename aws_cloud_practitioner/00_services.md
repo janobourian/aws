@@ -71,15 +71,15 @@
     * [] AWS IoT Core
     * [] AWS IoT Greengrass
 * Machine Learning:
-    * [] Amazon Comprenhend
-    * [] Amazon Kendra
-    * [] Amazon Lex
-    * [] Amazon Polly
-    * [] Amazon Rekognition
-    * [] Amazon SageMaker
-    * [] Amazon Textract
-    * [] Amazon Transcribe
-    * [] Amazon Translate
+    * [X] Amazon Comprenhend
+    * [X] Amazon Kendra
+    * [X] Amazon Lex
+    * [X] Amazon Polly
+    * [X] Amazon Rekognition
+    * [X] Amazon SageMaker
+    * [X] Amazon Textract
+    * [X] Amazon Transcribe
+    * [X] Amazon Translate
 * Management and Governance:
     * [X] AWS Auto Scaling
     * [X] AWS CloudFormation
@@ -120,7 +120,7 @@
     * [X] AWS Certificate Manager (ACM)
     * [X] AWS CloudHSM
     * [X] Amazon Cognito
-    * [] Amazon Detective
+    * [X] Amazon Detective
     * [] AWS Directory Service
     * [X] AWS Firewall Manager
     * [X] Amazon GuarDuty
@@ -132,7 +132,7 @@
     * [X] AWS Network Firewall
     * [] AWS Resource Access Manager (AWS RAM)
     * [X] AWS Secrets Manager
-    * [] AWS Security Hub
+    * [X] AWS Security Hub
     * [X] AWS Shield
     * [X] AWS WAF
 * Serverless:
