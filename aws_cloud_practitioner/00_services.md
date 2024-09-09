@@ -85,16 +85,16 @@
     * [X] AWS CloudFormation
     * [X] AWS CloudTrail
     * [X] Amazon CloudWatch
-    * [] AWS Compute Optimizer
+    * [X] AWS Compute Optimizer
     * [X] AWS Config
-    * [] AWS Control Tower
+    * [X] AWS Control Tower
     * [X] AWS Health Dashboard
     * [] AWS Launch Wizard
     * [] AWS License Manager
     * [] AWS Management Console
-    * [] AWS Organizations
+    * [X] AWS Organizations
     * [] AWS Resource Groups and Tag Editor
-    * [] AWS Service Catalog
+    * [X] AWS Service Catalog
     * [] AWS System Manager
     * [] AWS Trusted Advisor
     * [] AWS Well-Architected Tool
@@ -130,7 +130,7 @@
     * [X] AWS Key Management Service (AWS KMS)
     * [X] Amazon Macie
     * [X] AWS Network Firewall
-    * [] AWS Resource Access Manager (AWS RAM)
+    * [X] AWS Resource Access Manager (AWS RAM)
     * [X] AWS Secrets Manager
     * [X] AWS Security Hub
     * [X] AWS Shield

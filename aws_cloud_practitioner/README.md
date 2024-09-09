@@ -1048,6 +1048,102 @@ echo "<h1>Hello from @janobourian in $(hostname -f)</h1>" > /var/www/html/index.
 
 ## Account Management, Billing & Support
 
+### AWS Organizations
+
+* Global service
+* Cost Benefits
+    * Consolidated Billing
+    * Aggregated usage
+    * Reserved EC2 Instance
+* API is available to automate AWS account creation
+* Restrict account privileges using Services Control Policies (SCP)
+* Multi Account Strategies
+* Organizational Units (OU)
+    * Business Unit
+    * Stage Unit
+    * Project Unit
+
+### AWS Control Tower
+
+* Easy way to set pu and govern a secure and compliant multi-account AWS Environment
+* Single Sign On: Quickly access your AWS accounts
+
+### AWS Resource Access Manager
+
+* Share AWS resource that you own with other AWS accounts
+
+### AWS Service Catalog
+
+* For new users
+
+### Pricing Models
+
+* Four Pricing model:
+    * Pay as yor go
+    * Save when you reserve
+    * Pay less by using more
+    * Pay less as AWS grows: Economy of scales
+
+### Saving Plan
+
+* Commint a certain $ amount per hour for 1 or 3 years
+* Types
+    * EC2 Savings Plan
+    * Compute Savings Plan
+    * Machine Learning Savings Plan: SageMaker
+
+### Compute Optimizer
+
+* Reduce costs and improve performance
+
+### Billing and Costing Tools
+
+* AWS Pricing Calculator
+* Billing Dashboard
+* Cost Allocation Tags
+* Reports
+
+### AWS Cost Anomaly Detection
+
+* Monitor your cost using ML to detect unsual spends
+
+### AWS Service Quotas
+
+* Notify you when you are close to a service quota value threshold
+
+### AWS Trusted Advisor
+
+* High level AWS account assesment
+* Categories:
+    * Cost optimization
+    * Performance
+    * Security
+    * Fault tolerance
+    * Service limits
+    * Operational Excellence
+* Business and Enterprise Support plan
+    * AWS Support API 
+
+### Support Plans for AWS
+
+* Basic Support plan
+* Developer
+    * Bussines hour email access
+    * Unlimited cases / unlimited contacts
+* Business
+    * Production workloads
+    * Trusted Advisor + API Access
+    * 24/7 phone, email, and chat access
+* Enterprise On-Ramp
+    * Production or Bussiness critital
+    * TAM
+    * Concierge Support Team
+    * Infrastructure Event Management, Well-Architected, and Operational Reviews
+* Enterprise
+    * Mission critical workloads
+    * Dedicated TAM
+    * Concierge Support Team
+
 <div id="section17"> </div>
 
 ## Advanced Identity
