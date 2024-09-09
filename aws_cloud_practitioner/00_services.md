@@ -1,70 +1,70 @@
 # Services
 
 * Analytics:
-    * [] Amazon Athena
+    * [X] Amazon Athena
     * [] AWS Data Exchange
-    * [] Amazon EMR
-    * [] AWS Glue
-    * [] Amazon Kinesis
+    * [X] Amazon EMR
+    * [X] AWS Glue
+    * [X] Amazon Kinesis
     * [] Amazon Managed Streaming for Apache Kafka (Amazon MSK)
     * [] Amazon OpenSearch Service
-    * [] Amazon Quicksight
-    * [] Amazon Redshift
+    * [X] Amazon Quicksight
+    * [X] Amazon Redshift
 * Application Integration:
-    * [] Amazon EventBridge
-    * [] Amazon Simple Notification Service (Amazon SNS)
-    * [] Amazon Simple Queue Service (Amazon SQS)
+    * [X] Amazon EventBridge
+    * [X] Amazon Simple Notification Service (Amazon SNS)
+    * [X] Amazon Simple Queue Service (Amazon SQS)
     * [] AWS Step Functions
 * Business Applications:
-    * [] Amazon Connect
-    * [] Amazon Simple Email Service (Amazon SES)
+    * [X] Amazon Connect
+    * [X] Amazon Simple Email Service (Amazon SES)
 * Cloud Financial Management:
     * [] AWS Billing Conductor
-    * [] AWS Budgets
-    * [] AWS Cost and Usage Report
-    * [] AWS Cost Explorer
-    * [] AWS Marketplace
+    * [X] AWS Budgets
+    * [X] AWS Cost and Usage Report
+    * [X] AWS Cost Explorer
+    * [X] AWS Marketplace
 * Compute:
-    * [] AWS Batch
-    * [] Amazon EC2
-    * [] AWS Elastic Beanstalk
-    * [] Amazon Lightsail
-    * [] AWS Local Zones
-    * [] Outposts
-    * [] AWS Wavelength
+    * [X] AWS Batch
+    * [X] Amazon EC2
+    * [X] AWS Elastic Beanstalk
+    * [X] Amazon Lightsail
+    * [X] AWS Local Zones
+    * [X] Outposts
+    * [X] AWS Wavelength
 * Containers:
-    * [] Amazon Elastic Container Registry (Amazon ECR)
-    * [] Amazon Elastic Container Service (Amazon ECS)
-    * [] Amazon Elastic Kubernets Service (Amazon EKS)
+    * [X] Amazon Elastic Container Registry (Amazon ECR)
+    * [X] Amazon Elastic Container Service (Amazon ECS)
+    * [X] Amazon Elastic Kubernets Service (Amazon EKS)
 * Customer Engagement:
     * [] AWS Activate for Startups
     * [] AWS IQ
     * [] AWS Managed Services (AMS)
     * [] AWS Support
 * Database:
-    * [] Amazon Aurora
-    * [] Amazon DynamoDB
-    * [] Amazon MemoryDB for Redis
-    * [] Amazon Neptune
-    * [] Amazon RDS
+    * [X] Amazon Aurora
+    * [X] Amazon DynamoDB
+    * [X] Amazon MemoryDB for Redis
+    * [X] Amazon Neptune
+    * [X] Amazon RDS
 * Developer Tools:
     * [] AWS AppConfig
-    * [] AWS CLI
-    * [] AWS Cloud9
-    * [] AWS CloudShell
-    * [] AWS CodeArtifact
-    * [] AWS CodeBuild
-    * [] AWS CodeCommit
-    * [] AWS CodeDeploy
-    * [] AWS CodePipeline
-    * [] AWS CodeStar
-    * [] AWS X-Ray
+    * [X] AWS CLI
+    * [X] AWS Cloud9
+    * [X] AWS CloudShell
+    * [X] AWS CodeArtifact
+    * [X] AWS CodeBuild
+    * [X] AWS CodeCommit
+    * [X] AWS CodeDeploy
+    * [X] AWS CodePipeline
+    * [X] AWS CodeStar
+    * [X] AWS X-Ray
 * End User Computing:
     * [] Amazon AppStream 2.0
     * [] Amazon WorkSpaces
     * [] Amazon WorkSpaces Web
 * Frontend Web and Mobile:
-    * [] AWS Amplify
+    * [X] AWS Amplify
     * [] AWS AppSync
     * [] AWS Device Farm
 * Internet of Things:
@@ -81,14 +81,14 @@
     * [] Amazon Transcribe
     * [] Amazon Translate
 * Management and Governance:
-    * [] AWS Auto Scaling
-    * [] AWS CloudFormation
-    * [] AWS CloudTrail
-    * [] Amazon CloudWatch
+    * [X] AWS Auto Scaling
+    * [X] AWS CloudFormation
+    * [X] AWS CloudTrail
+    * [X] Amazon CloudWatch
     * [] AWS Compute Optimizer
-    * [] AWS Config
+    * [X] AWS Config
     * [] AWS Control Tower
-    * [] AWS Health Dashboard
+    * [X] AWS Health Dashboard
     * [] AWS Launch Wizard
     * [] AWS License Manager
     * [] AWS Management Console
@@ -104,46 +104,46 @@
     * [] AWS Database Migration Service (AWS DMS)
     * [] AWS Migration Hub
     * [] AWS Schema Conversion Tool (AWS SCT)
-    * [] AWS Snow Family
-    * [] AWS Transfer Family
+    * [X] AWS Snow Family
+    * [X] AWS Transfer Family
 * Networking and Content Delivery:
-    * [] Amazon API Gateway
-    * [] Amazon CloudFront
-    * [] AWS Direct Connect
-    * [] AWS Global Accelerator
-    * [] Amazon Route 53
-    * [] Amazon VPC
-    * [] AWS VPN
+    * [X] Amazon API Gateway
+    * [X] Amazon CloudFront
+    * [X] AWS Direct Connect
+    * [X] AWS Global Accelerator
+    * [X] Amazon Route 53
+    * [X] Amazon VPC
+    * [X] AWS VPN
 * Security, Identity, and Compliance:
-    * [] AWS Artifact
+    * [X] AWS Artifact
     * [] AWS Audit Manager
-    * [] AWS Certificate Manager (ACM)
-    * [] AWS CloudHSM
-    * [] Amazon Cognito
+    * [X] AWS Certificate Manager (ACM)
+    * [X] AWS CloudHSM
+    * [X] Amazon Cognito
     * [] Amazon Detective
     * [] AWS Directory Service
-    * [] AWS Firewall Manager
-    * [] Amazon GuarDuty
-    * [] AWS Identity and Access Management (IAM)
+    * [X] AWS Firewall Manager
+    * [X] Amazon GuarDuty
+    * [X] AWS Identity and Access Management (IAM)
     * [] AWS IAM Identity Center (AWS Single Sign-On)
-    * [] Amazon Inspector
-    * [] AWS Key Management Service (AWS KMS)
-    * [] Amazon Macie
-    * [] AWS Network Firewall
+    * [X] Amazon Inspector
+    * [X] AWS Key Management Service (AWS KMS)
+    * [X] Amazon Macie
+    * [X] AWS Network Firewall
     * [] AWS Resource Access Manager (AWS RAM)
-    * [] AWS Secrets Manager
+    * [X] AWS Secrets Manager
     * [] AWS Security Hub
-    * [] AWS Shield
-    * [] AWS WAF
+    * [X] AWS Shield
+    * [X] AWS WAF
 * Serverless:
-    * [] AWS Fargate
-    * [] AWS Lambda
+    * [X] AWS Fargate
+    * [X] AWS Lambda
 * Storage:
     * [] AWS Backup
-    * [] Amazon Elastic Block Store (Amazon EBS)
-    * [] Amazon Elastic File System (Amazon EFS)
+    * [X] Amazon Elastic Block Store (Amazon EBS)
+    * [X] Amazon Elastic File System (Amazon EFS)
     * [] AWS Elastic Disaster Recovery
-    * [] AWS FSx
-    * [] AWS S3
-    * [] AWS S3 Glacier
+    * [X] AWS FSx
+    * [X] AWS S3
+    * [X] AWS S3 Glacier
     * [] AWS Storage Gateway
