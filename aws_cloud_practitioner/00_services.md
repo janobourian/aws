@@ -95,15 +95,15 @@
     * [X] AWS Organizations
     * [] AWS Resource Groups and Tag Editor
     * [X] AWS Service Catalog
-    * [] AWS System Manager
-    * [] AWS Trusted Advisor
-    * [] AWS Well-Architected Tool
+    * [X] AWS System Manager
+    * [X] AWS Trusted Advisor
+    * [X] AWS Well-Architected Tool
 * Migration and Transfer:
     * [] AWS Application Discovery Service
     * [] AWS Application Migration Service
-    * [] AWS Database Migration Service (AWS DMS)
-    * [] AWS Migration Hub
-    * [] AWS Schema Conversion Tool (AWS SCT)
+    * [X] AWS Database Migration Service (AWS DMS)
+    * [X] AWS Migration Hub
+    * [X] AWS Schema Conversion Tool (AWS SCT)
     * [X] AWS Snow Family
     * [X] AWS Transfer Family
 * Networking and Content Delivery:
