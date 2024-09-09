@@ -965,11 +965,21 @@ echo "<h1>Hello from @janobourian in $(hostname -f)</h1>" > /var/www/html/index.
 
 ### Security Hub
 
+* Central security tool to manage security across several AWS accounts and automate security checks
+
 ### Amazon Detective
+
+* Check where is the security issue
+* Use ML
 
 ### AWS Abuse
 
+* Report suspected AWS resources used for abusive or illegal purposes
+
 ### IAM Access Analyzer
+
+* Check resources are shared externally
+* Define Zone of Trust
 
 <div id="section15"> </div>
 
