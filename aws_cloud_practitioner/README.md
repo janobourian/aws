@@ -930,17 +930,38 @@ echo "<h1>Hello from @janobourian in $(hostname -f)</h1>" > /var/www/html/index.
 
 ### AWS Certificate Manager (ACM)
 
+* Provide SSL and TSL Certificates
+
 ### Secrets Manager
+
+* Storing secrets
+* Rotation of secrets
 
 ### Artifact Overview
 
+* Portal that provides customers with on-demand access to AWS compliance documentation and AWS agreements
+
 ### GuardDuty
+
+* Intelligent Threat discovery to protect your AWS Accont
+* Use Machine Learning
 
 ### Inspector
 
+* Automated Security Assessments
+    * EC2 Instances
+    * Container Images
+    * Lambda Functions
+* It puts the information on AWS Security Hub
+
 ### Config
 
+* Helps with auditing and recording compliance of your AWS resources
+* Helps record configurations and changes over time
+
 ### Macie
+
+* Discover and protect tour sensitive data in AWS (PII)
 
 ### Security Hub
 
