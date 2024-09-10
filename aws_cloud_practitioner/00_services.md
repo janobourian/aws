@@ -14,7 +14,7 @@
     * [X] Amazon EventBridge
     * [X] Amazon Simple Notification Service (Amazon SNS)
     * [X] Amazon Simple Queue Service (Amazon SQS)
-    * [] AWS Step Functions
+    * [X] AWS Step Functions
 * Business Applications:
     * [X] Amazon Connect
     * [X] Amazon Simple Email Service (Amazon SES)
@@ -40,7 +40,7 @@
     * [] AWS Activate for Startups
     * [] AWS IQ
     * [] AWS Managed Services (AMS)
-    * [] AWS Support
+    * [X] AWS Support
 * Database:
     * [X] Amazon Aurora
     * [X] Amazon DynamoDB
@@ -60,16 +60,16 @@
     * [X] AWS CodeStar
     * [X] AWS X-Ray
 * End User Computing:
-    * [] Amazon AppStream 2.0
-    * [] Amazon WorkSpaces
-    * [] Amazon WorkSpaces Web
+    * [X] Amazon AppStream 2.0
+    * [X] Amazon WorkSpaces
+    * [X] Amazon WorkSpaces Web
 * Frontend Web and Mobile:
     * [X] AWS Amplify
-    * [] AWS AppSync
-    * [] AWS Device Farm
+    * [X] AWS AppSync
+    * [X] AWS Device Farm
 * Internet of Things:
-    * [] AWS IoT Core
-    * [] AWS IoT Greengrass
+    * [X] AWS IoT Core
+    * [X] AWS IoT Greengrass
 * Machine Learning:
     * [X] Amazon Comprenhend
     * [X] Amazon Kendra
@@ -91,9 +91,9 @@
     * [X] AWS Health Dashboard
     * [] AWS Launch Wizard
     * [] AWS License Manager
-    * [] AWS Management Console
+    * [X] AWS Management Console
     * [X] AWS Organizations
-    * [] AWS Resource Groups and Tag Editor
+    * [X] AWS Resource Groups and Tag Editor
     * [X] AWS Service Catalog
     * [X] AWS System Manager
     * [X] AWS Trusted Advisor
@@ -121,11 +121,11 @@
     * [X] AWS CloudHSM
     * [X] Amazon Cognito
     * [X] Amazon Detective
-    * [] AWS Directory Service
+    * [X] AWS Directory Service
     * [X] AWS Firewall Manager
     * [X] Amazon GuarDuty
     * [X] AWS Identity and Access Management (IAM)
-    * [] AWS IAM Identity Center (AWS Single Sign-On)
+    * [X] AWS IAM Identity Center (AWS Single Sign-On)
     * [X] Amazon Inspector
     * [X] AWS Key Management Service (AWS KMS)
     * [X] Amazon Macie

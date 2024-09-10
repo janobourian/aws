@@ -1194,9 +1194,124 @@ echo "<h1>Hello from @janobourian in $(hostname -f)</h1>" > /var/www/html/index.
 
 ## Advanced Identity
 
+### Security Token Service (STS)
+
+* Enable you to create temporary, limited-priviliges credentials to access your AWS resources
+* Use cases:
+    * Identity federation
+    * IAM Roles for cross/same account access
+
+### Cognito
+
+* Provide identity for your web and mobile applications users
+
+### Directory Service 
+
+* Microsoft Active Directory
+
+### AWS IAM Identity Center
+
+* One login for all your AWS accounts in AWS Organizations
+
 <div id="section18"> </div>
 
 ## Other Services
+
+### WorkSpaces
+
+* Managed Desktop as a Service (DaaS) solution to easily provision Windows or Linux Desktop
+
+### AppStream 2.0
+
+* Desktop Application Streaming Service
+
+### IoT Core
+
+* Internet of Thigs
+
+### Elastic Transcoder
+
+* Convert media files stored in S3 into media files in the formats requerid by consumer playback devices
+
+### AppSync
+
+* Store and sync data across mobile and web apps in real-time
+* Makes use of GraphQL
+
+### Amplify
+
+* Deploy web applications
+
+### AWS Application Composer
+
+* Visually design and build serverless applications quickly on AWS
+
+### Device Farm
+
+* Fully-managed service that test your web and mobile apps against desktop browsers
+
+### AWS Backup
+
+* Fully-managed service to centrally manage and automate backups
+
+### Disaster Recovery
+
+* Backup and Restore
+* Pilot Light
+    * Minimal setup
+* Warm Standby:
+    * Full version with minimum size
+* Multi-site / Hot-site
+    * full version at full size
+* Multi-region
+
+### AWS Elastic Disaster Recovery
+
+* Quickly and easily recover your physical, virtual, and cloud-based server into AWS
+
+### AWS DataSync
+
+* Move large amount of data from on-premises to AWS
+
+### Cloud Migration Strategies
+
+* 7rs
+    * Retire
+    * Retain
+    * Relocate
+    * Rehost
+    * Replatform
+    * Repurchase
+    * Refactpr / Re-architect
+
+### Application Discovery Service and Application Migration Service
+
+* Sacan your servers to map dependencies
+* Rehost solutions
+
+### AWS Migration Evaluator
+
+* Provides a clear baseline of what your organization is running today
+
+### AWS Migration Hub
+
+* Central location to collect servers and applications inventory
+
+### AWS Faul Injection Simulator
+
+* A fully managed service for running fault injections experiments on AWS workloads
+
+### Step Functions
+
+* Build serverless visual workflows to orchestrate your Lambda functions
+
+### Ground Station
+
+* Satelites communications
+
+### AWS Pinpoint
+
+* Scalable 2-way (outbound/inbound) marketing communications service
 
 <div id="section19"> </div>
 
