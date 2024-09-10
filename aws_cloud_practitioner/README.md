@@ -873,6 +873,52 @@ echo "<h1>Hello from @janobourian in $(hostname -f)</h1>" > /var/www/html/index.
 
 ## VPC & Networking
 
+* IP Addresses in AWS:
+    * IPv4
+    * IPv6
+
+* Virtual Private Cloud
+    * Route Tables
+    * CIDR
+    * Subnets
+        * Public 
+        * Private
+    * Internet Gateway
+    * NAT Gateway
+    * NAT Instaces: Self-managed
+
+* NACL: Network Access Control List:
+    * ALLOW and DENY
+    * Only IP Addresses
+    * Subnet level
+    * Sin estado
+* Security Groups:
+    * ALLOW rules
+    * IPs and Security groups
+    * EC2 level
+    * Con estado
+* VPC Flow Logs
+    * VPC
+    * Subnet
+    * Elastic Network Interface (ENI)
+* VPC peering
+* VPC Endpoint:
+    * Allows you to connect to AWS Services using a private network
+    * Gateway:
+        * S3
+        * DynamoDB
+    * Interface:
+        * Other services
+* Private Link
+    * Most secure and scalable way to expose a services to 1000s of VPCs
+    * Network Load Balance
+    * Elastic Network Interface
+* VPN and Direct Connect (DX)
+    * For VPN we need Customer Gateway and Virtual Private Gateway
+* AWS ClientVPN
+    * Allow you to connect to your EC2 instances over a private IP
+* AWS Transit Gateway
+
 <div id="section14"> </div>
 
 ## Security and Compliance
