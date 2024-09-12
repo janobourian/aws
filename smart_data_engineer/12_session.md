@@ -51,7 +51,8 @@
     * Se instala mediante el System Manager Agent
     * Session Manager 
         * Iniciar Sesión en EC2 sin SSH
-* Similar A System Manager
+* OpsWork: 
+    * Similar A System Manager
     * Utiliza Chef o Puppet
 
 ## AWS CloudFormation
