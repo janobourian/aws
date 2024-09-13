@@ -15,6 +15,14 @@
         * Train a Model
     * Classification Algorithm
     * User can get the information
+* History of AI:
+    * 1950 Alan Turing with the Turing Test
+    * John McCarthy coins "Artificial Intelligence"
+    * 1970 Expert Systems, AI Rule-based system to detect bacteria
+    * 1990 Machine Learning and Data Mining
+    * 1997 Deep Blue defeats Garry Kasparov
+    * 2010 Deep Learning Revolution (Example 2016 - Alpha Go)
+    * 2020 Virtual assistant
 * AI Use Cases:
     * Transcribe and Translate Spoken Language
     * Playing humans in games
@@ -30,8 +38,7 @@
     * Natural Language Processing (NLP)
 * Areas:
     * Artifical Intelligence
-    * Machine Learning
-    * Neural Networks
+    * Machine Learning that uses Neural Networks
     * Deep Learning
     * Generative AI
 
