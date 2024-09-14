@@ -102,6 +102,11 @@
 * What is Generative AI?
     * Is a subset of Deep Learning
     * Generate new data similar to the data it was trained
+        * Text
+        * Audio
+        * Image
+        * Code
+        * Video
     * Unlabeled Data > Foundation Model > Broad range of general tasks
     * Foundation Model:
         * Are trained on wide variety of input data
@@ -110,7 +115,19 @@
         * Commercial License: OpenAI, Anthropic
     * Large Language Models LLM:
         * Type of AI designed to generate coherent human-like text
+        * Training
+            * Books
+            * Articles
+            * Website
+        * Tasks
+            * Translation, Summarization
+            * Question Answering
+            * Content Creation
     * Generative Language Models:
+        * Process:
+            * Prompt
+            * Model takes the information that it was trained
+            * Answer
         * We usually interact with the LLM by giving a prompt
         * Non-deterministic: the generated text may be different for every user that uses the same prompt
         * Works word by word: After the rain, the streets were flooded
