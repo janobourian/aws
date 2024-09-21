@@ -191,3 +191,36 @@
             * Batch Size
             * Learning rate
             * Learning rate warmup steps
+    * Fine-Tuning a Model
+        * Adapt a copy of a foundation model with your own data
+        * Fine-tuning will change the weight of the base foundation model 
+        * Training data must:
+            * Adhere to a specific format
+            * Be stored in Amazon S3
+        * You must use "Provisiones Throughput" to use fine-tuned model
+        * Instruction-based Fine Tuning
+            * Improves the performance a pre-trained FM on domain-specific tasks
+            * = further trained on a particular field or area of knowledge
+            * Instruction-based fine-tuning uses labeled examples that are prompt-response pairs
+        * Continued Pre-training
+            * Provide unlabeled data to continue the training of an FM
+            * Also called domain-adaptation fine-tuning, to make a model expert in a specific domain
+            * For example: feeding the entire AWS documentation to a model to make it an expert on AWS
+            * Good to feed industry-specific terminology into a model
+            * Can continue to train the model as more data become available
+        * Single-Turn Messaging
+            * Part of instruction-based fine-tuning
+            * system: context for the conversation
+            * messages: an array of messages objects
+                * role: either user or assistant
+                * content: the text content of the message
+        * Multi-Turn Messaging
+            * To provide instruction-based fine tuning for a conversation
+            * Chatbots = multi-turn environment
+            * You must alternate between "user" and "assistant" roles
+        * Transfer Learning:
+            * the broader concept of reusing a pre-trained model to adapt it to a new related task
+                * Widely used for image classification
+                * And for NLP (models like BERT and GPT)
+            * Can apper as a general ML concept
+            * Fine-tuning is a specific kind of transfer learning
