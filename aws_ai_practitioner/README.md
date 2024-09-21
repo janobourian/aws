@@ -224,3 +224,36 @@
                 * And for NLP (models like BERT and GPT)
             * Can apper as a general ML concept
             * Fine-tuning is a specific kind of transfer learning
+
+### Foundation Model - Evaluation
+
+* Evaluate a model for quality control:
+    * Built-in task types:
+        * Text summarization
+        * Question and answer
+        * Text classification
+        * Open-ended text generation
+    * Bring you own prompt dataset or use built-in curated prompt datasets
+    * Scores are calculated automatically
+    * Benchmark Datasets
+        * Curated collections of data designed specifically at evaluating the performance of lenguage models
+    * Human evaluation
+    * Automated Metrics to Evaluate an FM
+        * ROUGE: Recall-Oriented Understudy for Gisting Evaluation
+            * Evaluating automatic summarization and machine learning translation systems
+            * ROUGE-N: Measure the number of matching n-grams between reference and generated text
+            * ROUGE-L: longest common subsequence between reference and generated text
+        * BLEU: Bilingual Evaluation Understudy
+            * Evaluate the quality of generated text, especially for translations
+            * Considers both precision and penalize too much brevity
+            * Looks at a combination of n-grams
+        * BERTScore
+            * Semantic similarity between generated text
+            * Uses pre-trained BERT models (Bidirectional Encoder Representations from Transformers)
+        * Perplexity: How well the model predicts the next token
+            * lower is better
+        * User satisfaction
+        * ARPU: Average Revenue per User
+        * Cross-Domain Performance
+        * Conversion Rate
+        * Efficiency
