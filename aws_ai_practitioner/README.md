@@ -159,3 +159,35 @@
         * Fine-Tuning:
             * Update the model with your data
         * Output
+
+* Amazon Bedrock Hands-on
+    * Base Foundation Model
+        * Model types
+        * Performance requirements
+        * Capabilities
+        * Constraints
+        * Compliance
+        * Level of customization
+        * Model Size
+        * Inference options
+        * Licesing agreements
+        * Context window
+        * Latency
+        * Multimodal
+    * Amazon Titan
+        * High-performing Foundation Models from AWS
+        * Image, text, multimodal model choices via a fully-managed APIs
+        * Can be customized with your own data
+        * Smaller models are more cost-effective
+    * Options
+        * Playground
+            * Chat
+            * Text
+            * Images
+        * Custom Models
+            * Fine-tuning
+        * Hyperparameters
+            * Epochs
+            * Batch Size
+            * Learning rate
+            * Learning rate warmup steps
