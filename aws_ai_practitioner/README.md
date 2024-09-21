@@ -257,3 +257,39 @@
         * Cross-Domain Performance
         * Conversion Rate
         * Efficiency
+
+### RAG and Knowledge Base
+
+* RAG: Retrieval-Augmented Generation
+    * Use the Foundation Model and real time information
+    * Query + Retrieval text
+    * Retrieval text
+        * Using knowledge base + Amazon S3 + Vector Database
+    * RAG Vector Database
+        * Services
+            * Open Search
+            * Aurora
+            * Mongo DB
+            * Redis
+            * Pinecone
+        * Process:
+            * Amazon S3 -> Document Chunks -> Embeddings Models -> Vector Database
+        * Right Vector Databases:
+            * Amazon OpenSearch Service
+                * search and analytics database real time similarity queries
+                * store millions of vector embeddings scalable index management
+                * fast nearest-neighbor (kNN) search capability
+            * Document DB
+            * Amazon Aurora
+            * Amazon RDS
+            * Amazon Neptune
+        * RAG Data Sources
+            * Amazon S3
+            * Confluence
+            * SharePoint
+            * Salesforce
+            * Websites
+        * Use Cases
+            * Customer Service Chatbot
+            * Legal Research and Analysis
+            * Healthcare Question-Answering
