@@ -274,6 +274,7 @@
             * Pinecone
         * Process:
             * Amazon S3 -> Document Chunks -> Embeddings Models -> Vector Database
+            * Embeddings Models are the models used to create the Vector Database
         * Right Vector Databases:
             * Amazon OpenSearch Service
                 * search and analytics database real time similarity queries
@@ -293,3 +294,23 @@
             * Customer Service Chatbot
             * Legal Research and Analysis
             * Healthcare Question-Answering
+
+* Lab: Builder tools > Knowledge Base
+
+* GenAI Concept:
+    * Tokenizations: 
+        * Convert raw text into a sequence of tokens
+    * Context window: 
+        * The number of tokens an LLM can consider when generating text
+        * First facto to look at when considering a model
+    * Embeddings:
+        * Create vectors out of text, images or audio
+        * Dimentionality reduction of word embeddings to 2D
+    * All together: 
+        * Phrase
+        * Tokenization
+        * Have Token IS and Token
+        * Embeddings models
+        * Create Vectors
+        * Vector Database
+        * Nearest Neighbor capabilities
