@@ -357,3 +357,20 @@
     * Retrieval Augmented Generation
     * Instruction-based fine-tuning
     * Domain-adaptation fine-tuning
+
+## Prompt Engineer
+
+* Prompt:
+    * little guidance and leaves a lot to the model's interpretation
+    * Promt Engineering: developing, designing, and optimizing prompts to enhance the output of FM for your needs
+    * Improved Prompting technique consists of:
+        * Instructions 
+        * Context
+        * Input Data
+        * Output Indicator
+    * Negative Prompting:
+        * Avoid Unwanted Content
+        * Maintain Focus
+        * Enhance Clarity
+
+* Prompt performance Optimization
