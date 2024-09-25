@@ -325,3 +325,14 @@
     * Manage various multi-step tasks related to infrastructure, deployment and operational activities. 
     * Integration:
         * Tasks -> Bedrock Agent -> All information -> Bedrock Model -> Chain of Thought -> List of steps -> Actions (API call - results) -> Result -> Task + Result -> Model to summarize -> Final Response
+
+* CloudWatch Integration
+    * Model Invocation Logging
+        * Bedrock:
+            * CloudWatch Logs
+            * Amazon S3
+    * CloudWatch Metrics:
+        * Bedrock:
+            * Cloudwatch Metrics
+
+* Labs -> You should configure it in settings
