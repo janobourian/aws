@@ -320,3 +320,8 @@
     * Block topics
     * Reduce hallucinations
     * Remove Personal Identifiable Information (PII)
+
+* Agents
+    * Manage various multi-step tasks related to infrastructure, deployment and operational activities. 
+    * Integration:
+        * Tasks -> Bedrock Agent -> All information -> Bedrock Model -> Chain of Thought -> List of steps -> Actions (API call - results) -> Result -> Task + Result -> Model to summarize -> Final Response
