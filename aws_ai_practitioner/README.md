@@ -309,8 +309,14 @@
     * All together: 
         * Phrase
         * Tokenization
-        * Have Token IS and Token
+        * Have Token ID and Token
         * Embeddings models
         * Create Vectors
         * Vector Database
         * Nearest Neighbor capabilities
+
+* Amazon Bedrock Guardrails:
+    * Control the interaction between users and Foundation Models
+    * Block topics
+    * Reduce hallucinations
+    * Remove Personal Identifiable Information (PII)
