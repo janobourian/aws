@@ -374,3 +374,15 @@
         * Enhance Clarity
 
 * Prompt performance Optimization
+    * System prompts: how the model should behave and reply
+    * Temperature (0 to 1): creativity of the model's output
+    * Top P (0 to 1): most likely words when is closer to 0
+    * Top K (0 to n): limits the number of probable words
+    * Length: maximum lenght of the answer
+    * Stop sequences: token that signal the model to stop generating output
+    * Prompt latency: is how fast the model responds
+        * The model size
+        * The model type itself
+        * The number of tokns in the input
+        * The number of tokens in the output
+        * Latency is not impacted by Top P, Top K and Temperature
