@@ -386,3 +386,18 @@
         * The number of tokns in the input
         * The number of tokens in the output
         * Latency is not impacted by Top P, Top K and Temperature
+
+* Prompt Engineering Techniques
+    * Zero-shot prompting
+        * without providing examples or explicit training for that specific task
+    * Few-shot prompting
+        * provide examples of a task to the model to guide its output
+    * Chain of thought prompting:
+        * Divide the task into a sequence of reasoning steps, leading to more structure and coherence
+    * Retrieval-Augmented Generation (RAG)
+        * Combine the model's capability with external data sources to generate a more informed and contextually rich response
+
+* Prompt Templates:
+    * Simplify and standardize the process of generating Prompts
+    * Prompt Template Injections
+        * Ignoring the prompt template
