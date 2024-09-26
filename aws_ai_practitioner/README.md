@@ -401,3 +401,17 @@
     * Simplify and standardize the process of generating Prompts
     * Prompt Template Injections
         * Ignoring the prompt template
+
+## Amazon Q
+
+* Amazon Q Business
+    * Fully managed Gen-AI assintant for your employees
+    * based on your company's knowledge and data
+    * Data Connectors -> Amazon Q Business -> Plugins
+    * Users can be authenticated trough IAM Identity Center
+    * Admin controls:
+        * Admin controls == Guardrails
+        * Respond only with internal information
+        * Controls and customize responsers to your organizational needs
+
+Labs: Hands On
