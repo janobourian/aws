@@ -415,3 +415,24 @@
         * Controls and customize responsers to your organizational needs
 
 Labs: Hands On
+
+* Amazon Q Apps
+    * Part of Q Business
+    * Create Gen AI-powered apps tirhout coding by using natural language
+
+* Amazon Q Developer
+    * Answer questions about the AWS documentation and AWS service selection
+    * Answer questions about resources in your AWS account
+    * Suggest CLI to run make changes to your account
+    * AI code companion to help you code new applications
+
+* Amazon Q for AWS Services
+    * Amazon Quicksight
+        * Amazon Q understands natural language that you use to ask questions about your data
+    * Elastic Compute Cloud
+        * Amazon Q provides guidance and suggestions for EC2 instance types that are best suited to your new workload
+    * AWS Chatbot: is a way for you to deploy an AWS Chatbot in a Slack or Teams
+        * Amazon Q can access directly in AWS Chatbot to accelerate understanfing of the AWS services, issues, and general support
+
+* Party Rock
+    * Playground to generate AI apps
