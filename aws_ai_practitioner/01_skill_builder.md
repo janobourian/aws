@@ -95,6 +95,34 @@
         * Agent -> Action -> Environment -> Reward
     * AWS DeepRacer
 
+* Troubleshooting model performance:
+    * Overfitting
+    * Underfitting
+    * Bias and fairness
+        * Diversity of training data
+        * Feature importance
+        * Fairness constraints
+
+* Deep learning:
+    * Neural networks
+    * layers:
+        * Input layers
+        * Hidden layers
+        * Output layers
+    * Tasks:
+        * Image classification
+        * Natural Language Processing
+
+* Generative AI:
+    * Large Language Models
+        * Deep learning foundation models
+        * Transformers
+        * Hundreds of billions of features
+        * Flexible use cases:
+            * Text clasification
+            * Text generation 
+            * Translation 
+            * Code generation
 
 
 ## Idenitify practical use cases for AI
