@@ -436,3 +436,13 @@ Labs: Hands On
 
 * Party Rock
     * Playground to generate AI apps
+
+# Artificial Intellignece and Machine Learning
+
+# AWS Managed AI Services
+
+# Amazon SageMaker - Deep Dive
+
+# AI Challenges and Responsibilities
+
+# AWS Security Services

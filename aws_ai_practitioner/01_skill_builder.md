@@ -377,3 +377,11 @@
         * Root mean squared error (RMSE)
             * Square root of MSE
         * Mean absolute error (MAE)
+
+# Domain 2: Fundamentals of Generative AI
+
+# Domain 3: Applications of Foundation Models
+
+# Domain 4: Guidelines for Responsible AI
+
+# Domain 5: Security, compliance, and Govrrnance for AI Solutions
