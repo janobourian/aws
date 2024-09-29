@@ -124,7 +124,83 @@
             * Translation 
             * Code generation
 
-
 ## Idenitify practical use cases for AI
+
+* Consider AI/ML for:
+    * Increasing business efficiency
+    * Solving complex problems
+    * Making better decisions
+
+* Consider AI/ML alternatives when:
+    * Costs outweigh the benefits
+    * Models cannot meet the interpretability requirements
+    * System must be deterministic rather than probabilistic
+
+* Practical use cases
+    * Contains target values?
+        * Yes: Supervised learning
+            * Categorical: Classification (Binary or multiclass)
+            * Continuous: Regression (Linear, multiple or logistic)
+        * Not: Unsupervised learning
+            * Discrete groups: Clustering
+            * Outliers: Anomaly Detection
+
+* Amazon Rekognition: Computer vision
+    * Images, videos and streaming
+    * Facial comparison and analysis
+    * Object detection and labeling
+    * Text detection
+    * Content moderation
+
+* Amazon Textract
+    * Extract text, handwrite, layout elements, and data from scanned documents
+* Amazon Comprehend
+    * Extract key phrases, entinties, and sentiment
+    * For PII
+
+* Language AI
+    * Amazon Lex
+        * Conversational voice and text
+    * Amazon Transcribe
+        * Converts speech to text
+    * Amazon Polly
+        * Converts text to speech
+
+* Customer experience
+    * Amazon Kendra
+        * Intelligent document search
+    * Amazon Personalize
+        * Personalized product recommendations
+    * Amazon Translate
+        * Translates between 75 language
+
+* Business metrics
+    * Amazon Forecast
+        * Predicts future points in time-series data
+    * Amazon Fraud Detector
+        * Detects fraud and fraudulent activities
+        * Checks online transactions, product reviews, checkout and payments, new accounts, and account takeover
+
+* Generative AI
+    * Amazon Bedrock
+        * Foundation models
+        * Can customize with training data or Retrieval Augmented Generation (RAG)
+
+* Model development
+    * Amazon Sagemaker
+        * Fully managed ML service
+        * Data preparation and labeling
+        * Model training and evaluation
+        * Model deployment and monitoring
+        * Pre-trained models
+
+* Mastercard: Fraud detection and prevention
+* DoorDash: Conversational AI for self service
+    * Natural language processing: Amazon Lex
+    * Full automation of eight services
+* Laredo Petroleum: Preventive maintenance
+* Booking.com: Product recommendations
+* Pinterest: Computer vision
+* AffordableTours.com: Amazon Forecast
 
 ## Describe the ML development life cycle
