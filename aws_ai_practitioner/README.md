@@ -439,6 +439,60 @@ Labs: Hands On
 
 # Artificial Intellignece and Machine Learning
 
+* What is AI?
+    * Performing tasks that tipically require human intelligence
+* AI Components:
+    * Data Layer
+    * ML Framework and Algorithm Layer
+    * Model Layer
+    * Application Layer
+
+* What is ML?
+    * Make predictions based on data used to train model
+    * Examples:
+        * Regression
+        * Classification
+
+* AI is not ML
+
+* What is Deep Learning?
+    * Uses neurones and synapses to train a model
+    * It uses nodes
+    * Process more complex patterns in the data than traditional ML
+    * Input Layer -> Hidden Layers -> Output Layer
+    * Ex: 
+        * Computer Vision
+        * Natural Language Processing
+
+* What is GenAI?
+    * Multi-purpose foundation models backed by neural networks
+
+* What is the Transformer Model?
+    * Able to process a sentence as a whole instead of word by word
+    * Ex: ChatGPT = Chat Generative Pretrained Transformer
+    * Diffusion Models
+    * Multi-modal Models: a lot of input types - a lot of output types
+
+* ML terms in the exam:
+    * GPT: Generative Pre-trained Transform
+    * BERT: Bidirectional Encoder Representations from Transformers
+        * It reads the text in two directions
+    * RNN: Recurrent Neural Network
+    * ResNet: Residual Network
+    * SVM: Support Vector Machine
+    * WaveNet
+    * GAN: Generative Adversarial Network
+    * XGBoost: Extreme Gradient Boosting
+
+* Training Data
+    * To train our model we must have good data
+    * Data
+        * Labeled Data
+        * Unlabeled Data
+    * Structure
+        * Structured Data
+        * Unstructured Data
+
 # AWS Managed AI Services
 
 # Amazon SageMaker - Deep Dive
