@@ -500,3 +500,16 @@ Labs: Hands On
 # AI Challenges and Responsibilities
 
 # AWS Security Services
+
+* IAM
+* EC2
+* AWS Lambda
+* AWS MAcie: machine learning and pattern matching to discover and protect your sensitive data in AWS
+* AWS Config auditing and recording compliance of our AWS resources
+    * record configurations and changes over time
+* Amazon Inspector: Automated Security Assesments only for EC2, Containers and Lambdas
+* Amazon CloudTrail
+* AWS Artifact
+* AWS Audit Manager: Assess risk and compliance of your AWS workloads
+* Trusted Advisor: Analyze your AWS accounts and provides recommendation on six categories
+* Amazon VPC
