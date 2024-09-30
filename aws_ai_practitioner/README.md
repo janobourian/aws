@@ -495,6 +495,53 @@ Labs: Hands On
 
 # AWS Managed AI Services
 
+* Amazon Comprehend:
+    * Natural Language Processing
+    * Document classification based on rules
+    * Sentimental interaction
+    * Named Entity Recognition (NER)
+* Amazon Transalte:
+    * Natural and accurate language translation
+* Amazon Transcribe:
+    * Speech to text
+    * Improving Accuracy
+        * Custom Vocabularies; for words
+        * Custom Language Models: for context
+* Amazon Polly
+    * Text to speech
+    * Lexicons: How to read certain specific pieces of text
+    * SSML: Markup for your text to indicate how to pronounce it
+    * Voice engine: generative, long-form, neural, standard
+    * Speech mark: Encode where a sentece/word starts or ends in the audio
+* Amazon Rekognition
+    * Find objects, people, text, scenes in images and videos using ML
+    * Process:
+        * Labeled Images -> Amazon S3 -> Training -> Amazon Rekognition -> Custom classification
+    * Content Moderation
+* Amazon Forecast
+    * Fully Managed service that uses ML to deliver highly accurate forecast
+* Amazon Lex
+    * Build chatbots quickly for your applications using voice and text
+* Amazon Personalize
+    * Fully managed ML-service to build apps with real-time personalized recommendations
+    * Recipies
+        * Algorithms that are prepared for specific use cases
+* Amazon Textract
+    * Automatically extracts text, handwriting, and data from any scanned documents using AI and ML
+* Amazon Kendra:
+    * Fully managed document search service powered by Machine Learning
+    * You can fine-tune search results
+* Amazon Mechanical Turk
+    * Crowdsourcing to perform simple human tasks
+* Amazon Augmented AI (A21)
+    * Separate High-confidence predictions and Low-confidence predictions
+    * low-confidence predictions are reviewed for people
+* AWS DeepRacer
+* Amazon Transcribe Medical
+* Amazon Comprehend Medical
+* Hardware for AI
+
+
 # Amazon SageMaker - Deep Dive
 
 # AI Challenges and Responsibilities
