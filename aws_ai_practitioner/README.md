@@ -537,10 +537,15 @@ Labs: Hands On
     * Separate High-confidence predictions and Low-confidence predictions
     * low-confidence predictions are reviewed for people
 * AWS DeepRacer
+    * Reinforcement Learning
 * Amazon Transcribe Medical
-* Amazon Comprehend Medical
+    * Automatically convert medical-related speech to text
+    * Amazon Comprehend Medical
 * Hardware for AI
-
+    * Amazon EC2
+        * GPU-based EC2 Instances
+        * AWS Trainium
+        * AWS Inferentia
 
 # Amazon SageMaker - Deep Dive
 
