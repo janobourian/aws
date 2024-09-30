@@ -493,6 +493,28 @@ Labs: Hands On
         * Structured Data
         * Unstructured Data
 
+* Supervised Learning
+    * Learn a mapping function that can predict the output for new unseen input data
+    * Classification Model
+    * Models:
+        * Regression
+        * Classification
+    * Training: 80%
+    * Validation: 10%
+    * Test: 10%
+    * Feature Engineering
+        * The process of using domain knowledge to select and transform raw data into meaningful features
+        * Types
+            * Creation
+            * Selection
+            * Transformation
+
+* Unsupervised learning
+    * Discover inherent patterns, structures or relationships within the input data
+
+* Semi-supervised Learning
+    * Use a small amount of labeled data and a large amount of unalbeled data to train system
+
 # AWS Managed AI Services
 
 * Amazon Comprehend:
