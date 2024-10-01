@@ -657,6 +657,69 @@ Labs: Hands On
 
 # Amazon SageMaker - Deep Dive
 
+* Amazon SageMaker
+    * Fully managed service for developers / data scientists to build ML models
+    * Built-in Algorithms
+        * Supervised ALgorithms
+        * Unsupervised Algorithms
+        * Textual Algorithms
+        * Image Processing
+    * Automatic Model Tuning (AMT)
+    * Model Deployment and Inference
+        * Real-time
+        * Serverless
+        * Asynchronous
+        * Batch
+    * SageMaker Studio
+        * End-to-end ML development from a unified interface
+
+* SageMaker Data Tools
+    * Data Wrangler
+        * Prepare tabular and image data for machine learning
+        * Data preparation, transformation and feature engineering
+        * SQL support
+        * Data Quality tool
+        * Export Data Flow
+    * ML Features
+        * Features are inputs to ML models used during training and used for inference
+        * SageMaker - Feature Store
+            * Ingests features from a variety of sources
+
+* SageMaker Clarify
+    * Evaluate Foundations Models
+    * Evaluating human-factors such as friendliness or humor
+    * Model Explainability
+    * Detect Bias (human)
+
+* SageMaker Ground Truth
+    * Reinforcement Learning from Human Feedback
+    * Amazon Mechanical Turk
+
+* SageMaker ML Governance
+    * SageMaker Model Cards
+    * SageMaker Model Dashboard
+    * SageMaker Role Manager
+    * SageMaker Model Monitor
+    * SageMaker Model Registry
+    * SageMaker Pipelines
+        * Processing
+        * Training
+        * Tuning
+        * AutoML
+        * Model
+        * ClarifyCheck
+        * QualityCheck
+
+* SageMaker JumpStart
+    * ML Hub to find pre-trained Foundation Model
+
+* SageMaker Canvas
+    * Build ML models using a visual interface
+    * It has Ready-to-use models
+
+* MLFlow on Amazon SageMaker
+    * An open-source tool which helps ML teams manage the entire ML lifecycle
+
 # AI Challenges and Responsibilities
 
 # AWS Security Services
