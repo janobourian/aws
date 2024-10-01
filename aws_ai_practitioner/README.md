@@ -515,6 +515,60 @@ Labs: Hands On
 * Semi-supervised Learning
     * Use a small amount of labeled data and a large amount of unalbeled data to train system
 
+* Reinforcement Learning (RL)
+    * An agent learns to make decision by performing actions in an environment to maximize cumulative rewards
+    * Key Concept:
+        * Agent
+        * Environment
+        * Action
+        * Reward
+        * State
+        * Policy
+    * Applications
+        * Games
+        * Robotics
+        * Finance
+        * Healthcare
+        * Autonomous vehicle
+
+* Reinforcement Learning from Human Feedback
+    * Human are the responsibles
+    * How does it work?
+        * Data Collection
+        * Supervised fine-tuning of a language model
+        * Build a separate reward model
+        * Optimize the language model with the reward-based model
+    * Process:
+        * Step 1 Supervised Fine-Tuning
+        * Step 2 Training a Reward Model
+        * Step 3 Optimize Policy
+
+* Model fit:
+    * Overfitting: Very well on the training data but not on evaluation data
+    * Underfitting: Model perform poorly on training data
+    * Balanced: Neither overfitting or underfitting
+
+* Bias
+    * Difference or error between predicted and actual value
+
+* Variance
+    * How much the performance of a model changes if trained on a different dataset which has a similar distribution
+
+* Model Evaluation
+    * Binary Classification Example
+        * Confusion Matrix
+            * Precision = TP / (TP + FP), best when false positive are costly
+            * Recall = TP / (TP + FN), Best when false negatives are costly
+            * F1 
+            * Accuracy
+        * Area under the curve-receiver operato curve
+            * Value from 0 to 1 (perfect model)
+    * Regressions Metrics
+        * Mean Absolute Error
+        * Mean Absolute Percentage Error
+        * Root Mean Square Error
+        * R-square
+
 # AWS Managed AI Services
 
 * Amazon Comprehend:
