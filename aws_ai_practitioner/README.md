@@ -569,6 +569,38 @@ Labs: Hands On
         * Root Mean Square Error
         * R-square
 
+* Machine Learning Inferencing
+    * Inferencing is when a model is making prediction on new data
+    * Real Time
+        * Chatbots
+    * Batch
+        * Large amount of data to analyze at once
+    * At the Edge
+        * Edge devices like your phone
+
+* Phases of Machine Learning Project
+    * Business Problem
+    * Frame ML Problem
+    * Collect Data
+    * Prepared Data
+    * Feature Engine
+    * Train and fine tuning
+    * Model Evaluation
+    * Data Augmentation or Feature Augmentation
+    * Model Testing
+    * Model Deployment
+    * Monitoring
+
+* Hyperparameters
+    * Settings that define the model structure and learning algorithm and process
+    * Importante
+        * Learning rate
+        * Batch size (number of training examples)
+        * Number of Epochs (number of iterations)
+
+* When is not machine learning a good option?
+    * Deterministic problems
+
 # AWS Managed AI Services
 
 * Amazon Comprehend:
