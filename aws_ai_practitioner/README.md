@@ -722,6 +722,99 @@ Labs: Hands On
 
 # AI Challenges and Responsibilities
 
+* Responsible AI and Security
+    * Responsible AI
+        * Fairness
+        * Explainability
+        * Privacy and security
+        * Transparency
+        * veracity and robustness
+        * Governance
+        * Safety
+        * Controllability
+        * Interpretability
+    * Security
+        * Threat Detection
+        * Vulnerability Management
+        * Infrastructure Protection
+        * Prompt injection
+        * Data Encryption
+        * Monitoring AI systems
+            * Performance Metrics
+                * Model Accuracy
+                * Precision
+                * Recall
+                * F1-score
+                * Latency
+            * Infrastructure monitoring
+            * Bias and fairness
+    * Governance
+        * Managing, optimizing, and scaling the organizational AI initiative
+        * AWS Tool:
+            * AWS Config
+            * Amazon Inspector
+            * AWS Audit Manager
+            * AWS Artifact
+            * AWS CloudTrail
+            * AWS Trusted Advisor
+        * Governance Strategies
+            * Policies
+            * Review Cadence
+            * Review Strategies
+            * Transparency Standards
+            * Team Training Requirements
+        * Data Governance Strategies
+            * Responsible AI
+            * Governance Structure and Roles
+            * Data Sharing and Collaboration
+            * Data Lifecycles
+            * Data Logging
+            * Data Residency
+            * Data Monitoring
+            * Data Analysis
+            * Data Retention
+    * Compliance
+        * Reporting regularly to federal agencies
+        * Regulated workload
+        * Complexity and opacity
+        * Dynamism and Adaptability
+        * Emergent Capabilities
+        * Unique Risks
+        * Algorithm accountability
+
+* Secure Data Engineering
+    * Assesing data quality
+        * Completeness
+        * Accuracy
+        * Timeliness
+        * Consistency
+    * Privacy-enhance technologies
+    * Data Access Control
+    * Data Integrity
+
+* GenAI
+    * Challenges
+        * Regulatory violations
+        * Social risks
+        * Toxicity
+        * Hallucinations
+        * Plagiarism and Cheating
+        * Nondeterminism
+    * Security Scoping Matrix (Framework)
+        * Consumer App
+        * Enterprise App
+        * Pre-trained Models
+        * Fine-tuned Models
+        * Self-trained Models
+    * MLops
+        * Data Pipeline
+            * Data preparation
+            * Model Build
+            * Model Evaluation
+            * Model Selection
+            * Deployment
+            * Monitoring
+
 # AWS Security Services
 
 * IAM
