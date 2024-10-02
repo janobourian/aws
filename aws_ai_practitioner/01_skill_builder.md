@@ -358,7 +358,7 @@
 
 * Orchestation Options
     * Amazon SageMaker Pipelines
-    * AWS Sterp Functions
+    * AWS Step Functions
     * Amazon Manged Workflows fro Apache Airflow
 
 * Confusion matrix
@@ -380,8 +380,97 @@
 
 # Domain 2: Fundamentals of Generative AI
 
+## Explain the basic concepts of Generative AI
+
+* What is generative AI?
+    * Generate new original content using existing content
+    * It uses Foundation Models
+    * Subset of Deep Learning
+
+* Concepts
+    * Model
+    * Transformer
+    * Prompt
+    * Prompt tuning
+    * Prompt engineering
+    * Inference
+    * Context window
+    * Token
+    * Completition
+    * Vector
+    * Embeddings
+
+* Large Language Models
+    * Deep learning foundation models
+    * Transformers
+    * Unimodal or multimodal
+    * Multimodal use cases
+        * Marketing, image captioning, product desing, customer service, and more.
+    * Mutimodal tasks
+    * Use cases:
+        * Text classification
+        * Text generation
+        * Translation
+        * Code generation
+
+* Difussion model
+    * Forward difussion
+    * Reverse difussion
+    * Stable difussion
+
+* Gen AI Architectures
+    * Generative adversarial networks (GANs)
+    * Variational autoencoders (VAEs)
+    * Transformers
+
+* AI project lifecycle
+    * Identify use case
+    * Experiment and select
+    * Adapt, align, and augment
+    * Evaluate
+    * Deploy and integrate
+    * Monitor
+
+* Gen AI Lifecycle
+    * Data Selection
+    * Model Selection
+    * Pre-trainig
+    * Fine-tuning
+    * Evaluation
+    * Guardrails
+    * Deployment
+    * Monitoring
+    * Feedback
+
+## Understand the capabilities and limits of Gen AI for solving business problems
+
+* Advantages of generative AI
+    * Adaptability
+    * Responsiveness
+    * Simplicity
+
+* Generative AI performance metrics
+    * ROUGE
+    * BLUE
+
+* Generative AI performance metrics
+    * Accuracy
+    * Cross-domain performance
+    * Efficency
+    * Conversion rate
+    * Average revenue per user
+    * Custmer lifetime value
+
+## Describe AWS Infrastructure and Technologies for building Gen AI applications
+
+* SageMaker JumpStart
+* Generative AI stack Security Layers
+    * Hardware
+    * Models
+    * Applications
+
 # Domain 3: Applications of Foundation Models
 
 # Domain 4: Guidelines for Responsible AI
 
-# Domain 5: Security, compliance, and Govrrnance for AI Solutions
+# Domain 5: Security, compliance, and Governance for AI Solutions
