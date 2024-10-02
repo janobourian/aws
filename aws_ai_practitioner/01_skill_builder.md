@@ -471,6 +471,72 @@
 
 # Domain 3: Applications of Foundation Models
 
+## Describe design considerations for appications that use FMs
+
+* Considerations
+    * Cost
+    * Latency
+    * Modalities
+    * Architectures
+    * Complexity
+    * Bias and fairness
+    * Availability
+    * Compatibility
+    * Explainability
+    * Interpretability
+
+* Inference
+    * It is the process of generating an output from an input that you provided to the model
+    * Temperature, Top K, Top P, Length
+
+* Prompt Engineering
+    * A specific set of inputs to guide LLMs to generate an appropiate output or completion
+
+## Choose effective prompt engineering techniques
+
+* Techniques
+    * Instruction
+    * Context
+    * Input data
+    * Output data
+    * Zero-shot
+    * Few-shot
+
+* Consider
+    * Be specific
+    * Add examples
+    * Experiment
+    * Understand your model
+    * Find your balance
+    * Use comments
+    * Add guardrails
+
+* Risk and limitations
+    * Exposure
+    * Prompt injection
+    * Jailbreaking: Try to pass your middleware
+    * Hijacking: When the user try to change the prompt
+    * Poisoning: Harmful content in messages
+
+## Describe the training and fine-tuning process for FMs
+
+* Stages
+    * Pretraining
+    * Fine-tuning
+        * Catastrophic forgetting
+        * Techniques
+            * Parameter-efficient fine-tuning (PEFT)
+            * Low Rank Adaptation (LoRA)
+            * Representation fine-tuning (ReFT)
+            * Multitask fine-tuning
+            * Domain adaptation fine-tuning
+            * Reinforcements learning from human feedback (RLHF)
+    * Continuous pre-training
+
+## Describe methods to evaluate FM performance
+
+* Model Performance
+
 # Domain 4: Guidelines for Responsible AI
 
 # Domain 5: Security, compliance, and Governance for AI Solutions
