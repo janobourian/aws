@@ -32,3 +32,12 @@
   ]
 }
 ```
+
+* Points to mantain safe your account:
+    * Password Policy
+    * Activate MFA
+        * Virtual MFA
+        * Universal 2nd Factor (U2F) Security Key (USB)
+        * Harwdare Key Fob MFA Device
+        * HArdware Key Fob MFA device for AWS Gov
+
