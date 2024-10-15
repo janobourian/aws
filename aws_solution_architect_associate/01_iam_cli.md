@@ -38,6 +38,38 @@
     * Activate MFA
         * Virtual MFA
         * Universal 2nd Factor (U2F) Security Key (USB)
-        * Harwdare Key Fob MFA Device
-        * HArdware Key Fob MFA device for AWS Gov
+        * Harwdare Key For MFA Device
+        * Hardware Key For MFA device for AWS Gov
 
+* Ways to connect with AWS
+  * Console
+  * CLI (Using Access Keys)
+  * SDK (AWS Software Development Key)
+
+```bash
+aws help
+aws <command> help
+aws <command> <subcommand> help
+aws iam list-users
+```
+
+* Roles:
+  * Permissions for AWS Services
+  * Common roles:
+    * EC2
+    * Lambda Functions
+    * CloudFormation
+
+* IAM Security Tools:
+  * IAM Credentials Report (account-level)
+  * IAM Access Advisor (user-level) / IAM Access Analyzer
+
+* IAM Guidelines and Best Practices
+  * Do not use your root account
+  * One physical user = One AWS user
+  * Assing users to groups
+  * Create a strong password policy
+  * Activate MFA
+  * Create and use Roles for AWS Services
+  * Use Access Keys for programmatic Access
+  * Audit permissions
