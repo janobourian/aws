@@ -25,6 +25,12 @@
 * Bootstraping is possible:
     * Automate boot tasks using scripts as root user
 
+* Size:
+    * medium -> 1gb
+    * large -> 2gb
+    * xlarge -> 4gb
+    * 2xlarge -> 8gb
+
 * EC2 instance types:
     * General purpose:
         * The common Ec2 instance
