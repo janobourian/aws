@@ -26,14 +26,21 @@
     * Automate boot tasks using scripts as root user
 
 * Size:
+    * small -> 0.5gb
     * medium -> 1gb
     * large -> 2gb
     * xlarge -> 4gb
     * 2xlarge -> 8gb
 
+* Name convention:
+    * m5.2xlarge
+        * m: instance class
+        * 5: generation
+        * 2xlarge: size
+
 * EC2 instance types:
     * General purpose:
-        * The common Ec2 instance
+        * The common EC2 instance
     * Compute optimized:
         * Batch processing workloads
         * Media transcoding
@@ -43,27 +50,31 @@
         * Large datasets in memory
         * RDB
         * BI 
-    * Accelera0te optimized
+    * Accelerate optimized
         * Graphics
         * Floating point number
     * Storage optimized
-        * OLTP
+        * OLTP: OnLine Transaction Processing
+            * OLAP: OnLine Analytics Processing
         * Datawarehouse
     * HPC
 
 * Security:
     * Security groups
+        * Only allow rules based on IP adresses and other security group
         * Access to ports
         * Control inbound and outbound rules
         * Locked down to a region/VPC combination
+        * Time out is a security group issue
+        * Connection refuse is a deploy error
 
 * Classic ports:
-    * 21 FTP
-    * 22 SSH
+    * 21 FTP -> File Transfer Protocol
+    * 22 SSH -> Secure Shell
     * 22 SFTP
-    * 80 HTTP
+    * 80 HTTP -> Hyper Text Transfer Protocol
     * 433 HTPS
-    * 3389 RDP
+    * 3389 RDP -> Remote Deskto Protocol
     
 * Connect using SSH:
     * ssh -i "*.pem" ec2-user@.us-west-2.compute.amazonaws.com
