@@ -79,6 +79,10 @@
 * Connect using SSH:
     * ssh -i "*.pem" ec2-user@.us-west-2.compute.amazonaws.com
 
+* Roles on EC2 instance:
+    * Do not use ACCESS KEYS into EC2 instances
+    * Roles help us to communicate AWS services
+
 * Instance purchasing options:
     * On demand:
         * Pay-as-you-go
