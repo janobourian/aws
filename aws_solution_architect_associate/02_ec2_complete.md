@@ -86,21 +86,32 @@
 * Instance purchasing options:
     * On demand:
         * Pay-as-you-go
+        * Linux and windows - billing per second, but after first minute
+        * Other OS - billing per hour
     * Reserved Instances
+        * You reserve a specific instance attributes
+            * Instance Type, Region, Tenancy and OS
         * Convertible reserved instances
+            * Change the instance type, instance family, OS, scope, and Tenancy
     * Saving Plans
         * Commitment to an amount of usage
-        * Locked for specific instance family
+        * Locked for specific instance family and Region
+        * Flexible across:
+            * Instance Size
+            * OS
+            * Tenancy
     * Spot Instances
-        * Can lse instances
-    * Dedicated Instance
-        * Hardware for you
+        * Can lose instances
     * Dedicated host
         * A complete physical server for you
+        * BYOL - Bring Your Own License
+    * Dedicated Instance
+        * Hardware for you
     * Capacity reservation:
         * Reserve by AZ for any duration
 
 * Spot instances and Spot Fleet
+    * Two minutes grace period
     * Define a max spot price
     * Spot Block*
     * Request type: one-time | persistent
