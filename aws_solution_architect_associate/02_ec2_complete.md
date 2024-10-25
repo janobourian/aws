@@ -137,12 +137,18 @@
 
 ## EC2 for solution Architect
 
+* Type of IPs:
+    * IPv4
+    * IPv6
+
 * Public:
     * To be identified on the internet
 * Private
     * In a local network
+    * They need to use NAT Gateway + Internet Gateway to connect to the internet
 * Elastic IP
     * Is to have a fixed public IP on EC2
+    * Five for account
 
 ## Placement Groups
 
@@ -164,7 +170,7 @@
 
 * Logical component in a VPC that represents a Virtual Network Card
 * It can have a primary private IPv4 and one or more secondary IPv4
-* One Elastic IP per private IOv4
+* One Elastic IP per private IPv4
 * One public IPv4
 * One or more security gruop
 * Limited by AZ
