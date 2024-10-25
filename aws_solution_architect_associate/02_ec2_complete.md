@@ -193,3 +193,13 @@
             * Saving the RAM state
             * Service take too long
 
+# EC2 Instance Storage
+
+* EBS Volume (Elastic Block Store), 
+    * to persist data and 
+    * can be attached to multiple EC2 instances and 
+    * be limited by AZ and 
+    * is a network drive to more performance and
+    * you need to create a copy to move to another AZ and
+    * you can manage the behavior on delete or termination
+* EFS (Elastic File System)
