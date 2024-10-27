@@ -212,4 +212,50 @@
         * Recycle Bin for EBS Snapshots
         * Fast Snapshot Restore
 
+* EBS Volume Types:
+    * gp2/gp3, general purpose SSD
+        * Cost effective storage, low-latency
+    * io1/io2
+        * Critical business applications
+        * database workloads
+    * st1
+        * Hard Disk Drives
+        * Can not be a boot volume
+    * sc1
+        * Hard Disk Drives
+        * Can not be a boot volume
+
+* EBS Multi-attach
+    * Only io1/io2
+    * Attach the same EBS volume to multiple EC2 instances in the same AZ
+    * Use case: 
+        * Higher Application Availability
+        * Concurrent write operations
+        * Up to 16 EC2 Instances at time
+
+* EBS Encryption
+    * It uses KMS
+
+* AMI (Amazon Machine Image)
+    * EC2 instance customization
+    * For specific region
+    * Launch
+        * Public AMI
+        * Your own AMI
+        * An AWS Marketplace AMI
+    * Process
+        * Start an EC2 instance and customize it
+        * Stop the instance
+        * Build an AMI - this will also create EBS snapshot
+        * Launch instances from other AMIs
+
+* EC2 Instance Store
+    * Hardware disk
+    * Ephemeral storage
+    * Use cases:
+        * buffer
+        * cache
+        * scratch data
+        * Temporary content
+
 * EFS (Elastic File System)
