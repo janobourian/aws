@@ -259,3 +259,4 @@
         * Temporary content
 
 * EFS (Elastic File System)
+    * multi-AZ
