@@ -187,7 +187,7 @@
         * RAM size must be less than 150 GB
         * Root Volume must be EBS, encrypted, not instance store and large
         * Not suported for bare metal instances
-        * Not be hibernated more than 60 years
+        * Not be hibernated more than 60 days
         * Use cases:
             * Long-running processing
             * Saving the RAM state
@@ -202,4 +202,14 @@
     * is a network drive to more performance and
     * you need to create a copy to move to another AZ and
     * you can manage the behavior on delete or termination
+
+* EBS Snapshot
+    * Make a backup
+    * Is not necessary to detach volume
+    * Can copy EBS in several AZ
+    * EBS Snapshots Features
+        * EBS Snapshot Archive
+        * Recycle Bin for EBS Snapshots
+        * Fast Snapshot Restore
+
 * EFS (Elastic File System)
