@@ -49,3 +49,44 @@
     * One IGW for a One VPC
 * Route Table
 
+## Bastion Host
+
+* When you have an EC2 instance in a private Subnet
+* An EC2 instance in a public Subnet can have access to the private instance
+* Hands On:
+    * Create a EC2 instance in public subnet
+    * Create a EC2 instance in private subnet
+    * Add the public EC2 ip in the security group for private EC2 instance
+    * Connect with the private instance using the public instance and the ssh console
+
+## NAT (Network Address Translation) Instance
+
+* Allows EC2 instances in private subnets to connect to the internet
+* Must be launched in a public subnet
+* Must disable EC2 settings: Source / destination Check
+* Must have Elastic IP attached to it
+* Route Tables must be configured to route traffic from private subnets to the NAT Instance
+* Hands On:
+    * You can use AMI
+    * Send the outbound traffic in the private instance to the NAT Instance
+
+## NAT (Network Address Translation) Gateway
+
+* AWS-managed NAT, higher bandwidth, high availability, no administration
+* Internet GAteway > NAT Gateway > Private Subnet
+* 5Gbps scaling up to 100Gbps
+* No security Groups to manage/required
+* High availability
+    * NAT GW is resilient within a single AZ
+    * Must create multiple AZs for fault-tolerance
+    * There is no cross-AZ failover needed because if an AZ goes down it does not need NAT
+* Hands On:
+    * It works similar to NAT Instance
+
+## NACL
+
+## VPC Peering
+
+## VPC Endpoint
+
+## VPC FLow
