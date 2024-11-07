@@ -83,7 +83,29 @@
 * Hands On:
     * It works similar to NAT Instance
 
-## NACL
+## NACL (Network Access Control List)
+
+* Is stateless
+* Request process:
+    * Incoming request:
+        * NACL Inbound Rules
+        * Security Group Inbound rules
+        * Security Group Allowed Outbount rules
+        * NACL Outbound Rules
+    * Outgoing request:
+        * Security Group Allowed Outbount rules
+        * NACL Outbound Rules
+        * NACL Inbound Rules
+        * Security Group Inbound rules
+* The default NACL allows inbounr/outbound traffic
+* It increments 100 by 100
+* Ports
+    * 21 FTP
+    * 22 SSH
+    * 22 SFTP
+    * 80 HTTP
+    * 443 HTTPS
+* Ephemeral Port
 
 ## VPC Peering
 
