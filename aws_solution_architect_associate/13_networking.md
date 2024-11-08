@@ -121,4 +121,31 @@
 
 ## VPC Endpoint
 
-## VPC FLow
+* Services are accesible for the public internet
+* Types of Enpoints
+    * Interface Endpoints (powered by PrivateLink)
+        * Provisions an ENI as an entry point 
+        * Supports most AWS Services
+        * $ per hour and $ per transfer data
+        * Access is required from on-premises
+    * Gateway Endpoints
+        * Provisions a gateway and must be used as a target in a route table
+        * Supports both S3 and DynamoDB
+        * Free
+
+## VPC Flow Logs
+
+* Capture information about IP traffic going into your interfaces
+    * VPC Flow Logs
+    * Subnet Flow Logs
+    * Elastic Network Interface Flow Logs
+* Architectures
+    * VPC Flow Logs > CloudWatch Logs > CloudWatch Contributor Insights
+    * VPC Flow Logs > CloudWatch Logs > CloudWatch Alarm > Amazon SNS
+    * VPC Flow Logs > S3 Bucket > Amazon Athena > Amazon Quicksight
+
+## Virtual Private Network (VPN)
+
+## Direct Connect 
+
+## Transit Gateway
