@@ -50,7 +50,9 @@
     * Create Target groups
     * Create and edit security groups
     * Launch ALB
-    
+    * Block SG to receive only ALB requests
+    * You can set rule conditions
+
 ```bash
 #!/bin/bash
 # Use this for your user data (script from top to bottom)
@@ -63,5 +65,18 @@ echo "<h1>Hello from @janobourian in $(hostname -f)</h1>" > /var/www/html/index.
 ```
 
 ### Network Load Balancing (NLB)
+
+* TCP and UDP traffic 
+* Layer 4
+* Million of request per second
+* NLB has one static IP per AZ and supports assigning Elastic IP
+* Targets groups:
+    * EC2 instances
+    * IP addresses
+    * Application Load Balancer
+* Health checks support:
+    * TCP
+    * HTTP
+    * HTTPS
 
 ### Gateway Load Balancing (GWLB)
