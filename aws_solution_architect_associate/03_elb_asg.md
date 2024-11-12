@@ -42,7 +42,7 @@
     * Lambda functions
     * IP Addresses (Private IP routing)
 * The ALB do not see the IP of the client directly
-* You need to use X-Forwarded-Port and X-Forwarded-Proto
+* You need to use X-Forwarded-Port and X-Forwarded-Proto and X-Forwarded-For
 
 * Hands on:
     * Create instances
