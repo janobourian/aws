@@ -106,4 +106,26 @@ echo "<h1>Hello from @janobourian in $(hostname -f)</h1>" > /var/www/html/index.
     * Turn on stickiness
     * Modify the duration and the name (when it is an application-based cookie)
 
+* Cross-Zone Load Balancing
+    * With Cross Zone Load Balancing:
+        * Enable by default: ALB. Not for NLB and GWLB
+        * Free for CLB and ALB
+        * It can be disabled at The Target Group level
+        * Each load balancer instance distributes evenly across all registered instances in all AZ
+    * Without Cross Zone Load Balancing:
+        * Requests are distributed in the instances of the node of the Elastic Load Balancer
+
+* SSL/TLS Certificates
+    * SSL: Allows traffic between your clients and your load balancer to be encrypted in transit
+    * SSL: Secure Sockets Layer
+    * TLS: Transport Layer Security
+    * Public SSL certificates are issued by Certificate Authorities (CA)
+        * You can manage certificates using ACM (AWS Certificate Manager)
+    * SSL has a time to live
+    * SNI (Server Name Indication)
+        * solves the problem of loading multiple SSL certificates onto one web server
+
+* Connection Draining
+    * Connection Draining or Deregistration Delay
+
 ### Auto Scaling Groups
