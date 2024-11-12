@@ -144,7 +144,8 @@ echo "<h1>Hello from @janobourian in $(hostname -f)</h1>" > /var/www/html/index.
 * Scaling Policies
     * Dynamic Scaling
         * Target Tracking Scaling
-        * Simple / Step Scaling
+        * Step Scaling
+        * Simple Scaling
     * Scheduled Scaling
     * Predictive Scaling
     * Good metrics to scale on:
