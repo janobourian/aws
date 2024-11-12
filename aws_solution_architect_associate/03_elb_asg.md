@@ -129,3 +129,27 @@ echo "<h1>Hello from @janobourian in $(hostname -f)</h1>" > /var/www/html/index.
     * Connection Draining or Deregistration Delay
 
 ### Auto Scaling Groups
+
+* Overview
+    * You can create ad get rid of servers
+    * The goal of ASG is:
+        * Scale out or scale in
+        * Ensure we have a minimum and a maximum of EC2 instance running
+        * Is free
+    * Steps
+        * Create a Launch Template
+    * Auto Scaling:
+        * CloudWatch Alarms and Scaling
+
+* Scaling Policies
+    * Dynamic Scaling
+        * Target Tracking Scaling
+        * Simple / Step Scaling
+    * Scheduled Scaling
+    * Predictive Scaling
+    * Good metrics to scale on:
+        * CPUUtilization: Average CPU utilization across your instances
+        * RequestCountPerTarget: to make sure the number of requests per EC2 instanes is stable
+        * Averag Network In / Out (if you are application is network bound)
+        * Any custom metric
+    * Scaling Cooldown
