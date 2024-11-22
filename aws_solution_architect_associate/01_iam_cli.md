@@ -2,13 +2,29 @@
 
 * IAM = Identity and Access Management, Global Service
 * Root account created by default, should not be used or shared
+  * One AWS Account = One User
 * Users are people within your organization, and can be grouped
 * Groups only contain users, not other groups
 * User can belong to multiple groups
+* In AWS you apply the least privilige principle
+* You can change the account name using a verbose name instead of twelve digits
 
 * IAM: Permissions
     * JSON document called policies
     * VIS - SEPARC
+      * VIS: 
+        * Version: "2012-10-17"
+        * Id: an identifier
+        * Statement: [{}]
+      * SEPARC: 
+        * Sid: an statement-identifier
+        * Effect: Allow, Deny
+        * Principal: account, user, root
+        * Action: list of actions, examples:
+          * s3:Get*
+          * s3:List*
+        * Resource: []
+        * Condition: {}
 
 ```json
 {
@@ -51,6 +67,7 @@ aws help
 aws <command> help
 aws <command> <subcommand> help
 aws iam list-users
+aws iam create-user help
 ```
 
 * Roles:
