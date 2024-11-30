@@ -79,7 +79,6 @@ aws iam create-user help
     * Lambda Functions
     * CloudFormation
 
-```bash
 ```json
 {
   "Version": "2012-10-17",
@@ -98,7 +97,6 @@ aws iam create-user help
   ]
 }
 ```
-```
 
 * IAM Security Tools:
   * IAM Credentials Report (account-level)
@@ -114,3 +112,38 @@ aws iam create-user help
   * Create and use Roles for AWS Services
   * Use Access Keys for programmatic Access
   * Audit permissions
+
+## AWS Organizations
+
+* Global Services
+* Organizational Units:
+  * By business unit
+  * By environmental Lifecycle
+  * By project
+* Allows to manage multiple AWS accounts
+* Management account / Member account
+* Member account can only be part of one organization
+* Benefits:
+  * Consolidated Billing across all accounts
+  * Pricing benefits from aggregated usage
+  * Shared reserved instances and Saving Plans discounts across accounts
+  * API is available to automate AW account creation
+* Advantages:
+  * Multi account vs One account Multi VPC
+  * Use tagging standards for billing purposes
+  * Enable CloudTrail on all accounts, send logs to central S3 account
+  * Send CloudWatch Logs to central logging account
+  * Establish Cross Account Roles for Admin purposes
+* Security Control Policies (SCP):
+  * IAM policies applied to OU
+  * Management account has full admin power
+  * It does not allow anything by default
+
+### Hands-on
+
+* You can create a new account or send an invitation
+* You can create Organizational Units
+* You can create a Secury Control Policies
+  * FullAWSPolicy
+  * Example:
+    * DenyS3Service
