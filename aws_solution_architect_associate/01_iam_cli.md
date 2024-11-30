@@ -59,7 +59,9 @@
 
 * Ways to connect with AWS
   * Console
-  * CLI (Using Access Keys)
+    * You also can use CloudShell
+  * CLI (Using Access Keys):
+    * aws configure (to configure Access Keys)
   * SDK (AWS Software Development Key)
 
 ```bash
@@ -77,9 +79,31 @@ aws iam create-user help
     * Lambda Functions
     * CloudFormation
 
+```bash
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "sts:AssumeRole"
+      ],
+      "Principal": {
+        "Service": [
+          "ec2.amazonaws.com"
+        ]
+      }
+    }
+  ]
+}
+```
+```
+
 * IAM Security Tools:
   * IAM Credentials Report (account-level)
   * IAM Access Advisor (user-level) / IAM Access Analyzer
+  * IAM LastAccess (by user)
 
 * IAM Guidelines and Best Practices
   * Do not use your root account
