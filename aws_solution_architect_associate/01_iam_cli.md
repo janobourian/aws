@@ -147,3 +147,109 @@ aws iam create-user help
   * FullAWSPolicy
   * Example:
     * DenyS3Service
+
+## IAM Conditions
+
+There are some examples:
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Deny",
+      "Action": "*",
+      "Resource": "*",
+      "Condition": {
+        "NotIpAddress": {
+          "aws:SourceIp": [
+            "192.0.2.0/24",
+            "203.0.113.0/24"
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Deny",
+      "Action": [
+        "ec2:*",
+        "rds:*",
+        "dynamodb:*"
+      ],
+      "Resource": "*",
+      "Condition": {
+        "StringEquals": {
+          "aws:RequestedRegion": [
+            "eu-central-1",
+            "eu-west-1"
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+* IAM for S3 
+  * s3:ListBucket permission applies to arn:aws:s3:::test -> bucket level permission
+  * s3:GeObject permission applies to arn:aws:s3:::test/* -> object level permission
+
+* Case with AWS Organization for s3 bucket, only AWS Organization members can perform operations in this bucket
+
+```json
+{
+  "Version": "2012-10-17",
+  "Statement": [
+    {
+      "Effect": "Allow",
+      "Action": [
+        "s3:PutObject",
+        "s3:GetObject"
+      ],
+      "Resource": "arn:aws:s3:::2022-financial-data/*",
+      "Condition": {
+        "StringEquals": {
+          "aws:PrincipalOrgID": [
+            "o-yyyyyyyyy"
+          ]
+        }
+      }
+    }
+  ]
+}
+```
+
+## Resource-based Policies versus IAM Roles
+
+* Case one:
+  * Account A -> IAM Role -> S3 Bucket
+* Case two:
+  * Account A -> Resource-based Policy -> S3 Bucket
+
+In case of EventBridge you can invoke resources with Resource-based Policy, but in some resources such as Kinesis stream, EC2 Auto Scaling, Systems Manager Run Command, ECS task you are going to need IAM role
+
+* Policy Boundaries limit the users actions
+* IAM Policy Evaluation Logic:
+  * Deny Evaluation
+  * Organizations SCP (Secure Control Policy)
+  * Resource-based policies
+  * Identity-based policies
+  * IAM permissions boundaries
+  * Sessions policies
+
+## AWS IAM Identity Center
+
+* Single Sign-On
+* You Can connect with SAML-2.0 Applications
+* Permissions assignments:
+  * Multi-Account Permissions
+  * Application Assignments
+  * Attribute-Based Access Control (ABAC)
