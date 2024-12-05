@@ -253,3 +253,23 @@ In case of EventBridge you can invoke resources with Resource-based Policy, but 
   * Multi-Account Permissions
   * Application Assignments
   * Attribute-Based Access Control (ABAC)
+
+## Microsoft Active Directory and AWS Directory Services
+
+* For microsoft ecosystem
+* AWS Directory Services Flavors:
+  * AWS Managed Microsoft AD: 
+    * Trust connection between On-prem AD and AWS Managed AD
+  * AD Connector
+    * AD Connector works as proxy, users are managed by On-prem AD
+  * Simple AD:
+    * Without On-prem AD
+* You can integrate Active Directory with IAM Identity Center
+
+## AWS Control Tower
+
+* Easy way to set up and govern a secure and compliant multi-account AWS Environment
+* AWS Control Tower uses AWS Organizations to create accounts
+* You can use Guardrails:
+  * Preventive Guardrails: using SCP (Restrict Regions across all your accounts)
+  * Detective Guardrails: using AWS Config (e.g. identify untagged resources)
