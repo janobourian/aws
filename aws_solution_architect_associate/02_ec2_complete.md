@@ -1,4 +1,11 @@
-# EC2 complete
+# Elastic Compute Cloud (EC2) complete
+
+## Create a Budget
+
+* First, as a root user, you should allow the permission to `IAM user and role access to Billing information`
+    * root account > Account > Billing and Payments
+* To create budget
+    * Billing and Cost Managment > Budget 
 
 ## About EC2
 
@@ -19,11 +26,32 @@
     * Storage:
         * EBS and EFS
         * EC2 Instance Store
-    * IP
+    * Network Card: Public IP
     * Securty rules: security group
 
 * Bootstraping is possible:
+    * That scripts is only run once at the instance first start
     * Automate boot tasks using scripts as root user
+    * Task such as:
+        * Installing updates
+        * Installing software
+        * Downloading common files from the internet
+        * Anything you can think of
+
+## Hands On
+
+* Bootstrap
+
+```bash
+#!/bin/bash
+# Use this for your user data (script from to to bottom)
+# install httpd (Linuz 2 version)
+yum update -y
+yum install -y httpd
+systemctl start httpd
+systemctl enable httpd
+echo "<h1> Hello from $(hostname -f)</h1>" > /var/www/html/index.html
+```
 
 * Size:
     * small -> 0.5gb
@@ -59,14 +87,19 @@
         * Datawarehouse
     * HPC
 
+* To have a reference about the instances cost: https://instances.vantage.sh
+
 * Security:
     * Security groups
+        * Are like a firewall
         * Only allow rules based on IP adresses and other security group
         * Access to ports
         * Control inbound and outbound rules
         * Locked down to a region/VPC combination
-        * Time out is a security group issue
-        * Connection refuse is a deploy error
+        * Errors
+            * Time out is a security group issue
+            * Connection refuse is a deploy error
+        * To reference another security groups is a good way to link EC2 instances or services
 
 * Classic ports:
     * 21 FTP -> File Transfer Protocol
@@ -77,6 +110,7 @@
     * 3389 RDP -> Remote Deskto Protocol
     
 * Connect using SSH:
+    * chmod 400 *.pem
     * ssh -i "*.pem" ec2-user@.us-west-2.compute.amazonaws.com
 
 * Roles on EC2 instance:

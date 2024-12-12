@@ -127,7 +127,7 @@ aws iam create-user help
   * Consolidated Billing across all accounts
   * Pricing benefits from aggregated usage
   * Shared reserved instances and Saving Plans discounts across accounts
-  * API is available to automate AW account creation
+  * API is available to automate AWS account creation
 * Advantages:
   * Multi account vs One account Multi VPC
   * Use tagging standards for billing purposes
