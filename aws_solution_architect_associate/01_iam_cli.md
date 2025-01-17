@@ -60,6 +60,7 @@
 * Ways to connect with AWS
   * Console
     * You also can use CloudShell
+      * In CLoudShell you can download and upload files
   * CLI (Using Access Keys):
     * aws configure (to configure Access Keys)
   * SDK (AWS Software Development Key)
