@@ -66,6 +66,11 @@ echo "<h1> Hello from $(hostname -f)</h1>" > /var/www/html/index.html
         * 5: generation
         * 2xlarge: size
 
+* Key points
+    * CPU
+    * Memory
+    * Networking
+
 * EC2 instance types:
     * General purpose:
         * The common EC2 instance
@@ -85,6 +90,7 @@ echo "<h1> Hello from $(hostname -f)</h1>" > /var/www/html/index.html
         * OLTP: OnLine Transaction Processing
             * OLAP: OnLine Analytics Processing
         * Datawarehouse
+        * Relational and NoSQL Data bases
     * HPC
 
 * To have a reference about the instances cost: https://instances.vantage.sh
