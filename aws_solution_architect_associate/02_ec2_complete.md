@@ -123,11 +123,18 @@ echo "<h1> Hello from $(hostname -f)</h1>" > /var/www/html/index.html
     * Do not use ACCESS KEYS into EC2 instances
     * Roles help us to communicate AWS services
 
+* Types 
+    * Pay-as-you-go
+    * 1 year
+    * 3 years
+    * You can buy or sell them in the Reserved Instance Marketplace
+
 * Instance purchasing options:
     * On demand:
         * Pay-as-you-go
         * Linux and windows - billing per second, but after first minute
         * Other OS - billing per hour
+        * No upfront
     * Reserved Instances
         * You reserve a specific instance attributes
             * Instance Type, Region, Tenancy and OS
@@ -136,6 +143,7 @@ echo "<h1> Hello from $(hostname -f)</h1>" > /var/www/html/index.html
     * Saving Plans
         * Commitment to an amount of usage
         * Locked for specific instance family and Region
+        * Beyond the reservation you will pay as On-demand
         * Flexible across:
             * Instance Size
             * OS
@@ -144,11 +152,17 @@ echo "<h1> Hello from $(hostname -f)</h1>" > /var/www/html/index.html
         * Can lose instances
     * Dedicated host
         * A complete physical server for you
+        * Purchasing Options:
+            * On-demand
+            * Resever
+            * BYOL: Bring Your Own License
         * BYOL - Bring Your Own License
     * Dedicated Instance
         * Hardware for you
     * Capacity reservation:
         * Reserve by AZ for any duration
+
+* AWS Charges for IPv4 addresses
 
 * Spot instances and Spot Fleet
     * Two minutes grace period
