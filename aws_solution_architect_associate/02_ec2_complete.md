@@ -195,6 +195,8 @@ echo "<h1> Hello from $(hostname -f)</h1>" > /var/www/html/index.html
     * IPv4
     * IPv6
 
+* Public IP -> Internet Gateway -> Private IP (inside private network)
+
 * Public:
     * To be identified on the internet
 * Private
@@ -206,6 +208,7 @@ echo "<h1> Hello from $(hostname -f)</h1>" > /var/www/html/index.html
 
 ## Placement Groups
 
+* Control over how the EC2 instances placement
 * Strategies:
     * Cluster: Cluster instances into a low-latency group in a Single AZ
         * 10 Gps of bandwith
@@ -216,6 +219,7 @@ echo "<h1> Hello from $(hostname -f)</h1>" > /var/www/html/index.html
         * Different hardware
         * Isolated the failure
     * Partition: spreads instances across many different partitions within an AZ. Scale to 100s of EC2 instances per group
+        * Up to seven partitions by AZ
         * Multiple AZ
         * Each partition has a rack 
         * Use cases: Cassandra, Hadoop, Kafka
