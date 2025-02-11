@@ -324,4 +324,26 @@ echo "<h1> Hello from $(hostname -f)</h1>" > /var/www/html/index.html
         * Temporary content
 
 * EFS (Elastic File System)
+    * Mounting 100s of instances accross AZ
     * multi-AZ
+    * Expensive
+    * Pay per use
+    * Compatible with Linux
+    * Security using security group
+    * Performances:
+        * EFS Scale
+        * Performance Mode
+            * General Purpose
+            * MAX I/O
+        * Throughput mode
+            * Bursting
+            * Provisioned
+            * Elastic
+    * Storage clases:
+        * Standard
+        * Infrequent Access
+        * Archive
+    * You can implemente lifecycle policies
+    * Availability and durability
+        * Standard
+        * One zone
