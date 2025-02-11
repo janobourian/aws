@@ -214,15 +214,15 @@ echo "<h1> Hello from $(hostname -f)</h1>" > /var/www/html/index.html
         * 10 Gps of bandwith
         * Big data jobs
         * App that needs low latency
-    * Spread: Spreads instances across underlying hardware (max 7 instances per group per AZ) - critical applications
-        * Multiple AZ
-        * Different hardware
-        * Isolated the failure
     * Partition: spreads instances across many different partitions within an AZ. Scale to 100s of EC2 instances per group
         * Up to seven partitions by AZ
         * Multiple AZ
         * Each partition has a rack 
         * Use cases: Cassandra, Hadoop, Kafka
+    * Spread: Spreads instances across underlying hardware (max 7 instances per group per AZ) - critical applications
+        * Multiple AZ
+        * Different hardware
+        * Isolated the failure
 
 ## Elastic Network Interface
 
@@ -232,6 +232,9 @@ echo "<h1> Hello from $(hostname -f)</h1>" > /var/www/html/index.html
 * One public IPv4
 * One or more security gruop
 * Limited by AZ
+* It is used for availability
+* It help us in a failover
+* Custom ENI does not go when the instance are deleted
 
 ## Hibernate
 
@@ -253,7 +256,8 @@ echo "<h1> Hello from $(hostname -f)</h1>" > /var/www/html/index.html
 
 # EC2 Instance Storage
 
-* EBS Volume (Elastic Block Store), 
+* EBS Volume (Elastic Block Store),
+    * network drive
     * to persist data and 
     * can be attached to multiple EC2 instances and 
     * be limited by AZ and 
@@ -269,6 +273,7 @@ echo "<h1> Hello from $(hostname -f)</h1>" > /var/www/html/index.html
         * EBS Snapshot Archive
         * Recycle Bin for EBS Snapshots
         * Fast Snapshot Restore
+    * You can attach your EBS to other EBS
 
 * EBS Volume Types:
     * gp2/gp3, general purpose SSD
@@ -280,6 +285,7 @@ echo "<h1> Hello from $(hostname -f)</h1>" > /var/www/html/index.html
         * Hard Disk Drives
         * Can not be a boot volume
     * sc1
+        * COLD HDD
         * Hard Disk Drives
         * Can not be a boot volume
 
@@ -308,6 +314,7 @@ echo "<h1> Hello from $(hostname -f)</h1>" > /var/www/html/index.html
         * Launch instances from other AMIs
 
 * EC2 Instance Store
+    * High performance
     * Hardware disk
     * Ephemeral storage
     * Use cases:
