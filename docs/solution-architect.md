@@ -1,4 +1,4 @@
-# Solution Architect
+# Solution Architect SAA-C03
 
 ## Getting Started with AWS
 
