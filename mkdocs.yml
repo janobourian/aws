@@ -15,7 +15,13 @@ use_directory_urls: false
 docs_dir: docs
 
 nav:
-  - AWS Solution Architect: solution-architect.md
+  - Home: index.md
+  - AWS Solution Architect: 
+    - Overview: solution_architect/solution-architect.md
+    - Identity and Access Management: solution_architect/iam.md
+  - AWS SysOps Administrator: 
+    - Overview: sysops/sysops-administrator.md
+    - CloudFormation: sysops/cloudformation.md
 
 markdown_extensions:
   - admonition
