@@ -54,7 +54,75 @@
             * Authy
         * Universal 2nd Factor (U2F) Security Key
             * Yubikey
-        * Hardware Key Fob MFA Device
-        * Hardware Key Fob MFA Device for AWS GovCloud
+        * Hardware Key For MFA Device
+        * Hardware Key For MFA Device for AWS GovCloud
+    
+### Access Keys, CLI and SDK
+
+* AWS Management Console
+* AWS Command Line Interface (CLI)
+* AWS Software Development Kit (SDK)
+
+#### Hands On
+
+Start the CLI configuration
+
+```bash
+aws configure
+Access Key ID
+Secret Access Key 
+Region `us-east-1`
+Output `json`
+```
+
+The next exercises are using `CloudShell` 
+
+```bash
+aws --version
+aws iam list-users
+```
+
+You can update and download files on `CloudShell`
+
+### IAM Roles
+
+To do so, we eill assign permissions to AWS services with IAM Roles.
+
+Common Roles:
+* EC2 Instance Roles
+* Lambda Function Roles
+* CloudFormation
+
+#### Trusted entities
+
+Who can use the role in Principal
+
+```json
+{
+    "Version": "2012-10-17",
+    "Id": "something",
+    "Statement":[
+        {
+            "Sid": "something_nested",
+            "Effect": "Allow",
+            "Principal": {
+                "Service": [
+                    "ec2.amazonaws.com"
+                ]
+            },
+            "Action": [
+                "sts:AssumeRole"
+            ],
+            "Resource": "*",
+            "Condition": ""
+        }
+    ]
+}
+```
+
+### IAM Security Tools
+
+* IAM Credentials Report (account-level)
+* Access Analyzer (user-level)
 
 ## Identity and Access Management (IAM) - Advanced
