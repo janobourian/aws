@@ -126,3 +126,59 @@ Who can use the role in Principal
 * Access Analyzer (user-level)
 
 ## Identity and Access Management (IAM) - Advanced
+
+### Organizations
+
+* Global Service
+* Allows to manage multiple AWS accounts
+* Consolidated Billing across all accounts - single payment method
+* Pricing benefits from aggregated usage
+* Shared reserved instances and Savings Plans
+* Main Account is the management account, other accounts are member accounts
+* API is available to automate AWS account creation
+* OU: Organizational Unit
+
+* Nested Organization:
+    * Root Organizational Unit: Management Account
+        * Dev Organizational Unit: Member Accounts
+        * Prod Organizational Unit: 
+            * Human Resources Organizational Unit:
+            * Finance Organizational Unit
+
+* Ways to create Organizational Units:
+    * Business Unit
+        * Sales
+        * Retail
+        * Finance
+    * Environmental Lifecycle
+        * Prod
+        * QA
+        * Dev
+    * Project-Based
+        * Project 1
+        * Project 2
+        * Project 3
+
+* Advantages:
+    * Multi account vs One account Multi VPC
+    * Use tagging standards for billing purposes
+    * Enable CloudTrail on all accounts, send logs to central S3 account
+    * Send CloudWatch Logs to central logging account 
+    * Establish Cross Account Roles for Admin purposes
+
+* Security: Service Control Policies (SCP)
+    * IAM policies applied to OU or Accounts to restrict Users and Roles
+    * They do not apply to the management account (full admin power)
+    * Must have an explicit allow from the root through each OU in the direct path to the target account (does not allow anything by default - like IAM)
+
+### Advanced Policies
+
+### Resource-based Policies vs IAM Roles
+
+### Policy Evaluation Logic
+
+### IAM Identity Center
+
+### Directory Services
+
+### Control Tower
