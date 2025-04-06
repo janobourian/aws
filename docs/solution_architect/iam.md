@@ -173,12 +173,203 @@ Who can use the role in Principal
 
 ### Advanced Policies
 
+#### IAM Conditions
+
+* aws:SourceIp - restrict the client IP from which the API calls are being made
+
+Example:
+
+```json
+{
+    "Version":"2012-10-17",
+    "Id":"AWSPolicy",
+    "Statement":[
+        {
+            "Sid":"AllowSomeResources",
+            "Effect":"Deny",
+            "Principal":"",
+            "Action":"*",
+            "Resource":"*",
+            "Condition":{
+                "NotIpAddress"{
+                    "aws:SourceIp":["192.0.2.0/24","203.0.113.0/24"]
+                }
+            }
+        }
+    ]
+}
+```
+
+* aws:RequestedRegion - restrict the region the API calls are made to
+
+Example:
+
+```json
+{
+    "Version":"2012-10-17",
+    "Id":"AWSPolicy",
+    "Statement":[
+        {
+            "Sid":"AllowSomeResources",
+            "Effect":"Deny",
+            "Principal":"",
+            "Action":"*",
+            "Resource":"*",
+            "Condition":{
+                "StringEquals"{
+                    "aws:RequestedRegion":["eu-central-1","eu-west-1"]
+                }
+            }
+        }
+    ]
+}
+```
+
+* ec2:ResourceTag - restrict based on tags
+
+Example:
+
+```json
+{
+    "Version":"2012-10-17",
+    "Id":"AWSPolicy",
+    "Statement":[
+        {
+            "Sid":"AllowSomeResources",
+            "Effect":"Allow",
+            "Action":["ec2:startInstances", "ec2:stopInstances"],
+            "Resource":"arn:aws:ec2:us-east-1:123456789012:instance/*",
+            "Condition":{
+                "StringEquals"{
+                    "ec2:ResourceTag/Project": "DataAnalytics",
+                    "aws:PrincipalTag/Department": "Data"
+                }
+            }
+        }
+    ]
+}
+```
+
+* aws:MultiFactorAuthPresent - to force MFA
+
+Example:
+
+```json
+{
+    "Version":"2012-10-17",
+    "Id":"AWSPolicy",
+    "Statement":[
+        {
+            "Effect":"Allow",
+            "Action":"ec2:*",
+            "Resource":"*"
+        },
+        {
+            "Effect":"Deny",
+            "Action":["ec2:startInstances", "ec2:stopInstances"],
+            "Resource":"*",
+            "Condition":{
+                "BoolIfExists":{
+                    "aws:MultiFactorAuthPresent":false
+                }
+            }
+        }
+    ]
+}
+```
+
+* IAM for S3 policy level:
+    * object lever
+    * bucket level
+
+* Resource Policies and aws:PrincipalOrgID
+    * aws:PrincipalOrgID can be used in any resource policies to restrict access to accounts that are member of an AWS Organization
+
+Example:
+
+```json
+{
+    "Condition": {
+        "StringEquals": {
+            "aws:PrincipalOrgID": ["o-yyyyyyyyyy"]
+        }
+    }
+}
+```
+
 ### Resource-based Policies vs IAM Roles
+
+* Cross-account:
+    * attaching a resource-based policy to a reource (example: S3 bucket policy)
+    * OR using a role as a proxy
+
+* Cases:
+    * User Account A -> Role Account B -> Amazon S3
+    * User Account A -> S3 Bucket Policy -> Amazon S3
+
+* Important notes:
+    * When you assume a role, you give up your original permissions and take the permissions assigned to the role
+    * When using a resource-based policy, the principal does not have to give up his permissions
+
+* Disclaimer about Event Bridge:
+    * EventBridge rule and Resource-based policy
+        * Lambda, SNS, SQS, S3 bucket, API Gateway
+    * EventBridge rule and IAM role to assume
+        * Kinesis Stream, EC2 Auto Scaling, System Manager Run Command, ECS Task
 
 ### Policy Evaluation Logic
 
+#### IAM Permission Boundaries
+
+* IAM Permission Boundaries are supported for users and roles (not groups)
+* Advanced feature to use a manged policy to set the maximum permissions and IAM entity can get
+* Example: 
+    * IAM Permission Boundary + IAM Permissions Trhough IAM Policy
+
+#### IAM Policy Evaluation Logic
+
+* Deny Evaluations
+* Organizations Service Control Policy
+* Resource-based policies -> Review the resource-based policy in the resource
+* Identity-based policies -> IAM roles
+* IAM permissions boundaries
+* Session policies
+
 ### IAM Identity Center
+
+* SSO: single sign-on
+* One login (single sign-on) for all your
+* Identity providers
+    * Built-in identity store in IAM Identity Center
+    * Third party: Active Directory (AD), OneLogin, Okta
+* Login Flow:
+    * Login
+    * AWS IAM Identity Center
+    * SSO to access:
+        * AWS Cloud
+        * Business Cloud Apps
+        * Custom SAML2.0-enabled Apps
 
 ### Directory Services
 
+* What is Microsoft Active Directory (AD)?
+    * AWS Managed Microsoft AD
+        * auth -> AWS Managed AD -> trust -> On-prem AD -> auth
+    * AD Connector
+        * auth -> AD Connector -> proxy -> On-prem AD
+    * Simple AD
+        * Simple AD
+
 ### Control Tower
+
+* Easy way to set up and govern a secure and compliant multi-account AWS environment based on best practices
+* AWS Control Tower uses AWS Organizations to create accounts
+* Benefits:
+    * Automate the set up your environment in a few clicks
+    * Automate ongoing policy management using guardrails
+    * Detect policy violations and remediate them
+    * Monitor compliance through an interactive dashboard
+
+* AWS Control Tower - Guardrails
+    * Preventive Guardrail - using SCPs (e.g, Restrict Regions across all your accounts)
+    * Detective Guardrail - using AWS Config (e.g., Identify untagged resources)
