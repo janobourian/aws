@@ -19,6 +19,7 @@ nav:
   - AWS Solution Architect: 
     - Overview: solution_architect/solution-architect.md
     - Identity and Access Management: solution_architect/iam.md
+    - Elastic Compute Cloud: solution_architect/ec2.md
   - AWS SysOps Administrator: 
     - Overview: sysops/sysops-administrator.md
     - CloudFormation: sysops/cloudformation.md
