@@ -106,6 +106,97 @@ echo "<h1>Hello world from $(hostname -f)</h1>" > /var/www/html/index.html
         * Source
         * Description
 
+* You need to configure IAM role
+
+### EC2 Instance Purchasing Options
+
+* On-Demand Instances
+    * Linux or Windows - billing per second, after the first minute
+    * All other operating systems - billing per hour
+* Reserved
+    * Reserved Instances
+        * You reserve a specific instance attributes:
+            * Instance Type
+            * Region
+            * Tenancy
+            * OS
+        * You can buy and sell in the Reserved Instance Marketplace
+    * Convertible Reserved Instances
+        * Can change the EC2:
+            * instance type
+            * instance family
+            * OS
+            * scope
+            * tenancy
+* Saving Plans: commitment to an amount of usage, long workload
+    * Commit to a certain type of usage ($10/hour for 1 or 3 years)
+    * Locked to a specific instance family and AWS region
+    * After your commit start On-Demand pricing
+    * Flexible across:
+        * Instance size
+        * OS
+        * Tenancy
+* Spot Instances
+    * You can lose at any point of time
+    * Useful for workloads that are resilient to failure
+* Dedicated Hosts
+    * A physical server fully dedicated to your use
+    * Useful for software that have complicated licensing model (BYOL - Bring Your Own License)
+    * Or for companies that have strong regulatory or compliance needs
+    * Purchasing Options:
+        * On-demand
+        * Reserved
+* Dedicated Instances
+    * Instance run on hardware that is dedicated to you
+    * May share hardware with other instances in same account
+* Capacity Reservations
+    * Reserve On-Demand isntances capacity in a specific AZ for any duration
+
+### IP address charges in AWS
+
+* Public IPv4 created in your account
+    * $0.005 per hour (~$3.6 month)
+* The trick is to start to migrate to IPv6
+* VPC IP Address Manager (VPC IPAM) to manage public IPs
+
+### Spot Instances and Spot Fleet
+
+#### EC2 Spot Instance Request
+
+* Define max spot price and ge the instance while current spot price < max
+* Your instance will have two minutes grace period
+* Used for batch jobs, data analysis, or workloads that are resilient to failures
+* Not great for critical jobs or databases
+* Spot block is no longer available
+* Spot Request
+    * Create request
+        * Maximum price
+        * Desired number of instances
+        * Launch specifications 
+        * Request type
+        * Valid from
+        * Valid until
+    * One time
+        * It will be terminated after the request
+    * Persistent
+        * Stop -> Start
+        * Interrumpt
+        * Cancel (terminate) only in the next status
+            * Open
+            * Active
+            * Disabled
+
+#### EC2 Spot Fleets
+
+* Spot Fleets = set of Spot Instances + (optional) On-Demand Instances
+* Strategies to allocate Spot Instances
+    * lowestPrice
+    * diversified: distributed across all pools
+    * capacityOptimized
+    * priceCapacityOptimized (recommended): highest capacity available, then select the pool with the lowest price
+
+### EC2 Instances Launch Types Hands on
+
 ## EC2 Solution Architect Associate Level
 
 ## EC2 Instance Storage
