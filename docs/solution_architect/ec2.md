@@ -79,6 +79,33 @@ echo "<h1>Hello world from $(hostname -f)</h1>" > /var/www/html/index.html
             * Distributed file systems
     * HPC optimized
 
+* Security groups:
+    * They control how traffic is allowed into or out of oue EC2 Instances
+    * Only contain allow rules
+    * Can reference by IP or by Security Group
+    * Is like a firewall
+    * Locked down to a region/VPC combination
+    * Problems:
+        * Time out: maybe is a security group issue
+        * Connection refused: maybe it is an application error or it is not launched
+    * Traffic:
+        * All inbound traffic is blocked by default
+        * All outbound traffic is allowed by default
+    * Referencing other security Groups:
+        * EC2 instances with the same security group can change information
+    * They structure is:
+        * Type
+            * FTP: 21
+            * SSH: 22
+            * SFTP: 22
+            * HTTP: 80
+            * HTTPS: 443
+            * RDP: 3389 (Remote Desktop Protocol)
+        * Protocol
+        * Port Range
+        * Source
+        * Description
+
 ## EC2 Solution Architect Associate Level
 
 ## EC2 Instance Storage
