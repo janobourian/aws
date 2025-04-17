@@ -195,8 +195,24 @@ echo "<h1>Hello world from $(hostname -f)</h1>" > /var/www/html/index.html
     * capacityOptimized
     * priceCapacityOptimized (recommended): highest capacity available, then select the pool with the lowest price
 
-### EC2 Instances Launch Types Hands on
-
 ## EC2 Solution Architect Associate Level
+
+### Private vs Public vs Elastic IP
+
+* IPv4 and IPv6
+* Internet Gateway (public)
+    * Private Network
+* Machines in Private Network can connect to internet using NatGateway
+* Elastic IP
+    * When you stop and then start an EC2 instance, it can change its public IP
+    * If you need to have a fixed public IP for your instance, you need an Elastic IP
+    * Five Elastic IP in your account
+
+
+### EC2 Placement Groups
+
+### Elastic Network Interfaces
+
+### EC2 Hibernate
 
 ## EC2 Instance Storage
