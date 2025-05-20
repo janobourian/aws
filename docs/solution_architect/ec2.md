@@ -43,7 +43,7 @@ echo "<h1>Hello world from $(hostname -f)</h1>" > /var/www/html/index.html
 
 * Command to connect locally:
     * `chmod 400 ".pem"`
-    * `ssh -i ".pem" ec2-user@*.compute-1.amazonaws.com`
+    * `ssh -i "*.pem" ec2-user@*.compute-1.amazonaws.com`
 
 ### EC2 instance types
 

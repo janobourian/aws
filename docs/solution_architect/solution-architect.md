@@ -28,7 +28,7 @@
 * AWS Global Services:
     * Identity and Access Manager (IAM)
     * Route53
-    * ClouFront
+    * CloudFront
     * AWS WAF
 
 * Check the Global Infrastructure

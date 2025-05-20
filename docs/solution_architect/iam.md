@@ -89,13 +89,13 @@ You can update and download files on `CloudShell`
 To do so, we eill assign permissions to AWS services with IAM Roles.
 
 Common Roles:
-* EC2 Instance Roles
-* Lambda Function Roles
-* CloudFormation
+    * EC2 Instance Roles
+    * Lambda Function Roles
+    * CloudFormation
 
 #### Trusted entities
 
-Who can use the role in Principal
+Who can use the role in Principal, this is not the role permissions, is the Trust relationships.
 
 ```json
 {
@@ -279,7 +279,7 @@ Example:
 ```
 
 * IAM for S3 policy level:
-    * object lever
+    * object level
     * bucket level
 
 * Resource Policies and aws:PrincipalOrgID
@@ -300,7 +300,7 @@ Example:
 ### Resource-based Policies vs IAM Roles
 
 * Cross-account:
-    * attaching a resource-based policy to a reource (example: S3 bucket policy)
+    * attaching a resource-based policy to a resource (example: S3 bucket policy)
     * OR using a role as a proxy
 
 * Cases:
