@@ -208,8 +208,31 @@ echo "<h1>Hello world from $(hostname -f)</h1>" > /var/www/html/index.html
     * If you need to have a fixed public IP for your instance, you need an Elastic IP
     * Five Elastic IP in your account
 
-
 ### EC2 Placement Groups
+
+* Strategies
+    * Cluster
+        * All instances are in the same AZ
+        * Pros:
+            * Great network
+        * Cons:
+            * If the AZ fails, all instances fails at the same time
+        * Use case:
+            * Big Data 
+            * Application that needs extremly low latency
+    * Spread
+        * Minimize the risk
+        * Every Instance is in different hardware
+        * Pros:
+            * Can span across AZ
+        * Cons:
+            * Limited to 7 instances per AZ per placement group
+        * Use case:
+            * Application that needs to maximize high availability
+            * Critical Applications where each must be isolated from failure from each other
+    * Partition
+        * Partition per AZ
+        * Each partition is isolated from failure
 
 ### Elastic Network Interfaces
 
