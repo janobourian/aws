@@ -56,12 +56,24 @@
             * Yubikey
         * Hardware Key For MFA Device
         * Hardware Key For MFA Device for AWS GovCloud
-    
+
+* Password policy:
+    * IAM > Account Settings
+
+* MFA:
+    * In the top right menu
+    * Security Credentials
+
 ### Access Keys, CLI and SDK
 
 * AWS Management Console
+    * Protected by Password + MFA
 * AWS Command Line Interface (CLI)
+    * Protected by Access Keys
 * AWS Software Development Kit (SDK)
+    * Protected by Access Keys
+
+* Users manage their own access keys
 
 #### Hands On
 
@@ -86,7 +98,7 @@ You can update and download files on `CloudShell`
 
 ### IAM Roles
 
-To do so, we eill assign permissions to AWS services with IAM Roles.
+To do so, we will assign permissions to AWS services with IAM Roles.
 
 Common Roles:
     * EC2 Instance Roles
