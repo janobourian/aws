@@ -12,13 +12,14 @@ First of all you need to set the billing section for not-root users
     * Distributing load across machines (ELB)
     * Scaling the services using an auto-scaling group (ASG)
 * Configuration options:
-    * Operating system
-    * Compute power an cores
-    * Random Access Memory
-    * Storage space
+    * Operating system (OS)
+    * Compute power an cores (CPU)
+    * Random Access Memory (RAM)
+    * Storage space (EBS or EFS)
         * Always review delete on terminate
     * Network card
     * Firewall rules
+        * Security Group
     * Bootstrap script
         * Installing updates
         * Installing software
@@ -42,6 +43,22 @@ systemctl start httpd
 systemctl enable httpd
 echo "<h1>Hello world from $(hostname -f)</h1>" > /var/www/html/index.html
 ```
+
+For Amazon Linux 2023
+
+```bash
+#!/bin/bash
+sudo dnf update -y
+sudo dnf install httpd -y
+sudo systemctl start httpd
+sudo systemctl enable httpd
+echo "<h1>Hello world from $(hostname -f)</h1>" > /var/www/html/index.html
+```
+
+* Stop instance
+* Start instance
+* Hibernate instance
+* Terminate instance
 
 * Command to connect locally:
     * `chmod 400 ".pem"`
