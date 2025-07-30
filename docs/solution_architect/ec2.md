@@ -75,11 +75,16 @@ echo "<h1>Hello world from $(hostname -f)</h1>" > /var/www/html/index.html
 * Types
     * General purpose
         * Great for a diversity of workloads
+        * Good balance between:
+            * Compute
+            * Memory
+            * Networking
     * Compute optimized
         * Great for compute-intensitive tasks
             * Batch processing workloads
             * Media transcoding
             * High performance web servers
+            * High performance computing
             * Scientific modeling and machine learning
             * Dedicated gaming servers
     * Memory optimized
@@ -97,6 +102,8 @@ echo "<h1>Hello world from $(hostname -f)</h1>" > /var/www/html/index.html
             * Data Warehousing applications
             * Distributed file systems
     * HPC optimized
+
+* If you need to check some instance costs: https://instances.vantage.sh/
 
 * Security groups:
     * They control how traffic is allowed into or out of oue EC2 Instances
