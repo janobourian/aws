@@ -237,6 +237,7 @@ echo "<h1>Hello world from $(hostname -f)</h1>" > /var/www/html/index.html
 
 ### EC2 Placement Groups
 
+* How your EC2 instances will be placed
 * Strategies
     * Cluster
         * All instances are in the same AZ
@@ -263,6 +264,28 @@ echo "<h1>Hello world from $(hostname -f)</h1>" > /var/www/html/index.html
 
 ### Elastic Network Interfaces
 
+* Logical component in a VPC that represents a virtual network card
+* It has the following attributes:
+    * Primary IPv4, one or more secondary IPv4
+    * One Elastic IP per private IPv4
+    * One Public IPv4
+    * One or more security groups
+    * A Mac address
+    * Bound for AZ
+
 ### EC2 Hibernate
+
+* Steps
+    * Start
+    * Stop
+    * Terminate
+    * Hibernate: 
+        * RAM state is preserved
+        * The instance boot is much faster
+        * RAM state is written to a file in the root EBS volume
+        * The root EBS volume must be encrypted
+        * Instance RAM size must be less than 150GB
+        * Not supported fro bare metal instances
+        * An instance can not be hibernated more than 60 days
 
 ## EC2 Instance Storage
