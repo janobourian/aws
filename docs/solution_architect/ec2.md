@@ -132,6 +132,7 @@ echo "<h1>Hello world from $(hostname -f)</h1>" > /var/www/html/index.html
         * Source
         * Description
 
+* You can connect with your EC2 instance using EC2 Instance Connect
 * You need to configure IAM role
 
 ### EC2 Instance Purchasing Options
