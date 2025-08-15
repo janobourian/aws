@@ -37,6 +37,10 @@
 
 ## CloudFormation for SysOps
 
+* General information: https://docs.aws.amazon.com/cloudformation/
+* Technical and specific information: https://docs.aws.amazon.com/AWSCloudFormation/latest/TemplateReference/introduction.html
+
+
 ### Create
 
 ```yml
@@ -118,11 +122,21 @@ You can check the Replace operation in very CloudFormation update and you can ch
   * Almost. Only a select few niches are not there yet
   * You can work around that using CloudFormation Custom Resources
 
+```yaml
+Resources:
+  MyCustomResource:
+    Type: 'AWS::EC2::Instance'
+    Properties:
+      AvailabilityZone: us-east-1a
+      ImageId: ami-0ff8a91507f77f867
+      InstanceType: t2.micro
+```
+
 ### Parameters
 
 * Parameters are a way to provide inputs to your AWS CloudFormation template
 * They are important to know about if
-  * You want to reuse your templates acress the company
+  * You want to reuse your templates across the company
   * Some inputs can not be determined ahead of time
 * Parameter are extremely powerful, controlled and can prevent errors from happening in your templates, thanks to types.
 
