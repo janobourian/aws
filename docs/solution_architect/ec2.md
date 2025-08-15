@@ -289,3 +289,27 @@ echo "<h1>Hello world from $(hostname -f)</h1>" > /var/www/html/index.html
         * An instance can not be hibernated more than 60 days
 
 ## EC2 Instance Storage
+
+### EBS
+
+* Elastic Block Store Volume
+    * Network drive you can attach to your instances while they run
+    * Bound to a specific availability zone
+    * Like network USB stick
+    * To move a volume across, you first need to snapshot it
+    * Have a provisioned capacity
+    * Delete on termination (root is deleted by default)
+
+### AMI
+
+### EC2 Instance Store
+
+### EFS
+
+### EFS vs EBS
+
+## High Availability and Scalability: ELB and ASG
+
+### ELB
+
+### ASG
