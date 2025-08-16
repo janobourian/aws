@@ -300,7 +300,18 @@ echo "<h1>Hello world from $(hostname -f)</h1>" > /var/www/html/index.html
     * Have a provisioned capacity
     * Delete on termination (root is deleted by default)
 
+* EBS Snapshots
+    * Make a backup of your EBS volume at a point in time
+    * Can copy snapshots across AZ or Region
+    * EBS Snapshot to EBS Snapshot Archive
+    * EBS Snapshot to Recycle Bin
+    * Fast Snapshot Restore
+
 ### AMI
+
+* Amazon Machine Image
+* AMI are a customization of an EC2 Instance
+* AMI are built for a specific region and can be copied across regions
 
 ### EC2 Instance Store
 
