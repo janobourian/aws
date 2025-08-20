@@ -307,6 +307,25 @@ echo "<h1>Hello world from $(hostname -f)</h1>" > /var/www/html/index.html
     * EBS Snapshot to Recycle Bin
     * Fast Snapshot Restore
 
+* EBS Volumes
+    * gp2/gp3 (SSD)
+    * io1/io2 Block Express
+    * st 1
+    * sc 1
+    * EBS Volumes are characterized in Size, Throughput, IOPS
+
+* Multi Attach:
+    * In te same AZ
+    * Across multiple EC2
+    * Only for io1 and io2
+    * Read and write permissions for high-performance volume
+    * To manage concurrent write operations
+    * Up to 16 EC2 Instances at a time
+
+* Encryption
+    * You have nothing to do
+    * Data at res, in flight, snapshots, and all volumes created from the snapshot
+
 ### AMI
 
 * Amazon Machine Image
@@ -315,9 +334,55 @@ echo "<h1>Hello world from $(hostname -f)</h1>" > /var/www/html/index.html
 
 ### EC2 Instance Store
 
+* If you need a high-performance hardware disk, use EC2 Instance Store
+* Better I/O performance
+* EC2 Instance store lose their storage if the are stopped
+* Good for buffer, cache, scratch data, temporary content
+
 ### EFS
 
+* Highly available, scalable, expensive (3x gp2), pay per use
+* EFS works with EC2 instances in multi-AZ
+* Use cases:
+    * Content management
+    * Web serving
+    * Data sharing
+    * Wordpress
+* Uses NFSv4.1
+* Use security Group
+* Compatible with Linux, not Windows
+* It uses POSIX file system
+* EFS scale
+* Performance Mode
+    * General Purpose
+    * Max I/O
+    * Throughput Mode
+        * Bursting - 1 TB
+        * Provisioned
+        * Elastic
+* Storage Classes
+    * Storage Tiers
+        * Standard
+        * Infrequent Access
+        * Archive
+    * You can implement Lifecycle policies
+* Availability and durability
+    * Standard: Multi-AZ
+    * One Zone: EFS One Zone-IA
+
 ### EFS vs EBS
+
+* EBS
+    * one instance
+    * Locked by AZ
+    * To migrate
+        * Take a Snapshot
+    * Deletion on terminate should be configured
+* EFS
+    * Across AZ
+    * Multi instance
+    * EFS Mount Target
+    * Storage Tiers
 
 ## High Availability and Scalability: ELB and ASG
 
