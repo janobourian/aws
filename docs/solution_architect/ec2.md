@@ -386,6 +386,47 @@ echo "<h1>Hello world from $(hostname -f)</h1>" > /var/www/html/index.html
 
 ## High Availability and Scalability: ELB and ASG
 
-### ELB
+* Vertical Scalability
+    * scale up - scale down
+    * Non distributed Systems such as a database
+    * It has a limite
+* Horizontal Scalability (= elasticity)
+    * scale out - scale in
+    * Auto Scaling Group
+    * Load Balancer
+    * Distributed systems
+    * web applications / modern applications
+* High Availability
+    * Multi AZ
+    * Meas running your application in at least 2 data centers
+    * The goal is to survive a data center loss
+    * Passive: For RDS Multi AZ
+    * Actice: For Horizontal scaling
+
+### ELB - Elastic Load Balancer
+
+* Load Balanacers are servers that forward traffic to multiple servers downstream
+* Use cases:
+    * Spread load across multiple downstream instances
+    * Expose a single point of access (DNS) to your application
+    * Seamlessly handle failures of downstream instances
+    * Do regular health checks to your instances
+    * Provide SSL termination for your websites
+    * Enforce stickiness with cookies
+    * High availability across zones
+    * Separate public traffic from private traffic
+
+* Types
+    * Classic Load Balancer
+    * Application load Balancer
+        * HTTP, HTTPS, WebSocket
+    * Network Load Balancer
+        * TCP, TLS, UDP
+    * Gateway Load Balancer
+        * GWLB
+
+* Security
+    * Load Balancer Security Group
+    * Application Security Group (allow traffic only from Load Balancer)
 
 ### ASG
