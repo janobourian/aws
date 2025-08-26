@@ -20,6 +20,8 @@ nav:
     - Overview: solution_architect/solution-architect.md
     - Identity and Access Management: solution_architect/iam.md
     - Elastic Compute Cloud: solution_architect/ec2.md
+    - Classic Solutions Architecture Discussions: solution_architect/classic-solutions-architecture-discussions.md
+    - Decoupling Applications: solution_architect/decoupling-applications.md
     - Machine Learning: solution_architect/machine-learning.md
   - AWS SysOps Administrator: 
     - Overview: sysops/sysops-administrator.md
