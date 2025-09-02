@@ -22,6 +22,8 @@ nav:
     - Elastic Compute Cloud: solution_architect/ec2.md
     - Classic Solutions Architecture Discussions: solution_architect/classic-solutions-architecture-discussions.md
     - Decoupling Applications: solution_architect/decoupling-applications.md
+    - Serverless Solution Architectures: solution_architect/serverless-solution-architectures.md
+    - Data and Analytics: solution_architect/data-and-analytics.md
     - Machine Learning: solution_architect/machine-learning.md
     - More Solution Architectures: solution_architect/more-solution-architectures.md
   - AWS SysOps Administrator: 
