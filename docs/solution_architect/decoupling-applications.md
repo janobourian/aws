@@ -119,3 +119,86 @@
         * 4MB/s or 4000 records per second in
         * Scales automatically based on observed throughput peak during last 30 days
         * Pay per stream per hour and data in/out per GB
+
+## Amazon Data Firehose
+
+* Producers:
+    * Applications
+    * Client
+    * SDK
+    * Kinesis Agent
+    * Kinesis Data Streams
+    * AWS IoT
+* Capabilities
+    * Record up to 1Mb
+    * Data Transformation with Lambda
+    * You can write Batch
+    * Near Real-Time
+    * Buffer size: 1Mb to 128Mb
+    * Buffer interval: 60 seconds to 900 seconds
+    * Compress records
+    * You can encrypt your data
+* Consumers:
+    * Amazon S3
+    * Amazon Redshift
+    * Amazon OpenSearch
+    * Third-party destinations
+    * Custom (using HTTP)
+* Supports
+    * CSV
+    * JSON
+    * Parquet
+    * Avro
+    * Raw Text
+    * Binary data
+
+## Kinesis Data Strems vs Amazon Data Firehose
+* Kinesis Data Streams
+    * Real-time processing
+    * Custom applications
+    * Retention up to 365 days
+    * Replay capability
+    * More complex to set up
+* Amazon Data Firehose:
+    * Load streaming data
+    * Near real-time
+    * Managed service
+    * Automatic scaling
+    * No replay capability
+    * Easier to set up
+    * Limited transformation capabilities
+
+## SQS vs SNS vs Kinesis
+
+* SQS
+    * Consumers "pull data"
+    * Data is deleted after being consumed
+    * Can have as many workers
+    * No need to provision throughput
+    * Ordering guarantees only on FIFO queues
+    * Individual message delay capability
+* SNS
+    * Push data to many subscribers
+    * Up to 12,500,000 subscribers
+    * Data is not persisted
+    * Pub/Sub
+    * Up to 100,000 topics
+    * No need to provision throughput
+    * Integrates with SQS for fan-out architecture pattern
+    * FIFO capability for SQS FIFO
+* Kinesis
+    * Standard: pull data
+    * Enhanced Fan-out: push data
+    * Possibility to replay data
+    * Meant for real-time big data, analyticss and ETL
+    * Ordering at the shard level
+    * Data expires after X days
+    * Provisioned mode or on-demand capacity mode
+
+## Amazon MQ
+
+* SQS, SNS are cloud-native services: propietary protocols from AWS
+* Amazon MQ is a managed message broker service for Apache ActiveMQ and RabbitMQ that makes it easy to set up and operate message brokers in the cloud.
+* Amazon MQ does not scale as much SQS/SNS
+* Amazon MQ is on servers, you can use Multi-AZ for failover
+* Amazon MQ has both queue feature (SQS) and topic features (SNS)
