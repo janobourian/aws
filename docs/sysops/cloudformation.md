@@ -230,3 +230,25 @@ Resources:
   * AWS::StackName
   * AWS::NotificationARNs
   * AWS::NoValue
+
+### Mappings
+
+* Mappings are a way to create simple "lookup tables" within your CloudFormation templates
+
+```yaml
+Mappings:
+  RegionMap:
+    us-east-1:
+      AMI: ami-0abcde1234567890
+      InstanceType: t2.micro
+    us-west-2:
+      AMI: ami-0fghij1234567890
+      InstanceType: t2.small
+
+Resources:
+  MyEC2Instance:
+    Type: "AWS::EC2::Instance"
+      Properties:
+        ImageId: !FindInMap [RegionMap, !Ref "AWS::Region", AMI]
+        InstanceType: !FindInMap [RegionMap, !Ref "AWS::Region", InstanceType]
+```
