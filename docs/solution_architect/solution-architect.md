@@ -64,3 +64,11 @@
 * Check the Global Infrastructure
     * https://aws.amazon.com/about-aws/global-infrastructure/regional-product-services/
 
+* Six advantages of Cloud Computing:
+    * Pay-as-you-go
+    * Benefits from massive economies of scale
+    * Stop guessing capacity
+    * Increase speed and agility
+    * Realize cost savings
+    * Go global in minutes
+    
