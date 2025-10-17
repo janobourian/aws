@@ -35,6 +35,7 @@ nav:
     - Getting Started: cdk/getting-started.md
     - Best Practices: cdk/best-practices.md
     - Examples: cdk/examples.md
+    - Trouble Shooting: cdk/trouble-shooting.md
   - CloudFormation:
     - Overview: cloudformation/overview.md
     - Getting Started: cloudformation/getting-started.md
