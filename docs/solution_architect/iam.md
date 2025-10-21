@@ -2,6 +2,8 @@
 
 ## Identity and Access Management and AWS CLI
 
+IAM is a global service.
+
 * Basic concepts
     * Root account
     * Users
@@ -19,7 +21,8 @@
             * SEPARC
                 * Sid
                 * Effect
-                * Principal
+                * Principal:
+                    * account/user/role to which this policy applied to
                 * Action 
                 * Resource
                 * Condition
