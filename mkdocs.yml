@@ -20,6 +20,7 @@ nav:
     - Overview: solution_architect/solution-architect.md
     - Identity and Access Management: solution_architect/iam.md
     - Elastic Compute Cloud: solution_architect/ec2.md
+    - RDS + Aurora + Elasticache: solution_architect/rds-aurora-elasticache.md
     - Classic Solutions Architecture Discussions: solution_architect/classic-solutions-architecture-discussions.md
     - Decoupling Applications: solution_architect/decoupling-applications.md
     - Serverless Solution Architectures: solution_architect/serverless-solution-architectures.md
