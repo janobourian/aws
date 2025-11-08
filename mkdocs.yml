@@ -16,6 +16,9 @@ docs_dir: docs
 
 nav:
   - Home: index.md
+  - AWS Developer Associate:
+    - Overview: developer-associate/developer-associate.md
+    - AWS CICD: developer-associate/aws-cicd.md
   - AWS Solution Architect: 
     - Overview: solution_architect/solution-architect.md
     - Identity and Access Management: solution_architect/iam.md
@@ -26,6 +29,7 @@ nav:
     - Serverless Solution Architectures: solution_architect/serverless-solution-architectures.md
     - Data and Analytics: solution_architect/data-and-analytics.md
     - Machine Learning: solution_architect/machine-learning.md
+    - Networking - VPC: solution_architect/networking-vpc.md
     - More Solution Architectures: solution_architect/more-solution-architectures.md
   - AWS SysOps Administrator: 
     - Overview: sysops/sysops-administrator.md
