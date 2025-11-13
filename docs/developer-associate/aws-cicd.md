@@ -72,6 +72,28 @@ All the services are inside **AWS Codepipeline**
 
 ## CodeBuild
 
+* Source: CodeCommit, S3, Bitbucket, Github
+* Build instructions:
+    * Code file `buildspec.yml` or insert manually in Console
+* Output Logs:
+    * can be stores in Amazon S3 and CloudWatch Logs
+* Build Projects can be defined within CodePipeline or CodeBuild
+* Supported Environments:
+    * Java, Ruby, Python, Go, Node.js, Android, .Net Core, PHP, Docker
+* CodeBuild:
+    * buildspec.yml: file must be at the root of your code
+    * env:
+        * variables
+        * parameter-store
+        * secret-manager
+    * phases
+        * install
+        * pre_build
+        * Build: actual buils commands
+        * post_buils¿d
+    * artifacts
+    * cache
+
 ## CodeDeploy
 
 ## CodeStar
