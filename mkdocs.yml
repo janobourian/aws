@@ -26,6 +26,7 @@ nav:
     - RDS + Aurora + Elasticache: solution_architect/rds-aurora-elasticache.md
     - Classic Solutions Architecture Discussions: solution_architect/classic-solutions-architecture-discussions.md
     - Decoupling Applications: solution_architect/decoupling-applications.md
+    - Containers on AWS ECS, EKS, Fargate: solution_architect/containers-on-aws-ecs-eks-fargate.md
     - Serverless Solution Architectures: solution_architect/serverless-solution-architectures.md
     - Data and Analytics: solution_architect/data-and-analytics.md
     - Machine Learning: solution_architect/machine-learning.md
