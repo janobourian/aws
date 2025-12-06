@@ -40,7 +40,7 @@ nav:
     - Overview: devops-engineer/devops-engineer-professional.md
     - Domain 1 SDLC Automation: devops-engineer/sdlc-automation.md
     - Domain 2 Configuration Management and Infrastructure as Code: devops-engineer/configuration-management-and-infrastructure-as-code.md
-    - Domain 3 Monitoring and Logging: devops-engineer/monitoring-and-logging
+    - Domain 3 Monitoring and Logging: devops-engineer/monitoring-and-logging.md
     - Domain 4 Policies and Standards Automation: devops-engineer/policies-and-standards-automation.md
     - Domain 5 Incident and Event Response: devops-engineer/incident-and-event-response.md
     - Domain 6 High Availability, Fault Tolerance, and Disaster Recovery: devops-engineer/high-availability-fault-tolerance-and-disaster-recovery.md
