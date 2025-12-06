@@ -86,6 +86,19 @@ ECS = Elastic Container Service
 * Supported by EC2 and Fargate launch types
 * Amazon S3 can not be mounted as a file system
 
+### Hands-on
+
+* Create the Cluster
+    * AWS Fargate
+    * Amazon EC2 Instances
+    * Amaxon Anyware
+* Assign VPC data
+* Auto-Scaling Group will be created
+* Capacity providers:
+    * Fargate
+    * Fargate_Spot
+    * ASG
+
 ## Amazon ECR
 
 ## Amazon EKS
