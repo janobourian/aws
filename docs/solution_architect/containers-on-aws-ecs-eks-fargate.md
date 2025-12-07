@@ -99,7 +99,50 @@ ECS = Elastic Container Service
     * Fargate_Spot
     * ASG
 
+* Create the service:
+    * Launch Task (Active Docker Containers)
+* Launch the service
+
+### ECS Service Auto Scaling
+
+* Automatically increase/decrease the desired number of ECS tasks
+* Amazon ECS Auto Scaling uses AWS Application Auto Scaling
+    * ECS Service Average CPU utilization
+    * ECS Service Average Memory Utilization - Scale on RAM
+    * ALB Request Count Per Target - metric coming from the ALB
+* Target tracking - scale based on target value for specific CloudWatch metric
+* Step scaling - scale based on specified CloudWatch Alarm
+* Scheduling Scaling - scale based on a specified date/time
+* ECS Service Auto Scaling is different to EC2 Auto Scaling 
+* Fargate Auto Scaling is much easier to setup because it is serverless
+
+#### EC2 Launch Type - Auto Scaling EC2 Instances
+
+* Accommodate ECS Service Scaling by adding underlying EC2 Instances
+* Auto Scaling Group Scaling
+    * Scale your ASG based on CPU Utilization
+    * Add EC2 instances over time
+* ECS Cluster Capacity Provider
+    * Used to automatically provision and scale the infrastructure for your ECS Tasks
+    * Capacity Provider paired with an Auto Scaling Group
+    * Add EC2 Instances when you are missing capacity
+
+* Patterns;
+    * ECS Scaling - Service CPU Usage
+    * ECS tasks invoked by Event Bridge
+    * ECS tasks invoked by Event Bridge Schedule
+    * ECS tasks invoked by SQS messages
+    * ECS - Intercept Stopped Tasks using EventBridge
+
 ## Amazon ECR
+
+* ECR = Elastic Container Registry
+* Store and manage Docker images on AWS
+* Private and Public repository
+* Integrated with Amazon ECS, EKS, and Fargate
+* Supports image scanning for vulnerabilities
+* Supports image lifecycle policies to manage image retention
+* Securely store images using AWS IAM for access control
 
 ## Amazon EKS
 
