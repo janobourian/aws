@@ -127,7 +127,7 @@ ECS = Elastic Container Service
     * Capacity Provider paired with an Auto Scaling Group
     * Add EC2 Instances when you are missing capacity
 
-* Patterns;
+* Patterns:
     * ECS Scaling - Service CPU Usage
     * ECS tasks invoked by Event Bridge
     * ECS tasks invoked by Event Bridge Schedule
@@ -146,4 +146,38 @@ ECS = Elastic Container Service
 
 ## Amazon EKS
 
+* Amazon EKS = Amazon Elastic Kubernetes Service
+* It is a way to launch managed Kubernetes clusters on AWS
+* Fully managed Kubernetes control plane
+* Node Types:
+    - Managed Node Groups
+    - Self-Managed Nodes
+    - AWS Fargate
+* Data Volumes:
+    - Amazon EBS
+    - Amazon EFS
+    - Amazon FSx for Lustre
+    - Amazon FSx for NetApp ONTAP
+
 ## AWS App Runner
+
+- Fully managed service that makes it easy to deploy web applications and APIs at scales
+- No infrastructure experience required
+- Start with your source code or container image
+- Automatic scaling, highly available, load balancer, encryption
+- VPC access support
+- Connect to databasem cache, and message queue services
+- Use cases
+    - web apps
+    - APIs
+    - microservices
+    - rapid production deployments
+
+## AWS App2Container
+
+- Command-line tool for modernizing .NET and Java applications into containerized applications
+- Lift-and-shift your apps running in on-premises bare metal, virtual machines, or in any Cloud to AWS
+- Generate CloudFormation templates
+- Register generated Docker containers to ECR
+- Deploy to ECS, EKS, or App Runner
+- Supports pre-built CI/CD pipelines
