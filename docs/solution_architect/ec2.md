@@ -1,10 +1,12 @@
 # Elastic Compute Cloud (EC2)
 
-First of all you need to set the billing section for not-root users
+* First of all you need to set the billing section for not-root users:
+* Activate the budget
 
 ## EC2 Fundamentals
 
 * A good first step is to create a budget on billing console
+* Elastic Compute Cloud
 * EC2 is infrastructure as a services
 * Some capabilities:
     * Renting virtual machines (EC2)
