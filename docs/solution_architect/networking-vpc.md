@@ -4,19 +4,23 @@ This document provides an overview of Virtual Private Cloud (VPC) networking con
 
 ## VPC Components 
 
-* Internet Gateway
-* Transit Gateway
-* VPC Peering Connections
+* Internet Gateway: One by VPC, it allows to connect with the internet. 
+* Transit Gateway: A way to avoid vpc peering hell, all conections in one place.
+* VPC Peering Connections: Connect two vpc using a peering.
 * VPN
 * DX
-* Route Table
-* NACL
+* Route Table: The rules that a Subnet o VPC componet follows to communicate with others. 
+* NACL: Stateless, do it have permission to start a communication?
 * VPN Gateway
 * VPC Endpoint
 * VPC Flow Logs
 * Direct Connect Connection
 * Customer Gateway
 * DX Location
+* NAT Gateway: It has regional option, allow to connect private subnet with other resources. 
+* NAT Instances: Like NAT Gateway but this is a EC2 Instance
+* Bastion Host: Check the private resources using an EC2 instance in a public subnet.
+* Security groups: Stateful, to check the permissions between components.
 
 ## CIDR - IPv4
 
@@ -184,3 +188,81 @@ This document provides an overview of Virtual Private Cloud (VPC) networking con
 ![alt text](image-9.png)
 
 ![alt text](image-11.png)
+
+* Differences between Security Groups and NACLs:
+    * SGs are stateful because they allow the outside communication
+    * NACLs are stateless because they review the acess control list in every request
+    * SGa at instance leves vs NACLs at subnet level
+    * SGs allow only allow rules vs NACLs allow allow and deny rules
+    * SGs are associated with multiple instances vs NACLs are associated with multiple subnets
+    * Default SG allows all inbound and outbound traffic vs Default NACL allows all inbound and outbound traffic
+
+## VPC Peering
+
+* Networking connection between two VPCs
+* Can be within the same AWS account or different AWS accounts
+* VPCs can be in different regions (Inter-Region VPC Peering)
+* VPC Peering connection is not trantitive
+* No single point of failure or bandwidth bottleneck
+* Traffic between peered VPCs stays on the global AWS backbone
+* You must update route tables in each VPC to enable routing of traffic between them
+* You can not have overlapping CIDR blocks between peered VPCs
+* There are no bandwidth limitations
+* There are no additional hops, low latency connection
+* There is no need for a gateway, VPN connection, or separate physical hardware
+* Peered VPCs can communicate using private IP addresses
+* You can peer VPCs across different AWS accounts
+
+### VPC Peering Hands On
+
+* Create two VPCs with non-overlapping CIDR blocks
+* Crete the vpc peering
+* Update route tables in both VPCs to enable routing between them
+* Test the connectivity between instances in both VPCs using private IP addresses
+
+![alt text](image-12.png)
+
+## VPC Endpoints
+
+* To work with aws services.
+* Every AWS service is publicly exposed
+* VPC Endpoints allows you to connect to AWS services using a private network.
+* Two types of VPC Endpoints:
+    * Interface Endpoints: Use AWS PrivateLink to connect to services using ENIs
+    * Gateway Endpoints: Use route tables to connect to services like S3 and DynamoDB
+
+### Interface Endpoints (powered by PrivateLink)
+
+* Use AWS PrivateLink to connect to services using ENIs
+* Create an elastic network interface (ENI) in your subnet
+* Assign private IP addresses from your VPC to the ENI
+* Use security groups to control access to the endpoint
+* Supports connections to AWS services, third-party services, and your own services
+* $ per hour + $ per GB of data processed
+
+### Gateway Endpoints
+
+* Use route tables to connect to services like S3 and DynamoDB
+* Create a gateway endpoint for the service 
+* Update route tables to direct traffic to the endpoint
+* No additional cost for using gateway endpoints
+* Supports both S3 and DynamoDB
+* Free
+
+Note: Intreface Endpoint for S3 is preferred when you require access from your on premises (Site to Site VPN or Direct Connect), a different VPC or a different region.
+
+## Transit Gateway
+
+* Benefits:
+    * Like a Hub of connections
+    * Unique service with broadcast properties
+    * Increase the throughput using ECMP
+* Network transit hub that can connect multiple VPCs and on-premises networks
+* Simplifies network architecture by consolidating connections
+* Supports inter-region peering
+* Scales elastically based on network traffic
+* Supports multicast traffic
+* Centralized management of network connections
+* Supports integration with AWS Direct Connect and VPN connections
+* Pay-as-you-go pricing model based on data processed and attachments
+* ECMP = Equal-cost multi-path
