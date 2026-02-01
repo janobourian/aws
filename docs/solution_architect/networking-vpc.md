@@ -7,16 +7,18 @@ This document provides an overview of Virtual Private Cloud (VPC) networking con
 * Internet Gateway: One by VPC, it allows to connect with the internet. 
 * Transit Gateway: A way to avoid vpc peering hell, all conections in one place.
 * VPC Peering Connections: Connect two vpc using a peering.
-* VPN
-* DX
+* VPN: Private connection between AWS and on-premises over the internet
+* CGW: Customer Gateway to connect with AWS
+* VGW: AWS side Gateway (Virtual Gateway) to connect the VPN over the internet
+* VPN Hub: A VPN in AWS can be a hub to connect all on-premises networks
+* DX: Direct connection between on-premises and AWS
+* DX Location: Physical place where the connection is made
 * Route Table: The rules that a Subnet o VPC componet follows to communicate with others. 
 * NACL: Stateless, do it have permission to start a communication?
-* VPN Gateway
-* VPC Endpoint
-* VPC Flow Logs
-* Direct Connect Connection
-* Customer Gateway
-* DX Location
+* VPC Endpoint: Connect your resources to AWS Services without internet, DNS should be allow
+* Interface Endpont: $, ENI, Most of the services
+* Gateway Endpoint: For S3, free
+* VPC Flow Logs: Register the IP connections, it can be saved on S3, CloudWatch or Firehose
 * NAT Gateway: It has regional option, allow to connect private subnet with other resources. 
 * NAT Instances: Like NAT Gateway but this is a EC2 Instance
 * Bastion Host: Check the private resources using an EC2 instance in a public subnet.
@@ -230,6 +232,8 @@ This document provides an overview of Virtual Private Cloud (VPC) networking con
 * Two types of VPC Endpoints:
     * Interface Endpoints: Use AWS PrivateLink to connect to services using ENIs
     * Gateway Endpoints: Use route tables to connect to services like S3 and DynamoDB
+* DNS name should be enabled.
+* Associated by subnet and security groups
 
 ### Interface Endpoints (powered by PrivateLink)
 
@@ -250,6 +254,108 @@ This document provides an overview of Virtual Private Cloud (VPC) networking con
 * Free
 
 Note: Intreface Endpoint for S3 is preferred when you require access from your on premises (Site to Site VPN or Direct Connect), a different VPC or a different region.
+
+## VPC Flow Logs
+
+* Capture information about the IP traffic going to and from network interfaces in your VPC:
+* Can be created at the VPC, subnet, or network interface level
+* Logs can be published to Amazon CloudWatch Logs or Amazon S3
+* Useful for monitoring and troubleshooting network connectivity issues
+* Can help with security analysis and compliance auditing
+* Can be filtered based on traffic type (accepted, rejected, or all)
+* No additional cost for creating VPC Flow Logs, but there are costs for storing and analyzing
+* Can be created and deleted without disrupting network traffic
+* You can use S3, CloudWatch Logs, and Kinesis Data Firehose
+* Captures network information from AWS managed interfaces too:
+    * ELB
+    * RDS
+    * Redshift
+    * ElastiCache
+    * WorkSpaces
+    * NATGW
+    * TransitGateway
+
+![alt text](image-13.png)
+
+* Structure
+    * Version
+    * Account id
+    * Interface id
+    * Source Address
+    * Destination Address
+    * Source Port
+    * Destinantio Port
+    * Protocol
+    * Packets
+    * Bytes
+    * Start
+    * End
+    * Action
+    * Log Status
+
+![alt text](image-14.png)
+
+![alt text](image-15.png)
+
+## AWS Site-to-Site VPN
+
+* Secure connection between on-premises network and AWS VPC over the internet
+* Uses IPsec protocol to encrypt data in transit
+* Consists of two main components:
+    * Customer Gateway (CGW): Represents the on-premises gateway device
+    * Virtual Private Gateway (VGW): Represents the AWS side of the VPN connection
+* Supports both static and dynamic routing (BGP)
+* Supports multiple VPN tunnels for redundancy and high availability
+* Can be used in conjunction with AWS Direct Connect for hybrid connectivity
+* Pay-as-you-go pricing model based on connection hours and data transfer
+* Supports both policy-based and route-based VPNs
+* Can be configured using the AWS Management Console, CLI, or SDKs
+* Supports a wide range of customer gateway devices from various vendors
+
+### AWS VPN CloudHub
+
+* Provide secure communication between multiple sites, if you have multiple VPN connections
+* Low-cost hub.and-spoke model for primary or secondary network connectivity between different locations (VPN only)
+* To set it up, connect multiple VPN connections on the same VGW, setup dynamic routing and configure route tables.
+
+## Direct Connect (DX)
+
+* Dedicated network connection between on-premises data center and AWS
+* Provides a more consistent network experience compared to internet-based connections
+* Can be used to connect to all AWS services in a specific region
+* Supports speeds ranging from 50 Mbps to 100 Gbps
+* Can be used in conjunction with AWS Site-to-Site VPN for hybrid connectivity
+* Requires a Direct Connect Gateway to connect to multiple VPCs across different regions
+* Pay-as-you-go pricing model based on port hours and data transfer
+* Supports link aggregation (LAG) for increased bandwidth and redundancy
+* Requires working with an AWS Direct Connect Partner or colocation provider to establish the physical connection
+
+![alt text](image-16.png)
+
+* You can use Direct Connect Gateway to connect one or more VPC in many different regions (same account)
+
+![alt text](image-17.png)
+
+### Direct Connect - Connection Types
+
+* Dedicated Connection
+    * Physical Ethernet connection associated with a single customer
+    * Speeds from 1 Gbps to 100 Gbps
+* Hosted Connection:
+    * Connetion requests are made via AWS Connext PArtners
+    * Speeds from 50 Mbps to 10 Gbps
+
+### Encryption
+
+* Direct Connect does not provide encryption by default
+* You can use MACsec (Media Access Control Security) for encryption on 1 Gbps
+* You can also use AWS Site-to-Site VPN over Direct Connect for encryption
+
+![alt text](image-18.png)
+
+### Site-to-Site VPN connection as a backup
+
+* You can use a Site-to-Site VPN connection as a backup for your Direct Connect connection
 
 ## Transit Gateway
 
