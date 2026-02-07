@@ -32,6 +32,7 @@ nav:
     - Data and Analytics: solution_architect/data-and-analytics.md
     - Machine Learning: solution_architect/machine-learning.md
     - Networking - VPC: solution_architect/networking-vpc.md
+    - Disaster Recovery Strategies: solution_architect/disaster-recovery-strategies.md
     - More Solution Architectures: solution_architect/more-solution-architectures.md
   - AWS SysOps Administrator: 
     - Overview: sysops/sysops-administrator.md

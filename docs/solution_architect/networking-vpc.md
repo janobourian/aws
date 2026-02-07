@@ -173,7 +173,7 @@ This document provides an overview of Virtual Private Cloud (VPC) networking con
     * Are like a firewall which control traffic from and to subnets
     * One NACL per subnet, new subnets are ssigned the Default NACL
     * You define NACL Rules
-        * #100 ALLOW
+        * 100 ALLOW
         * "*" <- to deny traffic that does not match
     * NACL are a great way of blocking a specific IP address at the subnet level
     * Do not modify the Default NACL, instead create custom NACL
@@ -195,7 +195,7 @@ This document provides an overview of Virtual Private Cloud (VPC) networking con
     * SGs are stateful because they allow the outside communication
     * NACLs are stateless because they review the acess control list in every request
     * SGa at instance leves vs NACLs at subnet level
-    * SGs allow only allow rules vs NACLs allow allow and deny rules
+    * SGs only allow rules vs NACLs allow and deny rules
     * SGs are associated with multiple instances vs NACLs are associated with multiple subnets
     * Default SG allows all inbound and outbound traffic vs Default NACL allows all inbound and outbound traffic
 
@@ -253,7 +253,7 @@ This document provides an overview of Virtual Private Cloud (VPC) networking con
 * Supports both S3 and DynamoDB
 * Free
 
-Note: Intreface Endpoint for S3 is preferred when you require access from your on premises (Site to Site VPN or Direct Connect), a different VPC or a different region.
+Note: Interface Endpoint for S3 is preferred when you require access from your on premises (Site to Site VPN or Direct Connect), a different VPC or a different region.
 
 ## VPC Flow Logs
 
@@ -315,7 +315,7 @@ Note: Intreface Endpoint for S3 is preferred when you require access from your o
 ### AWS VPN CloudHub
 
 * Provide secure communication between multiple sites, if you have multiple VPN connections
-* Low-cost hub.and-spoke model for primary or secondary network connectivity between different locations (VPN only)
+* Low-cost hub and-spoke model for primary or secondary network connectivity between different locations (VPN only)
 * To set it up, connect multiple VPN connections on the same VGW, setup dynamic routing and configure route tables.
 
 ## Direct Connect (DX)
@@ -342,7 +342,7 @@ Note: Intreface Endpoint for S3 is preferred when you require access from your o
     * Physical Ethernet connection associated with a single customer
     * Speeds from 1 Gbps to 100 Gbps
 * Hosted Connection:
-    * Connetion requests are made via AWS Connext PArtners
+    * Connetion requests are made via AWS Connext Partners
     * Speeds from 50 Mbps to 10 Gbps
 
 ### Encryption
@@ -372,3 +372,52 @@ Note: Intreface Endpoint for S3 is preferred when you require access from your o
 * Supports integration with AWS Direct Connect and VPN connections
 * Pay-as-you-go pricing model based on data processed and attachments
 * ECMP = Equal-cost multi-path
+
+## VPC Traffic Mirroring
+
+* Allows you to capture and inspect network traffic in your VPC.
+* Capture the traffic:
+    * From (source) - ENI
+    * To (Targets) - an ENI or a Network Load Balancer
+
+![alt text](image-25.png)
+
+## IPV6
+
+* Is the succesor of IPv4
+* Uses 128-bit addresses, represented in hexadecimal format
+* Provides a much larger address space than IPv4
+* IPv6 addresses are represented as eight groups of four hexadecimal digits, separated by colons
+* Example: 2001:0db8:85a3:0000:0000:8a2e:0370:7334
+* IPv6 addresses can be abbreviated by omitting leading zeros and consecutive groups of zeros
+* Example: 2001:0db8:85a3::8a2e
+
+## Egress Only Internet Gateway
+
+* Used for IPv6 only
+* Similar to a NAT Gateway but for IPv6
+
+![alt text](image-26.png)
+
+## AWS NetworkFirewall
+
+* Protect your entire Amazon VPC from layer 3 to layer 7
+* Stateful, managed, network firewall and intrusion detection and prevention service for VPCs
+* Provides fine-grained control over network traffic
+* Supports custom rules and managed rule groups
+* Can be deployed in a highly available configuration across multiple Availability Zones
+* Pay-as-you-go pricing model based on the number of firewall endpoints and data processed
+* Can be used to protect VPCs from common web exploits and vulnerabilities
+* Can be used to monitor and log network traffic for security analysis and compliance auditing
+
+## VPC Pricing
+
+* VPC itself is free, but there are costs associated with using VPC components and features
+* Internet Gateway: Free
+* NAT Gateway: $0.045 per hour + $0.045 per GB of data
+* VPC Endpoints:
+    * Interface Endpoints: $0.01 per hour + $0.01 per GB of data processed
+    * Gateway Endpoints: Free
+    * VPC Flow Logs: Costs for storing and analyzing logs in CloudWatch Logs or S3
+    * AWS Site-to-Site VPN: $0.05 per hour + data transfer costs
+    * AWS Direct Connect: Costs based on port hours and data transfer
