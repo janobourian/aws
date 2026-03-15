@@ -311,9 +311,9 @@ echo "<h1>Hello world from $(hostname -f)</h1>" > /var/www/html/index.html
 
 * EBS Volumes
     * gp2/gp3 (SSD)
-    * io1/io2 Block Express
-    * st 1
-    * sc 1
+    * io1/io2 Block Express (SSD)
+    * st 1 (HDD)
+    * sc 1 (HDD)
     * EBS Volumes are characterized in Size, Throughput, IOPS
 
 * Multi Attach:
