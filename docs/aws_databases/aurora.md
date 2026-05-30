@@ -60,7 +60,7 @@
     * Simple to put in place
 * Aurora Global Database (recommended):
     * 1 primary region (read/write)
-    * Up to 10 seconday regions (read only), replication lag is less than 1 second
+    * Up to 10 secondary regions (read only), replication lag is less than 1 second
     * Fast local reads with low latency in each region
     * Disaster recovery with fast local recovery time (typically less than 1 minute)
     * Up to 16 Read Replicas per secondary region

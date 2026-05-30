@@ -3,6 +3,7 @@
 * Amazon RDS
 * Amazon Aurora
 * ElastiCache
+* Amazon MemoryDB for Redis
 
 ## RDS and Aurora | Backup and Monitoring
 
@@ -39,5 +40,5 @@
 
 * RDS Proxy is a fully managed, highly available database proxy for Amazon RDS
 * It helps improve application availability and scalability by managing database connections efficiently
-* RDS Proxy supports connection pooling, which allows it to reuse database connections and reduce the overhead
+* RDS Proxy supports connection polling, which allows it to reuse database connections and reduce the overhead
 * It also provides automatic failover and load balancing for read replicas
