@@ -1,0 +1,2531 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>SQS Service - AWS Learning Process</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#sqs-service" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="AWS Learning Process" class="md-header__button md-logo" aria-label="AWS Learning Process" data-md-component="logo">
+      
+  <img src="../images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AWS Learning Process
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              SQS Service
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="AWS Learning Process" class="md-nav__button md-logo" aria-label="AWS Learning Process" data-md-component="logo">
+      
+  <img src="../images/logo.png" alt="logo">
+
+    </a>
+    AWS Learning Process
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS Developer Associate
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AWS Developer Associate
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer-associate/developer-associate.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer-associate/aws-cicd.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS CICD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS Solution Architect
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AWS Solution Architect
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_architect/solution-architect.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_architect/iam.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Identity and Access Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_architect/ec2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Elastic Compute Cloud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_architect/rds-aurora-elasticache.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RDS + Aurora + Elasticache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_architect/route53.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Route 53
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_architect/classic-solutions-architecture-discussions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classic Solutions Architecture Discussions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_architect/decoupling-applications.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decoupling Applications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_architect/containers-on-aws-ecs-eks-fargate.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Containers on AWS ECS, EKS, Fargate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_architect/serverless-solution-architectures.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless Solution Architectures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_architect/data-and-analytics.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data and Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_architect/machine-learning.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_architect/networking-vpc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking - VPC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_architect/disaster-recovery-strategies.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Disaster Recovery Strategies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../solution_architect/more-solution-architectures.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    More Solution Architectures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS SysOps Administrator
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AWS SysOps Administrator
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sysops/sysops-administrator.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sysops/cloudformation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CloudFormation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sysops/virtual-private-cloud.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Virtual Private Cloud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS DevOps Engineer Professional
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AWS DevOps Engineer Professional
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops-engineer/devops-engineer-professional.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops-engineer/sdlc-automation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain 1 SDLC Automation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops-engineer/configuration-management-and-infrastructure-as-code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain 2 Configuration Management and Infrastructure as Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops-engineer/monitoring-and-logging.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain 3 Monitoring and Logging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops-engineer/policies-and-standards-automation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain 4 Policies and Standards Automation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops-engineer/incident-and-event-response.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain 5 Incident and Event Response
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops-engineer/high-availability-fault-tolerance-and-disaster-recovery.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain 6 High Availability, Fault Tolerance, and Disaster Recovery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Development Kit
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cloud Development Kit
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cdk/overview.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cdk/getting-started.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cdk/best-practices.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Best Practices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cdk/examples.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cdk/trouble-shooting.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trouble Shooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CloudFormation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CloudFormation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloudformation/overview.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloudformation/getting-started.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloudformation/best-practices.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Best Practices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloudformation/examples.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS DevOps
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AWS DevOps
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops/overview.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops/getting-started.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops/cicd.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Continuous Integration and Continuous Delivery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops/cd.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Continuous Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops/iac.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infrastructure as Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops/automation-and-tooling.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Automation and tooling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops/cm.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Continuous Monitoring
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops/security.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS Virtual Private Cloud
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AWS Virtual Private Cloud
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpc/overview.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpc/getting-started.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpc/best-practices.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Best Practices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpc/examples.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#what-is-sqs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        What is SQS?
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sqs-standard-queue" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SQS - Standard Queue
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sqs-producing-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SQS - Producing Messages
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sqs-consuming-messages" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SQS - Consuming Messages
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sqs-multiple-ec2-instances-consumers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SQS - Multiple EC2 Instances Consumers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sqs-with-auto-scaling-group-asg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SQS with Auto Scaling Group (ASG)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sqs-to-decouple-between-application-tiers" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SQS to decouple between application tiers
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#amazon-sqs-security" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Amazon SQS - Security
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sqs-queue-access-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SQS Queue Access Policy
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SQS Queue Access Policy">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#for-the-access-policy" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        For the Access Policy
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sqs-message-visibility-timeout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SQS - Message Visibility Timeout
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sqs-dead-letter-queues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SQS - Dead Letter Queues
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sqs-dlq-redrive-to-source" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SQS DLQ - Redrive to Source
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sqs-delay-queues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SQS - Delay Queues
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sqs-certified-developer-concepts" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SQS Certified Developer Concepts
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SQS Certified Developer Concepts">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#long-polling" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Long Polling
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#sqs-extended-client" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SQS Extended Client
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#must-know-api" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Must know API
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sqs-fifo-queues" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SQS - FIFO Queues
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sqs-fifo-queues-advanced" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SQS - FIFO Queues Advanced
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="SQS - FIFO Queues Advanced">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#deduplication" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Deduplication
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#message-grouping" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Message Grouping
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sqs-auto-scaling-group" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SQS + Auto Scaling Group
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#sqs-for-cloudops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SQS For CloudOps
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="sqs-service">SQS Service<a class="headerlink" href="#sqs-service" title="Permanent link">&para;</a></h1>
+<h2 id="what-is-sqs">What is SQS?<a class="headerlink" href="#what-is-sqs" title="Permanent link">&para;</a></h2>
+<ul>
+<li>It is a Simple Queue Service</li>
+<li>It is a fully managed message queuing service</li>
+<li>It enables you to decouple and scale microservices, distributed systems, and serverless applications</li>
+<li>It provides two types of message queues: Standard queues and FIFO queues</li>
+<li>Producers -&gt; Send Messages -&gt; SQS Topic -&gt; Poll Messages -&gt; Consumers</li>
+</ul>
+<h2 id="sqs-standard-queue">SQS - Standard Queue<a class="headerlink" href="#sqs-standard-queue" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Offers maximum throughput, best-effort ordering, and at-least-once delivery</li>
+<li>Messages might be delivered more than once and might not be in the exact order they were sent</li>
+<li>Suitable for applications that require high throughput and can tolerate occasional duplicate messages</li>
+<li>Unlimited throughput, unlimited number of messages in queue</li>
+<li>Default retention of messages: 4 days, maximum of 14 days</li>
+<li>Low latency (&lt;10ms on publish and receive)</li>
+<li>Limitation of 1,024 KB per message sent</li>
+</ul>
+<h2 id="sqs-producing-messages">SQS - Producing Messages<a class="headerlink" href="#sqs-producing-messages" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Producers send messages to an SQS queue using the <code>SendMessage</code> API action</li>
+<li>Each message can contain up to 1,024 KB of text in any format</li>
+<li>Messages can include attributes, which are name-value pairs that provide additional information about the message</li>
+</ul>
+<h2 id="sqs-consuming-messages">SQS - Consuming Messages<a class="headerlink" href="#sqs-consuming-messages" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Consumers poll messages from an SQS queue using the <code>ReceiveMessage</code> API action</li>
+<li>Poll SQS for messages (receive up to 10 messages at a time)</li>
+<li>Process the messages (example: insert the message into an RDS database)</li>
+<li>Once a consumer receives a message, it becomes invisible to other consumers for a specified period (visibility timeout)</li>
+<li>The consumer processes the message and then deletes it from the queue using the <code>DeleteMessage</code></li>
+</ul>
+<h2 id="sqs-multiple-ec2-instances-consumers">SQS - Multiple EC2 Instances Consumers<a class="headerlink" href="#sqs-multiple-ec2-instances-consumers" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Multiple EC2 instances can poll messages from the same SQS queue</li>
+<li>This allows for load balancing and scaling of message processing</li>
+<li>Each instance can process messages independently, and the SQS service ensures that messages are delivered to only one instance at a time</li>
+</ul>
+<h2 id="sqs-with-auto-scaling-group-asg">SQS with Auto Scaling Group (ASG)<a class="headerlink" href="#sqs-with-auto-scaling-group-asg" title="Permanent link">&para;</a></h2>
+<ul>
+<li>You can configure an Auto Scaling Group to automatically adjust the number of EC2 instances based on the number of messages in the SQS queue</li>
+<li>This allows for dynamic scaling of your message processing capacity based on demand</li>
+<li>You can set up CloudWatch alarms to trigger scaling actions when the number of messages in the queue exceeds a certain threshold</li>
+<li>SQS Queue -&gt; EC2 Instances </li>
+<li>CloudWatch Metric - Queue Length -&gt; Alarm -&gt; CloudWatch Alarm -&gt; Auto Scaling Group</li>
+</ul>
+<h2 id="sqs-to-decouple-between-application-tiers">SQS to decouple between application tiers<a class="headerlink" href="#sqs-to-decouple-between-application-tiers" title="Permanent link">&para;</a></h2>
+<ul>
+<li>requests -&gt; Frontend web app -&gt; Send Message -&gt; SQS Queue -&gt; Receive Messages -&gt; Backend app -&gt; S3 bucket</li>
+</ul>
+<h2 id="amazon-sqs-security">Amazon SQS - Security<a class="headerlink" href="#amazon-sqs-security" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Ecryption:<ul>
+<li>In-flight encryption using HTTPS API</li>
+<li>At-rest encryption using KMS Keys</li>
+<li>Client-side encryption if the client wants to perform encryption/decryption itself</li>
+</ul>
+</li>
+<li>Access Controls: IAM policies to regulate access to the SQS API</li>
+<li>SQS Access Policies (similar to S3 bucket policies):<ul>
+<li>Useful for cross-account access to SQS queues</li>
+<li>Useful for allowing other services (SNS, S3,...) to write to an SQS queue</li>
+</ul>
+</li>
+</ul>
+<h2 id="sqs-queue-access-policy">SQS Queue Access Policy<a class="headerlink" href="#sqs-queue-access-policy" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Cross Account Access</li>
+<li>Publish S3 Event Notifications to SQS Queue</li>
+</ul>
+<h3 id="for-the-access-policy">For the Access Policy<a class="headerlink" href="#for-the-access-policy" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Methods:<ul>
+<li>Basic: Use simple criteria to define a basic access policy</li>
+<li>Advanced: Usea a JSON object to define an advanced access policy</li>
+</ul>
+</li>
+<li>Who can send messages to the queue:<ul>
+<li>Only the queue owner</li>
+<li>Only the specified AWS accounts, IAM users and roles</li>
+</ul>
+</li>
+<li>Who can receive messages from the queue<ul>
+<li>Only the queue owner</li>
+<li>Only the specified AWS accounts, IAM users and roles</li>
+</ul>
+</li>
+</ul>
+<h2 id="sqs-message-visibility-timeout">SQS - Message Visibility Timeout<a class="headerlink" href="#sqs-message-visibility-timeout" title="Permanent link">&para;</a></h2>
+<ul>
+<li>When a consumer receives a message from an SQS queue, the message becomes invisible to other consumers for a specified period (visibility timeout)</li>
+<li>This allows the consumer to process the message without worrying about other consumers processing the same message simultaneously</li>
+<li>If the consumer fails to process the message within the visibility timeout, the message becomes visible again</li>
+<li>Default visibility timeout is 30 seconds, but it can be configured up to 12 hours</li>
+<li>If the consumer successfully processes the message, it should delete the message from the queue to prevent it from being processed again</li>
+<li>A consumer could call the <code>ChangeMessageVisibility</code> API to get more time</li>
+</ul>
+<h2 id="sqs-dead-letter-queues">SQS - Dead Letter Queues<a class="headerlink" href="#sqs-dead-letter-queues" title="Permanent link">&para;</a></h2>
+<ul>
+<li>A dead letter queue is a queue that receives messages that could not be processed successfully by the consumer</li>
+<li>You can configure a redrive policy on the source queue to specify the dead letter queue and the maximum number of times a message can be received before it is sent to the dead letter queue</li>
+<li>This allows you to isolate and analyze messages that could not be processed successfully, without affecting the processing of other messages in the source queue</li>
+<li>You can use the dead letter queue to troubleshoot and debug issues with message processing, and to implement retry logic for messages that fail to process successfully</li>
+</ul>
+<h2 id="sqs-dlq-redrive-to-source">SQS DLQ - Redrive to Source<a class="headerlink" href="#sqs-dlq-redrive-to-source" title="Permanent link">&para;</a></h2>
+<ul>
+<li>You can use the <code>RedrivePolicy</code> attribute to specify the source queue and the maximum number of times a message can be received before it is sent to the dead letter queue</li>
+<li>This allows you to automatically move messages that could not be processed successfully back to the source queue</li>
+<li>Feature to help consume messages in the DLQ to understand what is wrong with them</li>
+<li>When your code is fixed, we can redrive the messages from the DLQ back into the source queue in batches without writing custom code.</li>
+</ul>
+<h2 id="sqs-delay-queues">SQS - Delay Queues<a class="headerlink" href="#sqs-delay-queues" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Delay a messages up to 15 minutes</li>
+<li>Default is 0 seconds</li>
+<li>Can set a default at queue level</li>
+<li>Can override the default on send using the <code>DelaySeconds</code> parameter</li>
+</ul>
+<h2 id="sqs-certified-developer-concepts">SQS Certified Developer Concepts<a class="headerlink" href="#sqs-certified-developer-concepts" title="Permanent link">&para;</a></h2>
+<h3 id="long-polling">Long Polling<a class="headerlink" href="#long-polling" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Long Polling: When a consumer requests messages from the queue, it can optionally wait for messages to arrive if there are none in the queue</li>
+<li><code>LongPolling</code> decreases the number of API calls made to SQS while increasing the efficiency and decreasing the latency of your application</li>
+<li>The wait time can be between 1 second to 20 seconds</li>
+<li><code>LongPolling</code> is preferable over <code>ShortPolling</code></li>
+<li>Long Polling can be enabled at the queue level or at the API level using <code>ReceiveMessageWaitTimeSeconds</code></li>
+</ul>
+<h3 id="sqs-extended-client">SQS Extended Client<a class="headerlink" href="#sqs-extended-client" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Message size limit is 1024 KB, how to send large messages</li>
+<li>Using the SQS Extended Client (Java Library)</li>
+</ul>
+<h3 id="must-know-api">Must know API<a class="headerlink" href="#must-know-api" title="Permanent link">&para;</a></h3>
+<ul>
+<li><code>CreateQueue</code>, <code>DeleteQueue</code></li>
+<li><code>PurgeQueue</code></li>
+<li><code>SendMessage</code>, <code>ReceiveMessage</code>, <code>DeleteMessage</code></li>
+<li><code>MaxNumberOfMessages</code> (default 1, max 10)</li>
+<li><code>ReceiveMessageWaitTimeSeconds</code></li>
+<li><code>ChangeMessageVisibility</code></li>
+</ul>
+<h2 id="sqs-fifo-queues">SQS - FIFO Queues<a class="headerlink" href="#sqs-fifo-queues" title="Permanent link">&para;</a></h2>
+<ul>
+<li>FIFO: First In First Out (ordering of messages in the queue)</li>
+<li>Limited throughout: 300 msg/s without batching, 3000 msg/s with batching</li>
+<li>Exactly-once send capability (by removing duplicates using Deduplication ID)</li>
+<li>Messages are processed in order by the consumer</li>
+<li>Ordering by Message Group ID (all messages in the same group are ordered) - Mandatory parameter</li>
+</ul>
+<h2 id="sqs-fifo-queues-advanced">SQS - FIFO Queues Advanced<a class="headerlink" href="#sqs-fifo-queues-advanced" title="Permanent link">&para;</a></h2>
+<h3 id="deduplication">Deduplication<a class="headerlink" href="#deduplication" title="Permanent link">&para;</a></h3>
+<ul>
+<li>SQS FIFO queues provide a deduplication mechanism to ensure that messages are not delivered more than once</li>
+<li>When a message is sent to a FIFO queue, it is assigned a deduplication ID</li>
+<li>If a message with the same deduplication ID is sent within a 5-minute window, it will be treated as a duplicate and will not be delivered to the consumer</li>
+<li>Two de-duplication methods:<ul>
+<li>Content-based deduplication: will do a SHA-256 hash of the message body</li>
+<li>Explicitly provide a Message Deduplication ID</li>
+</ul>
+</li>
+</ul>
+<h3 id="message-grouping">Message Grouping<a class="headerlink" href="#message-grouping" title="Permanent link">&para;</a></h3>
+<ul>
+<li>SQS FIFO queues allow you to group messages using a Message Group ID</li>
+<li>Messages with the same Message Group ID are guaranteed to be processed in order by the consumer</li>
+<li>Messages with different Message Group IDs can be processed in parallel by the consumer</li>
+</ul>
+<h2 id="sqs-auto-scaling-group">SQS + Auto Scaling Group<a class="headerlink" href="#sqs-auto-scaling-group" title="Permanent link">&para;</a></h2>
+<ul>
+<li>You can configure an Auto Scaling Group to automatically adjust the number of EC2 instances based on the number of messages in the SQS FIFO queue</li>
+<li>This allows for dynamic scaling of your message processing capacity based on demand</li>
+<li>You can set up CloudWatch alarms to trigger scaling actions when the number of messages in the queue exceeds a certain threshold</li>
+<li>SQS a a buffer to databse writes</li>
+<li>SQS to decouple between applications tiers</li>
+<li>SQS FIFO Queue -&gt; EC2 Instances</li>
+<li>CloudWatch Metric - Queue Length -&gt; Alarm -&gt; CloudWatch Alarm -&gt; Auto Scaling Group</li>
+</ul>
+<h2 id="sqs-for-cloudops">SQS For CloudOps<a class="headerlink" href="#sqs-for-cloudops" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Message Visibility Timeout</li>
+<li>Dead Letter Queues</li>
+<li>Message Retention Period</li>
+<li>SQS Access Policy</li>
+<li>SQS Prioritization Pattern</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

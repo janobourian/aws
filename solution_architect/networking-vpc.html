@@ -1,0 +1,3208 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="machine-learning.html">
+      
+      
+        <link rel="next" href="disaster-recovery-strategies.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Networking - VPC - AWS Learning Process</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#networking-vpc" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="AWS Learning Process" class="md-header__button md-logo" aria-label="AWS Learning Process" data-md-component="logo">
+      
+  <img src="../images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AWS Learning Process
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Networking - VPC
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="AWS Learning Process" class="md-nav__button md-logo" aria-label="AWS Learning Process" data-md-component="logo">
+      
+  <img src="../images/logo.png" alt="logo">
+
+    </a>
+    AWS Learning Process
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS Developer Associate
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AWS Developer Associate
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer-associate/developer-associate.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer-associate/aws-cicd.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS CICD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS Solution Architect
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AWS Solution Architect
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="solution-architect.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="iam.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Identity and Access Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="ec2.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Elastic Compute Cloud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="rds-aurora-elasticache.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RDS + Aurora + Elasticache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="route53.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Route 53
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="classic-solutions-architecture-discussions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classic Solutions Architecture Discussions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="decoupling-applications.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decoupling Applications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="containers-on-aws-ecs-eks-fargate.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Containers on AWS ECS, EKS, Fargate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="serverless-solution-architectures.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless Solution Architectures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="data-and-analytics.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data and Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="machine-learning.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking - VPC
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="networking-vpc.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking - VPC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vpc-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VPC Components
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cidr-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CIDR - IPv4
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-vs-private-ip-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public vs Private IP (IPv4)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#internet-gateway-igw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internet Gateway (IGW)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bastion-host" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bastion Host
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nat-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NAT Instance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nat-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NAT Gateway
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-groups-and-nacls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Groups and NACLs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vpc-peering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VPC Peering
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VPC Peering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vpc-peering-hands-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VPC Peering Hands On
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vpc-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VPC Endpoints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VPC Endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interface-endpoints-powered-by-privatelink" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interface Endpoints (powered by PrivateLink)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gateway-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gateway Endpoints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vpc-flow-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VPC Flow Logs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-site-to-site-vpn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Site-to-Site VPN
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AWS Site-to-Site VPN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aws-vpn-cloudhub" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS VPN CloudHub
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#direct-connect-dx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Direct Connect (DX)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Direct Connect (DX)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#direct-connect-connection-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Direct Connect - Connection Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Encryption
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#site-to-site-vpn-connection-as-a-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Site-to-Site VPN connection as a backup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transit-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transit Gateway
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vpc-traffic-mirroring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VPC Traffic Mirroring
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ipv6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IPV6
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#egress-only-internet-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Egress Only Internet Gateway
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-networkfirewall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS NetworkFirewall
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vpc-pricing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VPC Pricing
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="disaster-recovery-strategies.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Disaster Recovery Strategies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="more-solution-architectures.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    More Solution Architectures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS SysOps Administrator
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AWS SysOps Administrator
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sysops/sysops-administrator.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sysops/cloudformation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CloudFormation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sysops/virtual-private-cloud.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Virtual Private Cloud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS DevOps Engineer Professional
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AWS DevOps Engineer Professional
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops-engineer/devops-engineer-professional.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops-engineer/sdlc-automation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain 1 SDLC Automation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops-engineer/configuration-management-and-infrastructure-as-code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain 2 Configuration Management and Infrastructure as Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops-engineer/monitoring-and-logging.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain 3 Monitoring and Logging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops-engineer/policies-and-standards-automation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain 4 Policies and Standards Automation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops-engineer/incident-and-event-response.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain 5 Incident and Event Response
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops-engineer/high-availability-fault-tolerance-and-disaster-recovery.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain 6 High Availability, Fault Tolerance, and Disaster Recovery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Development Kit
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cloud Development Kit
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cdk/overview.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cdk/getting-started.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cdk/best-practices.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Best Practices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cdk/examples.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cdk/trouble-shooting.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trouble Shooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CloudFormation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CloudFormation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloudformation/overview.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloudformation/getting-started.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloudformation/best-practices.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Best Practices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloudformation/examples.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS DevOps
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AWS DevOps
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops/overview.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops/getting-started.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops/cicd.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Continuous Integration and Continuous Delivery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops/cd.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Continuous Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops/iac.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infrastructure as Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops/automation-and-tooling.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Automation and tooling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops/cm.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Continuous Monitoring
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops/security.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS Virtual Private Cloud
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AWS Virtual Private Cloud
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpc/overview.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpc/getting-started.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpc/best-practices.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Best Practices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpc/examples.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#vpc-components" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VPC Components
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#cidr-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        CIDR - IPv4
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#public-vs-private-ip-ipv4" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public vs Private IP (IPv4)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#internet-gateway-igw" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Internet Gateway (IGW)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#bastion-host" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Bastion Host
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nat-instance" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NAT Instance
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#nat-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        NAT Gateway
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-groups-and-nacls" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Groups and NACLs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vpc-peering" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VPC Peering
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VPC Peering">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#vpc-peering-hands-on" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VPC Peering Hands On
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vpc-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VPC Endpoints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="VPC Endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#interface-endpoints-powered-by-privatelink" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Interface Endpoints (powered by PrivateLink)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#gateway-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Gateway Endpoints
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vpc-flow-logs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VPC Flow Logs
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-site-to-site-vpn" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS Site-to-Site VPN
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="AWS Site-to-Site VPN">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#aws-vpn-cloudhub" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS VPN CloudHub
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#direct-connect-dx" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Direct Connect (DX)
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Direct Connect (DX)">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#direct-connect-connection-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Direct Connect - Connection Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#encryption" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Encryption
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#site-to-site-vpn-connection-as-a-backup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Site-to-Site VPN connection as a backup
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#transit-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Transit Gateway
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vpc-traffic-mirroring" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VPC Traffic Mirroring
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ipv6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IPV6
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#egress-only-internet-gateway" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Egress Only Internet Gateway
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#aws-networkfirewall" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AWS NetworkFirewall
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#vpc-pricing" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        VPC Pricing
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="networking-vpc">Networking - VPC<a class="headerlink" href="#networking-vpc" title="Permanent link">&para;</a></h1>
+<p>This document provides an overview of Virtual Private Cloud (VPC) networking concepts and best practices for designing and implementing VPCs in AWS. </p>
+<h2 id="vpc-components">VPC Components<a class="headerlink" href="#vpc-components" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Internet Gateway: One by VPC, it allows to connect with the internet. </li>
+<li>Transit Gateway: A way to avoid vpc peering hell, all conections in one place.</li>
+<li>VPC Peering Connections: Connect two vpc using a peering.</li>
+<li>VPN: Private connection between AWS and on-premises over the internet</li>
+<li>CGW: Customer Gateway to connect with AWS</li>
+<li>VGW: AWS side Gateway (Virtual Gateway) to connect the VPN over the internet</li>
+<li>VPN Hub: A VPN in AWS can be a hub to connect all on-premises networks</li>
+<li>DX: Direct connection between on-premises and AWS</li>
+<li>DX Location: Physical place where the connection is made</li>
+<li>Route Table: The rules that a Subnet o VPC componet follows to communicate with others. </li>
+<li>NACL: Stateless, do it have permission to start a communication?</li>
+<li>VPC Endpoint: Connect your resources to AWS Services without internet, DNS should be allow</li>
+<li>Interface Endpont: $, ENI, Most of the services</li>
+<li>Gateway Endpoint: For S3, free</li>
+<li>VPC Flow Logs: Register the IP connections, it can be saved on S3, CloudWatch or Firehose</li>
+<li>NAT Gateway: It has regional option, allow to connect private subnet with other resources. </li>
+<li>NAT Instances: Like NAT Gateway but this is a EC2 Instance</li>
+<li>Bastion Host: Check the private resources using an EC2 instance in a public subnet.</li>
+<li>Security groups: Stateful, to check the permissions between components.</li>
+</ul>
+<h2 id="cidr-ipv4">CIDR - IPv4<a class="headerlink" href="#cidr-ipv4" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Classless Inter-Domain Routing - a method for allocating IP addresses</li>
+<li>Used in Security Groups rules and AWS networking in general</li>
+<li>Base IP<ul>
+<li>Represents an IP contained in the range:<ul>
+<li>XX.XX.XX.XX</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Subnet Mask<ul>
+<li>Defines how many bits can change in the IP</li>
+<li>Represented as /XX: /0, /24, /32</li>
+<li>Example (take 256.256.256.256 and take the value):<ul>
+<li>/8 -&gt; 255.0.0.0</li>
+<li>/9 -&gt; 255.32.0.0</li>
+<li>/16 -&gt; 255.255.0.0</li>
+<li>/21 -&gt; 255.255.248.0</li>
+<li>/22 -&gt; 255.255.252.0</li>
+<li>/23 -&gt; 255.255.254.0</li>
+<li>/24 -&gt; 255.255.255.0</li>
+<li>/32 -&gt; 255.255.255.255</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Public vs Private IP (IPv4)<ul>
+<li>Private IP:<ul>
+<li>10.0.0.0 - 10.255.255.255 (10.0.0.0/8)</li>
+<li>172.16.0.0 - 172.31.255.255 (172.12.0.0/12)</li>
+<li>192.168.0.0 - 192.168.255.255 (192.168.0.0/16)</li>
+</ul>
+</li>
+<li>Public IP:<ul>
+<li>The rest of IPs</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Examples:<ul>
+<li>192.168.0.0/30 =&gt; 2^2 = 4. 192.168.0.0 - 192.168.0.3 =&gt; 255.255.255.251</li>
+<li>192.168.0.0/28 =&gt; 2^4 = 16. 192.168.0.0 - 192.168.0.15 =&gt; 255.255.255.240</li>
+<li>192.168.0.0/20 =&gt; 2^12 = 4096. 192.168.0.0 - 192.168.16.0 =&gt; 255.255.240.0</li>
+<li>172.16.0.0/12 =&gt; 2^20 = 1,048,576. 172.16.0.0 - 172.31.255.255 =&gt; 255.240.0.0</li>
+</ul>
+</li>
+</ul>
+<h2 id="public-vs-private-ip-ipv4">Public vs Private IP (IPv4)<a class="headerlink" href="#public-vs-private-ip-ipv4" title="Permanent link">&para;</a></h2>
+<ul>
+<li>The Internet Assigned Numbers Authoriry (IANA) established certain blocks of IPv4 for the use of private (LAN) and public (Internet) addresses</li>
+<li>Private IP:<ul>
+<li>10.0.0.0/8 &rarr; 10.255.255.255</li>
+<li>172.16.0.0/12 &rarr; 172.31.255.255</li>
+<li>/12 -&gt; 255.240.0.0 -&gt; 172.16.0.0 - 172.31.255.255 (sum all and substract one)</li>
+<li>196.168.0.0/16 &rarr; 196.168.255.255</li>
+</ul>
+</li>
+<li>Public IP:
+    The rest of the IPs</li>
+<li>All new AWS accounts have a a default VPC</li>
+<li>EC2 are launched into the default VPC with public access</li>
+<li>You can create your own VPCs with custom CIDR blocks</li>
+<li>5 AWS VPC per region (soft-limit)</li>
+<li>Each VPC can have up to 200 subnets (soft-limit)</li>
+<li>Each subnet must reside entirely within one AZ</li>
+<li>Subnets can be public or private</li>
+<li>VPC min size: /28 -&gt; 16 IPs</li>
+<li>VPC max size: /16 -&gt; 65536 IPs</li>
+<li>
+<p>AWS reserves 5 IPs per subnet:</p>
+<ul>
+<li>10.0.0.0 -&gt; Network address</li>
+<li>10.0.0.1 -&gt; VPC Router</li>
+<li>10.0.0.2 -&gt; DNS Server</li>
+<li>10.0.0.3 -&gt; Future use</li>
+<li>10.0.0.255 -&gt; Broadcast address</li>
+</ul>
+</li>
+<li>
+<p>Exam tip: if you nee 29 IP addresses for EC2 instances:</p>
+<ul>
+<li>You can not choose a subnet /27 (32 IP addresses, 32 - 5 = 27 &lt; 29)</li>
+<li>You can choose /26 (64 IP addresses, 64 -  5 = 59 &gt; 29)</li>
+</ul>
+</li>
+</ul>
+<h2 id="internet-gateway-igw">Internet Gateway (IGW)<a class="headerlink" href="#internet-gateway-igw" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Allows resources in a VPC connect to the internet</li>
+<li>It scales horizontally and is highly available and redundant</li>
+<li>Must be created separatly from a VPC</li>
+<li>One VPC can only be attached to one IGW and viceversa</li>
+<li>Internet Gateways on their own do not allow internet access</li>
+<li>Route tables must also be edited<ul>
+<li>You should check the subnets route tables</li>
+<li>You should add the Internet Gateway to the Subnet Route Table</li>
+</ul>
+</li>
+<li>Subnets can manage the auto assign IPv4 operations</li>
+</ul>
+<p><img alt="alt text" src="image-2.png" /></p>
+<h2 id="bastion-host">Bastion Host<a class="headerlink" href="#bastion-host" title="Permanent link">&para;</a></h2>
+<ul>
+<li>We can use a Bastion Host to SSH into our private EC2 instance</li>
+<li>A Bastion Host is a special purpose instance that sits in a public subnet</li>
+<li>It is used to securely connect to instances in a private subnet</li>
+<li>The Bastion Host must have a security group that allows SSH access from the internet</li>
+<li>The private instance must have a security group that allows SSH access from the Bastion Host security</li>
+</ul>
+<p><img alt="alt text" src="image-3.png" /></p>
+<h2 id="nat-instance">NAT Instance<a class="headerlink" href="#nat-instance" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Network Address Translation</li>
+<li>Used to allow instances in a private subnet to access the internet</li>
+<li>It is an EC2 instance configured to forward traffic to the internet</li>
+<li>It must be launched in a public subnet with a security group that allows inbound traffic from the internet</li>
+<li>Must disable EC2 setting: Source/destination Check</li>
+<li>Route Tables must be configured to route traffic from private subnets to the NAT Instance</li>
+<li>Exist a preconfigured AMIs</li>
+<li>Comments:<ul>
+<li>Pre-configured Amazon Linux AMI is available</li>
+<li>Not Highly available/resilient setup out of the box<ul>
+<li>You need to create an ASG in multi-AZ + resilient user-data script</li>
+</ul>
+</li>
+<li>Internet traffic bandwith depends on EC2 instance type</li>
+<li>You must manage Security Groups and rules</li>
+</ul>
+</li>
+</ul>
+<p><img alt="alt text" src="image-4.png" /></p>
+<p><img alt="alt text" src="image-5.png" /></p>
+<h2 id="nat-gateway">NAT Gateway<a class="headerlink" href="#nat-gateway" title="Permanent link">&para;</a></h2>
+<ul>
+<li>AWS-managed NAT, higher bandwidth, high availability, no administration</li>
+<li>Pay per hour for usage and bandwith</li>
+<li>Must be created in a public subnet</li>
+<li>Must be associated with an Elastic IP</li>
+<li>Route Tables must be configured to route traffic from private subnets to the NAT Gateway</li>
+<li>Requires an IGW (Private Subnet =&gt; NATGW =&gt; IGW)</li>
+<li>5 Gbps on bandwith with automatic scaling up to 100 Gbps</li>
+<li>Highly available within an AZ</li>
+<li>No Security Groups to manage / required</li>
+<li>Recommended over NAT Instances for most use cases</li>
+<li>There is no cross-AZ failover needed because if an AZ goes down it does not need NAT</li>
+</ul>
+<p><img alt="alt text" src="image-6.png" /></p>
+<h2 id="security-groups-and-nacls">Security Groups and NACLs<a class="headerlink" href="#security-groups-and-nacls" title="Permanent link">&para;</a></h2>
+<ul>
+<li>
+<p>Security Groups</p>
+<ul>
+<li>Act as virtual firewalls for EC2 instances</li>
+<li>Operate at the instance level</li>
+<li>Stateful: return traffic is automatically allowed, no need to create rules</li>
+<li>Allow rules only (no deny rules)</li>
+<li>Can be associated with multiple instances</li>
+<li>Can have multiple security groups associated with a single instance</li>
+</ul>
+</li>
+<li>
+<p>Network Access Control Lists (NACLs):</p>
+<ul>
+<li>NACLs are stateless</li>
+<li>Operate at the subnet level</li>
+<li>Allow and deny rules</li>
+<li>Can be associated with multiple subnets</li>
+<li>Each subnet must be associated with a NACL, if none is specified the default NACL</li>
+<li>Default NACL allows all inbound and outbound traffic</li>
+</ul>
+</li>
+<li>
+<p>Stateful in this context: Allowed traffic</p>
+</li>
+<li>Stateless in this context: Always evaluate the traffic</li>
+</ul>
+<p><img alt="alt text" src="image-7.png" /></p>
+<ul>
+<li>NACLs<ul>
+<li>Are like a firewall which control traffic from and to subnets</li>
+<li>One NACL per subnet, new subnets are ssigned the Default NACL</li>
+<li>You define NACL Rules<ul>
+<li>100 ALLOW</li>
+<li>"*" &lt;- to deny traffic that does not match</li>
+</ul>
+</li>
+<li>NACL are a great way of blocking a specific IP address at the subnet level</li>
+<li>Do not modify the Default NACL, instead create custom NACL</li>
+</ul>
+</li>
+</ul>
+<p><img alt="alt text" src="image-8.png" /></p>
+<ul>
+<li>Ephemeral Ports<ul>
+<li>For any two endpoints to establich a connection, they must use port</li>
+<li>Cliente connect to a defined port, and expect a response on an ephemeral port</li>
+<li>Ephemeral ports are temporary ports assigned for the duration of a communication session</li>
+</ul>
+</li>
+</ul>
+<p><img alt="alt text" src="image-10.png" /></p>
+<p><img alt="alt text" src="image-9.png" /></p>
+<p><img alt="alt text" src="image-11.png" /></p>
+<ul>
+<li>Differences between Security Groups and NACLs:<ul>
+<li>SGs are stateful because they allow the outside communication</li>
+<li>NACLs are stateless because they review the acess control list in every request</li>
+<li>SGa at instance leves vs NACLs at subnet level</li>
+<li>SGs only allow rules vs NACLs allow and deny rules</li>
+<li>SGs are associated with multiple instances vs NACLs are associated with multiple subnets</li>
+<li>Default SG allows all inbound and outbound traffic vs Default NACL allows all inbound and outbound traffic</li>
+</ul>
+</li>
+</ul>
+<h2 id="vpc-peering">VPC Peering<a class="headerlink" href="#vpc-peering" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Networking connection between two VPCs</li>
+<li>Can be within the same AWS account or different AWS accounts</li>
+<li>VPCs can be in different regions (Inter-Region VPC Peering)</li>
+<li>VPC Peering connection is not trantitive</li>
+<li>No single point of failure or bandwidth bottleneck</li>
+<li>Traffic between peered VPCs stays on the global AWS backbone</li>
+<li>You must update route tables in each VPC to enable routing of traffic between them</li>
+<li>You can not have overlapping CIDR blocks between peered VPCs</li>
+<li>There are no bandwidth limitations</li>
+<li>There are no additional hops, low latency connection</li>
+<li>There is no need for a gateway, VPN connection, or separate physical hardware</li>
+<li>Peered VPCs can communicate using private IP addresses</li>
+<li>You can peer VPCs across different AWS accounts</li>
+</ul>
+<h3 id="vpc-peering-hands-on">VPC Peering Hands On<a class="headerlink" href="#vpc-peering-hands-on" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Create two VPCs with non-overlapping CIDR blocks</li>
+<li>Crete the vpc peering</li>
+<li>Update route tables in both VPCs to enable routing between them</li>
+<li>Test the connectivity between instances in both VPCs using private IP addresses</li>
+</ul>
+<p><img alt="alt text" src="image-12.png" /></p>
+<h2 id="vpc-endpoints">VPC Endpoints<a class="headerlink" href="#vpc-endpoints" title="Permanent link">&para;</a></h2>
+<ul>
+<li>To work with aws services.</li>
+<li>Every AWS service is publicly exposed</li>
+<li>VPC Endpoints allows you to connect to AWS services using a private network.</li>
+<li>Two types of VPC Endpoints:<ul>
+<li>Interface Endpoints: Use AWS PrivateLink to connect to services using ENIs</li>
+<li>Gateway Endpoints: Use route tables to connect to services like S3 and DynamoDB</li>
+</ul>
+</li>
+<li>DNS name should be enabled.</li>
+<li>Associated by subnet and security groups</li>
+</ul>
+<h3 id="interface-endpoints-powered-by-privatelink">Interface Endpoints (powered by PrivateLink)<a class="headerlink" href="#interface-endpoints-powered-by-privatelink" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use AWS PrivateLink to connect to services using ENIs</li>
+<li>Create an elastic network interface (ENI) in your subnet</li>
+<li>Assign private IP addresses from your VPC to the ENI</li>
+<li>Use security groups to control access to the endpoint</li>
+<li>Supports connections to AWS services, third-party services, and your own services</li>
+<li>$ per hour + $ per GB of data processed</li>
+</ul>
+<h3 id="gateway-endpoints">Gateway Endpoints<a class="headerlink" href="#gateway-endpoints" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Use route tables to connect to services like S3 and DynamoDB</li>
+<li>Create a gateway endpoint for the service </li>
+<li>Update route tables to direct traffic to the endpoint</li>
+<li>No additional cost for using gateway endpoints</li>
+<li>Supports both S3 and DynamoDB</li>
+<li>Free</li>
+</ul>
+<p>Note: Interface Endpoint for S3 is preferred when you require access from your on premises (Site to Site VPN or Direct Connect), a different VPC or a different region.</p>
+<h2 id="vpc-flow-logs">VPC Flow Logs<a class="headerlink" href="#vpc-flow-logs" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Capture information about the IP traffic going to and from network interfaces in your VPC:</li>
+<li>Can be created at the VPC, subnet, or network interface level</li>
+<li>Logs can be published to Amazon CloudWatch Logs or Amazon S3</li>
+<li>Useful for monitoring and troubleshooting network connectivity issues</li>
+<li>Can help with security analysis and compliance auditing</li>
+<li>Can be filtered based on traffic type (accepted, rejected, or all)</li>
+<li>No additional cost for creating VPC Flow Logs, but there are costs for storing and analyzing</li>
+<li>Can be created and deleted without disrupting network traffic</li>
+<li>You can use S3, CloudWatch Logs, and Kinesis Data Firehose</li>
+<li>Captures network information from AWS managed interfaces too:<ul>
+<li>ELB</li>
+<li>RDS</li>
+<li>Redshift</li>
+<li>ElastiCache</li>
+<li>WorkSpaces</li>
+<li>NATGW</li>
+<li>TransitGateway</li>
+</ul>
+</li>
+</ul>
+<p><img alt="alt text" src="image-13.png" /></p>
+<ul>
+<li>Structure<ul>
+<li>Version</li>
+<li>Account id</li>
+<li>Interface id</li>
+<li>Source Address</li>
+<li>Destination Address</li>
+<li>Source Port</li>
+<li>Destinantio Port</li>
+<li>Protocol</li>
+<li>Packets</li>
+<li>Bytes</li>
+<li>Start</li>
+<li>End</li>
+<li>Action</li>
+<li>Log Status</li>
+</ul>
+</li>
+</ul>
+<p><img alt="alt text" src="image-14.png" /></p>
+<p><img alt="alt text" src="image-15.png" /></p>
+<h2 id="aws-site-to-site-vpn">AWS Site-to-Site VPN<a class="headerlink" href="#aws-site-to-site-vpn" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Secure connection between on-premises network and AWS VPC over the internet</li>
+<li>Uses IPsec protocol to encrypt data in transit</li>
+<li>Consists of two main components:<ul>
+<li>Customer Gateway (CGW): Represents the on-premises gateway device</li>
+<li>Virtual Private Gateway (VGW): Represents the AWS side of the VPN connection</li>
+</ul>
+</li>
+<li>Supports both static and dynamic routing (BGP)</li>
+<li>Supports multiple VPN tunnels for redundancy and high availability</li>
+<li>Can be used in conjunction with AWS Direct Connect for hybrid connectivity</li>
+<li>Pay-as-you-go pricing model based on connection hours and data transfer</li>
+<li>Supports both policy-based and route-based VPNs</li>
+<li>Can be configured using the AWS Management Console, CLI, or SDKs</li>
+<li>Supports a wide range of customer gateway devices from various vendors</li>
+</ul>
+<h3 id="aws-vpn-cloudhub">AWS VPN CloudHub<a class="headerlink" href="#aws-vpn-cloudhub" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Provide secure communication between multiple sites, if you have multiple VPN connections</li>
+<li>Low-cost hub and-spoke model for primary or secondary network connectivity between different locations (VPN only)</li>
+<li>To set it up, connect multiple VPN connections on the same VGW, setup dynamic routing and configure route tables.</li>
+</ul>
+<h2 id="direct-connect-dx">Direct Connect (DX)<a class="headerlink" href="#direct-connect-dx" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Dedicated network connection between on-premises data center and AWS</li>
+<li>Provides a more consistent network experience compared to internet-based connections</li>
+<li>Can be used to connect to all AWS services in a specific region</li>
+<li>Supports speeds ranging from 50 Mbps to 100 Gbps</li>
+<li>Can be used in conjunction with AWS Site-to-Site VPN for hybrid connectivity</li>
+<li>Requires a Direct Connect Gateway to connect to multiple VPCs across different regions</li>
+<li>Pay-as-you-go pricing model based on port hours and data transfer</li>
+<li>Supports link aggregation (LAG) for increased bandwidth and redundancy</li>
+<li>Requires working with an AWS Direct Connect Partner or colocation provider to establish the physical connection</li>
+</ul>
+<p><img alt="alt text" src="image-16.png" /></p>
+<ul>
+<li>You can use Direct Connect Gateway to connect one or more VPC in many different regions (same account)</li>
+</ul>
+<p><img alt="alt text" src="image-17.png" /></p>
+<h3 id="direct-connect-connection-types">Direct Connect - Connection Types<a class="headerlink" href="#direct-connect-connection-types" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Dedicated Connection<ul>
+<li>Physical Ethernet connection associated with a single customer</li>
+<li>Speeds from 1 Gbps to 100 Gbps</li>
+</ul>
+</li>
+<li>Hosted Connection:<ul>
+<li>Connetion requests are made via AWS Connext Partners</li>
+<li>Speeds from 50 Mbps to 10 Gbps</li>
+</ul>
+</li>
+</ul>
+<h3 id="encryption">Encryption<a class="headerlink" href="#encryption" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Direct Connect does not provide encryption by default</li>
+<li>You can use MACsec (Media Access Control Security) for encryption on 1 Gbps</li>
+<li>You can also use AWS Site-to-Site VPN over Direct Connect for encryption</li>
+</ul>
+<p><img alt="alt text" src="image-18.png" /></p>
+<h3 id="site-to-site-vpn-connection-as-a-backup">Site-to-Site VPN connection as a backup<a class="headerlink" href="#site-to-site-vpn-connection-as-a-backup" title="Permanent link">&para;</a></h3>
+<ul>
+<li>You can use a Site-to-Site VPN connection as a backup for your Direct Connect connection</li>
+</ul>
+<h2 id="transit-gateway">Transit Gateway<a class="headerlink" href="#transit-gateway" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Benefits:<ul>
+<li>Like a Hub of connections</li>
+<li>Unique service with broadcast properties</li>
+<li>Increase the throughput using ECMP</li>
+</ul>
+</li>
+<li>Network transit hub that can connect multiple VPCs and on-premises networks</li>
+<li>Simplifies network architecture by consolidating connections</li>
+<li>Supports inter-region peering</li>
+<li>Scales elastically based on network traffic</li>
+<li>Supports multicast traffic</li>
+<li>Centralized management of network connections</li>
+<li>Supports integration with AWS Direct Connect and VPN connections</li>
+<li>Pay-as-you-go pricing model based on data processed and attachments</li>
+<li>ECMP = Equal-cost multi-path</li>
+</ul>
+<h2 id="vpc-traffic-mirroring">VPC Traffic Mirroring<a class="headerlink" href="#vpc-traffic-mirroring" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Allows you to capture and inspect network traffic in your VPC.</li>
+<li>Capture the traffic:<ul>
+<li>From (source) - ENI</li>
+<li>To (Targets) - an ENI or a Network Load Balancer</li>
+</ul>
+</li>
+</ul>
+<p><img alt="alt text" src="image-25.png" /></p>
+<h2 id="ipv6">IPV6<a class="headerlink" href="#ipv6" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Is the succesor of IPv4</li>
+<li>Uses 128-bit addresses, represented in hexadecimal format</li>
+<li>Provides a much larger address space than IPv4</li>
+<li>IPv6 addresses are represented as eight groups of four hexadecimal digits, separated by colons</li>
+<li>Example: 2001:0db8:85a3:0000:0000:8a2e:0370:7334</li>
+<li>IPv6 addresses can be abbreviated by omitting leading zeros and consecutive groups of zeros</li>
+<li>Example: 2001:0db8:85a3::8a2e</li>
+</ul>
+<h2 id="egress-only-internet-gateway">Egress Only Internet Gateway<a class="headerlink" href="#egress-only-internet-gateway" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Used for IPv6 only</li>
+<li>Similar to a NAT Gateway but for IPv6</li>
+</ul>
+<p><img alt="alt text" src="image-26.png" /></p>
+<h2 id="aws-networkfirewall">AWS NetworkFirewall<a class="headerlink" href="#aws-networkfirewall" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Protect your entire Amazon VPC from layer 3 to layer 7</li>
+<li>Stateful, managed, network firewall and intrusion detection and prevention service for VPCs</li>
+<li>Provides fine-grained control over network traffic</li>
+<li>Supports custom rules and managed rule groups</li>
+<li>Can be deployed in a highly available configuration across multiple Availability Zones</li>
+<li>Pay-as-you-go pricing model based on the number of firewall endpoints and data processed</li>
+<li>Can be used to protect VPCs from common web exploits and vulnerabilities</li>
+<li>Can be used to monitor and log network traffic for security analysis and compliance auditing</li>
+</ul>
+<h2 id="vpc-pricing">VPC Pricing<a class="headerlink" href="#vpc-pricing" title="Permanent link">&para;</a></h2>
+<ul>
+<li>VPC itself is free, but there are costs associated with using VPC components and features</li>
+<li>Internet Gateway: Free</li>
+<li>NAT Gateway: $0.045 per hour + $0.045 per GB of data</li>
+<li>VPC Endpoints:<ul>
+<li>Interface Endpoints: $0.01 per hour + $0.01 per GB of data processed</li>
+<li>Gateway Endpoints: Free</li>
+<li>VPC Flow Logs: Costs for storing and analyzing logs in CloudWatch Logs or S3</li>
+<li>AWS Site-to-Site VPN: $0.05 per hour + data transfer costs</li>
+<li>AWS Direct Connect: Costs based on port hours and data transfer</li>
+</ul>
+</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

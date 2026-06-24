@@ -1,0 +1,3247 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+      
+      
+      
+        <link rel="prev" href="iam.html">
+      
+      
+        <link rel="next" href="rds-aurora-elasticache.html">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.6">
+    
+    
+      
+        <title>Elastic Compute Cloud - AWS Learning Process</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="deep-purple" data-md-color-accent="deep-orange">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#elastic-compute-cloud-ec2" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../index.html" title="AWS Learning Process" class="md-header__button md-logo" aria-label="AWS Learning Process" data-md-component="logo">
+      
+  <img src="../images/logo.png" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AWS Learning Process
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Elastic Compute Cloud
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+    
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../index.html" title="AWS Learning Process" class="md-nav__button md-logo" aria-label="AWS Learning Process" data-md-component="logo">
+      
+  <img src="../images/logo.png" alt="logo">
+
+    </a>
+    AWS Learning Process
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../index.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS Developer Associate
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AWS Developer Associate
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer-associate/developer-associate.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../developer-associate/aws-cicd.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS CICD
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_3" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS Solution Architect
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AWS Solution Architect
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="solution-architect.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="iam.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Identity and Access Management
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Elastic Compute Cloud
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="ec2.html" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Elastic Compute Cloud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ec2-fundamentals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EC2 Fundamentals
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="EC2 Fundamentals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ec2-instance-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EC2 instance types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ec2-instance-purchasing-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EC2 Instance Purchasing Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ip-address-charges-in-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IP address charges in AWS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spot-instances-and-spot-fleet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spot Instances and Spot Fleet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Spot Instances and Spot Fleet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ec2-spot-instance-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EC2 Spot Instance Request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ec2-spot-fleets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EC2 Spot Fleets
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ec2-solution-architect-associate-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EC2 Solution Architect Associate Level
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="EC2 Solution Architect Associate Level">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#private-vs-public-vs-elastic-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Private vs Public vs Elastic IP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ec2-placement-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EC2 Placement Groups
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elastic-network-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elastic Network Interfaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ec2-hibernate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EC2 Hibernate
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ec2-instance-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EC2 Instance Storage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="EC2 Instance Storage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ebs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EBS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ami" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AMI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ec2-instance-store" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EC2 Instance Store
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#efs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EFS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#efs-vs-ebs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EFS vs EBS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#high-availability-and-scalability-elb-and-asg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High Availability and Scalability: ELB and ASG
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="High Availability and Scalability: ELB and ASG">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#elb-elastic-load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ELB - Elastic Load Balancer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ASG
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="rds-aurora-elasticache.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    RDS + Aurora + Elasticache
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="route53.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Route 53
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="classic-solutions-architecture-discussions.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Classic Solutions Architecture Discussions
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="decoupling-applications.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Decoupling Applications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="containers-on-aws-ecs-eks-fargate.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Containers on AWS ECS, EKS, Fargate
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="serverless-solution-architectures.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Serverless Solution Architectures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="data-and-analytics.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Data and Analytics
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="machine-learning.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Machine Learning
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="networking-vpc.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Networking - VPC
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="disaster-recovery-strategies.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Disaster Recovery Strategies
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="more-solution-architectures.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    More Solution Architectures
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" >
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS SysOps Administrator
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AWS SysOps Administrator
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sysops/sysops-administrator.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sysops/cloudformation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CloudFormation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../sysops/virtual-private-cloud.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Virtual Private Cloud
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS DevOps Engineer Professional
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AWS DevOps Engineer Professional
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops-engineer/devops-engineer-professional.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops-engineer/sdlc-automation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain 1 SDLC Automation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops-engineer/configuration-management-and-infrastructure-as-code.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain 2 Configuration Management and Infrastructure as Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops-engineer/monitoring-and-logging.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain 3 Monitoring and Logging
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops-engineer/policies-and-standards-automation.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain 4 Policies and Standards Automation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops-engineer/incident-and-event-response.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain 5 Incident and Event Response
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops-engineer/high-availability-fault-tolerance-and-disaster-recovery.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Domain 6 High Availability, Fault Tolerance, and Disaster Recovery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Cloud Development Kit
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Cloud Development Kit
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cdk/overview.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cdk/getting-started.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cdk/best-practices.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Best Practices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cdk/examples.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cdk/trouble-shooting.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Trouble Shooting
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    CloudFormation
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    CloudFormation
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloudformation/overview.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloudformation/getting-started.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloudformation/best-practices.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Best Practices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../cloudformation/examples.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_8" >
+        
+          
+          <label class="md-nav__link" for="__nav_8" id="__nav_8_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS DevOps
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_8_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_8">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AWS DevOps
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops/overview.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops/getting-started.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops/cicd.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Continuous Integration and Continuous Delivery
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops/cd.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Continuous Deployment
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops/iac.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Infrastructure as Code
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops/automation-and-tooling.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Automation and tooling
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops/cm.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Continuous Monitoring
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../devops/security.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Security
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_9" >
+        
+          
+          <label class="md-nav__link" for="__nav_9" id="__nav_9_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AWS Virtual Private Cloud
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_9_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_9">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    AWS Virtual Private Cloud
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpc/overview.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpc/getting-started.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpc/best-practices.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Best Practices
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../vpc/examples.html" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Examples
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#ec2-fundamentals" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EC2 Fundamentals
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="EC2 Fundamentals">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ec2-instance-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EC2 instance types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ec2-instance-purchasing-options" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EC2 Instance Purchasing Options
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ip-address-charges-in-aws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        IP address charges in AWS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#spot-instances-and-spot-fleet" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Spot Instances and Spot Fleet
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Spot Instances and Spot Fleet">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ec2-spot-instance-request" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EC2 Spot Instance Request
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ec2-spot-fleets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EC2 Spot Fleets
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ec2-solution-architect-associate-level" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EC2 Solution Architect Associate Level
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="EC2 Solution Architect Associate Level">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#private-vs-public-vs-elastic-ip" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Private vs Public vs Elastic IP
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ec2-placement-groups" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EC2 Placement Groups
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#elastic-network-interfaces" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Elastic Network Interfaces
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ec2-hibernate" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EC2 Hibernate
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#ec2-instance-storage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EC2 Instance Storage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="EC2 Instance Storage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ebs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EBS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ami" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        AMI
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#ec2-instance-store" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EC2 Instance Store
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#efs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EFS
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#efs-vs-ebs" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        EFS vs EBS
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#high-availability-and-scalability-elb-and-asg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        High Availability and Scalability: ELB and ASG
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="High Availability and Scalability: ELB and ASG">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#elb-elastic-load-balancer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ELB - Elastic Load Balancer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#asg" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        ASG
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="elastic-compute-cloud-ec2">Elastic Compute Cloud (EC2)<a class="headerlink" href="#elastic-compute-cloud-ec2" title="Permanent link">&para;</a></h1>
+<ul>
+<li>First of all you need to set the billing section for not-root users:</li>
+<li>Activate the budget</li>
+</ul>
+<h2 id="ec2-fundamentals">EC2 Fundamentals<a class="headerlink" href="#ec2-fundamentals" title="Permanent link">&para;</a></h2>
+<ul>
+<li>A good first step is to create a budget on billing console</li>
+<li>Elastic Compute Cloud</li>
+<li>EC2 is infrastructure as a services</li>
+<li>Some capabilities:<ul>
+<li>Renting virtual machines (EC2)</li>
+<li>Storing data on virtual drives (EBS-EFS)</li>
+<li>Distributing load across machines (ELB)</li>
+<li>Scaling the services using an auto-scaling group (ASG)</li>
+</ul>
+</li>
+<li>Configuration options:<ul>
+<li>Operating system (OS)</li>
+<li>Compute power an cores (CPU)</li>
+<li>Random Access Memory (RAM)</li>
+<li>Storage space (EBS or EFS)<ul>
+<li>Always review delete on terminate</li>
+</ul>
+</li>
+<li>Network card</li>
+<li>Firewall rules<ul>
+<li>Security Group</li>
+</ul>
+</li>
+<li>Bootstrap script<ul>
+<li>Installing updates</li>
+<li>Installing software</li>
+<li>Downloading common files</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Instance types example:<ul>
+<li>micro 1vCPU </li>
+<li>xlarge 4vCPU</li>
+<li>4xlarge 16vCPU</li>
+<li>8xlarge 32vCPU</li>
+<li>16xlarge 64vCPU</li>
+</ul>
+</li>
+</ul>
+<p>Bootstrap example </p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+<span class="c1"># Use this for your user data (script from top to bottom)</span>
+<span class="c1"># install httpd (Linux 2 version)</span>
+yum<span class="w"> </span>update<span class="w"> </span>-y
+yum<span class="w"> </span>install<span class="w"> </span>-y<span class="w"> </span>httpd
+systemctl<span class="w"> </span>start<span class="w"> </span>httpd
+systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>httpd
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&lt;h1&gt;Hello world from </span><span class="k">$(</span>hostname<span class="w"> </span>-f<span class="k">)</span><span class="s2">&lt;/h1&gt;&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/var/www/html/index.html
+</code></pre></div>
+<p>For Amazon Linux 2023</p>
+<div class="highlight"><pre><span></span><code><span class="ch">#!/bin/bash</span>
+sudo<span class="w"> </span>dnf<span class="w"> </span>update<span class="w"> </span>-y
+sudo<span class="w"> </span>dnf<span class="w"> </span>install<span class="w"> </span>httpd<span class="w"> </span>-y
+sudo<span class="w"> </span>systemctl<span class="w"> </span>start<span class="w"> </span>httpd
+sudo<span class="w"> </span>systemctl<span class="w"> </span><span class="nb">enable</span><span class="w"> </span>httpd
+<span class="nb">echo</span><span class="w"> </span><span class="s2">&quot;&lt;h1&gt;Hello world from </span><span class="k">$(</span>hostname<span class="w"> </span>-f<span class="k">)</span><span class="s2">&lt;/h1&gt;&quot;</span><span class="w"> </span>&gt;<span class="w"> </span>/var/www/html/index.html
+</code></pre></div>
+<ul>
+<li>Stop instance</li>
+<li>Start instance</li>
+<li>Hibernate instance</li>
+<li>
+<p>Terminate instance</p>
+</li>
+<li>
+<p>Command to connect locally:</p>
+<ul>
+<li><code>chmod 400 ".pem"</code></li>
+<li><code>ssh -i "*.pem" ec2-user@*.compute-1.amazonaws.com</code></li>
+</ul>
+</li>
+</ul>
+<h3 id="ec2-instance-types">EC2 instance types<a class="headerlink" href="#ec2-instance-types" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Naming convention:</p>
+<ul>
+<li>m5.2xlarge<ul>
+<li>m: instance class</li>
+<li>5: generation</li>
+<li>2xlarge: size within the instance class</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Types</p>
+<ul>
+<li>General purpose<ul>
+<li>Great for a diversity of workloads</li>
+<li>Good balance between:<ul>
+<li>Compute</li>
+<li>Memory</li>
+<li>Networking</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Compute optimized<ul>
+<li>Great for compute-intensitive tasks<ul>
+<li>Batch processing workloads</li>
+<li>Media transcoding</li>
+<li>High performance web servers</li>
+<li>High performance computing</li>
+<li>Scientific modeling and machine learning</li>
+<li>Dedicated gaming servers</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Memory optimized<ul>
+<li>Fast performance for workloads that process large data sets in memory<ul>
+<li>High performance relational/non-relational databases</li>
+<li>Distributed web scale cache stores</li>
+<li>In-memory databases optimized for BI</li>
+<li>Applications performing real-time processing of big unstructured data</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Accelerated computing</li>
+<li>Storage Optimized<ul>
+<li>Great for storage-intensive tasks that require high, sequential read and write access to large data sets on local storage<ul>
+<li>High frequency Online Transaction Processing systems (OLTP)</li>
+<li>Relational and NoSQL databases</li>
+<li>Cache for in-memory databases (for example, Redis)</li>
+<li>Data Warehousing applications</li>
+<li>Distributed file systems</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>HPC optimized</li>
+</ul>
+</li>
+<li>
+<p>If you need to check some instance costs: <a href="https://instances.vantage.sh/">https://instances.vantage.sh/</a></p>
+</li>
+<li>
+<p>Security groups:</p>
+<ul>
+<li>They control how traffic is allowed into or out of oue EC2 Instances</li>
+<li>Only contain allow rules</li>
+<li>Can reference by IP or by Security Group</li>
+<li>Is like a firewall</li>
+<li>Locked down to a region/VPC combination</li>
+<li>Problems:<ul>
+<li>Time out: maybe is a security group issue</li>
+<li>Connection refused: maybe it is an application error or it is not launched</li>
+</ul>
+</li>
+<li>Traffic:<ul>
+<li>All inbound traffic is blocked by default</li>
+<li>All outbound traffic is allowed by default</li>
+</ul>
+</li>
+<li>Referencing other security Groups:<ul>
+<li>EC2 instances with the same security group can change information</li>
+</ul>
+</li>
+<li>They structure is:<ul>
+<li>Type<ul>
+<li>FTP: 21</li>
+<li>SSH: 22</li>
+<li>SFTP: 22</li>
+<li>HTTP: 80</li>
+<li>HTTPS: 443</li>
+<li>RDP: 3389 (Remote Desktop Protocol)</li>
+</ul>
+</li>
+<li>Protocol</li>
+<li>Port Range</li>
+<li>Source</li>
+<li>Description</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>You can connect with your EC2 instance using EC2 Instance Connect</p>
+</li>
+<li>You need to configure IAM role</li>
+</ul>
+<h3 id="ec2-instance-purchasing-options">EC2 Instance Purchasing Options<a class="headerlink" href="#ec2-instance-purchasing-options" title="Permanent link">&para;</a></h3>
+<ul>
+<li>On-Demand Instances<ul>
+<li>Linux or Windows - billing per second, after the first minute</li>
+<li>All other operating systems - billing per hour</li>
+</ul>
+</li>
+<li>Reserved<ul>
+<li>Reserved Instances<ul>
+<li>You reserve a specific instance attributes:<ul>
+<li>Instance Type</li>
+<li>Region</li>
+<li>Tenancy</li>
+<li>OS</li>
+</ul>
+</li>
+<li>You can buy and sell in the Reserved Instance Marketplace</li>
+</ul>
+</li>
+<li>Convertible Reserved Instances<ul>
+<li>Can change the EC2:<ul>
+<li>instance type</li>
+<li>instance family</li>
+<li>OS</li>
+<li>scope</li>
+<li>tenancy</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Saving Plans: commitment to an amount of usage, long workload<ul>
+<li>Commit to a certain type of usage ($10/hour for 1 or 3 years)</li>
+<li>Locked to a specific instance family and AWS region</li>
+<li>After your commit start On-Demand pricing</li>
+<li>Flexible across:<ul>
+<li>Instance size</li>
+<li>OS</li>
+<li>Tenancy</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Spot Instances<ul>
+<li>You can lose at any point of time</li>
+<li>Useful for workloads that are resilient to failure</li>
+</ul>
+</li>
+<li>Dedicated Hosts<ul>
+<li>A physical server fully dedicated to your use</li>
+<li>Useful for software that have complicated licensing model (BYOL - Bring Your Own License)</li>
+<li>Or for companies that have strong regulatory or compliance needs</li>
+<li>Purchasing Options:<ul>
+<li>On-demand</li>
+<li>Reserved</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Dedicated Instances<ul>
+<li>Instance run on hardware that is dedicated to you</li>
+<li>May share hardware with other instances in same account</li>
+</ul>
+</li>
+<li>Capacity Reservations<ul>
+<li>Reserve On-Demand isntances capacity in a specific AZ for any duration</li>
+</ul>
+</li>
+</ul>
+<h3 id="ip-address-charges-in-aws">IP address charges in AWS<a class="headerlink" href="#ip-address-charges-in-aws" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Public IPv4 created in your account<ul>
+<li><span class="arithmatex"><span class="MathJax_Preview">0.005 per hour (~</span><script type="math/tex">0.005 per hour (~</script></span>3.6 month)</li>
+</ul>
+</li>
+<li>The trick is to start to migrate to IPv6</li>
+<li>VPC IP Address Manager (VPC IPAM) to manage public IPs</li>
+</ul>
+<h3 id="spot-instances-and-spot-fleet">Spot Instances and Spot Fleet<a class="headerlink" href="#spot-instances-and-spot-fleet" title="Permanent link">&para;</a></h3>
+<h4 id="ec2-spot-instance-request">EC2 Spot Instance Request<a class="headerlink" href="#ec2-spot-instance-request" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Define max spot price and ge the instance while current spot price &lt; max</li>
+<li>Your instance will have two minutes grace period</li>
+<li>Used for batch jobs, data analysis, or workloads that are resilient to failures</li>
+<li>Not great for critical jobs or databases</li>
+<li>Spot block is no longer available</li>
+<li>Spot Request<ul>
+<li>Create request<ul>
+<li>Maximum price</li>
+<li>Desired number of instances</li>
+<li>Launch specifications </li>
+<li>Request type</li>
+<li>Valid from</li>
+<li>Valid until</li>
+</ul>
+</li>
+<li>One time<ul>
+<li>It will be terminated after the request</li>
+</ul>
+</li>
+<li>Persistent<ul>
+<li>Stop -&gt; Start</li>
+<li>Interrumpt</li>
+<li>Cancel (terminate) only in the next status<ul>
+<li>Open</li>
+<li>Active</li>
+<li>Disabled</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h4 id="ec2-spot-fleets">EC2 Spot Fleets<a class="headerlink" href="#ec2-spot-fleets" title="Permanent link">&para;</a></h4>
+<ul>
+<li>Spot Fleets = set of Spot Instances + (optional) On-Demand Instances</li>
+<li>Strategies to allocate Spot Instances<ul>
+<li>lowestPrice</li>
+<li>diversified: distributed across all pools</li>
+<li>capacityOptimized</li>
+<li>priceCapacityOptimized (recommended): highest capacity available, then select the pool with the lowest price</li>
+</ul>
+</li>
+</ul>
+<h2 id="ec2-solution-architect-associate-level">EC2 Solution Architect Associate Level<a class="headerlink" href="#ec2-solution-architect-associate-level" title="Permanent link">&para;</a></h2>
+<h3 id="private-vs-public-vs-elastic-ip">Private vs Public vs Elastic IP<a class="headerlink" href="#private-vs-public-vs-elastic-ip" title="Permanent link">&para;</a></h3>
+<ul>
+<li>IPv4 and IPv6</li>
+<li>Internet Gateway (public)<ul>
+<li>Private Network</li>
+</ul>
+</li>
+<li>Machines in Private Network can connect to internet using NatGateway</li>
+<li>Elastic IP<ul>
+<li>When you stop and then start an EC2 instance, it can change its public IP</li>
+<li>If you need to have a fixed public IP for your instance, you need an Elastic IP</li>
+<li>Five Elastic IP in your account</li>
+</ul>
+</li>
+</ul>
+<h3 id="ec2-placement-groups">EC2 Placement Groups<a class="headerlink" href="#ec2-placement-groups" title="Permanent link">&para;</a></h3>
+<ul>
+<li>How your EC2 instances will be placed</li>
+<li>Strategies<ul>
+<li>Cluster<ul>
+<li>All instances are in the same AZ</li>
+<li>Pros:<ul>
+<li>Great network</li>
+</ul>
+</li>
+<li>Cons:<ul>
+<li>If the AZ fails, all instances fails at the same time</li>
+</ul>
+</li>
+<li>Use case:<ul>
+<li>Big Data </li>
+<li>Application that needs extremly low latency</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Spread<ul>
+<li>Minimize the risk</li>
+<li>Every Instance is in different hardware</li>
+<li>Pros:<ul>
+<li>Can span across AZ</li>
+</ul>
+</li>
+<li>Cons:<ul>
+<li>Limited to 7 instances per AZ per placement group</li>
+</ul>
+</li>
+<li>Use case:<ul>
+<li>Application that needs to maximize high availability</li>
+<li>Critical Applications where each must be isolated from failure from each other</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Partition<ul>
+<li>Partition per AZ</li>
+<li>Each partition is isolated from failure</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h3 id="elastic-network-interfaces">Elastic Network Interfaces<a class="headerlink" href="#elastic-network-interfaces" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Logical component in a VPC that represents a virtual network card</li>
+<li>It has the following attributes:<ul>
+<li>Primary IPv4, one or more secondary IPv4</li>
+<li>One Elastic IP per private IPv4</li>
+<li>One Public IPv4</li>
+<li>One or more security groups</li>
+<li>A Mac address</li>
+<li>Bound for AZ</li>
+</ul>
+</li>
+</ul>
+<h3 id="ec2-hibernate">EC2 Hibernate<a class="headerlink" href="#ec2-hibernate" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Steps<ul>
+<li>Start</li>
+<li>Stop</li>
+<li>Terminate</li>
+<li>Hibernate: <ul>
+<li>RAM state is preserved</li>
+<li>The instance boot is much faster</li>
+<li>RAM state is written to a file in the root EBS volume</li>
+<li>The root EBS volume must be encrypted</li>
+<li>Instance RAM size must be less than 150GB</li>
+<li>Not supported fro bare metal instances</li>
+<li>An instance can not be hibernated more than 60 days</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 id="ec2-instance-storage">EC2 Instance Storage<a class="headerlink" href="#ec2-instance-storage" title="Permanent link">&para;</a></h2>
+<h3 id="ebs">EBS<a class="headerlink" href="#ebs" title="Permanent link">&para;</a></h3>
+<ul>
+<li>
+<p>Elastic Block Store Volume</p>
+<ul>
+<li>Network drive you can attach to your instances while they run</li>
+<li>Bound to a specific availability zone</li>
+<li>Like network USB stick</li>
+<li>To move a volume across, you first need to snapshot it</li>
+<li>Have a provisioned capacity</li>
+<li>Delete on termination (root is deleted by default)</li>
+</ul>
+</li>
+<li>
+<p>EBS Snapshots</p>
+<ul>
+<li>Make a backup of your EBS volume at a point in time</li>
+<li>Can copy snapshots across AZ or Region</li>
+<li>EBS Snapshot to EBS Snapshot Archive</li>
+<li>EBS Snapshot to Recycle Bin</li>
+<li>Fast Snapshot Restore</li>
+</ul>
+</li>
+<li>
+<p>EBS Volumes</p>
+<ul>
+<li>gp2/gp3 (SSD)</li>
+<li>io1/io2 Block Express (SSD)</li>
+<li>st 1 (HDD)</li>
+<li>sc 1 (HDD)</li>
+<li>EBS Volumes are characterized in Size, Throughput, IOPS</li>
+</ul>
+</li>
+<li>
+<p>Multi Attach:</p>
+<ul>
+<li>In te same AZ</li>
+<li>Across multiple EC2</li>
+<li>Only for io1 and io2</li>
+<li>Read and write permissions for high-performance volume</li>
+<li>To manage concurrent write operations</li>
+<li>Up to 16 EC2 Instances at a time</li>
+</ul>
+</li>
+<li>
+<p>Encryption</p>
+<ul>
+<li>You have nothing to do</li>
+<li>Data at res, in flight, snapshots, and all volumes created from the snapshot</li>
+</ul>
+</li>
+</ul>
+<h3 id="ami">AMI<a class="headerlink" href="#ami" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Amazon Machine Image</li>
+<li>AMI are a customization of an EC2 Instance</li>
+<li>AMI are built for a specific region and can be copied across regions</li>
+</ul>
+<h3 id="ec2-instance-store">EC2 Instance Store<a class="headerlink" href="#ec2-instance-store" title="Permanent link">&para;</a></h3>
+<ul>
+<li>If you need a high-performance hardware disk, use EC2 Instance Store</li>
+<li>Better I/O performance</li>
+<li>EC2 Instance store lose their storage if the are stopped</li>
+<li>Good for buffer, cache, scratch data, temporary content</li>
+</ul>
+<h3 id="efs">EFS<a class="headerlink" href="#efs" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Highly available, scalable, expensive (3x gp2), pay per use</li>
+<li>EFS works with EC2 instances in multi-AZ</li>
+<li>Use cases:<ul>
+<li>Content management</li>
+<li>Web serving</li>
+<li>Data sharing</li>
+<li>Wordpress</li>
+</ul>
+</li>
+<li>Uses NFSv4.1</li>
+<li>Use security Group</li>
+<li>Compatible with Linux, not Windows</li>
+<li>It uses POSIX file system</li>
+<li>EFS scale</li>
+<li>Performance Mode<ul>
+<li>General Purpose</li>
+<li>Max I/O</li>
+<li>Throughput Mode<ul>
+<li>Bursting - 1 TB</li>
+<li>Provisioned</li>
+<li>Elastic</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>Storage Classes<ul>
+<li>Storage Tiers<ul>
+<li>Standard</li>
+<li>Infrequent Access</li>
+<li>Archive</li>
+</ul>
+</li>
+<li>You can implement Lifecycle policies</li>
+</ul>
+</li>
+<li>Availability and durability<ul>
+<li>Standard: Multi-AZ</li>
+<li>One Zone: EFS One Zone-IA</li>
+</ul>
+</li>
+</ul>
+<h3 id="efs-vs-ebs">EFS vs EBS<a class="headerlink" href="#efs-vs-ebs" title="Permanent link">&para;</a></h3>
+<ul>
+<li>EBS<ul>
+<li>one instance</li>
+<li>Locked by AZ</li>
+<li>To migrate<ul>
+<li>Take a Snapshot</li>
+</ul>
+</li>
+<li>Deletion on terminate should be configured</li>
+</ul>
+</li>
+<li>EFS<ul>
+<li>Across AZ</li>
+<li>Multi instance</li>
+<li>EFS Mount Target</li>
+<li>Storage Tiers</li>
+</ul>
+</li>
+</ul>
+<h2 id="high-availability-and-scalability-elb-and-asg">High Availability and Scalability: ELB and ASG<a class="headerlink" href="#high-availability-and-scalability-elb-and-asg" title="Permanent link">&para;</a></h2>
+<ul>
+<li>Vertical Scalability<ul>
+<li>scale up - scale down</li>
+<li>Non distributed Systems such as a database</li>
+<li>It has a limite</li>
+</ul>
+</li>
+<li>Horizontal Scalability (= elasticity)<ul>
+<li>scale out - scale in</li>
+<li>Auto Scaling Group</li>
+<li>Load Balancer</li>
+<li>Distributed systems</li>
+<li>web applications / modern applications</li>
+</ul>
+</li>
+<li>High Availability<ul>
+<li>Multi AZ</li>
+<li>Meas running your application in at least 2 data centers</li>
+<li>The goal is to survive a data center loss</li>
+<li>Passive: For RDS Multi AZ</li>
+<li>Actice: For Horizontal scaling</li>
+</ul>
+</li>
+</ul>
+<h3 id="elb-elastic-load-balancer">ELB - Elastic Load Balancer<a class="headerlink" href="#elb-elastic-load-balancer" title="Permanent link">&para;</a></h3>
+<ul>
+<li>Load Balanacers are servers that forward traffic to multiple servers downstream</li>
+<li>
+<p>Use cases:</p>
+<ul>
+<li>Spread load across multiple downstream instances</li>
+<li>Expose a single point of access (DNS) to your application</li>
+<li>Seamlessly handle failures of downstream instances</li>
+<li>Do regular health checks to your instances</li>
+<li>Provide SSL termination for your websites</li>
+<li>Enforce stickiness with cookies</li>
+<li>High availability across zones</li>
+<li>Separate public traffic from private traffic</li>
+</ul>
+</li>
+<li>
+<p>Types</p>
+<ul>
+<li>Classic Load Balancer</li>
+<li>Application load Balancer<ul>
+<li>HTTP, HTTPS, WebSocket</li>
+</ul>
+</li>
+<li>Network Load Balancer<ul>
+<li>TCP, TLS, UDP</li>
+</ul>
+</li>
+<li>Gateway Load Balancer<ul>
+<li>GWLB</li>
+</ul>
+</li>
+</ul>
+</li>
+<li>
+<p>Security</p>
+<ul>
+<li>Load Balancer Security Group</li>
+<li>Application Security Group (allow traffic only from Load Balancer)</li>
+</ul>
+</li>
+</ul>
+<h3 id="asg">ASG<a class="headerlink" href="#asg" title="Permanent link">&para;</a></h3>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": [], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>
