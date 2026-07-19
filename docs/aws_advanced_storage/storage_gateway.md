@@ -7,8 +7,8 @@
         * Amazon EBS
         * EC2 Instance Store
     * File
-        * Amazon EFS
-        * Amazon FSx
+        * Amazon EFS, for Linux (NFS)
+        * Amazon FSx, for Windows (SMB)
     * Object
         * Amazon S3
         * Amazon Glacier

@@ -242,6 +242,8 @@ echo "<h1>Hello world from $(hostname -f)</h1>" > /var/www/html/index.html
 * How your EC2 instances will be placed
 * Strategies
     * Cluster
+        * The instances are together to reduce the latency
+        * Financial applications.
         * All instances are in the same AZ
         * Pros:
             * Great network
@@ -250,6 +252,10 @@ echo "<h1>Hello world from $(hostname -f)</h1>" > /var/www/html/index.html
         * Use case:
             * Big Data 
             * Application that needs extremly low latency
+    * Partition
+        * Partition per AZ
+        * Each partition is isolated from failure
+        * You are using the same AZ but every partitions is in different rack in the same datacenter
     * Spread
         * Minimize the risk
         * Every Instance is in different hardware
@@ -260,9 +266,6 @@ echo "<h1>Hello world from $(hostname -f)</h1>" > /var/www/html/index.html
         * Use case:
             * Application that needs to maximize high availability
             * Critical Applications where each must be isolated from failure from each other
-    * Partition
-        * Partition per AZ
-        * Each partition is isolated from failure
 
 ### Elastic Network Interfaces
 
@@ -287,7 +290,7 @@ echo "<h1>Hello world from $(hostname -f)</h1>" > /var/www/html/index.html
         * RAM state is written to a file in the root EBS volume
         * The root EBS volume must be encrypted
         * Instance RAM size must be less than 150GB
-        * Not supported fro bare metal instances
+        * Not supported for bare metal instances
         * An instance can not be hibernated more than 60 days
 
 ## EC2 Instance Storage
@@ -326,7 +329,7 @@ echo "<h1>Hello world from $(hostname -f)</h1>" > /var/www/html/index.html
 
 * Encryption
     * You have nothing to do
-    * Data at res, in flight, snapshots, and all volumes created from the snapshot
+    * Data at rest, in flight, snapshots, and all volumes created from the snapshot
 
 ### AMI
 
