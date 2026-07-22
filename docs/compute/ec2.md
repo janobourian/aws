@@ -104,6 +104,7 @@ echo "<h1>Hello world from $(hostname -f)</h1>" > /var/www/html/index.html
             * Data Warehousing applications
             * Distributed file systems
     * HPC optimized
+        * Gamming 
 
 * If you need to check some instance costs: https://instances.vantage.sh/
 
@@ -181,6 +182,14 @@ echo "<h1>Hello world from $(hostname -f)</h1>" > /var/www/html/index.html
 * Capacity Reservations
     * Reserve On-Demand isntances capacity in a specific AZ for any duration
 
+## Optimize EC2 Costs
+
+* Avoid overprovisioning
+* Terminate unused instances
+* Implement Auto Scaling
+* Monitor with Cost Explorer
+* Diversify pricing models
+
 ### IP address charges in AWS
 
 * Public IPv4 created in your account
@@ -232,10 +241,25 @@ echo "<h1>Hello world from $(hostname -f)</h1>" > /var/www/html/index.html
 * Internet Gateway (public)
     * Private Network
 * Machines in Private Network can connect to internet using NatGateway
+    * NAT Gateway only accepts outbound traffic and responses from the internet (inbound traffic)
 * Elastic IP
     * When you stop and then start an EC2 instance, it can change its public IP
     * If you need to have a fixed public IP for your instance, you need an Elastic IP
     * Five Elastic IP in your account
+
+* Public IP address
+    * Public Subnets
+    * Lost when the instance is stopped
+    * Associated qith a private IP address on the instance
+    * Cannot be moved between instances
+* Private IP address
+    * Retained when the instance is stopped
+    * Used in Public and Private subnets
+* Elastic IP address
+    * Static Public IP address
+    * You are charged if not used
+    * Associated with a private IP address on the instance
+    * Can be moved between instances and Elastic Network Adapters
 
 ### EC2 Placement Groups
 
