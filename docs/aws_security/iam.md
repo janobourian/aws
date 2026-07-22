@@ -103,6 +103,9 @@ You can update and download files on `CloudShell`
 
 To do so, we will assign permissions to AWS services with IAM Roles.
 
+* Who can assume the role? --> Trust Relationship
+* What permissions does the role have? --> Policies
+
 Common Roles:
     * EC2 Instance Roles
     * Lambda Function Roles
