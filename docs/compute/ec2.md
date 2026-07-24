@@ -263,9 +263,10 @@ echo "<h1>Hello world from $(hostname -f)</h1>" > /var/www/html/index.html
 
 ### EC2 Placement Groups
 
-* How your EC2 instances will be placed
+* How your EC2 instances will be placed acording with your needs
 * Strategies
     * Cluster
+        * Need for speed
         * The instances are together to reduce the latency
         * Financial applications.
         * All instances are in the same AZ
@@ -276,11 +277,8 @@ echo "<h1>Hello world from $(hostname -f)</h1>" > /var/www/html/index.html
         * Use case:
             * Big Data 
             * Application that needs extremly low latency
-    * Partition
-        * Partition per AZ
-        * Each partition is isolated from failure
-        * You are using the same AZ but every partitions is in different rack in the same datacenter
     * Spread
+        * Safety First
         * Minimize the risk
         * Every Instance is in different hardware
         * Pros:
@@ -290,6 +288,11 @@ echo "<h1>Hello world from $(hostname -f)</h1>" > /var/www/html/index.html
         * Use case:
             * Application that needs to maximize high availability
             * Critical Applications where each must be isolated from failure from each other
+    * Partition
+        * Isolation at Scale
+        * Partition per AZ
+        * Each partition is isolated from failure
+        * You are using the same AZ but every partitions is in different rack in the same datacenter
 
 ### Elastic Network Interfaces
 
