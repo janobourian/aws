@@ -2,6 +2,11 @@
 
 * First of all you need to set the billing section for not-root users:
 * Activate the budget
+* You can buy the next computing resources:
+    * CPU
+    * Memory
+    * Storage
+    * Network
 
 ## EC2 Fundamentals
 
@@ -324,6 +329,8 @@ echo "<h1>Hello world from $(hostname -f)</h1>" > /var/www/html/index.html
 
 ### EBS
 
+* You can increase or decrease the memory in EBS
+
 * Elastic Block Store Volume
     * Network drive you can attach to your instances while they run
     * Bound to a specific availability zone
@@ -333,17 +340,30 @@ echo "<h1>Hello world from $(hostname -f)</h1>" > /var/www/html/index.html
     * Delete on termination (root is deleted by default)
 
 * EBS Snapshots
+    * It uses incremental memory
+        * 10GB + 2GB = 12GB instead of two copies.
     * Make a backup of your EBS volume at a point in time
     * Can copy snapshots across AZ or Region
     * EBS Snapshot to EBS Snapshot Archive
     * EBS Snapshot to Recycle Bin
     * Fast Snapshot Restore
 
+* IOPS
+    * Input Output Per Second
+    * Read / Write operations a storage device can perform per second
+* Throughput
+    * How amount of data can be moved through the devices
+
 * EBS Volumes
-    * gp2/gp3 (SSD)
-    * io1/io2 Block Express (SSD)
-    * st 1 (HDD)
-    * sc 1 (HDD)
+    * General Purpose:
+        * gp2/gp3 (SSD)
+    * Fast and consistent for crititcal applications:
+        * io1/io2 Block Express (SSD)
+    * For big data, move fast most access
+        * st 1 (HDD)
+    * Standard cold, keep the information
+        * Archival data, backups
+        * sc 1 (HDD)
     * EBS Volumes are characterized in Size, Throughput, IOPS
 
 * Multi Attach:
