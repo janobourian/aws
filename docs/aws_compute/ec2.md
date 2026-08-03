@@ -353,6 +353,8 @@ echo "<h1>Hello world from $(hostname -f)</h1>" > /var/www/html/index.html
     * Read / Write operations a storage device can perform per second
 * Throughput
     * How amount of data can be moved through the devices
+* Latency
+    * Time delay between request of data and response data
 
 * EBS Volumes
     * General Purpose:
@@ -383,6 +385,9 @@ echo "<h1>Hello world from $(hostname -f)</h1>" > /var/www/html/index.html
 * Amazon Machine Image
 * AMI are a customization of an EC2 Instance
 * AMI are built for a specific region and can be copied across regions
+* Two ways of creating an AMI
+    * AMI from EC2 instance
+    * AMI from EBS Snapshot
 
 ### EC2 Instance Store
 
