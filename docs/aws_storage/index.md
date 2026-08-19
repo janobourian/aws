@@ -8,11 +8,11 @@
 * Data is organized in blocks
 * Must be attached to EC2
 * Use cases:
-    * Low latency access to data
-    * Boot/Data volumes for EC2
-    * Relations and NoSQL Database storage
-    * Data Warehouse ETL
-    * SAP ERP, Oracle ERP, Microsoft Share Point, MySQL, MongoDB
+  * Low latency access to data
+  * Boot/Data volumes for EC2
+  * Relations and NoSQL Database storage
+  * Data Warehouse ETL
+  * SAP ERP, Oracle ERP, Microsoft Share Point, MySQL, MongoDB
 
 ## S3 | Simple Storage Service
 
@@ -22,12 +22,12 @@
 * API access to data (HTTP/HTTPS)
 * Metadata driven (Attributes, Policy)
 * Use cases:
-    * Unlimited space
-    * Media and enternainment
-    * Log files
-    * Backups and archives
-    * Content Management
-    * Version Control System
+  * Unlimited space
+  * Media and enternainment
+  * Log files
+  * Backups and archives
+  * Content Management
+  * Version Control System
 
 ## EFS | Elastic File System
 
@@ -36,9 +36,9 @@
 * Comes with serving File System
 * Should be mounted on EC2 or on-premises services
 * Use cases:
-    * Shared access to files
-    * Web Serving
-    * Big Data and Analytics
-    * Users Home Directory
-    * Content Management
-    * Container Storage
+  * Shared access to files
+  * Web Serving
+  * Big Data and Analytics
+  * Users Home Directory
+  * Content Management
+  * Container Storage

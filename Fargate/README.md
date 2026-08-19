@@ -8,31 +8,31 @@ ECR and Docker Hub are the service to pull the Docker Images
 ## First steps
 
 * ECS Objects:
-    - Container Definition.
-    - Task Definition:
-        - Multiple Container Definition
-        - Settings
-        - How many containers
-    - Service:
-        - Number of simultaneous instances of a task definition
-    - Cluster:
-        - Fargate
-            - Set provision services
-            - cpu
-            - memory
-        - EC2 Linux
-        - EC2 Windows
-    - Task
-        - Instantiation of a task in the last step.
+  * Container Definition.
+  * Task Definition:
+    * Multiple Container Definition
+    * Settings
+    * How many containers
+  * Service:
+    * Number of simultaneous instances of a task definition
+  * Cluster:
+    * Fargate
+      * Set provision services
+      * cpu
+      * memory
+    * EC2 Linux
+    * EC2 Windows
+  * Task
+    * Instantiation of a task in the last step.
 
 ### Create First Fargate Cluster
 
 To get the fast starting we need to put the classic view.
 
-- Container definition
-- Task Definition
-- Service
-- Cluster 
+* Container definition
+* Task Definition
+* Service
+* Cluster
 
 If you increase the number of cluster you will have more ips direction, to avoid this is necessary to use a load balancer.
 
@@ -44,27 +44,29 @@ Shutdown the clusters
 
 [Docker fundamentals](https://github.com/stacksimplify/docker-fundamentals)
 
-Advantages to use Docker: 
-- Flexible
-- Lightweight
-- Portable 
-- Loosely Coupled 
-- Scalable
-- Secure
+Advantages to use Docker:
+
+* Flexible
+* Lightweight
+* Portable
+* Loosely Coupled
+* Scalable
+* Secure
 
 Docker terminology:
-- Docker Host
-- Docker Daemon: 
-    - The Docker daemon listens for Docker API requests and managers Docker objects such as images, containers, networks, and volumes.
-- Docker Client:
-    - The Docker client is the primary way that many Docker users interact with Docker
-    - The Docker client communicates with Docker Daemon
-- Docker Images:
-    - Read-only template with instructions for creating a Docker container
-- Docker Containers:
-    - Runnable instance of Docker Images. 
-- Docker registry or Docker Hub:
-    - A docker registry stores Docker images
+
+* Docker Host
+* Docker Daemon:
+  * The Docker daemon listens for Docker API requests and managers Docker objects such as images, containers, networks, and volumes.
+* Docker Client:
+  * The Docker client is the primary way that many Docker users interact with Docker
+  * The Docker client communicates with Docker Daemon
+* Docker Images:
+  * Read-only template with instructions for creating a Docker container
+* Docker Containers:
+  * Runnable instance of Docker Images.
+* Docker registry or Docker Hub:
+  * A docker registry stores Docker images
 
 ### Docker Pull Images
 
@@ -93,14 +95,14 @@ docker tag <your_docker_hub_id>/<container_name>:<version> <your_docker_hub_id>/
 docker push <your_docker_hub_id>/<container_name>:<version>
 ```
 
-Once you have your Dockerfile the next step is to create your new image, create your container and push it to the Docker Hub. 
+Once you have your Dockerfile the next step is to create your new image, create your container and push it to the Docker Hub.
 
 ```bash
 docker build -t janobourian/rabbit:v1 .
 docker run -d --name rabbit_starlette -p 8000:8000 --restart=always -it janobourian/rabbit:v1
 docker tag janobourian/rabbit:v1 janobourian/rabbit:v1-checked
 docker push janobourian/rabbit:v1-checked
-``` 
+```
 
 ### Essential Docker Commands
 
@@ -118,7 +120,7 @@ docker exec -it <container_name> <commands>
 docker rmi <image_id>
 docker login
 docker logout
-docker stats 
+docker stats
 docker versions
 docker top <container_id>
 ```
@@ -128,11 +130,12 @@ docker top <container_id>
 ### Cluster introduction
 
 ECS Cluster Types:
-- Fargate (Serverless)
-- EC2 (Linux)
-- EC2 (Windows)
 
-An ECS cluster is a logical grouping of tasks or services. 
-Clusters are Region-specific. 
+* Fargate (Serverless)
+* EC2 (Linux)
+* EC2 (Windows)
+
+An ECS cluster is a logical grouping of tasks or services.
+Clusters are Region-specific.
 
 ### Create a VPC

@@ -13,15 +13,17 @@ A VPC endpoint enables you to privately connect your VPC to supported AWS servic
 An interface endpoint is an elastic network interface with a private IP address that serves as an entry point for traffic destined to a supported service.
 
 Features:
+
 * Provisions an ENI as an entry point
 * Supports most AWS services
 * $ per hour + $ per GB of data processed
 
-### Gateway Endpoints 
+### Gateway Endpoints
 
 A gateway endpoint is a gateway that you specify as a target for a route in your route table for traffic destined to a supported AWS service.
 
 Features:
+
 * Provision a gateway and must be used as a target in route table (does not use security group)
 * Supports both S3 and DynamoDB
 * Free

@@ -1,21 +1,26 @@
 # AWS Topic: Amazon Detective
+
 **Category:** Security, Identity, and Compliance
 **Status:** ✅ Completed
 
 ---
 
 ## 1. High-Level Overview
+
 Amazon Detective is a serverless, managed security analysis service designed to simplify the investigation of security findings and identify the root causes of suspicious activity across your AWS resources. In traditional security environments, investigating a threat alert (such as a GuardDuty notification) required manually collecting log files (like VPC Flow Logs, CloudTrail, and EKS audit logs), running SQL databases to parse events, and trying to trace connections, which was slow and prone to errors. Amazon Detective addresses these challenges by automating log parsing and analysis.
 
 The service uses machine learning, statistical analysis, and graph theory to construct a unified, interactive dataset called a **Behavior Graph**. When enabled, Detective automatically ingests logs from Amazon GuardDuty, AWS CloudTrail, and Amazon VPC, organizing the events into a visual map that displays the relationships between AWS accounts, EC2 instances, IP addresses, and user sessions. By allowing security analysts to trace security events across time and accounts, Amazon Detective accelerates threat investigation timelines.
 
 ### 👔 Executive Summary (For Managers & Non-Technical Stakeholders)
+
 * **Business Purpose**: Provides enterprise-grade cloud capabilities for **Amazon Detective**, streamlining operations, reducing infrastructure overhead, and enabling rapid digital innovation.
 * **How It Works**: Operates as a fully managed AWS cloud service, handling underlying operational complexities, high-availability replication, security compliance, and automated scaling behind simple API interfaces.
 * **Key Business Value & Use Cases**: Reduces operational overhead and time-to-market for digital initiatives, enforces enterprise security standards, and aligns cloud spending with actual business usage.
 
 ## 2. Core Architecture & Key Concepts
+
 Amazon Detective analyzes threat graphs. Key concepts include:
+
 * **Behavior Graph**: The centralized visualization database of resource relationships.
 * **Master Account**: The primary account that manages the behavior graph.
 * **Member Account**: Accounts that contribute log data to the behavior graph.
@@ -25,6 +30,7 @@ Amazon Detective analyzes threat graphs. Key concepts include:
 ---
 
 ## 3. Common Use Cases
+
 * **GuardDuty Finding Investigation**: Tracing the history of an EC2 instance flagged for communicating with a known command-and-control server.
 * **Compromised Credentials Forensics**: Analyzing which IP addresses and APIs were accessed by an IAM role during a security event.
 * **VPC Network Anomalies Analysis**: Visualizing network traffic flows to identify data exfiltration attempts.
@@ -33,6 +39,7 @@ Amazon Detective analyzes threat graphs. Key concepts include:
 ---
 
 ## 4. Exam Essentials (SAA-C03 Cheat Sheet)
+
 * ⚠️ **Key Constraints**: Does not prevent threats (it is a post-event analysis tool; use GuardDuty and WAF to block). Data retention in the behavior graph is limited to 1 year.
 * 🔒 **Security & Encryption**: Does not expose raw log data. Access is governed via IAM.
 * ⚙️ **Performance/Scaling**: Serverless architecture scales automatically to analyze terabytes of log data.
@@ -40,6 +47,7 @@ Amazon Detective analyzes threat graphs. Key concepts include:
 ---
 
 ## 5. Comparison with Similar Services
+
 | Service | Evaluation Method | Focus Area | Output Result |
 | :--- | :--- | :--- | :--- |
 | **Amazon Detective** | Graph theory / ML analysis | Post-event security investigations | Interactive relationship graphs |
@@ -50,7 +58,9 @@ Amazon Detective analyzes threat graphs. Key concepts include:
 ---
 
 ## 6. Cost Optimization
-# Optimize Detective costs by:
+
+## Optimize Detective costs by
+
 * Pausing data ingestion for developer environments.
 * Utilizing the 30-day free trial to evaluate ingestion volumes.
 * Disabling Detective in inactive AWS regions.
@@ -61,6 +71,7 @@ Amazon Detective analyzes threat graphs. Key concepts include:
 ## 7. In-Depth Perspectives
 
 ### Security Perspective
+
 Security configuration in Amazon Detective is critical because behavior graphs consolidate metadata and log events from across your entire AWS infrastructure. The security model leverages AWS IAM, delegated security admin accounts, and secure graph access boundaries. Access to view behavior graphs or invite member accounts is governed by IAM, restricting API actions like `detective:CreateGraph`, `detective:AcceptInvitation`, and `detective:GetMembers`.
 
 To protect sensitive log information, Detective does not allow users to view the raw log content directly.
@@ -68,6 +79,7 @@ To protect sensitive log information, Detective does not allow users to view the
 Instead, the service processes the logs into abstracted graph nodes (representing resource relationships), minimizing the exposure of raw payload data. Data protection in transit is enforced using TLS, and the underlying graph database is encrypted at rest automatically. Auditing is managed via AWS CloudTrail, which logs all administrative actions and graph queries, providing complete compliance tracking.
 
 ### High Availability Perspective
+
 High Availability (HA) for Amazon Detective is built directly into its serverless, globally distributed graph analysis architecture. The service is hosted by AWS across multiple Availability Zones in the region by default, ensuring continuous availability of behavior graphs. If an Availability Zone experiences an outage, the Detective control plane remains operational, routing queries to active database nodes in remaining zones without manual intervention.
 
 To ensure high availability of the data layer, Detective integrates with S3 and DynamoDB backend clusters.
@@ -75,6 +87,7 @@ To ensure high availability of the data layer, Detective integrates with S3 and 
 For multi-account organizational setups, Detective supports delegating a **Security Administrator Account**. The delegated security account aggregates behavior graphs from all member accounts in your AWS Organization automatically, consolidating threat records into a highly available central security dashboard. By combining serverless auto-scaling, Multi-AZ database replication, and organizational consolidation, Amazon Detective provides a highly available threat analysis platform.
 
 ### Resilience Perspective
+
 Resilience in Amazon Detective focuses on log ingestion continuity, graph data recovery, and disaster recovery. The service possesses built-in processing resilience: if a log ingestion pipeline experiences a transient timeout, Detective buffers the log queue and retries the ingestion run automatically, preventing data gaps in the behavior graph.
 
 To maintain operational resilience, behavior graphs, member invitations, and administrator delegations should be managed as code using CloudFormation or Terraform templates.
@@ -82,12 +95,14 @@ To maintain operational resilience, behavior graphs, member invitations, and adm
 To handle security incidents, Detective allows saving **Investigation Snapshots**. If an active target resource changes its state (e.g. an EC2 instance is terminated), the historical relationship graph remains preserved, allowing analysts to conduct forensics post-incident, maintaining overall operational resilience.
 
 ### Cost Optimizing Perspective
+
 Cost Optimization for Amazon Detective involves managing data ingestion volume, choosing the right source accounts, and utilizing the free trial. Detective pricing is based on the volume of data ingested into the behavior graph per month (with a 30-day free trial for every account). While this is highly cost-effective, ingesting massive volumes of VPC Flow Logs from high-traffic, non-production environments can run up significant charges. To optimize these costs, administrators should disable Detective for dev/test accounts, enabling it only for production accounts.
 
 Additionally, managing GuardDuty integration is essential. Since Detective is designed to investigate GuardDuty findings, you should disable Detective in regions where GuardDuty is not active, directly lowering baseline ingestion costs.
 
 Another cost optimization strategy is utilizing AWS Budgets to set alerts. Setting alerts to notify when data ingestion volumes exceed allocations ensures that security analysis costs remain aligned with the enterprise budget.
-```
+
+```text
 
 ---
 
@@ -119,18 +134,22 @@ Another cost optimization strategy is utilizing AWS Budgets to set alerts. Setti
 ### 1. List Behavior Graphs
 
 Execute the following command:
-```bash
-aws detective list-graphs
 ```
+
+aws detective list-graphs
+
+```text
 
 ### 2. Create Behavior Graph
 
 Execute the following command:
-```bash
+```
+
 aws detective create-members \
     --graph-arn "arn:aws:detective:us-east-1:123456789012:graph:1234" \
-    --accounts AccountId="111122223333",EmailAddress="member@example.com"
-```
+    --accounts AccountId="111122223333",EmailAddress="<member@example.com>"
+
+```text
 
 ---
 ## 11. Advanced Architectural Perspectives
@@ -160,9 +179,11 @@ The operational foundation managing lifecycle, compliance verification, and exec
 * **AWS CLI Snippet**:
 
   AWS CLI Example for Core Administration & Rule Engine:
-```bash
-aws amazon-detective describe-configuration 2>/dev/null || echo 'Amazon Detective Active'
 ```
+
+aws amazon-detective describe-configuration 2>/dev/null || echo 'Amazon Detective Active'
+
+```text
 
 ### Security Boundaries & IAM Governance
 
@@ -174,12 +195,14 @@ Resource policies and access guardrails protecting administrative configurations
 * **AWS CLI Snippet**:
 
   AWS CLI Example for Security Boundaries & IAM Governance:
-```bash
+```
+
 aws iam put-role-policy \
     --role-name amazon-detective-admin \
     --policy-name amazon-detective-policy \
     --policy-document file://policy.json
-```
+
+```text
 
 ### Multi-Account Governance & Deployment
 
@@ -191,9 +214,11 @@ AWS Organizations integration, regional synchronization, and baseline automation
 * **AWS CLI Snippet**:
 
   AWS CLI Example for Multi-Account Governance & Deployment:
-```bash
-aws amazon-detective list-accounts 2>/dev/null || echo 'Organization Linked'
 ```
+
+aws amazon-detective list-accounts 2>/dev/null || echo 'Organization Linked'
+
+```text
 
 ### Telemetry, Compliance Logging & Auditing
 
@@ -205,7 +230,8 @@ Amazon CloudWatch metrics, EventBridge rules, and CloudTrail audit logging for A
 * **AWS CLI Snippet**:
 
   AWS CLI Example for Telemetry, Compliance Logging & Auditing:
-```bash
+```
+
 aws cloudwatch put-metric-alarm \
     --alarm-name amazon-detective-ComplianceDrift \
     --metric-name NonCompliantResources \
@@ -214,7 +240,8 @@ aws cloudwatch put-metric-alarm \
     --period 300 \
     --threshold 1 \
     --comparison-operator GreaterThanOrEqualToThreshold
-```
+
+```text
 
 ### Cost Management & Spend Optimization
 
@@ -226,9 +253,11 @@ Resource rightsizing, waste elimination, and financial chargeback allocation for
 * **AWS CLI Snippet**:
 
   AWS CLI Example for Cost Management & Spend Optimization:
-```bash
-aws budgets create-budget 2>/dev/null || echo 'Budget Active'
 ```
+
+aws budgets create-budget 2>/dev/null || echo 'Budget Active'
+
+```text
 
 ---
 

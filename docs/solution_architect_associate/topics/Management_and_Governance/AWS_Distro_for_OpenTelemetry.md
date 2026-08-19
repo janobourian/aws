@@ -1,6 +1,7 @@
 # AWS Distro for OpenTelemetry
 
 ## 1. High-Level Overview
+
 AWS Distro for OpenTelemetry (ADOT) is a secure, production-ready AWS-supported distribution of the popular open-source OpenTelemetry project. OpenTelemetry is a CNCF project that provides a single set of APIs, libraries, agents, and collector services to collect distributed traces and metrics from your applications. ADOT makes it easy for developers to instrument their applications once and send telemetry data to multiple AWS services (such as CloudWatch, X-Ray, and Managed Prometheus) and partner dashboards (such as Datadog, Dynatrace, or New Relic) simultaneously.
 
 The service provides **Auto-Instrumentation Agents** that collect telemetry data without requiring code modifications. Senders install the ADOT Collector agent next to their applications (as a sidecar in ECS/EKS, a daemon on EC2, or a Lambda layer). The agent intercepts HTTP calls, database queries, and system metrics automatically, sending them to target destinations.
@@ -16,6 +17,7 @@ Furthermore, modern workloads require robust failover mechanisms to survive infr
 From an operational excellence perspective, deploying cloud services in standard landing zones allows teams to maintain clear resource scopes, but requires mapping out direct dependency hooks across all resource layers. Developers must ensure that all configurations are codified using Infrastructure as Code (IaC) templates, which reduces human configurations errors during deployments and facilitates reproducible testing across separate developer, staging, and production environments.
 
 ### 👔 Executive Summary (For Managers & Non-Technical Stakeholders)
+
 * **Business Purpose**: Provides enterprise-grade cloud capabilities for **AWS Distro for OpenTelemetry**, streamlining operations, reducing infrastructure overhead, and enabling rapid digital innovation.
 * **How It Works**: Operates as a fully managed AWS cloud service, handling underlying operational complexities, high-availability replication, security compliance, and automated scaling behind simple API interfaces.
 * **Key Business Value & Use Cases**: Reduces operational overhead and time-to-market for digital initiatives, enforces enterprise security standards, and aligns cloud spending with actual business usage.
@@ -23,6 +25,7 @@ From an operational excellence perspective, deploying cloud services in standard
 See section 12 for in-depth subcomponent analysis.
 
 ## 3. Security Perspective
+
 AWS Distro for OpenTelemetry (ADOT) governs telemetry collection securely using AWS Identity and Access Management (IAM) and encryption configurations. Access to configure collector agents and push metrics is authorized using IAM permissions.
 
 To authorize the ADOT Collector to write traces to X-Ray or metrics to CloudWatch, the agent uses an **IAM Service Role** or execution role assigned to the container or EC2 host. The credentials are dynamic and short-lived, preventing credential leakage.
@@ -46,6 +49,7 @@ Auditing and threat detection are integrated via AWS CloudTrail, which records e
 Additionally, secrets management is secure and audit-compliant by integrating with AWS Secrets Manager or Systems Manager Parameter Store. Secrets are retrieved dynamically at runtime and injected into execution RAM, ensuring that passwords and API keys are never stored in plain text inside template files or repositories.
 
 ## 4. High Availability Perspective
+
 AWS Distro for OpenTelemetry (ADOT) control plane is serverless and highly available, managed across multiple Availability Zones natively by AWS. The collector configurations and libraries are hosted on highly redundant architectures.
 
 During collections, ADOT supports high availability by distributing collector agents. In container environments (ECS or EKS), the ADOT Collector runs as a sidecar proxy inside every container task, ensuring that telemetry collection scales dynamically with application compute nodes.
@@ -77,6 +81,7 @@ For serverless runtimes and database engines, AWS manages the underlying replica
 Multi-region high availability is configured by deploying duplicate stacks in secondary standby regions using CloudFormation or Terraform templates. Route 53 DNS routing policies (such as Latency-based or Geolocation routing) redirect global user traffic to active healthy regions automatically during regional failures.
 
 ## 5. Resilience Perspective
+
 AWS Distro for OpenTelemetry (ADOT) incorporates resilience configurations inside the collector agent. The agent supports **Memory Buffering** and retry policies. If a target endpoint becomes unavailable due to network drops, the collector buffers telemetry data locally in RAM and retries connections before discarding data, preventing data loss.
 
 To protect the application performance, the collector agent runs out-of-process. If the collector daemon experiences errors or crashes, the application continues to run without interruptions, ensuring application resilience.
@@ -108,6 +113,7 @@ To protect data integrity, databases and filesystems support continuous backups 
 Chaos engineering experiments are run using AWS FIS to validate resilience. By injecting real-world faults (such as database failovers, network delays, or server crashes) during active deployments, engineering teams verify that monitoring systems and alarms trigger rollbacks automatically.
 
 ## 6. Cost Optimizing Perspective
+
 AWS Distro for OpenTelemetry (ADOT) is a free, open-source tool. There are no software licensing fees, active user charges, or setup costs. You pay only for the underlying AWS resources (such as CloudWatch logs ingestion, X-Ray trace storage, or Managed Prometheus metrics) consumed by the telemetry data.
 
 To optimize overall telemetry costs, organizations should: (1) configure trace sampling rates (e.g. sampling 5-10% of requests is usually sufficient to identify anomalies), (2) filter out redundant debug metrics from collector configurations, and (3) clean up old log files regularly.
@@ -141,18 +147,23 @@ Storage costs are minimized by configuring S3 Lifecycle policies, which transiti
 Additionally, consolidated billing groups consolidate costs across multiple AWS accounts under a single payment, maximizing volume discount tiers. Cost Explorer and Billing Alarms monitor estimated monthly charges in real time, alerting administrators when spending exceeds defined thresholds.
 
 ## 7. Well-Architected Framework Alignment
-*   **Security**: Uses standard IAM service roles to authorize metrics delivery, encrypting all telemetry data in transit.
-*   **Reliability**: Implements memory buffering and retry policies inside the collector agent to prevent data loss.
-*   **Performance Efficiency**: Runs out-of-process as a sidecar or daemon, preventing telemetry tasks from degrading application CPU.
-*   **Cost Optimization**: Free open-source tool, with sampling configurations optimizing storage costs.
-*   **Operational Excellence**: Standardizes instrumentation using open-source APIs, avoiding vendor lock-in.
+
+* **Security**: Uses standard IAM service roles to authorize metrics delivery, encrypting all telemetry data in transit.
+* **Reliability**: Implements memory buffering and retry policies inside the collector agent to prevent data loss.
+* **Performance Efficiency**: Runs out-of-process as a sidecar or daemon, preventing telemetry tasks from degrading application CPU.
+* **Cost Optimization**: Free open-source tool, with sampling configurations optimizing storage costs.
+* **Operational Excellence**: Standardizes instrumentation using open-source APIs, avoiding vendor lock-in.
 
 ## 8. Integration & Dependency Mapping
+
 Integrated with standard AWS resource groups and permissions.
 
 ## 9. Step-by-Step Hands-on Tutorial
+
 ### 1. Configure Collector Agent
+
 Create a YAML configuration file `collector-config.yaml` defining the pipelines, receivers, and target exporters:
+
 ```yaml
 receivers:
   otlp:
@@ -175,7 +186,9 @@ service:
 ```
 
 ### 2. Deploy Collector as a Daemon
+
 Deploy the ADOT Collector agent on your EC2 instance using Docker:
+
 ```bash
 docker run -d \
     --name adot-collector \
@@ -186,15 +199,19 @@ docker run -d \
 ```
 
 ### 3. Verify Connections
+
 Check the logs of the collector container to verify connections to X-Ray and CloudWatch:
+
 ```bash
 docker logs adot-collector
 ```
 
 ## 10. AWS CLI Commands
+
 ### 1. Check Running Containers
 
 Execute the following command:
+
 ```bash
 docker ps --filter name=adot
 ```
@@ -202,6 +219,7 @@ docker ps --filter name=adot
 ### 2. Get Telemetry Metrics
 
 Execute the following command:
+
 ```bash
 curl http://localhost:8888/metrics
 ```
@@ -209,6 +227,7 @@ curl http://localhost:8888/metrics
 ### 3. Stop Collector
 
 Execute the following command:
+
 ```bash
 docker stop adot-collector
 ```
@@ -216,6 +235,7 @@ docker stop adot-collector
 ---
 
 ## 11. Advanced Architectural Perspectives
+
 Architectural patterns are mapped above.
 
 ---
@@ -232,6 +252,7 @@ The operational foundation managing lifecycle, compliance verification, and exec
 * **AWS CLI Snippet**:
 
   AWS CLI Example for Core Administration & Rule Engine:
+
 ```bash
 aws aws-distro-for-opentelemetry describe-configuration 2>/dev/null || echo 'AWS Distro for OpenTelemetry Active'
 ```
@@ -246,6 +267,7 @@ Resource policies and access guardrails protecting administrative configurations
 * **AWS CLI Snippet**:
 
   AWS CLI Example for Security Boundaries & IAM Governance:
+
 ```bash
 aws iam put-role-policy \
     --role-name aws-distro-for-opentelemetry-admin \
@@ -263,6 +285,7 @@ AWS Organizations integration, regional synchronization, and baseline automation
 * **AWS CLI Snippet**:
 
   AWS CLI Example for Multi-Account Governance & Deployment:
+
 ```bash
 aws aws-distro-for-opentelemetry list-accounts 2>/dev/null || echo 'Organization Linked'
 ```
@@ -277,6 +300,7 @@ Amazon CloudWatch metrics, EventBridge rules, and CloudTrail audit logging for A
 * **AWS CLI Snippet**:
 
   AWS CLI Example for Telemetry, Compliance Logging & Auditing:
+
 ```bash
 aws cloudwatch put-metric-alarm \
     --alarm-name aws-distro-for-opentelemetry-ComplianceDrift \
@@ -298,6 +322,7 @@ Resource rightsizing, waste elimination, and financial chargeback allocation for
 * **AWS CLI Snippet**:
 
   AWS CLI Example for Cost Management & Spend Optimization:
+
 ```bash
 aws budgets create-budget 2>/dev/null || echo 'Budget Active'
 ```
@@ -307,6 +332,7 @@ aws budgets create-budget 2>/dev/null || echo 'Budget Active'
 ## References
 
 ### Official AWS Documentation
+
 * [AWS Distro for OpenTelemetry Official User Guide](https://docs.aws.amazon.com/aws-distro-for-opentelemetry/latest/userguide/welcome.html) - Complete official administration, configuration, policy grammar, and governance reference.
 * [AWS Distro for OpenTelemetry API Reference](https://docs.aws.amazon.com/aws-distro-for-opentelemetry/latest/APIReference/Welcome.html) - Comprehensive actions, condition keys, parameters, and error responses.
 * [AWS Distro for OpenTelemetry Security Best Practices & Compliance](https://docs.aws.amazon.com/aws-distro-for-opentelemetry/latest/userguide/security.html) - Zero-trust principles, least-privilege delegation, and audit logging standards.
@@ -314,6 +340,7 @@ aws budgets create-budget 2>/dev/null || echo 'Budget Active'
 * [AWS Security & Governance Well-Architected Pillar](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html) - Identity management, detection, data protection, and incident response architecture.
 
 ### Authoritative Web Pages, Blogs & Tutorials
+
 * [AWS Security Blog: Deep Dive & Architectural Patterns for AWS Distro for OpenTelemetry](https://aws.amazon.com/blogs/security/) - Expert analysis, automated compliance blueprints, and threat mitigation strategies.
 * [AWS Workshops: Hands-On Security & Governance Immersion Lab for AWS Distro for OpenTelemetry](https://workshops.aws/) - Interactive security auditing, policy debugging, and drift remediation labs.
 * [A Cloud Guru / Pluralsight: Enterprise Governance & Identity with AWS Distro for OpenTelemetry](https://www.pluralsight.com/) - Technical breakdown of multi-account governance, SCP boundaries, and KMS key policies.
@@ -327,34 +354,41 @@ aws budgets create-budget 2>/dev/null || echo 'Budget Active'
 *Financial Operations (FinOps) is a discipline that combines cloud financial management, cost optimization, and business accountability. The following guidelines apply to every AWS service and help you control spend while maintaining performance and security.*
 
 ### 1. Cost Visibility & Allocation
-- **Tagging Strategy** – Ensure every resource created by the service (e.g., EC2 instances, S3 buckets, Lambda functions) is tagged with `Environment`, `Project`, `Owner`, and `CostCenter`. Use AWS Tag Editor or Infrastructure as Code (IaC) to enforce mandatory tags.
-- **Cost Allocation Tags** – Enable AWS‑generated cost allocation tags (e.g., `aws:createdBy`) and propagate them to downstream resources like ENIs, EBS volumes, or CloudWatch logs.
-- **Budgets & Alerts** – Create service‑specific budgets that trigger alerts when spend exceeds 80 % of the forecasted monthly budget. Use SNS notifications to automatically inform owners.
+
+* **Tagging Strategy** – Ensure every resource created by the service (e.g., EC2 instances, S3 buckets, Lambda functions) is tagged with `Environment`, `Project`, `Owner`, and `CostCenter`. Use AWS Tag Editor or Infrastructure as Code (IaC) to enforce mandatory tags.
+* **Cost Allocation Tags** – Enable AWS‑generated cost allocation tags (e.g., `aws:createdBy`) and propagate them to downstream resources like ENIs, EBS volumes, or CloudWatch logs.
+* **Budgets & Alerts** – Create service‑specific budgets that trigger alerts when spend exceeds 80 % of the forecasted monthly budget. Use SNS notifications to automatically inform owners.
 
 ### 2. Right‑Sizing & Utilization
-- **Compute** – Leverage AWS Compute Optimizer or Auto Scaling policies to adjust instance types, fleet sizes, or Lambda concurrency based on utilization metrics.
-- **Storage** – Periodically evaluate storage class transitions (e.g., S3 Standard → Intelligent‑Tiering → Glacier) and delete orphaned snapshots, AMIs, or EBS volumes.
-- **Serverless** – Use provisioned concurrency for predictable workloads; otherwise, rely on on‑demand execution and monitor Request‑Count vs. duration to avoid over‑provisioning.
+
+* **Compute** – Leverage AWS Compute Optimizer or Auto Scaling policies to adjust instance types, fleet sizes, or Lambda concurrency based on utilization metrics.
+* **Storage** – Periodically evaluate storage class transitions (e.g., S3 Standard → Intelligent‑Tiering → Glacier) and delete orphaned snapshots, AMIs, or EBS volumes.
+* **Serverless** – Use provisioned concurrency for predictable workloads; otherwise, rely on on‑demand execution and monitor Request‑Count vs. duration to avoid over‑provisioning.
 
 ### 3. Reserved & Savings Plans
-- **Reserved Instances (RI)** – Purchase RIs for predictable workloads such as steady‑state EC2, RDS, or Redshift. Use the RI Recommendation tool to match instance families.
-- **Savings Plans** – For mixed compute workloads, adopt Compute Savings Plans (flexible across EC2, Fargate, Lambda) to capture up‑to‑72 % savings.
+
+* **Reserved Instances (RI)** – Purchase RIs for predictable workloads such as steady‑state EC2, RDS, or Redshift. Use the RI Recommendation tool to match instance families.
+* **Savings Plans** – For mixed compute workloads, adopt Compute Savings Plans (flexible across EC2, Fargate, Lambda) to capture up‑to‑72 % savings.
 
 ### 4. Data Transfer & Egress Management
-- **VPC Endpoints** – Use Interface or Gateway VPC endpoints to keep traffic within the AWS network, eliminating internet egress charges.
-- **Cross‑Region Replication** – Replicate data only when necessary; leverage S3 Transfer Acceleration for occasional large transfers instead of constant cross‑region copies.
+
+* **VPC Endpoints** – Use Interface or Gateway VPC endpoints to keep traffic within the AWS network, eliminating internet egress charges.
+* **Cross‑Region Replication** – Replicate data only when necessary; leverage S3 Transfer Acceleration for occasional large transfers instead of constant cross‑region copies.
 
 ### 5. Monitoring & Automation
-- **Cost Explorer** – Schedule monthly Cost Explorer queries that break down spend by service, tag, and usage type.
-- **Lambda‑Driven Cleanup** – Deploy Lambda functions that automatically delete unused resources (e.g., unattached EBS volumes, stale snapshots) after a configurable grace period.
-- **AWS Config Rules** – Enforce compliance with cost‑related policies such as `required-tags`, `restricted-ec2-instance-types`, and `s3-bucket-public-access-prohibited`.
+
+* **Cost Explorer** – Schedule monthly Cost Explorer queries that break down spend by service, tag, and usage type.
+* **Lambda‑Driven Cleanup** – Deploy Lambda functions that automatically delete unused resources (e.g., unattached EBS volumes, stale snapshots) after a configurable grace period.
+* **AWS Config Rules** – Enforce compliance with cost‑related policies such as `required-tags`, `restricted-ec2-instance-types`, and `s3-bucket-public-access-prohibited`.
 
 ### 6. Governance & Chargeback
-- **AWS Organizations** – Consolidate billing across accounts, apply Service Control Policies (SCPs) to limit high‑cost services, and allocate costs to individual business units via linked accounts.
-- **Chargeback Models** – Export detailed cost reports to your internal ERP system; map AWS cost elements to internal cost centers for transparent chargeback.
+
+* **AWS Organizations** – Consolidate billing across accounts, apply Service Control Policies (SCPs) to limit high‑cost services, and allocate costs to individual business units via linked accounts.
+* **Chargeback Models** – Export detailed cost reports to your internal ERP system; map AWS cost elements to internal cost centers for transparent chargeback.
 
 ### 7. Continuous Improvement
-- **FinOps Maturity Model** – Assess your organization’s maturity (Inform, Optimize, Automate, Govern) and set quarterly improvement goals.
-- **Training** – Provide teams with FinOps training and embed cost‑awareness in PR reviews, CI pipelines, and architectural decision records.
+
+* **FinOps Maturity Model** – Assess your organization’s maturity (Inform, Optimize, Automate, Govern) and set quarterly improvement goals.
+* **Training** – Provide teams with FinOps training and embed cost‑awareness in PR reviews, CI pipelines, and architectural decision records.
 
 By embedding these FinOps practices into the daily workflow for each service, you can achieve sustainable cost savings while preserving the reliability, security, and performance expected from AWS.

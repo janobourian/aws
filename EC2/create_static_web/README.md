@@ -1,6 +1,6 @@
 # Create Static html site
 
-If you need more information please check the next [link](https://adamtheautomator.com/host-a-website-on-aws-ec2/)
+If you need more information please check the next [AWS Reference Guide](https://adamtheautomator.com/host-a-website-on-aws-ec2/)
 
 ## Steps
 

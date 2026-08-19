@@ -1,6 +1,7 @@
 # AWS Fault Injection Service (FIS)
 
 ## 1. High-Level Overview
+
 AWS Fault Injection Service (FIS) is a fully managed chaos engineering service that enables organizations to run controlled experiments on their AWS workloads. FIS helps engineering teams validate application behavior, recovery processes, and monitoring alarms under stress by injecting real-world faults (such as network latency, API throttling, server crashes, or database failovers). It replaces complex, self-hosted chaos testing engines with a managed framework.
 
 Experiments are configured using **Experiment Templates**. These templates define: (1) **Actions** (the specific fault to inject, such as stopping EC2 instances, injecting packet latency, or failing over RDS clusters), (2) **Targets** (the resource groups affected by the experiment), and (3) **Stop Conditions** (safety rules that stop the experiment if critical CloudWatch alarms are triggered).
@@ -16,6 +17,7 @@ Furthermore, modern workloads require robust failover mechanisms to survive infr
 From an operational excellence perspective, deploying cloud services in standard landing zones allows teams to maintain clear resource scopes, but requires mapping out direct dependency hooks across all resource layers. Developers must ensure that all configurations are codified using Infrastructure as Code (IaC) templates, which reduces human configurations errors during deployments and facilitates reproducible testing across separate developer, staging, and production environments.
 
 ### 👔 Executive Summary (For Managers & Non-Technical Stakeholders)
+
 * **Business Purpose**: Provides enterprise-grade cloud capabilities for **AWS Fault Injection Service**, streamlining operations, reducing infrastructure overhead, and enabling rapid digital innovation.
 * **How It Works**: Operates as a fully managed AWS cloud service, handling underlying operational complexities, high-availability replication, security compliance, and automated scaling behind simple API interfaces.
 * **Key Business Value & Use Cases**: Reduces operational overhead and time-to-market for digital initiatives, enforces enterprise security standards, and aligns cloud spending with actual business usage.
@@ -23,6 +25,7 @@ From an operational excellence perspective, deploying cloud services in standard
 See section 12 for in-depth subcomponent analysis.
 
 ## 3. Security Perspective
+
 AWS Fault Injection Service (FIS) enforces strict security controls to govern chaos experiments. Access to create, modify, or run experiments is authorized using IAM policies, ensuring that only certified testing coordinators can execute tests.
 
 To run experiments, FIS uses an **IAM Service Role** to authorize the fault actions. The service role must contain explicit permissions to modify target resources (such as `ec2:StopInstances` or `rds:FailoverDBCluster`). Without these permissions in the service role, FIS cannot inject faults.
@@ -48,6 +51,7 @@ Additionally, secrets management is secure and audit-compliant by integrating wi
 Security groups act as stateful instance-level firewalls, regulating ports, protocols, and sources. NACLs act as stateless subnet-level firewalls, evaluating rules in numerical order and requiring manual configuration of ephemeral port ranges to allow return traffic safely.
 
 ## 4. High Availability Perspective
+
 AWS Fault Injection Service (FIS) is a serverless regional service that incorporates native high availability across multiple Availability Zones. The experiment control plane is managed by AWS, ensuring that testing interfaces remain available during failures.
 
 During experiments, FIS validates the high availability of your workloads. For example, by targeting a primary RDS instance and injecting a failover fault, FIS tests whether the application redirects connection requests to the standby instance dynamically, validating multi-AZ configurations.
@@ -79,6 +83,7 @@ For serverless runtimes and database engines, AWS manages the underlying replica
 Multi-region high availability is configured by deploying duplicate stacks in secondary standby regions using CloudFormation or Terraform templates. Route 53 DNS routing policies (such as Latency-based or Geolocation routing) redirect global user traffic to active healthy regions automatically during regional failures.
 
 ## 5. Resilience Perspective
+
 AWS Fault Injection Service (FIS) incorporates advanced resilience and safety gates. The service uses **Stop Conditions** linked to CloudWatch alarms. If a stop condition alarm is triggered (e.g. application error rates exceed 5%), FIS stops the experiment instantly, stopping the fault injection and restoring resources to healthy states.
 
 To prevent cascading failures during testing, FIS supports **Target Limits**. Teams can configure experiments to target a specific percentage of a resource group (e.g. stopping at most 20% of EC2 instances in an ASG), ensuring that remaining instances continue to handle user traffic.
@@ -108,6 +113,7 @@ Resilience features handle hardware errors, container crashes, and network drops
 To protect data integrity, databases and filesystems support continuous backups and point-in-time snapshots stored in highly durable S3 buckets. If data corruption occurs, administrators can run rebuild or restore operations, reverting the database state to the last known good backup dynamically.
 
 ## 6. Cost Optimizing Perspective
+
 AWS Fault Injection Service (FIS) operates on a pay-as-you-go pricing model with no base fees or subscription charges. You are charged based on the duration (in minutes) that the experiment actions execute, rounded up to the nearest second.
 
 Pricing is flat across standard actions, costing approximately $0.10 per action-minute. For example, if you run a 10-minute experiment that stops EC2 instances and injects CPU stress, the total service charge is approximately $2.00.
@@ -141,18 +147,23 @@ Storage costs are minimized by configuring S3 Lifecycle policies, which transiti
 Additionally, consolidated billing groups consolidate costs across multiple AWS accounts under a single payment, maximizing volume discount tiers. Cost Explorer and Billing Alarms monitor estimated monthly charges in real time, alerting administrators when spending exceeds defined thresholds.
 
 ## 7. Well-Architected Framework Alignment
-*   **Security**: Uses dedicated IAM service roles to run target modifications, logging all execution details to CloudTrail.
-*   **Reliability**: Validates workload reliability by injecting controlled infrastructure faults (EC2 crashes, RDS failovers).
-*   **Performance Efficiency**: Replaces manual scripts with a managed, serverless execution framework that scales automatically.
-*   **Cost Optimization**: Pay-per-action minute model billing only for active experiment durations.
-*   **Operational Excellence**: Stop Conditions automate rollbacks to protect application health during unexpected escalations.
+
+* **Security**: Uses dedicated IAM service roles to run target modifications, logging all execution details to CloudTrail.
+* **Reliability**: Validates workload reliability by injecting controlled infrastructure faults (EC2 crashes, RDS failovers).
+* **Performance Efficiency**: Replaces manual scripts with a managed, serverless execution framework that scales automatically.
+* **Cost Optimization**: Pay-per-action minute model billing only for active experiment durations.
+* **Operational Excellence**: Stop Conditions automate rollbacks to protect application health during unexpected escalations.
 
 ## 8. Integration & Dependency Mapping
+
 Integrated with standard AWS resource groups and permissions.
 
 ## 9. Step-by-Step Hands-on Tutorial
+
 ### 1. Create IAM Service Role
+
 Create an IAM role allowing FIS to stop EC2 instances, saving the policy definition in `fis-policy.json`:
+
 ```bash
 aws iam create-role \
     --role-name "FIS-Run-Role" \
@@ -160,7 +171,9 @@ aws iam create-role \
 ```
 
 ### 2. Create Experiment Template
+
 Define an experiment template in `template.json` to inject a CPU stress fault on tagged EC2 instances, adding a stop condition:
+
 ```json
 {
   "description": "Inject CPU stress on development EC2 instances",
@@ -192,21 +205,27 @@ Define an experiment template in `template.json` to inject a CPU stress fault on
   "roleArn": "arn:aws:iam::123456789012:role/FIS-Run-Role"
 }
 ```
+
 Deploy the template using the CLI:
+
 ```bash
 aws fis create-experiment-template --cli-input-json file://template.json
 ```
 
 ### 3. Start the Experiment
+
 Trigger the experiment run and monitor its execution state:
+
 ```bash
 aws fis start-experiment --experiment-template-id "EXT12345"
 ```
 
 ## 10. AWS CLI Commands
+
 ### 1. List Experiment Templates
 
 Execute the following command:
+
 ```bash
 aws fis list-experiment-templates
 ```
@@ -214,6 +233,7 @@ aws fis list-experiment-templates
 ### 2. Get Experiment Status
 
 Execute the following command:
+
 ```bash
 aws fis get-experiment \
     --id "EXP12345"
@@ -222,6 +242,7 @@ aws fis get-experiment \
 ### 3. Stop a Running Experiment
 
 Execute the following command:
+
 ```bash
 aws fis stop-experiment \
     --id "EXP12345"
@@ -230,6 +251,7 @@ aws fis stop-experiment \
 ---
 
 ## 11. Advanced Architectural Perspectives
+
 Architectural patterns are mapped above.
 
 ---
@@ -246,6 +268,7 @@ The operational foundation managing lifecycle, compliance verification, and exec
 * **AWS CLI Snippet**:
 
   AWS CLI Example for Core Administration & Rule Engine:
+
 ```bash
 aws aws-fault-injection-service describe-configuration 2>/dev/null || echo 'AWS Fault Injection Service Active'
 ```
@@ -260,6 +283,7 @@ Resource policies and access guardrails protecting administrative configurations
 * **AWS CLI Snippet**:
 
   AWS CLI Example for Security Boundaries & IAM Governance:
+
 ```bash
 aws iam put-role-policy \
     --role-name aws-fault-injection-service-admin \
@@ -277,6 +301,7 @@ AWS Organizations integration, regional synchronization, and baseline automation
 * **AWS CLI Snippet**:
 
   AWS CLI Example for Multi-Account Governance & Deployment:
+
 ```bash
 aws aws-fault-injection-service list-accounts 2>/dev/null || echo 'Organization Linked'
 ```
@@ -291,6 +316,7 @@ Amazon CloudWatch metrics, EventBridge rules, and CloudTrail audit logging for A
 * **AWS CLI Snippet**:
 
   AWS CLI Example for Telemetry, Compliance Logging & Auditing:
+
 ```bash
 aws cloudwatch put-metric-alarm \
     --alarm-name aws-fault-injection-service-ComplianceDrift \
@@ -312,6 +338,7 @@ Resource rightsizing, waste elimination, and financial chargeback allocation for
 * **AWS CLI Snippet**:
 
   AWS CLI Example for Cost Management & Spend Optimization:
+
 ```bash
 aws budgets create-budget 2>/dev/null || echo 'Budget Active'
 ```
@@ -321,6 +348,7 @@ aws budgets create-budget 2>/dev/null || echo 'Budget Active'
 ## References
 
 ### Official AWS Documentation
+
 * [AWS Fault Injection Service Official User Guide](https://docs.aws.amazon.com/aws-fault-injection-service/latest/userguide/welcome.html) - Complete official administration, configuration, policy grammar, and governance reference.
 * [AWS Fault Injection Service API Reference](https://docs.aws.amazon.com/aws-fault-injection-service/latest/APIReference/Welcome.html) - Comprehensive actions, condition keys, parameters, and error responses.
 * [AWS Fault Injection Service Security Best Practices & Compliance](https://docs.aws.amazon.com/aws-fault-injection-service/latest/userguide/security.html) - Zero-trust principles, least-privilege delegation, and audit logging standards.
@@ -328,6 +356,7 @@ aws budgets create-budget 2>/dev/null || echo 'Budget Active'
 * [AWS Security & Governance Well-Architected Pillar](https://docs.aws.amazon.com/wellarchitected/latest/security-pillar/welcome.html) - Identity management, detection, data protection, and incident response architecture.
 
 ### Authoritative Web Pages, Blogs & Tutorials
+
 * [AWS Security Blog: Deep Dive & Architectural Patterns for AWS Fault Injection Service](https://aws.amazon.com/blogs/security/) - Expert analysis, automated compliance blueprints, and threat mitigation strategies.
 * [AWS Workshops: Hands-On Security & Governance Immersion Lab for AWS Fault Injection Service](https://workshops.aws/) - Interactive security auditing, policy debugging, and drift remediation labs.
 * [A Cloud Guru / Pluralsight: Enterprise Governance & Identity with AWS Fault Injection Service](https://www.pluralsight.com/) - Technical breakdown of multi-account governance, SCP boundaries, and KMS key policies.
@@ -341,34 +370,41 @@ aws budgets create-budget 2>/dev/null || echo 'Budget Active'
 *Financial Operations (FinOps) is a discipline that combines cloud financial management, cost optimization, and business accountability. The following guidelines apply to every AWS service and help you control spend while maintaining performance and security.*
 
 ### 1. Cost Visibility & Allocation
-- **Tagging Strategy** – Ensure every resource created by the service (e.g., EC2 instances, S3 buckets, Lambda functions) is tagged with `Environment`, `Project`, `Owner`, and `CostCenter`. Use AWS Tag Editor or Infrastructure as Code (IaC) to enforce mandatory tags.
-- **Cost Allocation Tags** – Enable AWS‑generated cost allocation tags (e.g., `aws:createdBy`) and propagate them to downstream resources like ENIs, EBS volumes, or CloudWatch logs.
-- **Budgets & Alerts** – Create service‑specific budgets that trigger alerts when spend exceeds 80 % of the forecasted monthly budget. Use SNS notifications to automatically inform owners.
+
+* **Tagging Strategy** – Ensure every resource created by the service (e.g., EC2 instances, S3 buckets, Lambda functions) is tagged with `Environment`, `Project`, `Owner`, and `CostCenter`. Use AWS Tag Editor or Infrastructure as Code (IaC) to enforce mandatory tags.
+* **Cost Allocation Tags** – Enable AWS‑generated cost allocation tags (e.g., `aws:createdBy`) and propagate them to downstream resources like ENIs, EBS volumes, or CloudWatch logs.
+* **Budgets & Alerts** – Create service‑specific budgets that trigger alerts when spend exceeds 80 % of the forecasted monthly budget. Use SNS notifications to automatically inform owners.
 
 ### 2. Right‑Sizing & Utilization
-- **Compute** – Leverage AWS Compute Optimizer or Auto Scaling policies to adjust instance types, fleet sizes, or Lambda concurrency based on utilization metrics.
-- **Storage** – Periodically evaluate storage class transitions (e.g., S3 Standard → Intelligent‑Tiering → Glacier) and delete orphaned snapshots, AMIs, or EBS volumes.
-- **Serverless** – Use provisioned concurrency for predictable workloads; otherwise, rely on on‑demand execution and monitor Request‑Count vs. duration to avoid over‑provisioning.
+
+* **Compute** – Leverage AWS Compute Optimizer or Auto Scaling policies to adjust instance types, fleet sizes, or Lambda concurrency based on utilization metrics.
+* **Storage** – Periodically evaluate storage class transitions (e.g., S3 Standard → Intelligent‑Tiering → Glacier) and delete orphaned snapshots, AMIs, or EBS volumes.
+* **Serverless** – Use provisioned concurrency for predictable workloads; otherwise, rely on on‑demand execution and monitor Request‑Count vs. duration to avoid over‑provisioning.
 
 ### 3. Reserved & Savings Plans
-- **Reserved Instances (RI)** – Purchase RIs for predictable workloads such as steady‑state EC2, RDS, or Redshift. Use the RI Recommendation tool to match instance families.
-- **Savings Plans** – For mixed compute workloads, adopt Compute Savings Plans (flexible across EC2, Fargate, Lambda) to capture up‑to‑72 % savings.
+
+* **Reserved Instances (RI)** – Purchase RIs for predictable workloads such as steady‑state EC2, RDS, or Redshift. Use the RI Recommendation tool to match instance families.
+* **Savings Plans** – For mixed compute workloads, adopt Compute Savings Plans (flexible across EC2, Fargate, Lambda) to capture up‑to‑72 % savings.
 
 ### 4. Data Transfer & Egress Management
-- **VPC Endpoints** – Use Interface or Gateway VPC endpoints to keep traffic within the AWS network, eliminating internet egress charges.
-- **Cross‑Region Replication** – Replicate data only when necessary; leverage S3 Transfer Acceleration for occasional large transfers instead of constant cross‑region copies.
+
+* **VPC Endpoints** – Use Interface or Gateway VPC endpoints to keep traffic within the AWS network, eliminating internet egress charges.
+* **Cross‑Region Replication** – Replicate data only when necessary; leverage S3 Transfer Acceleration for occasional large transfers instead of constant cross‑region copies.
 
 ### 5. Monitoring & Automation
-- **Cost Explorer** – Schedule monthly Cost Explorer queries that break down spend by service, tag, and usage type.
-- **Lambda‑Driven Cleanup** – Deploy Lambda functions that automatically delete unused resources (e.g., unattached EBS volumes, stale snapshots) after a configurable grace period.
-- **AWS Config Rules** – Enforce compliance with cost‑related policies such as `required-tags`, `restricted-ec2-instance-types`, and `s3-bucket-public-access-prohibited`.
+
+* **Cost Explorer** – Schedule monthly Cost Explorer queries that break down spend by service, tag, and usage type.
+* **Lambda‑Driven Cleanup** – Deploy Lambda functions that automatically delete unused resources (e.g., unattached EBS volumes, stale snapshots) after a configurable grace period.
+* **AWS Config Rules** – Enforce compliance with cost‑related policies such as `required-tags`, `restricted-ec2-instance-types`, and `s3-bucket-public-access-prohibited`.
 
 ### 6. Governance & Chargeback
-- **AWS Organizations** – Consolidate billing across accounts, apply Service Control Policies (SCPs) to limit high‑cost services, and allocate costs to individual business units via linked accounts.
-- **Chargeback Models** – Export detailed cost reports to your internal ERP system; map AWS cost elements to internal cost centers for transparent chargeback.
+
+* **AWS Organizations** – Consolidate billing across accounts, apply Service Control Policies (SCPs) to limit high‑cost services, and allocate costs to individual business units via linked accounts.
+* **Chargeback Models** – Export detailed cost reports to your internal ERP system; map AWS cost elements to internal cost centers for transparent chargeback.
 
 ### 7. Continuous Improvement
-- **FinOps Maturity Model** – Assess your organization’s maturity (Inform, Optimize, Automate, Govern) and set quarterly improvement goals.
-- **Training** – Provide teams with FinOps training and embed cost‑awareness in PR reviews, CI pipelines, and architectural decision records.
+
+* **FinOps Maturity Model** – Assess your organization’s maturity (Inform, Optimize, Automate, Govern) and set quarterly improvement goals.
+* **Training** – Provide teams with FinOps training and embed cost‑awareness in PR reviews, CI pipelines, and architectural decision records.
 
 By embedding these FinOps practices into the daily workflow for each service, you can achieve sustainable cost savings while preserving the reliability, security, and performance expected from AWS.

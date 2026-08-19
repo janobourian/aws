@@ -1,6 +1,6 @@
 # CDK Overview
 
-If you are lookig for more information about CDK you cand check and follow the official documentation [here](https://docs.aws.amazon.com/cdk/v2/guide/home.html)
+If you are lookig for more information about CDK you cand check and follow the official documentation [AWS Documentation](https://docs.aws.amazon.com/cdk/v2/guide/home.html)
 
 The AWS Cloud Development Kit (AWS CDK) is an open-source software development framework to define your cloud application resources using familiar programming languages. It allows you to model and provision your cloud application resources using code, making it easier to manage and automate infrastructure deployment.
 
@@ -18,21 +18,29 @@ The key features of AWS CDK include:
 AWS CDK is particularly useful for developers and DevOps teams who want to streamline the process of defining and deploying cloud infrastructure. It simplifies the management of complex infrastructure setups and promotes best practices in infrastructure design and deployment.
 
 To get started with AWS CDK, you can follow these steps:
+
 1. Install the AWS CDK CLI: You can install the AWS CDK CLI using npm
+
 ```bash
 npm install -g aws-cdk
 ```
-2. Create a new CDK project: Use the CDK CLI to create a new project
+
+1. Create a new CDK project: Use the CDK CLI to create a new project
+
 ```bash
 cdk init app --language typescript
 ```
-3. Define your infrastructure: Use the programming language of your choice to define your cloud resources using constructs
-4. Deploy your infrastructure: Use the CDK CLI to deploy your infrastructure changes to AWS
+
+1. Define your infrastructure: Use the programming language of your choice to define your cloud resources using constructs
+2. Deploy your infrastructure: Use the CDK CLI to deploy your infrastructure changes to AWS
+
 ```bash
 cdk deploy
 ```
-5. Monitor and manage your infrastructure: Use the AWS Management Console or AWS CLI to monitor and managed your deployed resources.
-6. Clean up resources: When you no longer need the resources, you can use the CDK CLI to destroy them
+
+1. Monitor and manage your infrastructure: Use the AWS Management Console or AWS CLI to monitor and managed your deployed resources.
+2. Clean up resources: When you no longer need the resources, you can use the CDK CLI to destroy them
+
 ```bash
 cdk destroy
 ```

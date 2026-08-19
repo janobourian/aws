@@ -1,21 +1,26 @@
 # AWS Topic: AWS Firewall Manager
+
 **Category:** Security, Identity, and Compliance
 **Status:** ✅ Completed
 
 ---
 
 ## 1. High-Level Overview
+
 AWS Firewall Manager is a security management service designed to enable organizations to centrally configure, deploy, and manage firewall rules across multiple AWS accounts and applications in AWS Organizations. In growing multi-account cloud environments, ensuring that every Application Load Balancer has an active WAF ACL or verifying that no member accounts have modified global security group settings is operationally unfeasible. AWS Firewall Manager addresses these challenges by offering a centralized policy-based configuration registry.
 
 The service allows a designated security administrator to write **Firewall Manager Policies** that enforce standard rules globally. These policies support multiple security integrations: AWS WAF Web ACLs, AWS Shield Advanced protections, Amazon VPC Security Groups, AWS Network Firewalls, and Amazon Route 53 Resolver DNS Firewalls. Firewall Manager automatically scans new resources as they are created across your organization. If a resource deviates from the policy baseline (e.g. a developer creates a public ALB without a WAF ACL), Firewall Manager flags it as non-compliant and can automatically apply the firewall rule.
 
 ### 👔 Executive Summary (For Managers & Non-Technical Stakeholders)
+
 * **Business Purpose**: Provides enterprise-grade cloud capabilities for **AWS Firewall Manager**, streamlining operations, reducing infrastructure overhead, and enabling rapid digital innovation.
 * **How It Works**: Operates as a fully managed AWS cloud service, handling underlying operational complexities, high-availability replication, security compliance, and automated scaling behind simple API interfaces.
 * **Key Business Value & Use Cases**: Reduces operational overhead and time-to-market for digital initiatives, enforces enterprise security standards, and aligns cloud spending with actual business usage.
 
 ## 2. Core Architecture & Key Concepts
+
 AWS Firewall Manager manages security policies. Key concepts include:
+
 * **Delegated Administrator**: Dedicated security account authorized to manage FMS policies.
 * **Firewall Policy**: The configuration that defines firewall rules (WAF, Shield, SG).
 * **Auto Remediation**: Automatically rolling back local changes that violate policies.
@@ -25,6 +30,7 @@ AWS Firewall Manager manages security policies. Key concepts include:
 ---
 
 ## 3. Common Use Cases
+
 * **Organization-wide WAF Deployment**: Centrally deploying a standard WAF SQL injection block policy across 50 member accounts.
 * **Security Group Auditing**: Enforcing that no member accounts can create security groups with port 22 open to public.
 * **Shield Advanced Enforcement**: Centrally applying DDoS protection to all public Elastic IPs in the organization.
@@ -33,6 +39,7 @@ AWS Firewall Manager manages security policies. Key concepts include:
 ---
 
 ## 4. Exam Essentials (SAA-C03 Cheat Sheet)
+
 * ⚠️ **Key Constraints**: Requires AWS Organizations to be enabled. Charge is flat per policy per region ($100/mo). Auto-remediation overwrites local changes.
 * 🔒 **Security & Encryption**: Enforces compliance baselines and logs alerts to Security Hub. Access managed via IAM.
 * ⚙️ **Performance/Scaling**: Policy checks run asynchronously, preventing packet latency overhead.
@@ -40,6 +47,7 @@ AWS Firewall Manager manages security policies. Key concepts include:
 ---
 
 ## 5. Comparison with Similar Services
+
 | Security Service | Management Scope | Security Integration | Remediation Support |
 | :--- | :--- | :--- | :--- |
 | **Firewall Manager** | Multi-account Organization | WAF, Shield, SG, Network Firewall | Yes (Auto remediation) |
@@ -50,7 +58,9 @@ AWS Firewall Manager manages security policies. Key concepts include:
 ---
 
 ## 6. Cost Optimization
-# Optimize Firewall Manager costs by:
+
+## Optimize Firewall Manager costs by
+
 * Consolidating multiple rules into a single Firewall Manager policy.
 * Scoping policies using tags to only target public-facing resources.
 * Sharing policies across accounts to eliminate manual setup overhead.
@@ -61,6 +71,7 @@ AWS Firewall Manager manages security policies. Key concepts include:
 ## 7. In-Depth Perspectives
 
 ### Security Perspective
+
 Security governance in AWS Firewall Manager is critical because policies define the security posture and firewall rules for all accounts in the organization. The security model leverages AWS Organizations, Security Control Policies (SCPs), and delegated admin roles. Access to modify firewall policies is governed by IAM, restricting API actions like `fms:PutPolicy`, `fms:AssociateAdminAccount`, and `fms:DisassociateAdminAccount`.
 
 To prevent member accounts from modifying or deleting centrally managed firewall rules, Firewall Manager policies can be configured to overwrite local configurations.
@@ -68,12 +79,14 @@ To prevent member accounts from modifying or deleting centrally managed firewall
 Additionally, administrators configure **Delegated Admin Accounts**. A dedicated security account is delegated to manage all policies, enforcing the principle of least privilege by keeping the primary management account isolated from daily firewall edits. In transit, all policy distributions and API calls are secured using TLS. Auditing is managed via AWS CloudTrail, which logs all policy deployments and modification requests, providing complete transparency for security compliance audits.
 
 ### High Availability Perspective
+
 High Availability (HA) for AWS Firewall Manager is built directly into its serverless, globally distributed multi-account orchestration architecture. The service control plane is managed by AWS across multiple Availability Zones and regions by default. When a policy is deployed, the configurations are automatically replicated across all regional AWS WAF and Network Firewall endpoints, ensuring that firewall protections remain active globally.
 
 To ensure high availability of the underlying data storage, Firewall Manager integrates with S3, which replicates policy logs and compliance history.
 
 Additionally, to prevent firewall outages during regional degradation, policy compliance checks are run asynchronously without affecting network packet routing. By combining global replication, Multi-AZ storage, and asynchronous evaluations, AWS Firewall Manager provides a highly available, robust security management platform.
-```
+
+```text
 
 ### Resilience Perspective
 Resilience in AWS Firewall Manager focuses on policy drift auto-remediation, compliance monitoring, and disaster recovery. The service possesses built-in self-healing capabilities: when a policy is configured with **Auto Remediation**, if a user in a member account manually modifies or deletes a managed security group rule, Firewall Manager automatically rolls back the change, restoring the secure baseline.
@@ -122,18 +135,22 @@ Another cost optimization strategy is utilizing AWS Organizations. Sharing a sin
 ### 1. Associate Admin Account
 
 Execute the following command:
-```bash
+```
+
 aws fms associate-admin-account \
     --admin-account "111122223333"
-```
+
+```text
 
 ### 2. Get Policy Details
 
 Execute the following command:
-```bash
+```
+
 aws fms get-policy \
     --policy-id "abcd-1234-efgh-5678"
-```
+
+```text
 
 ---
 ## 11. Advanced Architectural Perspectives
@@ -163,9 +180,11 @@ The operational foundation managing lifecycle, compliance verification, and exec
 * **AWS CLI Snippet**:
 
   AWS CLI Example for Core Administration & Rule Engine:
-```bash
-aws aws-firewall-manager describe-configuration 2>/dev/null || echo 'AWS Firewall Manager Active'
 ```
+
+aws aws-firewall-manager describe-configuration 2>/dev/null || echo 'AWS Firewall Manager Active'
+
+```text
 
 ### Security Boundaries & IAM Governance
 
@@ -177,12 +196,14 @@ Resource policies and access guardrails protecting administrative configurations
 * **AWS CLI Snippet**:
 
   AWS CLI Example for Security Boundaries & IAM Governance:
-```bash
+```
+
 aws iam put-role-policy \
     --role-name aws-firewall-manager-admin \
     --policy-name aws-firewall-manager-policy \
     --policy-document file://policy.json
-```
+
+```text
 
 ### Multi-Account Governance & Deployment
 
@@ -194,9 +215,11 @@ AWS Organizations integration, regional synchronization, and baseline automation
 * **AWS CLI Snippet**:
 
   AWS CLI Example for Multi-Account Governance & Deployment:
-```bash
-aws aws-firewall-manager list-accounts 2>/dev/null || echo 'Organization Linked'
 ```
+
+aws aws-firewall-manager list-accounts 2>/dev/null || echo 'Organization Linked'
+
+```text
 
 ### Telemetry, Compliance Logging & Auditing
 
@@ -208,7 +231,8 @@ Amazon CloudWatch metrics, EventBridge rules, and CloudTrail audit logging for A
 * **AWS CLI Snippet**:
 
   AWS CLI Example for Telemetry, Compliance Logging & Auditing:
-```bash
+```
+
 aws cloudwatch put-metric-alarm \
     --alarm-name aws-firewall-manager-ComplianceDrift \
     --metric-name NonCompliantResources \
@@ -217,7 +241,8 @@ aws cloudwatch put-metric-alarm \
     --period 300 \
     --threshold 1 \
     --comparison-operator GreaterThanOrEqualToThreshold
-```
+
+```text
 
 ### Cost Management & Spend Optimization
 
@@ -229,9 +254,11 @@ Resource rightsizing, waste elimination, and financial chargeback allocation for
 * **AWS CLI Snippet**:
 
   AWS CLI Example for Cost Management & Spend Optimization:
-```bash
-aws budgets create-budget 2>/dev/null || echo 'Budget Active'
 ```
+
+aws budgets create-budget 2>/dev/null || echo 'Budget Active'
+
+```text
 
 ---
 

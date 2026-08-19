@@ -43,7 +43,7 @@
 * You can configure an Auto Scaling Group to automatically adjust the number of EC2 instances based on the number of messages in the SQS queue
 * This allows for dynamic scaling of your message processing capacity based on demand
 * You can set up CloudWatch alarms to trigger scaling actions when the number of messages in the queue exceeds a certain threshold
-* SQS Queue -> EC2 Instances 
+* SQS Queue -> EC2 Instances
 * CloudWatch Metric - Queue Length -> Alarm -> CloudWatch Alarm -> Auto Scaling Group
 
 ## SQS to decouple between application tiers
@@ -53,13 +53,13 @@
 ## Amazon SQS - Security
 
 * Ecryption:
-    * In-flight encryption using HTTPS API
-    * At-rest encryption using KMS Keys
-    * Client-side encryption if the client wants to perform encryption/decryption itself
+  * In-flight encryption using HTTPS API
+  * At-rest encryption using KMS Keys
+  * Client-side encryption if the client wants to perform encryption/decryption itself
 * Access Controls: IAM policies to regulate access to the SQS API
 * SQS Access Policies (similar to S3 bucket policies):
-    * Useful for cross-account access to SQS queues
-    * Useful for allowing other services (SNS, S3,...) to write to an SQS queue
+  * Useful for cross-account access to SQS queues
+  * Useful for allowing other services (SNS, S3,...) to write to an SQS queue
 
 ## SQS Queue Access Policy
 
@@ -69,14 +69,14 @@
 ### For the Access Policy
 
 * Methods:
-    * Basic: Use simple criteria to define a basic access policy
-    * Advanced: Usea a JSON object to define an advanced access policy
+  * Basic: Use simple criteria to define a basic access policy
+  * Advanced: Usea a JSON object to define an advanced access policy
 * Who can send messages to the queue:
-    * Only the queue owner
-    * Only the specified AWS accounts, IAM users and roles
+  * Only the queue owner
+  * Only the specified AWS accounts, IAM users and roles
 * Who can receive messages from the queue
-    * Only the queue owner
-    * Only the specified AWS accounts, IAM users and roles
+  * Only the queue owner
+  * Only the specified AWS accounts, IAM users and roles
 
 ## SQS - Message Visibility Timeout
 
@@ -148,8 +148,8 @@
 * When a message is sent to a FIFO queue, it is assigned a deduplication ID
 * If a message with the same deduplication ID is sent within a 5-minute window, it will be treated as a duplicate and will not be delivered to the consumer
 * Two de-duplication methods:
-    * Content-based deduplication: will do a SHA-256 hash of the message body
-    * Explicitly provide a Message Deduplication ID
+  * Content-based deduplication: will do a SHA-256 hash of the message body
+  * Explicitly provide a Message Deduplication ID
 
 ### Message Grouping
 

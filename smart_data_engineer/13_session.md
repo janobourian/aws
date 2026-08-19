@@ -7,12 +7,12 @@
 * Amazon Polly
 * Amazon Translate
 * Amazon Lex and Amazon Connect:
-    * Amazon Lex: 
-        * Reconocimiento automático de voz
-        * Comprensión de Lenguaje Natural
-        * Ayuda a desarrollar chatbos y centros de llamadas
-    * Amazon Connect:
-        * Recibir llamadas y crear flujos de centros de contacto
+  * Amazon Lex:
+    * Reconocimiento automático de voz
+    * Comprensión de Lenguaje Natural
+    * Ayuda a desarrollar chatbos y centros de llamadas
+  * Amazon Connect:
+    * Recibir llamadas y crear flujos de centros de contacto
 * Amazon Comprehend
 * Amazon Forecast
 * Amazon Kendra
@@ -21,24 +21,24 @@
 
 ## Inteligencia Artificial Generativa
 
-* Inteligencia Artificial > Machine Learning > Deep Learning > Inteligencia Artificial Generativa 
-* Casos de uso: 
-    * Language
-    * Vision 
-    * Coding
+* Inteligencia Artificial > Machine Learning > Deep Learning > Inteligencia Artificial Generativa
+* Casos de uso:
+  * Language
+  * Vision
+  * Coding
 
 ## Amazon Q
 
 * Asistente basado en IA generativa
 * Tipos:
-    * AWS Business
-        * Respone preguntas, resumir, generar Contenido y completar tareas
-    * AWS Developer
-        * Ayuda en tareas de codificación
-    * AWS Quicksight
-        * Para paneles de BI
-    * Amazon Connect
-        * Recomienda automáticamente qué decir o qué acciones debe tomar un agente para ayudar mejor a los clientes
+  * AWS Business
+    * Respone preguntas, resumir, generar Contenido y completar tareas
+  * AWS Developer
+    * Ayuda en tareas de codificación
+  * AWS Quicksight
+    * Para paneles de BI
+  * Amazon Connect
+    * Recomienda automáticamente qué decir o qué acciones debe tomar un agente para ayudar mejor a los clientes
 
 ## Amazon Bedrock
 

@@ -4,15 +4,15 @@
 * Fully managed, serverless, highly available, and secure
 * Designed for applications that require microsecond read and low single-digit millisecond write latencies at any scale
 * Use cases:
-    * Caching
-    * Session management
-    * Real-time analytics
-    * Gaming leaderboards
-    * Geospatial applications
-    * Mobile applications
-    * IoT applications
-    * Pub/Sub
-    * Queues
+  * Caching
+  * Session management
+  * Real-time analytics
+  * Gaming leaderboards
+  * Geospatial applications
+  * Mobile applications
+  * IoT applications
+  * Pub/Sub
+  * Queues
 
 * MemoryDB is a Redis-compatible database, so it supports the same data structures and commands as Redis. This means that you can use your existing Redis clients and tools to interact with MemoryDB.
 * MemoryDB is designed for durability and high availability. It automatically replicates data across multiple Availability Zones (AZs) and provides automatic failover in the event of a node failure. This ensures that your data is always available and protected against loss.

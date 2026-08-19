@@ -3,6 +3,7 @@
 ## RDS: Relational Database Service
 
 It is a managed DB service for DB use SQL as a query language:
+
 * PostgreSQL
 * MySQL
 * MariaDB
@@ -12,6 +13,7 @@ It is a managed DB service for DB use SQL as a query language:
 * Aurora (AWS Propietary database)
 
 Benefits:
+
 * RDS is a managed service
 * Automated provisioning, OS patching
 * Read replicas for improved read performance
@@ -20,14 +22,15 @@ Benefits:
 * You can use EBS
 
 Storage Auto Scaling:
+
 * Helps you increase storage on your RDS DB instance dynamically
 * Avoid manually scaling your database storage
 * You have to set Maximum Storage Threshold
 * Useful for applications with unpredictable workloads
 * Automatically modify storage if:
-    * Free storage is less tan 10% of allocated storage
-    * Low-storage lasts at least 5 minutes
-    * 6 hours have passed since last modification
+  * Free storage is less tan 10% of allocated storage
+  * Low-storage lasts at least 5 minutes
+  * 6 hours have passed since last modification
 
 ## Read Replicas vs Multi AZ
 

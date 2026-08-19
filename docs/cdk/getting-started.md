@@ -7,9 +7,9 @@
 * We can nest stacks
 * CDK Stages allow to develop the same resources in several accounts.
 * `Constructs` are the basic building blocks of AWS Cloud Development Kit
-    * `L1`: `CfnBucket` to follow `AWS::S3::Bucket`
-    * `L2`: `s3.Bucket`
-    * `L3`: They are a complete pattern
+  * `L1`: `CfnBucket` to follow `AWS::S3::Bucket`
+  * `L2`: `s3.Bucket`
+  * `L3`: They are a complete pattern
 * `Props` are the configuration objects for constructs
 
 ## About `L1` Constructs

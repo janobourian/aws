@@ -1,10 +1,10 @@
 # Networking - VPC
 
-This document provides an overview of Virtual Private Cloud (VPC) networking concepts and best practices for designing and implementing VPCs in AWS. 
+This document provides an overview of Virtual Private Cloud (VPC) networking concepts and best practices for designing and implementing VPCs in AWS.
 
-## VPC Components 
+## VPC Components
 
-* Internet Gateway: One by VPC, it allows to connect with the internet. 
+* Internet Gateway: One by VPC, it allows to connect with the internet.
 * Transit Gateway: A way to avoid vpc peering hell, all conections in one place.
 * VPC Peering Connections: Connect two vpc using a peering.
 * VPN: Private connection between AWS and on-premises over the internet
@@ -13,13 +13,13 @@ This document provides an overview of Virtual Private Cloud (VPC) networking con
 * VPN Hub: A VPN in AWS can be a hub to connect all on-premises networks
 * DX: Direct connection between on-premises and AWS
 * DX Location: Physical place where the connection is made
-* Route Table: The rules that a Subnet o VPC componet follows to communicate with others. 
+* Route Table: The rules that a Subnet o VPC componet follows to communicate with others.
 * NACL: Stateless, do it have permission to start a communication?
 * VPC Endpoint: Connect your resources to AWS Services without internet, DNS should be allow
 * Interface Endpont: $, ENI, Most of the services
 * Gateway Endpoint: For S3, free
 * VPC Flow Logs: Register the IP connections, it can be saved on S3, CloudWatch or Firehose
-* NAT Gateway: It has regional option, allow to connect private subnet with other resources. 
+* NAT Gateway: It has regional option, allow to connect private subnet with other resources.
 * NAT Instances: Like NAT Gateway but this is a EC2 Instance
 * Bastion Host: Check the private resources using an EC2 instance in a public subnet.
 * Security groups: Stateful, to check the permissions between components.
@@ -29,43 +29,44 @@ This document provides an overview of Virtual Private Cloud (VPC) networking con
 * Classless Inter-Domain Routing - a method for allocating IP addresses
 * Used in Security Groups rules and AWS networking in general
 * Base IP
-    * Represents an IP contained in the range:
-        * XX.XX.XX.XX
+  * Represents an IP contained in the range:
+    * XX.XX.XX.XX
 * Subnet Mask
-    * Defines how many bits can change in the IP
-    * Represented as /XX: /0, /24, /32
-    * Example (take 256.256.256.256 and take the value):
-        * /8 -> 255.0.0.0
-        * /9 -> 255.32.0.0
-        * /16 -> 255.255.0.0
-        * /21 -> 255.255.248.0
-        * /22 -> 255.255.252.0
-        * /23 -> 255.255.254.0
-        * /24 -> 255.255.255.0
-        * /32 -> 255.255.255.255
+  * Defines how many bits can change in the IP
+  * Represented as /XX: /0, /24, /32
+  * Example (take 256.256.256.256 and take the value):
+    * /8 -> 255.0.0.0
+    * /9 -> 255.32.0.0
+    * /16 -> 255.255.0.0
+    * /21 -> 255.255.248.0
+    * /22 -> 255.255.252.0
+    * /23 -> 255.255.254.0
+    * /24 -> 255.255.255.0
+    * /32 -> 255.255.255.255
 * Public vs Private IP (IPv4)
-    * Private IP:
-        * 10.0.0.0 - 10.255.255.255 (10.0.0.0/8)
-        * 172.16.0.0 - 172.31.255.255 (172.12.0.0/12)
-        * 192.168.0.0 - 192.168.255.255 (192.168.0.0/16)
-    * Public IP:
-        * The rest of IPs
+  * Private IP:
+    * 10.0.0.0 - 10.255.255.255 (10.0.0.0/8)
+    * 172.16.0.0 - 172.31.255.255 (172.12.0.0/12)
+    * 192.168.0.0 - 192.168.255.255 (192.168.0.0/16)
+  * Public IP:
+    * The rest of IPs
 * Examples:
-    * 192.168.0.0/30 => 2^2 = 4. 192.168.0.0 - 192.168.0.3 => 255.255.255.251
-    * 192.168.0.0/28 => 2^4 = 16. 192.168.0.0 - 192.168.0.15 => 255.255.255.240
-    * 192.168.0.0/20 => 2^12 = 4096. 192.168.0.0 - 192.168.16.0 => 255.255.240.0
-    * 172.16.0.0/12 => 2^20 = 1,048,576. 172.16.0.0 - 172.31.255.255 => 255.240.0.0
+  * 192.168.0.0/30 => 2^2 = 4. 192.168.0.0 - 192.168.0.3 => 255.255.255.251
+  * 192.168.0.0/28 => 2^4 = 16. 192.168.0.0 - 192.168.0.15 => 255.255.255.240
+  * 192.168.0.0/20 => 2^12 = 4096. 192.168.0.0 - 192.168.16.0 => 255.255.240.0
+  * 172.16.0.0/12 => 2^20 = 1,048,576. 172.16.0.0 - 172.31.255.255 => 255.240.0.0
 
 ## Public vs Private IP (IPv4)
 
 * The Internet Assigned Numbers Authoriry (IANA) established certain blocks of IPv4 for the use of private (LAN) and public (Internet) addresses
 * Private IP:
-    * 10.0.0.0/8 --> 10.255.255.255
-    * 172.16.0.0/12 --> 172.31.255.255
-    * /12 -> 255.240.0.0 -> 172.16.0.0 - 172.31.255.255 (sum all and substract one)
-    * 196.168.0.0/16 --> 196.168.255.255
+  * 10.0.0.0/8 --> 10.255.255.255
+  * 172.16.0.0/12 --> 172.31.255.255
+  * /12 -> 255.240.0.0 -> 172.16.0.0 - 172.31.255.255 (sum all and substract one)
+  * 196.168.0.0/16 --> 196.168.255.255
 * Public IP:
     The rest of the IPs
+
 * All new AWS accounts have a a default VPC
 * EC2 are launched into the default VPC with public access
 * You can create your own VPCs with custom CIDR blocks
@@ -76,15 +77,15 @@ This document provides an overview of Virtual Private Cloud (VPC) networking con
 * VPC min size: /28 -> 16 IPs
 * VPC max size: /16 -> 65536 IPs
 * AWS reserves 5 IPs per subnet:
-    * 10.0.0.0 -> Network address
-    * 10.0.0.1 -> VPC Router
-    * 10.0.0.2 -> DNS Server
-    * 10.0.0.3 -> Future use
-    * 10.0.0.255 -> Broadcast address
+  * 10.0.0.0 -> Network address
+  * 10.0.0.1 -> VPC Router
+  * 10.0.0.2 -> DNS Server
+  * 10.0.0.3 -> Future use
+  * 10.0.0.255 -> Broadcast address
 
 * Exam tip: if you nee 29 IP addresses for EC2 instances:
-    * You can not choose a subnet /27 (32 IP addresses, 32 - 5 = 27 < 29)
-    * You can choose /26 (64 IP addresses, 64 -  5 = 59 > 29)
+  * You can not choose a subnet /27 (32 IP addresses, 32 - 5 = 27 < 29)
+  * You can choose /26 (64 IP addresses, 64 -  5 = 59 > 29)
 
 ## Internet Gateway (IGW)
 
@@ -94,8 +95,8 @@ This document provides an overview of Virtual Private Cloud (VPC) networking con
 * One VPC can only be attached to one IGW and viceversa
 * Internet Gateways on their own do not allow internet access
 * Route tables must also be edited
-    * You should check the subnets route tables
-    * You should add the Internet Gateway to the Subnet Route Table
+  * You should check the subnets route tables
+  * You should add the Internet Gateway to the Subnet Route Table
 * Subnets can manage the auto assign IPv4 operations
 
 ![alt text](image-2.png)
@@ -120,11 +121,11 @@ This document provides an overview of Virtual Private Cloud (VPC) networking con
 * Route Tables must be configured to route traffic from private subnets to the NAT Instance
 * Exist a preconfigured AMIs
 * Comments:
-    * Pre-configured Amazon Linux AMI is available
-    * Not Highly available/resilient setup out of the box
-        * You need to create an ASG in multi-AZ + resilient user-data script
-    * Internet traffic bandwith depends on EC2 instance type
-    * You must manage Security Groups and rules
+  * Pre-configured Amazon Linux AMI is available
+  * Not Highly available/resilient setup out of the box
+    * You need to create an ASG in multi-AZ + resilient user-data script
+  * Internet traffic bandwith depends on EC2 instance type
+  * You must manage Security Groups and rules
 
 ![alt text](image-4.png)
 
@@ -149,20 +150,20 @@ This document provides an overview of Virtual Private Cloud (VPC) networking con
 ## Security Groups and NACLs
 
 * Security Groups
-    * Act as virtual firewalls for EC2 instances
-    * Operate at the instance level
-    * Stateful: return traffic is automatically allowed, no need to create rules
-    * Allow rules only (no deny rules)
-    * Can be associated with multiple instances
-    * Can have multiple security groups associated with a single instance
+  * Act as virtual firewalls for EC2 instances
+  * Operate at the instance level
+  * Stateful: return traffic is automatically allowed, no need to create rules
+  * Allow rules only (no deny rules)
+  * Can be associated with multiple instances
+  * Can have multiple security groups associated with a single instance
 
 * Network Access Control Lists (NACLs):
-    * NACLs are stateless
-    * Operate at the subnet level
-    * Allow and deny rules
-    * Can be associated with multiple subnets
-    * Each subnet must be associated with a NACL, if none is specified the default NACL
-    * Default NACL allows all inbound and outbound traffic
+  * NACLs are stateless
+  * Operate at the subnet level
+  * Allow and deny rules
+  * Can be associated with multiple subnets
+  * Each subnet must be associated with a NACL, if none is specified the default NACL
+  * Default NACL allows all inbound and outbound traffic
 
 * Stateful in this context: Allowed traffic
 * Stateless in this context: Always evaluate the traffic
@@ -170,20 +171,20 @@ This document provides an overview of Virtual Private Cloud (VPC) networking con
 ![alt text](image-7.png)
 
 * NACLs
-    * Are like a firewall which control traffic from and to subnets
-    * One NACL per subnet, new subnets are ssigned the Default NACL
-    * You define NACL Rules
-        * 100 ALLOW
-        * "*" <- to deny traffic that does not match
-    * NACL are a great way of blocking a specific IP address at the subnet level
-    * Do not modify the Default NACL, instead create custom NACL
+  * Are like a firewall which control traffic from and to subnets
+  * One NACL per subnet, new subnets are ssigned the Default NACL
+  * You define NACL Rules
+    * 100 ALLOW
+    * "*" <- to deny traffic that does not match
+  * NACL are a great way of blocking a specific IP address at the subnet level
+  * Do not modify the Default NACL, instead create custom NACL
 
 ![alt text](image-8.png)
 
 * Ephemeral Ports
-    * For any two endpoints to establich a connection, they must use port
-    * Cliente connect to a defined port, and expect a response on an ephemeral port
-    * Ephemeral ports are temporary ports assigned for the duration of a communication session
+  * For any two endpoints to establich a connection, they must use port
+  * Cliente connect to a defined port, and expect a response on an ephemeral port
+  * Ephemeral ports are temporary ports assigned for the duration of a communication session
 
 ![alt text](image-10.png)
 
@@ -192,12 +193,12 @@ This document provides an overview of Virtual Private Cloud (VPC) networking con
 ![alt text](image-11.png)
 
 * Differences between Security Groups and NACLs:
-    * SGs are stateful because they allow the outside communication
-    * NACLs are stateless because they review the acess control list in every request
-    * SGa at instance leves vs NACLs at subnet level
-    * SGs only allow rules vs NACLs allow and deny rules
-    * SGs are associated with multiple instances vs NACLs are associated with multiple subnets
-    * Default SG allows all inbound and outbound traffic vs Default NACL allows all inbound and outbound traffic
+  * SGs are stateful because they allow the outside communication
+  * NACLs are stateless because they review the acess control list in every request
+  * SGa at instance leves vs NACLs at subnet level
+  * SGs only allow rules vs NACLs allow and deny rules
+  * SGs are associated with multiple instances vs NACLs are associated with multiple subnets
+  * Default SG allows all inbound and outbound traffic vs Default NACL allows all inbound and outbound traffic
 
 ## VPC Peering
 
@@ -230,8 +231,8 @@ This document provides an overview of Virtual Private Cloud (VPC) networking con
 * Every AWS service is publicly exposed
 * VPC Endpoints allows you to connect to AWS services using a private network.
 * Two types of VPC Endpoints:
-    * Interface Endpoints: Use AWS PrivateLink to connect to services using ENIs
-    * Gateway Endpoints: Use route tables to connect to services like S3 and DynamoDB
+  * Interface Endpoints: Use AWS PrivateLink to connect to services using ENIs
+  * Gateway Endpoints: Use route tables to connect to services like S3 and DynamoDB
 * DNS name should be enabled.
 * Associated by subnet and security groups
 
@@ -247,7 +248,7 @@ This document provides an overview of Virtual Private Cloud (VPC) networking con
 ### Gateway Endpoints
 
 * Use route tables to connect to services like S3 and DynamoDB
-* Create a gateway endpoint for the service 
+* Create a gateway endpoint for the service
 * Update route tables to direct traffic to the endpoint
 * No additional cost for using gateway endpoints
 * Supports both S3 and DynamoDB
@@ -267,31 +268,31 @@ Note: Interface Endpoint for S3 is preferred when you require access from your o
 * Can be created and deleted without disrupting network traffic
 * You can use S3, CloudWatch Logs, and Kinesis Data Firehose
 * Captures network information from AWS managed interfaces too:
-    * ELB
-    * RDS
-    * Redshift
-    * ElastiCache
-    * WorkSpaces
-    * NATGW
-    * TransitGateway
+  * ELB
+  * RDS
+  * Redshift
+  * ElastiCache
+  * WorkSpaces
+  * NATGW
+  * TransitGateway
 
 ![alt text](image-13.png)
 
 * Structure
-    * Version
-    * Account id
-    * Interface id
-    * Source Address
-    * Destination Address
-    * Source Port
-    * Destinantio Port
-    * Protocol
-    * Packets
-    * Bytes
-    * Start
-    * End
-    * Action
-    * Log Status
+  * Version
+  * Account id
+  * Interface id
+  * Source Address
+  * Destination Address
+  * Source Port
+  * Destinantio Port
+  * Protocol
+  * Packets
+  * Bytes
+  * Start
+  * End
+  * Action
+  * Log Status
 
 ![alt text](image-14.png)
 
@@ -302,8 +303,8 @@ Note: Interface Endpoint for S3 is preferred when you require access from your o
 * Secure connection between on-premises network and AWS VPC over the internet
 * Uses IPsec protocol to encrypt data in transit
 * Consists of two main components:
-    * Customer Gateway (CGW): Represents the on-premises gateway device
-    * Virtual Private Gateway (VGW): Represents the AWS side of the VPN connection
+  * Customer Gateway (CGW): Represents the on-premises gateway device
+  * Virtual Private Gateway (VGW): Represents the AWS side of the VPN connection
 * Supports both static and dynamic routing (BGP)
 * Supports multiple VPN tunnels for redundancy and high availability
 * Can be used in conjunction with AWS Direct Connect for hybrid connectivity
@@ -339,11 +340,11 @@ Note: Interface Endpoint for S3 is preferred when you require access from your o
 ### Direct Connect - Connection Types
 
 * Dedicated Connection
-    * Physical Ethernet connection associated with a single customer
-    * Speeds from 1 Gbps to 100 Gbps
+  * Physical Ethernet connection associated with a single customer
+  * Speeds from 1 Gbps to 100 Gbps
 * Hosted Connection:
-    * Connetion requests are made via AWS Connext Partners
-    * Speeds from 50 Mbps to 10 Gbps
+  * Connetion requests are made via AWS Connext Partners
+  * Speeds from 50 Mbps to 10 Gbps
 
 ### Encryption
 
@@ -360,9 +361,9 @@ Note: Interface Endpoint for S3 is preferred when you require access from your o
 ## Transit Gateway
 
 * Benefits:
-    * Like a Hub of connections
-    * Unique service with broadcast properties
-    * Increase the throughput using ECMP
+  * Like a Hub of connections
+  * Unique service with broadcast properties
+  * Increase the throughput using ECMP
 * Network transit hub that can connect multiple VPCs and on-premises networks
 * Simplifies network architecture by consolidating connections
 * Supports inter-region peering
@@ -377,8 +378,8 @@ Note: Interface Endpoint for S3 is preferred when you require access from your o
 
 * Allows you to capture and inspect network traffic in your VPC.
 * Capture the traffic:
-    * From (source) - ENI
-    * To (Targets) - an ENI or a Network Load Balancer
+  * From (source) - ENI
+  * To (Targets) - an ENI or a Network Load Balancer
 
 ![alt text](image-25.png)
 
@@ -416,8 +417,8 @@ Note: Interface Endpoint for S3 is preferred when you require access from your o
 * Internet Gateway: Free
 * NAT Gateway: $0.045 per hour + $0.045 per GB of data
 * VPC Endpoints:
-    * Interface Endpoints: $0.01 per hour + $0.01 per GB of data processed
-    * Gateway Endpoints: Free
-    * VPC Flow Logs: Costs for storing and analyzing logs in CloudWatch Logs or S3
-    * AWS Site-to-Site VPN: $0.05 per hour + data transfer costs
-    * AWS Direct Connect: Costs based on port hours and data transfer
+  * Interface Endpoints: $0.01 per hour + $0.01 per GB of data processed
+  * Gateway Endpoints: Free
+  * VPC Flow Logs: Costs for storing and analyzing logs in CloudWatch Logs or S3
+  * AWS Site-to-Site VPN: $0.05 per hour + data transfer costs
+  * AWS Direct Connect: Costs based on port hours and data transfer

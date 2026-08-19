@@ -1,4 +1,4 @@
-# AWS 
+# AWS
 
 ## AWS Global Infrastructure
 
@@ -18,11 +18,11 @@
 ## AWS Cloud Computing Shared Responsibility
 
 * IaaC:
-    * Customer manually deploys services such as S3 Buckets, EC2 instances
+  * Customer manually deploys services such as S3 Buckets, EC2 instances
 * PaaS:
-    * Customer deploys managed platform such as Relational Database Service
+  * Customer deploys managed platform such as Relational Database Service
 * SaaS:
-    * Customer deploys or develops high-lever software
+  * Customer deploys or develops high-lever software
 
 ## AWS Well-Architected Framework
 

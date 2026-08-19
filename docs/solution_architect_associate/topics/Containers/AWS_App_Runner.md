@@ -1,6 +1,7 @@
 # AWS App Runner
 
 ## 1. High-Level Overview
+
 AWS App Runner is a fully managed container execution service that makes it easy for developers to quickly deploy containerized web applications and APIs at scale. App Runner eliminates the operational overhead of provisioning, managing, and scaling your own container orchestrators (such as ECS or EKS), load balancers, VPC networks, and CI/CD pipelines. Developers start with their source code repository (GitHub) or a pre-built container image stored in ECR, and App Runner automatically builds and deploys the web application.
 
 The service provides built-in auto-scaling and traffic routing features. App Runner monitors incoming request concurrency levels dynamically. When traffic increases, it automatically provisions and launches additional container instances to handle requests, load-balancing traffic across instances. When traffic drops, it scales instances down to a defined baseline, optimizing running costs.
@@ -16,6 +17,7 @@ Furthermore, modern workloads require robust failover mechanisms to survive infr
 From an operational excellence perspective, deploying cloud services in standard landing zones allows teams to maintain clear resource scopes, but requires mapping out direct dependency hooks across all resource layers. Developers must ensure that all configurations are codified using Infrastructure as Code (IaC) templates, which reduces human configurations errors during deployments and facilitates reproducible testing across separate developer, staging, and production environments.
 
 ### 👔 Executive Summary (For Managers & Non-Technical Stakeholders)
+
 * **Business Purpose**: Provides enterprise-grade cloud capabilities for **AWS App Runner**, streamlining operations, reducing infrastructure overhead, and enabling rapid digital innovation.
 * **How It Works**: Operates as a fully managed AWS cloud service, handling underlying operational complexities, high-availability replication, security compliance, and automated scaling behind simple API interfaces.
 * **Key Business Value & Use Cases**: Reduces operational overhead and time-to-market for digital initiatives, enforces enterprise security standards, and aligns cloud spending with actual business usage.
@@ -23,6 +25,7 @@ From an operational excellence perspective, deploying cloud services in standard
 See section 12 for in-depth subcomponent analysis.
 
 ## 3. Security Perspective
+
 AWS App Runner manages container security using isolated runtime environments and AWS Identity and Access Management (IAM). Access to configure services and trigger deployments is authorized using IAM permissions.
 
 To authorize container access to other AWS services (such as DynamoDB tables or S3 buckets), App Runner uses two distinct IAM roles: (1) **Instance Role** (assigned to the container to authorize runtime API calls), and (2) **Access Role** (used by App Runner to pull container images from private ECR registries).
@@ -46,6 +49,7 @@ Auditing and threat detection are integrated via AWS CloudTrail, which records e
 Additionally, secrets management is secure and audit-compliant by integrating with AWS Secrets Manager or Systems Manager Parameter Store. Secrets are retrieved dynamically at runtime and injected into execution RAM, ensuring that passwords and API keys are never stored in plain text inside template files or repositories.
 
 ## 4. High Availability Perspective
+
 AWS App Runner is a serverless regional service that incorporates native high availability across multiple Availability Zones. The load balancers and container runtimes are deployed across highly redundant infrastructures managed by AWS.
 
 The service protects application availability by distributing container instances across multiple AZs automatically. If an Availability Zone experiences an outage, the App Runner load balancer routes traffic to active containers in healthy zones, maintaining service availability.
@@ -75,6 +79,7 @@ High availability is achieved by deploying compute and storage fleets across mul
 For serverless runtimes and database engines, AWS manages the underlying replication structures. Storage nodes replicate data blocks across at least three physical Availability Zones, ensuring that there is no single point of failure in the management console or resource APIs during local datacenter outages.
 
 ## 5. Resilience Perspective
+
 AWS App Runner incorporates resilience configurations to handle container crashes and network drops. The service integrates with automatic health checks. If a container instance fails its TCP/HTTP health check, App Runner terminates it and launches a new instance from the ECR image automatically, restoring healthy states.
 
 During code deployments, App Runner executes rolling updates. It deploys new container versions gradually, verifying health before terminating old versions. If a build fails or health checks fail during deployment, App Runner rolls back traffic to the previous version automatically.
@@ -104,11 +109,12 @@ Resilience features handle hardware errors, container crashes, and network drops
 To protect data integrity, databases and filesystems support continuous backups and point-in-time snapshots stored in highly durable S3 buckets. If data corruption occurs, administrators can run rebuild or restore operations, reverting the database state to the last known good backup dynamically.
 
 ## 6. Cost Optimizing Perspective
+
 AWS App Runner operates on a competitive pay-as-you-go pricing model based on compute resources provisioned. You are charged based on two metrics: (1) vCPU and memory allocated to running instances, and (2) vCPU and memory allocated to paused instances.
 
-*   **Active Instances**: Billed at approximately $0.064 per vCPU-hour and $0.007 per GB-hour when handling active requests.
-*   **Paused Instances**: Billed at approximately $0.007 per GB-hour for memory (vCPU charge is zero) when the service is idle, keeping application containers warm to eliminate cold starts.
-*   **Builds**: Billed at $0.005 per build-minute for compile runs from GitHub source code.
+* **Active Instances**: Billed at approximately $0.064 per vCPU-hour and $0.007 per GB-hour when handling active requests.
+* **Paused Instances**: Billed at approximately $0.007 per GB-hour for memory (vCPU charge is zero) when the service is idle, keeping application containers warm to eliminate cold starts.
+* **Builds**: Billed at $0.005 per build-minute for compile runs from GitHub source code.
 
 To optimize App Runner costs, organizations should: (1) configure correct auto-scaling boundaries (minimum and maximum instances), (2) run containers on pre-built ECR images to avoid build minutes charges, and (3) pause services during non-operational hours (e.g. testing environments).
 
@@ -137,18 +143,23 @@ To optimize compute costs, organizations utilize Spot Instances for non-critical
 Storage costs are minimized by configuring S3 Lifecycle policies, which transition old build artifacts, log archives, and snapshots to low-cost archiving tiers (like S3 Glacier Deep Archive) automatically after specified retention periods.
 
 ## 7. Well-Architected Framework Alignment
-*   **Security**: Provisions secure HTTPS endpoints automatically and routes database traffic privately using VPC Connectors.
-*   **Reliability**: Automatically distributes container instances across multiple AZs, with built-in health checking and rolling updates.
-*   **Performance Efficiency**: Scales container capacity dynamically based on request concurrency thresholds.
-*   **Cost Optimization**: Charges only for memory during idle periods (vCPU scales to zero), reducing running costs.
-*   **Operational Excellence**: Automates build, load balancing, and deployment phases, reducing manual operational overhead.
+
+* **Security**: Provisions secure HTTPS endpoints automatically and routes database traffic privately using VPC Connectors.
+* **Reliability**: Automatically distributes container instances across multiple AZs, with built-in health checking and rolling updates.
+* **Performance Efficiency**: Scales container capacity dynamically based on request concurrency thresholds.
+* **Cost Optimization**: Charges only for memory during idle periods (vCPU scales to zero), reducing running costs.
+* **Operational Excellence**: Automates build, load balancing, and deployment phases, reducing manual operational overhead.
 
 ## 8. Integration & Dependency Mapping
+
 Integrated with standard AWS resource groups and permissions.
 
 ## 9. Step-by-Step Hands-on Tutorial
+
 ### 1. Create a VPC Connector
+
 Create a VPC Connector allowing App Runner to access resources inside private subnets:
+
 ```bash
 aws apprunner create-vpc-connector \
     --vpc-connector-name "billing-connector" \
@@ -157,7 +168,9 @@ aws apprunner create-vpc-connector \
 ```
 
 ### 2. Create App Runner Service
+
 Deploy a containerized web application from a private ECR image, linking the VPC Connector:
+
 ```bash
 aws apprunner create-service \
     --service-name "billing-api" \
@@ -166,15 +179,19 @@ aws apprunner create-service \
 ```
 
 ### 3. Check Service Status
+
 Monitor the service status and retrieve the active public URL:
+
 ```bash
 aws apprunner describe-service --service-arn "arn:aws:apprunner:us-east-1:123456789012:service/billing-api/1"
 ```
 
 ## 10. AWS CLI Commands
+
 ### 1. List Services
 
 Execute the following command:
+
 ```bash
 aws apprunner list-services
 ```
@@ -182,6 +199,7 @@ aws apprunner list-services
 ### 2. Pause Service
 
 Execute the following command:
+
 ```bash
 aws apprunner pause-service \
     --service-arn "arn:aws:apprunner:us-east-1:123456789012:service/billing-api/1"
@@ -190,6 +208,7 @@ aws apprunner pause-service \
 ### 3. Delete Service
 
 Execute the following command:
+
 ```bash
 aws apprunner delete-service \
     --service-arn "arn:aws:apprunner:us-east-1:123456789012:service/billing-api/1"
@@ -198,6 +217,7 @@ aws apprunner delete-service \
 ---
 
 ## 11. Advanced Architectural Perspectives
+
 Architectural patterns are mapped above.
 
 ---
@@ -214,6 +234,7 @@ Primary operational execution framework and state reconciliation engine for AWS 
 * **AWS CLI Snippet**:
 
   AWS CLI Example for Core Service Architecture & Runtime:
+
 ```bash
 aws aws-app-runner list-resources 2>/dev/null || echo 'AWS App Runner Active'
 ```
@@ -228,6 +249,7 @@ Identity and resource policies enforcing least-privilege role boundaries for AWS
 * **AWS CLI Snippet**:
 
   AWS CLI Example for IAM Security & Access Governance:
+
 ```bash
 aws iam put-role-policy \
     --role-name aws-app-runner-role \
@@ -245,6 +267,7 @@ Automated horizontal scaling, failover routing, and multi-AZ resilience mechanic
 * **AWS CLI Snippet**:
 
   AWS CLI Example for High Availability & Scalability:
+
 ```bash
 aws aws-app-runner describe-status 2>/dev/null || echo 'Multi-AZ Operational'
 ```
@@ -259,6 +282,7 @@ Amazon CloudWatch integration, X-Ray distributed tracing, and metric alarms for 
 * **AWS CLI Snippet**:
 
   AWS CLI Example for Telemetry, Logging & Observability:
+
 ```bash
 aws cloudwatch put-metric-alarm \
     --alarm-name aws-app-runner-Errors \
@@ -280,6 +304,7 @@ Automated capacity adjustment, tiering, and cleanup strategies for AWS App Runne
 * **AWS CLI Snippet**:
 
   AWS CLI Example for Cost Optimization & Lifecycle Policies:
+
 ```bash
 aws aws-app-runner update-configuration 2>/dev/null || echo 'Optimized'
 ```
@@ -289,6 +314,7 @@ aws aws-app-runner update-configuration 2>/dev/null || echo 'Optimized'
 ## References
 
 ### Official AWS Documentation
+
 * [AWS App Runner Official Developer Guide](https://docs.aws.amazon.com/aws-app-runner/latest/developerguide/welcome.html) - Architecture patterns, deployment models, and developer best practices.
 * [AWS App Runner API Reference](https://docs.aws.amazon.com/aws-app-runner/latest/APIReference/Welcome.html) - Complete API specifications, schema parameters, error structures, and response objects.
 * [AWS App Runner Security & IAM Reference](https://docs.aws.amazon.com/aws-app-runner/latest/developerguide/security.html) - Granular resource policies, IAM execution roles, and network isolation configurations.
@@ -296,6 +322,7 @@ aws aws-app-runner update-configuration 2>/dev/null || echo 'Optimized'
 * [AWS Serverless & Container Well-Architected Lens](https://docs.aws.amazon.com/wellarchitected/latest/serverless-applications-lens/welcome.html) - Architectural guidance for resilient microservices and decoupled event-driven systems.
 
 ### Authoritative Web Pages, Blogs & Tutorials
+
 * [AWS Architecture Blog: Real-World Modern Applications with AWS App Runner](https://aws.amazon.com/blogs/architecture/) - Production blueprints, microservice choreography, and decoupling patterns.
 * [AWS Workshops: Hands-On Immersion Lab for AWS App Runner](https://workshops.aws/) - Interactive deployment labs, CI/CD pipeline automation, and local development testing.
 * [Serverless Land / Containers on AWS: Patterns and Deep Dives for AWS App Runner](https://serverlessland.com/) - Curated architectural recipes, event mappings, and performance optimization guides.
@@ -309,34 +336,41 @@ aws aws-app-runner update-configuration 2>/dev/null || echo 'Optimized'
 *Financial Operations (FinOps) is a discipline that combines cloud financial management, cost optimization, and business accountability. The following guidelines apply to every AWS service and help you control spend while maintaining performance and security.*
 
 ### 1. Cost Visibility & Allocation
-- **Tagging Strategy** – Ensure every resource created by the service (e.g., EC2 instances, S3 buckets, Lambda functions) is tagged with `Environment`, `Project`, `Owner`, and `CostCenter`. Use AWS Tag Editor or Infrastructure as Code (IaC) to enforce mandatory tags.
-- **Cost Allocation Tags** – Enable AWS‑generated cost allocation tags (e.g., `aws:createdBy`) and propagate them to downstream resources like ENIs, EBS volumes, or CloudWatch logs.
-- **Budgets & Alerts** – Create service‑specific budgets that trigger alerts when spend exceeds 80 % of the forecasted monthly budget. Use SNS notifications to automatically inform owners.
+
+* **Tagging Strategy** – Ensure every resource created by the service (e.g., EC2 instances, S3 buckets, Lambda functions) is tagged with `Environment`, `Project`, `Owner`, and `CostCenter`. Use AWS Tag Editor or Infrastructure as Code (IaC) to enforce mandatory tags.
+* **Cost Allocation Tags** – Enable AWS‑generated cost allocation tags (e.g., `aws:createdBy`) and propagate them to downstream resources like ENIs, EBS volumes, or CloudWatch logs.
+* **Budgets & Alerts** – Create service‑specific budgets that trigger alerts when spend exceeds 80 % of the forecasted monthly budget. Use SNS notifications to automatically inform owners.
 
 ### 2. Right‑Sizing & Utilization
-- **Compute** – Leverage AWS Compute Optimizer or Auto Scaling policies to adjust instance types, fleet sizes, or Lambda concurrency based on utilization metrics.
-- **Storage** – Periodically evaluate storage class transitions (e.g., S3 Standard → Intelligent‑Tiering → Glacier) and delete orphaned snapshots, AMIs, or EBS volumes.
-- **Serverless** – Use provisioned concurrency for predictable workloads; otherwise, rely on on‑demand execution and monitor Request‑Count vs. duration to avoid over‑provisioning.
+
+* **Compute** – Leverage AWS Compute Optimizer or Auto Scaling policies to adjust instance types, fleet sizes, or Lambda concurrency based on utilization metrics.
+* **Storage** – Periodically evaluate storage class transitions (e.g., S3 Standard → Intelligent‑Tiering → Glacier) and delete orphaned snapshots, AMIs, or EBS volumes.
+* **Serverless** – Use provisioned concurrency for predictable workloads; otherwise, rely on on‑demand execution and monitor Request‑Count vs. duration to avoid over‑provisioning.
 
 ### 3. Reserved & Savings Plans
-- **Reserved Instances (RI)** – Purchase RIs for predictable workloads such as steady‑state EC2, RDS, or Redshift. Use the RI Recommendation tool to match instance families.
-- **Savings Plans** – For mixed compute workloads, adopt Compute Savings Plans (flexible across EC2, Fargate, Lambda) to capture up‑to‑72 % savings.
+
+* **Reserved Instances (RI)** – Purchase RIs for predictable workloads such as steady‑state EC2, RDS, or Redshift. Use the RI Recommendation tool to match instance families.
+* **Savings Plans** – For mixed compute workloads, adopt Compute Savings Plans (flexible across EC2, Fargate, Lambda) to capture up‑to‑72 % savings.
 
 ### 4. Data Transfer & Egress Management
-- **VPC Endpoints** – Use Interface or Gateway VPC endpoints to keep traffic within the AWS network, eliminating internet egress charges.
-- **Cross‑Region Replication** – Replicate data only when necessary; leverage S3 Transfer Acceleration for occasional large transfers instead of constant cross‑region copies.
+
+* **VPC Endpoints** – Use Interface or Gateway VPC endpoints to keep traffic within the AWS network, eliminating internet egress charges.
+* **Cross‑Region Replication** – Replicate data only when necessary; leverage S3 Transfer Acceleration for occasional large transfers instead of constant cross‑region copies.
 
 ### 5. Monitoring & Automation
-- **Cost Explorer** – Schedule monthly Cost Explorer queries that break down spend by service, tag, and usage type.
-- **Lambda‑Driven Cleanup** – Deploy Lambda functions that automatically delete unused resources (e.g., unattached EBS volumes, stale snapshots) after a configurable grace period.
-- **AWS Config Rules** – Enforce compliance with cost‑related policies such as `required-tags`, `restricted-ec2-instance-types`, and `s3-bucket-public-access-prohibited`.
+
+* **Cost Explorer** – Schedule monthly Cost Explorer queries that break down spend by service, tag, and usage type.
+* **Lambda‑Driven Cleanup** – Deploy Lambda functions that automatically delete unused resources (e.g., unattached EBS volumes, stale snapshots) after a configurable grace period.
+* **AWS Config Rules** – Enforce compliance with cost‑related policies such as `required-tags`, `restricted-ec2-instance-types`, and `s3-bucket-public-access-prohibited`.
 
 ### 6. Governance & Chargeback
-- **AWS Organizations** – Consolidate billing across accounts, apply Service Control Policies (SCPs) to limit high‑cost services, and allocate costs to individual business units via linked accounts.
-- **Chargeback Models** – Export detailed cost reports to your internal ERP system; map AWS cost elements to internal cost centers for transparent chargeback.
+
+* **AWS Organizations** – Consolidate billing across accounts, apply Service Control Policies (SCPs) to limit high‑cost services, and allocate costs to individual business units via linked accounts.
+* **Chargeback Models** – Export detailed cost reports to your internal ERP system; map AWS cost elements to internal cost centers for transparent chargeback.
 
 ### 7. Continuous Improvement
-- **FinOps Maturity Model** – Assess your organization’s maturity (Inform, Optimize, Automate, Govern) and set quarterly improvement goals.
-- **Training** – Provide teams with FinOps training and embed cost‑awareness in PR reviews, CI pipelines, and architectural decision records.
+
+* **FinOps Maturity Model** – Assess your organization’s maturity (Inform, Optimize, Automate, Govern) and set quarterly improvement goals.
+* **Training** – Provide teams with FinOps training and embed cost‑awareness in PR reviews, CI pipelines, and architectural decision records.
 
 By embedding these FinOps practices into the daily workflow for each service, you can achieve sustainable cost savings while preserving the reliability, security, and performance expected from AWS.

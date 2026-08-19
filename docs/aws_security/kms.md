@@ -27,30 +27,30 @@
 
 * KMS Keys is the new name of KMS Customer Master Key
 * Symmetric (AES-256 keys)
-    * Single encryption key that is used to Encrypt and Decrypt
-    * You never get access to the KMS Key unencrypted
+  * Single encryption key that is used to Encrypt and Decrypt
+  * You never get access to the KMS Key unencrypted
 * Asymmetric (RSA and ECC keys)
-    * Public (Encrypt) and Private Key (Decrypt) pair
-    * Used for Encrypt/Decrypt, or Sign/Verify operations
-    * The public key is downloadable, but you cannot access the Private Key unencrypted
-    * Use case: encryption outside of AWS by users who cannot call the KMS API
+  * Public (Encrypt) and Private Key (Decrypt) pair
+  * Used for Encrypt/Decrypt, or Sign/Verify operations
+  * The public key is downloadable, but you cannot access the Private Key unencrypted
+  * Use case: encryption outside of AWS by users who cannot call the KMS API
 * Types:
-    * AWS Owned Key
-    * AWS Managed Key
-    * Customer Managed Key created
-    * Customer Managed Key imported
+  * AWS Owned Key
+  * AWS Managed Key
+  * Customer Managed Key created
+  * Customer Managed Key imported
 * Automatic Key rotation:
-    * AWS-managed KMS Key: automatic every 1 year
-    * Customer-managed Key: automatic and on-demand
-    * Imported: only manual rotation possible using alias
+  * AWS-managed KMS Key: automatic every 1 year
+  * Customer-managed Key: automatic and on-demand
+  * Imported: only manual rotation possible using alias
 * Key policies:
-    * Default
-        * Created if you do not provide a specific KMS Key Policy
-        * Complete access to the key to the root user = entire AWS account
-    * Custom
-        * Define users, roles that can access the KMS Key
-        * Define who can administer the key
-        * Useful for cross-account access of your KMS Key
+  * Default
+    * Created if you do not provide a specific KMS Key Policy
+    * Complete access to the key to the root user = entire AWS account
+  * Custom
+    * Define users, roles that can access the KMS Key
+    * Define who can administer the key
+    * Useful for cross-account access of your KMS Key
 
 ## Working with snapshots
 
@@ -60,4 +60,4 @@
 * Create a copy of the snapshot encrypted with CMK
 * Create a volume from the snapshot
 
-# KMS | multi-region keys
+## KMS | multi-region keys

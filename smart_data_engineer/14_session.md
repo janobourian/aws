@@ -29,9 +29,9 @@
 
 * Vulnerabilidades en capa 7
 * Implementación en:
-    * ALB
-    * API Gateway
-    * CloudFront
+  * ALB
+  * API Gateway
+  * CloudFront
 
 ## Pipelines de datos
 

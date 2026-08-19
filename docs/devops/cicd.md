@@ -1,4 +1,4 @@
-# Continuous Integration 
+# Continuous Integration
 
 ## AWS CodeCommit
 
@@ -18,11 +18,12 @@ It is a fully managed continuous integration service and it can be used with Git
 
 It is a fully managed artifact repository service that can be used by organizations to securely store, publish, and share software packages used in their software development process.
 
-# Continuous Delivery
+## Continuous Delivery
 
 It is a software development practice where code changes are automatically prepared for a release to production.
 
 You can perform some test in this cycle:
+
 * UI Testing
 * Load testing
 * Integration testing

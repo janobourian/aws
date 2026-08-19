@@ -16,6 +16,7 @@ Master all core services, hybrid architectures, subcomponents, and FinOps practi
 ---
 
 ## Document Structure Standards
+
 * **Section 1**: High-Level Overview & 👔 Executive Summary for Managers
 * **Sections 2-6**: Core Architecture, Use Cases, Cheat Sheets, Comparisons, Cost Optimization
 * **Section 7**: In-Depth Technical Perspectives (Security, HA, Resilience, Cost Optimization)

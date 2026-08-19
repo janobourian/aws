@@ -1,18 +1,19 @@
 # DynamoDB
 
-## More information 
+## More information
 
-For more information please see the [documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html) or check this [link](https://ddb.acloudfan.com/1.service-under-the-hood/)
+For more information please see the [documentation](https://docs.aws.amazon.com/amazondynamodb/latest/developerguide/Introduction.html) or check this [AWS Reference Guide](https://ddb.acloudfan.com/1.service-under-the-hood/)
 
-## Introduction 
+## Introduction
 
 Item maximun size: 400 KB
 Maximun amount of data stored in the partition: 10 GB
 
 Item is divided in:
+
 * Partition Key (a.k.a. Hash Key)
 * Value (a.k.a. Item collection):
-    * Sort Key (a.k.a. Range Key)
+  * Sort Key (a.k.a. Range Key)
 
 ## Tools
 
@@ -63,7 +64,7 @@ Delete Table
 aws dynamodb delete-table --table-name  test --endpoint-url   http://localhost:8000
 ```
 
-## Fundamentals 
+## Fundamentals
 
 ### Storage And Charges
 
@@ -72,6 +73,7 @@ aws dynamodb delete-table --table-name  test --endpoint-url   http://localhost:8
 * Charged for other features.
 
 Storage Classes:
+
 * Standard
 * Standard - IA
 
@@ -84,9 +86,11 @@ WRU means Write Request Unit: 1KB chunks of data
 RCU means Read Capacity Unit
 WRU means Write Capacity Unit
 
-Maximun numbers of reads/second: 
+Maximun numbers of reads/second:
+
 * 3000 Strongly consistent reads of 4KB chunks
 * 6000 Eventually consistent reads of 4KB chunks
 
 Maximun numbers of writes/second:
+
 * 1000 writes of 1KB chunks

@@ -7,12 +7,15 @@ AWS CloudFormation is a service that helps you model and set up your AWS resourc
 ## Key Concepts
 
 ### Templates
+
 JSON or YAML files that define your infrastructure resources and their properties.
 
 ### Stacks
+
 A collection of AWS resources that you can manage as a single unit.
 
 ### Change Sets
+
 Preview changes to your stack before implementing them.
 
 ## Benefits
@@ -44,4 +47,4 @@ Outputs:
 
 ## Important Links
 
-* [CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html)
+- [CloudFormation](https://docs.aws.amazon.com/AWSCloudFormation/latest/UserGuide/Welcome.html)

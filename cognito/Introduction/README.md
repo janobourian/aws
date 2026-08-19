@@ -1,11 +1,13 @@
 # Amazon Cognito
 
-Topics: 
+Topics:
+
 * Identity
 * Authentication
 * Authorization
 
 Another AWS Services:
+
 * API Gateway
 * Lambda
 * Dynamo DB
@@ -15,38 +17,41 @@ Another AWS Services:
 User pools are for authentication. Your app users can sign in through the user pool, or federate through a third-party identity provider (IdP). Identity pools are for authorization. You can use identity pools to create unique identities for users, and give them access to other AWS services.
 
 Use a user pool in the following scenarios:
+
 * Design sign-up and sign-in webpages for your app.
 * Access and manage user data.
 * Track your user device, location, and IP address, and adapt to sign-in requests of different risk levels.
 * Use a custom authentication flow for your app.
 
 Use an identity pool in the following scenarios:
+
 * Give your users access to AWS resources, such as an Amazon Simple Storage Service (Amazon S3) bucket or an Amazon DynamoDB table.
 * Generate temporary AWS credentials for unauthenticated users.
-
 
 ## Identity
 
 You know who is and provides access levels.
 
 Importance:
+
 * Authentication
 * Authorization
 * Ownership
 * User experience
 * Protecting credentials in your database
 * User flows:
-    * Sign up
-    * Sign in
-    * Forgot/change password
-    * Verify email/phone number
-    * MFA
+  * Sign up
+  * Sign in
+  * Forgot/change password
+  * Verify email/phone number
+  * MFA
 * Password policies
 * Scaling
 
 ## Cognito
 
 Cognito provides:
+
 * Authentication
 * Authorization
 * User management
@@ -56,10 +61,10 @@ Cognito provides:
 * Custom lambda triggers
 * Hosted UI
 * Social identity support:
-    * Facebook
-    * Google
-    * Amazon
-    * SAML, etc
+  * Facebook
+  * Google
+  * Amazon
+  * SAML, etc
 * Access AWS Resources (S3, Dynamo DB, etc) from your app
 * Cognito is serverless service
 * Security of serverless applications
@@ -68,16 +73,18 @@ Cognito provides:
 
 ![alt text](image.png)
 
-# Section 1
+## Section 1
 
 Topics:
+
 * Identity
 * Cognito service core features
 * User pool and Identity pool
 
-# Section 2
+## Section 2
 
 Topics:
+
 * User pool details with lab
 
 ## User pool
@@ -85,12 +92,13 @@ Topics:
 You can use the Cognito Interface or Social Media Interface.
 
 Features:
+
 * Sign up
 * Sign in
 * Authentication flows:
-    * Change and forgot password
-    * MFA
-    * Email and mobile verification
+  * Change and forgot password
+  * MFA
+  * Email and mobile verification
 * Custom lambda triggers
 * Hosted customizable UI and SDK
 * Federation using Facebook, Google, Amazon or SAML and OIDC IDP.
@@ -114,18 +122,19 @@ curl --location 'https://janobourian.auth.us-east-1.amazoncognito.com/login?resp
 ## Tokens
 
 Tokens retrieved:
+
 * ID Token: About identity username
 * Access Token: Authorization information for resources
 * Refresh Token: Information about the refresh token
 
 JWT:
+
 * Open standard
 * JSON format
 * 3 parts:
-    * Header
-    * Payload
-    * Signature
-
+  * Header
+  * Payload
+  * Signature
 
 ## OAuth Flows
 
@@ -164,10 +173,10 @@ JWT:
 
 The flow is the same as an Authorization with Lambda function
 
-
-# Section 3
+## Section 3
 
 Topics:
+
 * Identity pool with lab
 
 ## What is Identity Pool?
@@ -182,7 +191,7 @@ Topics:
 
 ## Create an Identity Pool
 
-Using Facebook IDP 
+Using Facebook IDP
 
 ![alt text](image-10.png)
 

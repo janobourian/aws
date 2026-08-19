@@ -1,56 +1,60 @@
 # VPC and Networking using AWS
 
-# General Information
+## General Information
 
 [Slides and Extra Information](https://digitalcloud.training/aws-networking-masterclass-course-downloads/)
 
-# Previous configuration to start to work with the project
+## Previous configuration to start to work with the project
 
 We have the "Services Quotas" as a service to measure the quantity of instances or something like that in our available services (and so on, but I'm gonna check it with our AWS manager)
 
-# Billing preferences
+## Billing preferences
 
-- Alert preferences: 
-    * Billing and cost Management > Billing preferences > Alert preferences
-- Simple notification service: 
-    * Amazon SNS > Topics > Create topic 
-    * (Inside the last topic) Subscriptions > Insert information
+- Alert preferences:
+  - Billing and cost Management > Billing preferences > Alert preferences
+- Simple notification service:
+  - Amazon SNS > Topics > Create topic
+  - (Inside the last topic) Subscriptions > Insert information
 - CloudWatch:
-    * CloudWatch > Alarms > Create alarms
+  - CloudWatch > Alarms > Create alarms
 
-# EC2 ssh key-pair.
+## EC2 ssh key-pair
 
-SSH key-pair is by Region. 
+SSH key-pair is by Region.
 
 To generate Key pair
+
 - EC2 > Network & Security > Key Pairs > Create key pair
 
 Putty and putty gen steps
+
 - Download putty and puttygen
 - open puttygen and load our .pem credentials
 
 Create EC2 instance
+
 - EC2 > Instances > Launch instances
 
 Connect EC2 using putty
+
 - Open putty.exe
 - Configure HostName (or IP address)
 - Connection > SSH > Auth > Credentials (file the .ppk file) > Open
 - login as: ec2-user
 
-# Buy a public domain and configure DNS
+## Buy a public domain and configure DNS
 
 - Using the respective DNS provider
 - DNS -> Amazon Route 53 -> Instance, CloudFront, LoadBalancer
-- Amazon Route 53 > Hosted zones > Create hosted zone > 
+- Amazon Route 53 > Hosted zones > Create hosted zone >
 
-# Simple automation to track unattended AWS usage
+## Simple automation to track unattended AWS usage
 
 - Describe EC2 instances, Describe Get EBS Volumes, Describe EIPs. <- Lambda -> Simple Email Service -> User Inbox
-- EventBridge for triggers 
-- AWS Cloud Formation 
+- EventBridge for triggers
+- AWS Cloud Formation
 
-# AWS VPC & Networking Fundamentals
+## AWS VPC & Networking Fundamentals
 
 ## Overview (The Big Picture)
 
@@ -129,8 +133,8 @@ Scopes for each VPC:
 ### VPC Routing
 
 - CIDR: Classless Inter Domain Router, range of ips for the networks. CIDR 10.0.0.0/16
-- Subnets: 
-- Route Tables: 
+- Subnets:
+- Route Tables:
 
 ### VCP Security
 
@@ -191,7 +195,7 @@ Public Subnet has a route for Internet Gateway, on the other hand, Private Subne
 ## IP Addresses in VPC
 
 - IPv4, IPv6
-    - Private IP, Public IP and Elastic IP
+  - Private IP, Public IP and Elastic IP
 
 ![Alt text](img/image-27.png)
 
@@ -201,4 +205,4 @@ Elastic IP is to set a static IP for our instance
 
 ## Summary
 
-# Glosary
+## Glosary

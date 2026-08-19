@@ -16,13 +16,13 @@ Launch 3rd party high-performance file systems on AWS
 
 * Lustre = Linux + Cluster
 * Machine Learning and High Performance Computing (HPC)
-* FSx Lustre: 
-    * Scratch File System
-        * Temporary storage
-        * Data is not replicated
-    * Persistent File System
-        * Long-term storage
-        * Data is replicated within same AZ
+* FSx Lustre:
+  * Scratch File System
+    * Temporary storage
+    * Data is not replicated
+  * Persistent File System
+    * Long-term storage
+    * Data is replicated within same AZ
 
 ## Amazon FSx for NetApp ONTAP
 

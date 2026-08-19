@@ -16,10 +16,10 @@ AWS Service Catalog allows organizations to create and manage catalogs of IT ser
 - Can give user access to launching products without requiring deep AWS knowledge
 - Integration with self-service portals such as Service Now
 - Cycle:
-    - Admins Tasks:
-        - Product -> Portfolio -> Control
-    - User Tasks:
-        - Product List -> Launch -> Provisioned Products
+  - Admins Tasks:
+    - Product -> Portfolio -> Control
+  - User Tasks:
+    - Product List -> Launch -> Provisioned Products
 
 ### Service Catalog - Stack Set Constraints
 
@@ -33,9 +33,9 @@ AWS Service Catalog allows organizations to create and manage catalogs of IT ser
 - IAM Role assigned to a Product which allows a user to launch, update, or terminate a product with minimal IAM permissions.
 - Example: end user has access only to Service Catalog, all other permissions required are attached to the Launch Constraint IAM Role
 - IAM Role must have the following permissions:
-    - CloudFormation (Full Access)
-    - AWS Services in the CloudFormation template
-    - S3 Bucket which contains the CloudFormation template (ReadAccess)
+  - CloudFormation (Full Access)
+  - AWS Services in the CloudFormation template
+  - S3 Bucket which contains the CloudFormation template (ReadAccess)
 
 ```json
 {
@@ -79,6 +79,6 @@ AWS Service Catalog allows organizations to create and manage catalogs of IT ser
 
 - Developer: push `product-a.yml`
 - CodeCommit: in `mapping.yml` invoke Lambda
-- Lambda checkout CloudFormation templates 
+- Lambda checkout CloudFormation templates
 - Lambda update/create Product
 - Service Catalog has the Product A

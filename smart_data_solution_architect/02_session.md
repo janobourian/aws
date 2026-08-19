@@ -2,7 +2,7 @@
 
 ## Share Responsability Model
 
-Check: https://aws.amazon.com/es/compliance/shared-responsibility-model/
+Check: <https://aws.amazon.com/es/compliance/shared-responsibility-model/>
 
 * AWS: De la nube
 * Cliente: En la nube
@@ -17,20 +17,20 @@ Check: https://aws.amazon.com/es/compliance/shared-responsibility-model/
 
 ¿Cómo sabemos que eres quien dices ser?
 
-* AAA: 
-    * Authenticate: 
-        * IAM Username/Password
-        * Access Key
-        * MFA
-        * Federation
-    * Authorize:
-        * IAM Policies 
-    * Audit:
-        * CloudTrail
+* AAA:
+  * Authenticate:
+    * IAM Username/Password
+    * Access Key
+    * MFA
+    * Federation
+  * Authorize:
+    * IAM Policies
+  * Audit:
+    * CloudTrail
 
 ### Principales de AWS
 
-* Root 
+* Root
 * Users, groups, and roles
 * Temporal Security Credentials
 
@@ -41,13 +41,13 @@ Check: https://aws.amazon.com/es/compliance/shared-responsibility-model/
 * Version
 * Id
 * Statement
-    * SEPARC:
-        * Sid
-        * Effect
-        * Principal
-        * Action
-        * Resources
-        * Condition
+  * SEPARC:
+    * Sid
+    * Effect
+    * Principal
+    * Action
+    * Resources
+    * Condition
 
 ### IAM Security Tools
 
@@ -57,31 +57,31 @@ Check: https://aws.amazon.com/es/compliance/shared-responsibility-model/
 ### Multi account strategy
 
 * Service Control Policy (SCP):
-    * Restringir los privilegios de la cuenta mediante políticas de control de servicios
+  * Restringir los privilegios de la cuenta mediante políticas de control de servicios
 
 * AWS Organizations
 * Multi account:
-    * Organization Units (OUs):
-        * Strategies:
-            * Business Unit
-            * Environmental Lifecycle
-            * Project-based
+  * Organization Units (OUs):
+    * Strategies:
+      * Business Unit
+      * Environmental Lifecycle
+      * Project-based
 
 ### AWS Organizations - OrganizationAccountAccessRole
 
-* Rol de IAM que concede permisos de administrador completo en la cuenta de miembro a la cuenta de administración 
+* Rol de IAM que concede permisos de administrador completo en la cuenta de miembro a la cuenta de administración
 * Rol para realizar tareas de administración
-* Se agrega automáticamente a todas las cuentas de miembros 
+* Se agrega automáticamente a todas las cuentas de miembros
 * En una cuenta existente se debe crear el rol
 * Es posible eliminar, enviar invitación y aceptar invitación
 
 * Service Control Policies (SCP):
-    * A nivel de unidad organizativa
-    * No se aplica a la cuenta principal
-    * Los roles no pueden ser restringidos por SCP
-    * Allow explícito por default
-    * Se utiliza para cumplimiento y restringir acceso a servicios. 
-    * La jerarquía permite que se denieguen servicios desde la master o root account
+  * A nivel de unidad organizativa
+  * No se aplica a la cuenta principal
+  * Los roles no pueden ser restringidos por SCP
+  * Allow explícito por default
+  * Se utiliza para cumplimiento y restringir acceso a servicios.
+  * La jerarquía permite que se denieguen servicios desde la master o root account
 
 ![alt text](image.png)
 
@@ -92,12 +92,12 @@ Check: https://aws.amazon.com/es/compliance/shared-responsibility-model/
 ### AWS Resource Access Manager (AWS RAM)
 
 * Comparta los recursos de AWS que posee con otras cuentas de AWS:
-    * Aurora
-    * VPC subnets
-    * Transit Gateway 
-    * Route53
-    * EC2 dedicated hosts
-    * License manager
+  * Aurora
+  * VPC subnets
+  * Transit Gateway
+  * Route53
+  * EC2 dedicated hosts
+  * License manager
 
 ### AWS Service Catalog
 

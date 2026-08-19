@@ -17,24 +17,24 @@
 * AWS Serverless Application Repository
 
 * Opciones para el cómputo:
-    * Instancias de servidor virtual en la nube
-    * Servicio de gestión de contenedores para correr Docker en un cluster de EC2
-    * Cómputo sin servidor para la ejecución de código sin estado en respuesta a disparadores
+  * Instancias de servidor virtual en la nube
+  * Servicio de gestión de contenedores para correr Docker en un cluster de EC2
+  * Cómputo sin servidor para la ejecución de código sin estado en respuesta a disparadores
 
 * Categorías:
-    * EC2 / Máquinas virtuales
-    * Lambda / Sin servidor
-    * ECR / ECS / EKS / AWS Fargate 
-    * AWS Elastic Beanstalk
+  * EC2 / Máquinas virtuales
+  * Lambda / Sin servidor
+  * ECR / ECS / EKS / AWS Fargate
+  * AWS Elastic Beanstalk
 
 ## Amazon Elastic Compute Cloud EC2
 
 AMI: Amazon Machine Images
 
 * Virtualización de host en EC2:
-    * Servidor host
-    * Hipervisor
-    * Invitado 1, 2, 3, ..., n
+  * Servidor host
+  * Hipervisor
+  * Invitado 1, 2, 3, ..., n
 
 * Linux | Windows | Mac
 
@@ -53,7 +53,7 @@ AMI: Amazon Machine Images
             * CPU
             * Almacenamiento
             * Rendimiento de red
-    * Categorías: https://aws.amazon.com/es/ec2/instance-types/
+    * Categorías: <https://aws.amazon.com/es/ec2/instance-types/>
         * Uso general: a1, m4, m5, t2, t3
         * Optimizadas para informática (procesamiento): c4, c5
         * Optimizadas para memoria: r4, r5, x1, z1
@@ -76,16 +76,16 @@ AMI: Amazon Machine Images
     * Se lanza como usuario root
 
 * Conexión mediante SSH:
-    * cd /var/log
-    * sudo car *.log
-    * ssh -i "name.pem" ec2-user@ec2-.compute-1.amazonaws.com
+  * cd /var/log
+  * sudo car *.log
+  * ssh -i "name.pem" <ec2-user@ec2-.compute-1.amazonaws.com>
 
 ```bash
 #!/bin/bash
-# Install Apache Web Server
+## Install Apache Web Server
 yum install -y httpd
 
-# Turn on web server
+## Turn on web server
 systemctl enable httpd.service
 systemctl start  httpd.service
 
@@ -103,62 +103,62 @@ echo "<h1>Hola, bienvenidos a mi web &#128512;</h1>" > /var/www/html/index.html
 * Reservas de capacidad
 
 * Servicios:
-    * Amazon EC2 auto scaling
-    * EC2 Fleet
-    * Amazon Elastic Container Service (Amazon ECS)
-    * Amazon Elastic Kubernetes Service (Amazon EKS)
-    * AWS Thinkbox
-    * Amazon EMR
-    * AWS CloudFormation
-    * AWS Batch
+  * Amazon EC2 auto scaling
+  * EC2 Fleet
+  * Amazon Elastic Container Service (Amazon ECS)
+  * Amazon Elastic Kubernetes Service (Amazon EKS)
+  * AWS Thinkbox
+  * Amazon EMR
+  * AWS CloudFormation
+  * AWS Batch
 
 * Lab: create EFS
-    * Create default VPC (three public subnets)
-    * Create EFS (regional level)
-    * Create instance in one public subnet and connect with the EFS
-    * commands:
-        * ls /mnt/efs/fs1
-        * sudo su
-        * echo "hello world" > /mnt/efs/fs1/hello.txt
-        * cat /mnt/efs/fs1/hello.txt
+  * Create default VPC (three public subnets)
+  * Create EFS (regional level)
+  * Create instance in one public subnet and connect with the EFS
+  * commands:
+    * ls /mnt/efs/fs1
+    * sudo su
+    * echo "hello world" > /mnt/efs/fs1/hello.txt
+    * cat /mnt/efs/fs1/hello.txt
 
 ## Escalabilidad
 
 * Escalabilidad Vertical: Crecer la instancia
-    * RDS y ElastiCache
+  * RDS y ElastiCache
 * Escalabilidad Horizontal: Crecer el número de la instancia
-    * Sistemas distribuidos
+  * Sistemas distribuidos
 * Alta disponibilidad:
-    * Ejecución en dos o más centros de datos
+  * Ejecución en dos o más centros de datos
 
 ## Elastic Load Balancing
 
-More information: https://aws.amazon.com/es/elasticloadbalancing/features/
+More information: <https://aws.amazon.com/es/elasticloadbalancing/features/>
 
 * Distribuye el tráfico entrante de las aplicaciones o de la red entre varios destinos en una única zona de disponibilidad o en varias zonas de disponibilidad
 * Tipos:
-    * Balanceador de carga de aplicaciones (capa 7)
-    * Balanceador de carga de red (capa 4)
-    * Balanceador de carga clásico 
-    * Balanceador Gateway (capa 3)
+  * Balanceador de carga de aplicaciones (capa 7)
+  * Balanceador de carga de red (capa 4)
+  * Balanceador de carga clásico
+  * Balanceador Gateway (capa 3)
 * Balanceadores actuales:
-    * Application Load Balancer: Es el común para servidores web, microservicios. 
-    * Network Load Balancer: Alto rendimiento como aplicaciones de millones de solicitudes (juegos en tiempo real). Datos de IoT
-    * Gateway Load Balancer: Para implementar aplicaciones de seguridad de terceros. 
+  * Application Load Balancer: Es el común para servidores web, microservicios.
+  * Network Load Balancer: Alto rendimiento como aplicaciones de millones de solicitudes (juegos en tiempo real). Datos de IoT
+  * Gateway Load Balancer: Para implementar aplicaciones de seguridad de terceros.
 
 ## Amazon EC2 AutoScaling
 
 AWS Auto Scaling
 
 * Opciones de escalado:
-    * Manual
-    * Programado
-    * Dinámico o bajo demanda
-    * Predictivo
+  * Manual
+  * Programado
+  * Dinámico o bajo demanda
+  * Predictivo
 * Grupo de AutoScaling:
-    * Tamaño mínimo
-    * Capacidad deseada
-    * Tamaño máximo
+  * Tamaño mínimo
+  * Capacidad deseada
+  * Tamaño máximo
 
 ### Lab
 
@@ -166,8 +166,8 @@ Another bash for bootstroping
 
 ```bash
 #!/bin/bash
-# Use this for your user data (script from top to bottom)
-# install httpd (Linux 2 version)
+## Use this for your user data (script from top to bottom)
+## install httpd (Linux 2 version)
 yum update -y
 yum install -y httpd
 systemctl start httpd
@@ -177,10 +177,10 @@ echo "<h1>Hello from $(hostname -f)</h1>" > /var/www/html/index.html
 
 ```bash
 #!/bin/bash
-# Install Apache Web Server
+## Install Apache Web Server
 yum install -y httpd
 
-# Turn on web server
+## Turn on web server
 systemctl enable httpd.service
 systemctl start  httpd.service
 
@@ -189,4 +189,4 @@ echo "<h1>Hello from $(hostname -f)</h1>" > /var/www/html/index.html
 
 * Actions > Images and Templates > Create template from instance
 * Create Auto Scaling Group using Template
-    * Inside of this you should create Elastic Load Balancer to communicate with the internet.
+  * Inside of this you should create Elastic Load Balancer to communicate with the internet.

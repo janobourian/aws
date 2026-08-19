@@ -4,10 +4,10 @@
 
 * SQS + Lambda + SNS
 * SQS:
-    * DLQ
-    * SQS FIFO + Lambda
+  * DLQ
+  * SQS FIFO + Lambda
 * Fan Out Pattern:
-    * SDK + SNS + SQS
+  * SDK + SNS + SQS
 * Remember Amazon EventBridge
 
 ## Caching strategies

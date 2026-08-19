@@ -5,27 +5,27 @@
 IAM is a global service.
 
 * Basic concepts
-    * Root account
-    * Users
-    * Groups
-    * Roles
-    * IAM: Permissions
-        * Users or Groups can be assigned JSON documents called policies
-        * These policies define the permissions of the users
-        * least privilege principle
-        * VIS - SEPARC
-            * VIS
-                * Version
-                * Id
-                * Statement
-            * SEPARC
-                * Sid
-                * Effect
-                * Principal:
-                    * account/user/role to which this policy applied to
-                * Action 
-                * Resource
-                * Condition
+  * Root account
+  * Users
+  * Groups
+  * Roles
+  * IAM: Permissions
+    * Users or Groups can be assigned JSON documents called policies
+    * These policies define the permissions of the users
+    * least privilege principle
+    * VIS - SEPARC
+      * VIS
+        * Version
+        * Id
+        * Statement
+      * SEPARC
+        * Sid
+        * Effect
+        * Principal:
+          * account/user/role to which this policy applied to
+        * Action
+        * Resource
+        * Condition
 
 ### The administrator access
 
@@ -45,36 +45,36 @@ IAM is a global service.
 ### MFA - Multi Factor Authentication
 
 * Password Policy
-    * Password length
-    * Password expiration
-    * Prevent password re-use
+  * Password length
+  * Password expiration
+  * Prevent password re-use
 
 * MFA:
-    * MFA = password you know + security device you own => Succesful login
-    * Options:
-        *   Virtual MFA device
-            * Google Authenticator
-            * Authy
-        * Universal 2nd Factor (U2F) Security Key
-            * Yubikey
-        * Hardware Key For MFA Device
-        * Hardware Key For MFA Device for AWS GovCloud
+  * MFA = password you know + security device you own => Succesful login
+  * Options:
+    * Virtual MFA device
+      * Google Authenticator
+      * Authy
+    * Universal 2nd Factor (U2F) Security Key
+      * Yubikey
+    * Hardware Key For MFA Device
+    * Hardware Key For MFA Device for AWS GovCloud
 
 * Password policy:
-    * IAM > Account Settings
+  * IAM > Account Settings
 
 * MFA:
-    * In the top right menu
-    * Security Credentials
+  * In the top right menu
+  * Security Credentials
 
 ### Access Keys, CLI and SDK
 
 * AWS Management Console
-    * Protected by Password + MFA
+  * Protected by Password + MFA
 * AWS Command Line Interface (CLI)
-    * Protected by Access Keys
+  * Protected by Access Keys
 * AWS Software Development Kit (SDK)
-    * Protected by Access Keys
+  * Protected by Access Keys
 
 * Users manage their own access keys
 
@@ -85,12 +85,12 @@ Start the CLI configuration
 ```bash
 aws configure
 Access Key ID
-Secret Access Key 
+Secret Access Key
 Region `us-east-1`
 Output `json`
 ```
 
-The next exercises are using `CloudShell` 
+The next exercises are using `CloudShell`
 
 ```bash
 aws --version
@@ -104,9 +104,10 @@ You can update and download files on `CloudShell`
 To do so, we will assign permissions to AWS services with IAM Roles.
 
 Common Roles:
-    * EC2 Instance Roles
-    * Lambda Function Roles
-    * CloudFormation
+
+* EC2 Instance Roles
+* Lambda Function Roles
+* CloudFormation
 
 #### Trusted entities
 
@@ -166,37 +167,37 @@ Who can use the role in Principal, this is not the role permissions, is the Trus
 * OU: Organizational Unit
 
 * Nested Organization:
-    * Root Organizational Unit: Management Account
-        * Dev Organizational Unit: Member Accounts
-        * Prod Organizational Unit: 
-            * Human Resources Organizational Unit:
-            * Finance Organizational Unit
+  * Root Organizational Unit: Management Account
+    * Dev Organizational Unit: Member Accounts
+    * Prod Organizational Unit:
+      * Human Resources Organizational Unit:
+      * Finance Organizational Unit
 
 * Ways to create Organizational Units:
-    * Business Unit
-        * Sales
-        * Retail
-        * Finance
-    * Environmental Lifecycle
-        * Prod
-        * QA
-        * Dev
-    * Project-Based
-        * Project 1
-        * Project 2
-        * Project 3
+  * Business Unit
+    * Sales
+    * Retail
+    * Finance
+  * Environmental Lifecycle
+    * Prod
+    * QA
+    * Dev
+  * Project-Based
+    * Project 1
+    * Project 2
+    * Project 3
 
 * Advantages:
-    * Multi account vs One account Multi VPC
-    * Use tagging standards for billing purposes
-    * Enable CloudTrail on all accounts, send logs to central S3 account
-    * Send CloudWatch Logs to central logging account 
-    * Establish Cross Account Roles for Admin purposes
+  * Multi account vs One account Multi VPC
+  * Use tagging standards for billing purposes
+  * Enable CloudTrail on all accounts, send logs to central S3 account
+  * Send CloudWatch Logs to central logging account
+  * Establish Cross Account Roles for Admin purposes
 
 * Security: Service Control Policies (SCP)
-    * IAM policies applied to OU or Accounts to restrict Users and Roles
-    * They do not apply to the management account (full admin power)
-    * Must have an explicit allow from the root through each OU in the direct path to the target account (does not allow anything by default - like IAM)
+  * IAM policies applied to OU or Accounts to restrict Users and Roles
+  * They do not apply to the management account (full admin power)
+  * Must have an explicit allow from the root through each OU in the direct path to the target account (does not allow anything by default - like IAM)
 
 ### Advanced Policies
 
@@ -306,11 +307,11 @@ Example:
 ```
 
 * IAM for S3 policy level:
-    * object level
-    * bucket level
+  * object level
+  * bucket level
 
 * Resource Policies and aws:PrincipalOrgID
-    * aws:PrincipalOrgID can be used in any resource policies to restrict access to accounts that are member of an AWS Organization
+  * aws:PrincipalOrgID can be used in any resource policies to restrict access to accounts that are member of an AWS Organization
 
 Example:
 
@@ -327,22 +328,22 @@ Example:
 ### Resource-based Policies vs IAM Roles
 
 * Cross-account:
-    * attaching a resource-based policy to a resource (example: S3 bucket policy)
-    * OR using a role as a proxy
+  * attaching a resource-based policy to a resource (example: S3 bucket policy)
+  * OR using a role as a proxy
 
 * Cases:
-    * User Account A -> Role Account B -> Amazon S3
-    * User Account A -> S3 Bucket Policy -> Amazon S3
+  * User Account A -> Role Account B -> Amazon S3
+  * User Account A -> S3 Bucket Policy -> Amazon S3
 
 * Important notes:
-    * When you assume a role, you give up your original permissions and take the permissions assigned to the role
-    * When using a resource-based policy, the principal does not have to give up his permissions
+  * When you assume a role, you give up your original permissions and take the permissions assigned to the role
+  * When using a resource-based policy, the principal does not have to give up his permissions
 
 * Disclaimer about Event Bridge:
-    * EventBridge rule and Resource-based policy
-        * Lambda, SNS, SQS, S3 bucket, API Gateway
-    * EventBridge rule and IAM role to assume
-        * Kinesis Stream, EC2 Auto Scaling, System Manager Run Command, ECS Task
+  * EventBridge rule and Resource-based policy
+    * Lambda, SNS, SQS, S3 bucket, API Gateway
+  * EventBridge rule and IAM role to assume
+    * Kinesis Stream, EC2 Auto Scaling, System Manager Run Command, ECS Task
 
 ### Policy Evaluation Logic
 
@@ -350,8 +351,8 @@ Example:
 
 * IAM Permission Boundaries are supported for users and roles (not groups)
 * Advanced feature to use a manged policy to set the maximum permissions and IAM entity can get
-* Example: 
-    * IAM Permission Boundary + IAM Permissions Trhough IAM Policy
+* Example:
+  * IAM Permission Boundary + IAM Permissions Trhough IAM Policy
 
 #### IAM Policy Evaluation Logic
 
@@ -367,36 +368,36 @@ Example:
 * SSO: single sign-on
 * One login (single sign-on) for all your
 * Identity providers
-    * Built-in identity store in IAM Identity Center
-    * Third party: Active Directory (AD), OneLogin, Okta
+  * Built-in identity store in IAM Identity Center
+  * Third party: Active Directory (AD), OneLogin, Okta
 * Login Flow:
-    * Login
-    * AWS IAM Identity Center
-    * SSO to access:
-        * AWS Cloud
-        * Business Cloud Apps
-        * Custom SAML2.0-enabled Apps
+  * Login
+  * AWS IAM Identity Center
+  * SSO to access:
+    * AWS Cloud
+    * Business Cloud Apps
+    * Custom SAML2.0-enabled Apps
 
 ### Directory Services
 
 * What is Microsoft Active Directory (AD)?
-    * AWS Managed Microsoft AD
-        * auth -> AWS Managed AD -> trust -> On-prem AD -> auth
-    * AD Connector
-        * auth -> AD Connector -> proxy -> On-prem AD
+  * AWS Managed Microsoft AD
+    * auth -> AWS Managed AD -> trust -> On-prem AD -> auth
+  * AD Connector
+    * auth -> AD Connector -> proxy -> On-prem AD
+  * Simple AD
     * Simple AD
-        * Simple AD
 
 ### Control Tower
 
 * Easy way to set up and govern a secure and compliant multi-account AWS environment based on best practices
 * AWS Control Tower uses AWS Organizations to create accounts
 * Benefits:
-    * Automate the set up your environment in a few clicks
-    * Automate ongoing policy management using guardrails
-    * Detect policy violations and remediate them
-    * Monitor compliance through an interactive dashboard
+  * Automate the set up your environment in a few clicks
+  * Automate ongoing policy management using guardrails
+  * Detect policy violations and remediate them
+  * Monitor compliance through an interactive dashboard
 
 * AWS Control Tower - Guardrails
-    * Preventive Guardrail - using SCPs (e.g, Restrict Regions across all your accounts)
-    * Detective Guardrail - using AWS Config (e.g., Identify untagged resources)
+  * Preventive Guardrail - using SCPs (e.g, Restrict Regions across all your accounts)
+  * Detective Guardrail - using AWS Config (e.g., Identify untagged resources)

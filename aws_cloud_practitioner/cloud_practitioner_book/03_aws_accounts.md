@@ -3,16 +3,16 @@
 ## AWS Environment
 
 * Multiple Accounts:
-    * Sandbox
-    * Development
-    * UAT/Testing
-    * Production
+  * Sandbox
+  * Development
+  * UAT/Testing
+  * Production
 
 * Benefits:
-    * Administrative isolation between workloads
-    * Limit visibility and discoverability of workloads
-    * Isolation of security and identity management
-    * Isolation of recovery or audit accounts
+  * Administrative isolation between workloads
+  * Limit visibility and discoverability of workloads
+  * Isolation of security and identity management
+  * Isolation of recovery or audit accounts
 
 ## AWS Landing Zone
 
@@ -28,15 +28,15 @@
 ## AWS Organizations
 
 * Key concepts:
-    * It is a free service
-    * OUs: Organizations Units
-    * SCP: Service Control Policies
+  * It is a free service
+  * OUs: Organizations Units
+  * SCP: Service Control Policies
 
 * Core AWS OUs:
-    * Infrastructure services account:
-        * Amazon Machine Images (AMIs)
-    * Security Services:
-        * Identity and Access Management
+  * Infrastructure services account:
+    * Amazon Machine Images (AMIs)
+  * Security Services:
+    * Identity and Access Management
 
 1.- A
 2.- A

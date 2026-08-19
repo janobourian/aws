@@ -3,7 +3,8 @@
 ## Source Control
 
 ### Repository Structure
-```
+
+```text
 my-app/
 ├── src/
 ├── tests/
@@ -14,6 +15,7 @@ my-app/
 ```
 
 ### Branching Strategy
+
 - Use feature branches for development
 - Implement pull request reviews
 - Protect main branch with required checks
@@ -22,6 +24,7 @@ my-app/
 ## Build Practices
 
 ### Buildspec Configuration
+
 ```yaml
 version: 0.2
 env:
@@ -53,6 +56,7 @@ cache:
 ```
 
 ### Build Optimization
+
 - Use build caching to speed up builds
 - Run tests in parallel when possible
 - Fail fast on critical errors
@@ -61,8 +65,9 @@ cache:
 ## Deployment Strategies
 
 ### Blue/Green Deployment
+
 ```yaml
-# appspec.yml for CodeDeploy
+## appspec.yml for CodeDeploy
 version: 0.0
 os: linux
 hooks:
@@ -78,6 +83,7 @@ hooks:
 ```
 
 ### Rolling Deployments
+
 - Deploy to small percentage of instances first
 - Monitor health metrics during deployment
 - Implement automatic rollback on failures
@@ -85,14 +91,16 @@ hooks:
 ## Security
 
 ### IAM Best Practices
+
 - Use least privilege principle
 - Create service-specific roles
 - Regularly audit permissions
 - Use temporary credentials
 
 ### Secrets Management
+
 ```yaml
-# Use Parameter Store or Secrets Manager
+## Use Parameter Store or Secrets Manager
 environment:
   variables:
     DB_HOST: !Ref DatabaseEndpoint
@@ -103,14 +111,16 @@ environment:
 ## Monitoring and Alerting
 
 ### CloudWatch Metrics
+
 - Monitor build success/failure rates
 - Track deployment duration
 - Set up alerts for pipeline failures
 - Monitor application performance
 
 ### Logging Strategy
+
 ```yaml
-# CloudWatch Logs integration
+## CloudWatch Logs integration
 version: 0.2
 phases:
   build:
@@ -127,11 +137,13 @@ reports:
 ## Pipeline Design
 
 ### Multi-Environment Strategy
-```
+
+```text
 Source → Build → Test → Deploy-Dev → Deploy-Staging → Manual-Approval → Deploy-Prod
 ```
 
 ### Parallel Execution
+
 - Run independent tests in parallel
 - Deploy to multiple regions simultaneously
 - Use fan-out patterns for efficiency

@@ -2,11 +2,11 @@
 
 * Give users and identity to interact with our web or mobile application
 * Cognito User Pools:
-    * Sign in functionality for app users
-    * Integrate with API Gateway and Application Load Balancer
+  * Sign in functionality for app users
+  * Integrate with API Gateway and Application Load Balancer
 * Cognito Identity Pools (Federated Identity):
-    * Provide AWS Credentials to users so they can access AWS resources directly
-    * Integrate with Cognito User Pools as an identity provider
+  * Provide AWS Credentials to users so they can access AWS resources directly
+  * Integrate with Cognito User Pools as an identity provider
 
 ## Cognito User Pools (CUP) - User Features
 
@@ -48,24 +48,24 @@
 ## Cognito Hands-On
 
 * Applications
-    * App clients
+  * App clients
 * User management
-    * Users
-    * Groups
+  * Users
+  * Groups
 * Authentication
-    * Authentication methods
-    * Sign-in
-    * Sign-up
-    * Social and external providers
-    * Extensions
+  * Authentication methods
+  * Sign-in
+  * Sign-up
+  * Social and external providers
+  * Extensions
 * Security
-    * AWS WAF
-    * Threat protection
-    * Log streaming
+  * AWS WAF
+  * Threat protection
+  * Log streaming
 * Branding
-    * Domain
-    * Managed login
-    * Message template
+  * Domain
+  * Managed login
+  * Message template
 
 ## Application Load Balancer
 

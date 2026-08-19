@@ -10,21 +10,21 @@
 * You can change the account name using a verbose name instead of twelve digits
 
 * IAM: Permissions
-    * JSON document called policies
-    * VIS - SEPARC
-      * VIS: 
-        * Version: "2012-10-17"
-        * Id: an identifier
-        * Statement: [{}]
-      * SEPARC: 
-        * Sid: an statement-identifier
-        * Effect: Allow, Deny
-        * Principal: account, user, root
-        * Action: list of actions, examples:
-          * s3:Get*
-          * s3:List*
-        * Resource: []
-        * Condition: {}
+  * JSON document called policies
+  * VIS - SEPARC
+    * VIS:
+      * Version: "2012-10-17"
+      * Id: an identifier
+      * Statement: [{}]
+    * SEPARC:
+      * Sid: an statement-identifier
+      * Effect: Allow, Deny
+      * Principal: account, user, root
+      * Action: list of actions, examples:
+        * s3:Get*
+        * s3:List*
+      * Resource: []
+      * Condition: {}
 
 ```json
 {
@@ -50,12 +50,12 @@
 ```
 
 * Points to mantain safe your account:
-    * Password Policy
-    * Activate MFA
-        * Virtual MFA
-        * Universal 2nd Factor (U2F) Security Key (USB)
-        * Harwdare Key For MFA Device
-        * Hardware Key For MFA device for AWS Gov
+  * Password Policy
+  * Activate MFA
+    * Virtual MFA
+    * Universal 2nd Factor (U2F) Security Key (USB)
+    * Harwdare Key For MFA Device
+    * Hardware Key For MFA device for AWS Gov
 
 * Ways to connect with AWS
   * Console
@@ -199,7 +199,7 @@ There are some examples:
 }
 ```
 
-* IAM for S3 
+* IAM for S3
   * s3:ListBucket permission applies to arn:aws:s3:::test -> bucket level permission
   * s3:GeObject permission applies to arn:aws:s3:::test/* -> object level permission
 
@@ -259,7 +259,7 @@ In case of EventBridge you can invoke resources with Resource-based Policy, but 
 
 * For microsoft ecosystem
 * AWS Directory Services Flavors:
-  * AWS Managed Microsoft AD: 
+  * AWS Managed Microsoft AD:
     * Trust connection between On-prem AD and AWS Managed AD
   * AD Connector
     * AD Connector works as proxy, users are managed by On-prem AD

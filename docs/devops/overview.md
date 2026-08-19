@@ -7,6 +7,7 @@ AWS DevOps combines development and operations practices using AWS services to d
 ## Core AWS DevOps Services
 
 ### Developer Tools
+
 - **AWS CodeCommit**: Git-based source control
 - **AWS CodeBuild**: Managed build service
 - **AWS CodeDeploy**: Automated deployment service
@@ -14,11 +15,13 @@ AWS DevOps combines development and operations practices using AWS services to d
 - **AWS CodeArtifact**: Package management
 - **AWS CodeStar**: Project templates and management
 
-### Infrastructure as Code
+### Infrastructure as Code (IaC) Tools
+
 - **AWS CloudFormation**: Template-based infrastructure
 - **AWS CDK**: Programmatic infrastructure definition
 
-### Monitoring and Logging
+### Monitoring and Logging Architecture
+
 - **Amazon CloudWatch**: Monitoring and observability
 - **AWS X-Ray**: Distributed tracing
 - **AWS CloudTrail**: API logging and auditing
@@ -26,18 +29,23 @@ AWS DevOps combines development and operations practices using AWS services to d
 ## DevOps Principles
 
 ### Automation
+
 Automate repetitive tasks to reduce errors and increase efficiency.
 
 ### Continuous Integration
+
 Merge code changes frequently and run automated tests.
 
 ### Continuous Delivery
+
 Automatically deploy code changes to production-like environments.
 
 ### Infrastructure as Code
+
 Manage infrastructure through code and version control.
 
 ### Monitoring and Logging
+
 Continuously monitor applications and infrastructure.
 
 ## Benefits
@@ -50,4 +58,4 @@ Continuously monitor applications and infrastructure.
 
 ## Important links
 
-* [DevOps on AWS](https://docs.aws.amazon.com/whitepapers/latest/introduction-devops-aws/introduction-to-devops.html)
+- [DevOps on AWS](https://docs.aws.amazon.com/whitepapers/latest/introduction-devops-aws/introduction-to-devops.html)

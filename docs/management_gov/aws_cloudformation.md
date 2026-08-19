@@ -7,12 +7,12 @@
 * Stacks for network, stacks for applications, and so on
 * Deleting a stack deletes every single artifact that was created by CloudFormation
 * Deploying CloudFormation Templates
-    * Manual way
-    * Using AWS CLI
+  * Manual way
+  * Using AWS CLI
 * Templates has Tags:
-    * stack-id
-    * logical-id
-    * stack-name
+  * stack-id
+  * logical-id
+  * stack-name
 
 ## Components
 
@@ -28,4 +28,3 @@
 
 * References
 * Functions
-

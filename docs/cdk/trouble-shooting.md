@@ -1,6 +1,6 @@
 # Some guidelines to resolve potential problems
 
-## About the credentials. 
+## About the credentials
 
 You can use CloudShell to generate temporary credentials to assume roles, but first you need to create a role:
 

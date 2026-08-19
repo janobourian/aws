@@ -1,34 +1,35 @@
 
-
 # Section 5: Authenticating users with Cognito and API Gateway Authorizers
 
 ## How to add Authorization to API Gateway
 
 Create an Authorizer using Lambda an Token validation, for that follow the steps bellow:
+
 * Create a lambda to manage the token
-    * Return IAM Policy to grant access and Return PrincipalID (User Id):
+  * Return IAM Policy to grant access and Return PrincipalID (User Id):
+
     ```json
     {
         "Effect": "Allow",
         "Action": "execute-api"
     }
     ```
+
 * Create authorizer
 * Add Authorizer in each HTTP method in all resources.
 
 Lambda for authorizer:
 
 ```python
-# A simple token-based authorizer example to demonstrate how to use an authorization token
-# to allow or deny a request. In this example, the caller named 'user' is allowed to invoke
-# a request if the client-supplied token value is 'allow'. The caller is not allowed to invoke
-# the request if the token value is 'deny'. If the token value is 'unauthorized' or an empty
-# string, the authorizer function returns an HTTP 401 status code. For any other token value,
-# the authorizer returns an HTTP 500 status code.
-# Note that token values are case-sensitive.
+## A simple token-based authorizer example to demonstrate how to use an authorization token
+## to allow or deny a request. In this example, the caller named 'user' is allowed to invoke
+## a request if the client-supplied token value is 'allow'. The caller is not allowed to invoke
+## the request if the token value is 'deny'. If the token value is 'unauthorized' or an empty
+## string, the authorizer function returns an HTTP 401 status code. For any other token value,
+## the authorizer returns an HTTP 500 status code
+## Note that token values are case-sensitive
 
 import json
-
 
 def lambda_handler(event, context):
     token = event['authorizationToken']
@@ -47,7 +48,6 @@ def lambda_handler(event, context):
     except BaseException:
         print('unauthorized')
         return 'unauthorized'  # Return a 500 error
-
 
 def generatePolicy(principalId, effect, resource):
     authResponse = {}
@@ -72,6 +72,7 @@ def generatePolicy(principalId, effect, resource):
 ```
 
 For more information:
-* https://docs.aws.amazon.com/apigateway/latest/developerguide/configure-api-gateway-lambda-authorization-with-console.html
-* https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html
-* https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html
+
+* <https://docs.aws.amazon.com/apigateway/latest/developerguide/configure-api-gateway-lambda-authorization-with-console.html>
+* <https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-use-lambda-authorizer.html>
+* <https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html>

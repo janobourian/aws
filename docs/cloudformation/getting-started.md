@@ -19,7 +19,7 @@ Resources:
     Type: AWS::S3::Bucket
     Properties:
       BucketName: !Sub '${AWS::StackName}-bucket-${AWS::AccountId}'
-      
+
 Outputs:
   BucketName:
     Description: 'Name of the S3 bucket'
@@ -31,18 +31,21 @@ Outputs:
 1. **Save template** as `first-template.yaml`
 
 2. **Deploy via CLI**:
+
 ```bash
 aws cloudformation create-stack \
   --stack-name my-first-stack \
   --template-body file://first-template.yaml
 ```
 
-3. **Check status**:
+1. **Check status**:
+
 ```bash
 aws cloudformation describe-stacks --stack-name my-first-stack
 ```
 
-4. **Clean up**:
+1. **Clean up**:
+
 ```bash
 aws cloudformation delete-stack --stack-name my-first-stack
 ```

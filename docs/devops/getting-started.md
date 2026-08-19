@@ -6,23 +6,23 @@
 - Basic understanding of Git and CI/CD concepts
 - Application code in a repository
 
-## Key concepts about DevOps:
+## Key concepts about DevOps
 
-* Continuous Integration
-* Continuous Delivery
-* Infrastructure as Code
-* Monitoring and logging
-* Communication and collaboration
-* Security
+- Continuous Integration
+- Continuous Delivery
+- Infrastructure as Code
+- Monitoring and logging
+- Communication and collaboration
+- Security
 
 ## AWS Well-Architected Framework
 
-* Operational Excellence
-* Security
-* Reliability
-* Performance
-* Cost-effective
-* Sustainability
+- Operational Excellence
+- Security
+- Reliability
+- Performance
+- Cost-effective
+- Sustainability
 
 ## Setting Up Your First Pipeline
 

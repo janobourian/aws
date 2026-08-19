@@ -4,24 +4,24 @@
 
 * Domain Name System: Translates the human friendly hostnames into the machine IP addresses
 * DNS is the backbone of the internet
-* https://www.subdomain.domain.com
+* <https://www.subdomain.domain.com>
 * Terminology:
-    * Domain register: Amazon Route53, GoDaddy
-    * DNS Records: A, AAAA, CNAME, NS,...
-    * Zone File: contains DNS records
-    * Name Server: resolves DNS queries
-    * Top Level Domain: .com, .mx, .com.mx
-    * Second Level Domain: amazon.com, google.com
+  * Domain register: Amazon Route53, GoDaddy
+  * DNS Records: A, AAAA, CNAME, NS,...
+  * Zone File: contains DNS records
+  * Name Server: resolves DNS queries
+  * Top Level Domain: .com, .mx, .com.mx
+  * Second Level Domain: amazon.com, google.com
 * How DNS Works:
-    * Web Browser
-    * Local DNS Server
-    * Root DNS Server (.com)
-    * Local DNS Server
-    * TLD DNS Server
-    * Local DNS Server
-    * SLD DNS Server (Managed by Domain Registar)
-    * Local DNS Server
-    * Local DNS Cache TTL
+  * Web Browser
+  * Local DNS Server
+  * Root DNS Server (.com)
+  * Local DNS Server
+  * TLD DNS Server
+  * Local DNS Server
+  * SLD DNS Server (Managed by Domain Registar)
+  * Local DNS Server
+  * Local DNS Cache TTL
 
 ## Route53
 
@@ -41,20 +41,20 @@
 * It also provides a feature called Route53 Domain Registration for registering and managing domain names directly through AWS
 * It also provides a feature called Route53 Application Recovery Controller for automatic recovery of applications in case of failure
 * Each record contains:
-    * Domain/Subdomain
-    * Record Type
-    * Value
-    * Routing Policy
-    * TTL
+  * Domain/Subdomain
+  * Record Type
+  * Value
+  * Routing Policy
+  * TTL
 * DNS record types
-    * A - maps a hostname to IPv4
-    * AAAA - maps a hostname to IPv6
-    * CNAME - maps a hostname to another hostname
-    * NS - Name servers for the Hosted Zone
+  * A - maps a hostname to IPv4
+  * AAAA - maps a hostname to IPv6
+  * CNAME - maps a hostname to another hostname
+  * NS - Name servers for the Hosted Zone
 
 ## Hosted Zones
 
 * A container for records that define how to route traffic to a domain and its subdomains
 * There are two types of hosted zones:
-    * Public Hosted Zone: used to route traffic on the internet
-    * Private Hosted Zone: used to route traffic within a VPC
+  * Public Hosted Zone: used to route traffic on the internet
+  * Private Hosted Zone: used to route traffic within a VPC

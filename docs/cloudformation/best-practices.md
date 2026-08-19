@@ -3,6 +3,7 @@
 ## Template Design
 
 ### Use Parameters
+
 ```yaml
 Parameters:
   Environment:
@@ -12,9 +13,11 @@ Parameters:
 ```
 
 ### Organize with Nested Stacks
+
 Break large templates into smaller, reusable components.
 
 ### Use Mappings for Environment-Specific Values
+
 ```yaml
 Mappings:
   EnvironmentMap:
@@ -34,6 +37,7 @@ Mappings:
 ## Resource Management
 
 ### Naming Conventions
+
 ```yaml
 Resources:
   WebServerInstance:
@@ -45,6 +49,7 @@ Resources:
 ```
 
 ### Use DeletionPolicy
+
 ```yaml
 Resources:
   Database:

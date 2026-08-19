@@ -1,6 +1,7 @@
 # AWS Resilience Hub
 
 ## 1. High-Level Overview
+
 AWS Resilience Hub is a fully managed cloud service that provides a single place to define, track, and improve the resilience posture of your applications on AWS. In today's cloud environment, keeping applications highly available and resilient is critical. Resilience Hub helps teams analyze their application architectures against best practices, identifying potential single points of failure, estimating recovery times, and recommending optimizations.
 
 The service uses **Resilience Policies** to evaluate workloads. These policies define the target Recovery Time Objective (RTO) and Recovery Point Objective (RPO) limits for different failure scenarios (such as server outages, database corruption, Availability Zone failure, and full region disasters). Resilience Hub imports resource descriptions from CloudFormation stacks, Terraform state files, or Resource Groups to map the application components automatically.
@@ -16,6 +17,7 @@ Furthermore, modern workloads require robust failover mechanisms to survive infr
 From an operational excellence perspective, deploying cloud services in standard landing zones allows teams to maintain clear resource scopes, but requires mapping out direct dependency hooks across all resource layers. Developers must ensure that all configurations are codified using Infrastructure as Code (IaC) templates, which reduces human configurations errors during deployments and facilitates reproducible testing across separate developer, staging, and production environments.
 
 ### 👔 Executive Summary (For Managers & Non-Technical Stakeholders)
+
 * **Business Purpose**: Provides enterprise-grade cloud capabilities for **AWS Resilience Hub**, streamlining operations, reducing infrastructure overhead, and enabling rapid digital innovation.
 * **How It Works**: Operates as a fully managed AWS cloud service, handling underlying operational complexities, high-availability replication, security compliance, and automated scaling behind simple API interfaces.
 * **Key Business Value & Use Cases**: Reduces operational overhead and time-to-market for digital initiatives, enforces enterprise security standards, and aligns cloud spending with actual business usage.
@@ -23,6 +25,7 @@ From an operational excellence perspective, deploying cloud services in standard
 See section 12 for in-depth subcomponent analysis.
 
 ## 3. Security Perspective
+
 AWS Resilience Hub governs application evaluation securely using AWS Identity and Access Management (IAM) and KMS encryption configurations. Access to configure policies, register applications, and run assessments is authorized using IAM permissions.
 
 To evaluate resource configurations, Resilience Hub uses an **IAM Service Role** to query metadata from target AWS APIs (such as checking EBS snapshot frequencies or RDS replication states). The service role does not read application-level database records or file contents, ensuring data privacy boundaries.
@@ -46,6 +49,7 @@ Auditing and threat detection are integrated via AWS CloudTrail, which records e
 Additionally, secrets management is secure and audit-compliant by integrating with AWS Secrets Manager or Systems Manager Parameter Store. Secrets are retrieved dynamically at runtime and injected into execution RAM, ensuring that passwords and API keys are never stored in plain text inside template files or repositories.
 
 ## 4. High Availability Perspective
+
 AWS Resilience Hub is a serverless regional service that incorporates native high availability across multiple Availability Zones. The assessment engine and policy registry are managed on highly redundant infrastructures, ensuring constant availability.
 
 The service evaluates and reports on the high availability of your workloads. For example, it checks whether your compute tiers are distributed across multiple Availability Zones behind an ALB, and whether databases use synchronous replication to standby instances, reporting high availability gaps.
@@ -75,6 +79,7 @@ High availability is achieved by deploying compute and storage fleets across mul
 For serverless runtimes and database engines, AWS manages the underlying replication structures. Storage nodes replicate data blocks across at least three physical Availability Zones, ensuring that there is no single point of failure in the management console or resource APIs during local datacenter outages.
 
 ## 5. Resilience Perspective
+
 AWS Resilience Hub is designed to optimize workload resilience. If an assessment identifies resources that do not meet policy limits (such as a database with a predicted RTO of 4 hours when the policy limit is 15 minutes), Resilience Hub flags the resource and proposes specific architectural changes.
 
 To automate resilience validation, the service integrates with AWS FIS. It generates ready-to-run FIS chaos experiment templates mapped directly to your architecture, allowing teams to test database failovers or network latency directly, verifying recovery procedures.
@@ -104,6 +109,7 @@ Resilience features handle hardware errors, container crashes, and network drops
 To protect data integrity, databases and filesystems support continuous backups and point-in-time snapshots stored in highly durable S3 buckets. If data corruption occurs, administrators can run rebuild or restore operations, reverting the database state to the last known good backup dynamically.
 
 ## 6. Cost Optimizing Perspective
+
 AWS Resilience Hub operates on a usage-based pricing model with zero upfront fees or base licensing charges. You are charged a flat rate of $15.00 per active application registry per month.
 
 An application is considered active if it runs at least one assessment during the billing cycle. New application registries are completely free to evaluate for the first 30 days. Note that there are no charges for defining policies or reviewing recommendation scorecards, and you pay only for the resources consumed by the evaluated applications.
@@ -137,18 +143,23 @@ Storage costs are minimized by configuring S3 Lifecycle policies, which transiti
 Additionally, consolidated billing groups consolidate costs across multiple AWS accounts under a single payment, maximizing volume discount tiers. Cost Explorer and Billing Alarms monitor estimated monthly charges in real time, alerting administrators when spending exceeds defined thresholds.
 
 ## 7. Well-Architected Framework Alignment
-*   **Security**: Uses read-only IAM service roles to inspect resource metadata, encrypting all report files using KMS.
-*   **Reliability**: Provides centralized audits comparing predicted RTO and RPO configurations against defined business goals.
-*   **Performance Efficiency**: Replaces manual recovery testing audits with a managed, automated scoring engine.
-*   **Cost Optimization**: Low-cost model ($15.00 per active app/month) with a 30-day free trial tier for new registries.
-*   **Operational Excellence**: Integrates with AWS FIS to generate automated chaos experiments, validating application health during stress.
+
+* **Security**: Uses read-only IAM service roles to inspect resource metadata, encrypting all report files using KMS.
+* **Reliability**: Provides centralized audits comparing predicted RTO and RPO configurations against defined business goals.
+* **Performance Efficiency**: Replaces manual recovery testing audits with a managed, automated scoring engine.
+* **Cost Optimization**: Low-cost model ($15.00 per active app/month) with a 30-day free trial tier for new registries.
+* **Operational Excellence**: Integrates with AWS FIS to generate automated chaos experiments, validating application health during stress.
 
 ## 8. Integration & Dependency Mapping
+
 Integrated with standard AWS resource groups and permissions.
 
 ## 9. Step-by-Step Hands-on Tutorial
+
 ### 1. Create a Resilience Policy
+
 Define a resilience policy specifying target RTO and RPO limits for AZ and regional failures:
+
 ```bash
 aws resiliencehub create-resilience-policy \
     --policy-name "critical-billing-policy" \
@@ -157,7 +168,9 @@ aws resiliencehub create-resilience-policy \
 ```
 
 ### 2. Register Application
+
 Register your application in Resilience Hub, mapping it to a target resource group:
+
 ```bash
 aws resiliencehub create-app \
     --name "billing-pipeline-app" \
@@ -165,37 +178,46 @@ aws resiliencehub create-app \
 ```
 
 ### 3. Run Resilience Assessment
+
 Start an assessment execution to evaluate your application against the policy:
+
 ```bash
 aws resiliencehub start-app-assessment \
     --app-arn "arn:aws:resiliencehub:us-east-1:123456789012:app/billing-pipeline-app" \
     --policy-arn "arn:aws:resiliencehub:us-east-1:123456789012:policy/critical-billing-policy"
 ```
-```
+
+```text
 
 ## 10. AWS CLI Commands
 ### 1. List Applications
 
 Execute the following command:
-```bash
-aws resiliencehub list-apps
 ```
+
+aws resiliencehub list-apps
+
+```text
 
 ### 2. Get Assessment Result
 
 Execute the following command:
-```bash
+```
+
 aws resiliencehub describe-app-assessment \
     --assessment-arn "arn:aws:resiliencehub:us-east-1:123456789012:app-assessment/EXP12345"
-```
+
+```text
 
 ### 3. Delete Application
 
 Execute the following command:
-```bash
+```
+
 aws resiliencehub delete-app \
     --app-arn "arn:aws:resiliencehub:us-east-1:123456789012:app/billing-pipeline-app"
-```
+
+```text
 
 ---
 
@@ -216,9 +238,11 @@ The operational foundation managing lifecycle, compliance verification, and exec
 * **AWS CLI Snippet**:
 
   AWS CLI Example for Core Administration & Rule Engine:
-```bash
-aws aws-resilience-hub describe-configuration 2>/dev/null || echo 'AWS Resilience Hub Active'
 ```
+
+aws aws-resilience-hub describe-configuration 2>/dev/null || echo 'AWS Resilience Hub Active'
+
+```text
 
 ### Security Boundaries & IAM Governance
 
@@ -230,12 +254,14 @@ Resource policies and access guardrails protecting administrative configurations
 * **AWS CLI Snippet**:
 
   AWS CLI Example for Security Boundaries & IAM Governance:
-```bash
+```
+
 aws iam put-role-policy \
     --role-name aws-resilience-hub-admin \
     --policy-name aws-resilience-hub-policy \
     --policy-document file://policy.json
-```
+
+```text
 
 ### Multi-Account Governance & Deployment
 
@@ -247,9 +273,11 @@ AWS Organizations integration, regional synchronization, and baseline automation
 * **AWS CLI Snippet**:
 
   AWS CLI Example for Multi-Account Governance & Deployment:
-```bash
-aws aws-resilience-hub list-accounts 2>/dev/null || echo 'Organization Linked'
 ```
+
+aws aws-resilience-hub list-accounts 2>/dev/null || echo 'Organization Linked'
+
+```text
 
 ### Telemetry, Compliance Logging & Auditing
 
@@ -261,7 +289,8 @@ Amazon CloudWatch metrics, EventBridge rules, and CloudTrail audit logging for A
 * **AWS CLI Snippet**:
 
   AWS CLI Example for Telemetry, Compliance Logging & Auditing:
-```bash
+```
+
 aws cloudwatch put-metric-alarm \
     --alarm-name aws-resilience-hub-ComplianceDrift \
     --metric-name NonCompliantResources \
@@ -270,7 +299,8 @@ aws cloudwatch put-metric-alarm \
     --period 300 \
     --threshold 1 \
     --comparison-operator GreaterThanOrEqualToThreshold
-```
+
+```text
 
 ### Cost Management & Spend Optimization
 
@@ -282,9 +312,11 @@ Resource rightsizing, waste elimination, and financial chargeback allocation for
 * **AWS CLI Snippet**:
 
   AWS CLI Example for Cost Management & Spend Optimization:
-```bash
-aws budgets create-budget 2>/dev/null || echo 'Budget Active'
 ```
+
+aws budgets create-budget 2>/dev/null || echo 'Budget Active'
+
+```text
 
 ---
 

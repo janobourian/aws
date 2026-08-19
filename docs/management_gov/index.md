@@ -2,6 +2,6 @@
 
 * Cloudfromation
 * Monitoring
-    * AWS Config
-    * CloudTrail
-    * Cloudwatch
+  * AWS Config
+  * CloudTrail
+  * Cloudwatch

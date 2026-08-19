@@ -5,72 +5,72 @@ CloudWatch is a monitoring and observability service provided by AWS that allows
 ## Metrics
 
 * We can create Alarms based on services and specific operations like:
-    * Cloudfront
-        * Request
-        * Alarm based on a rate of request in a period
+  * Cloudfront
+    * Request
+    * Alarm based on a rate of request in a period
 * CloudWatch provides metrics for every services in AWS
 * Metric is a variable to monitor
-    * CPUUtilization
-    * NetworkIn
-    * NetworkOut
-    * DiskReadOps
-    * DiskWriteOps
+  * CPUUtilization
+  * NetworkIn
+  * NetworkOut
+  * DiskReadOps
+  * DiskWriteOps
 * Metrics belong to namespaces
-    * AWS/EC2
-    * AWS/S3
-    * AWS/Lambda
-    * AWS/RDS
+  * AWS/EC2
+  * AWS/S3
+  * AWS/Lambda
+  * AWS/RDS
 * Metrics have dimensions
-    * InstanceId
-    * AutoScalingGroupName
-    * FunctionName
-    * DBInstanceIdentifier
+  * InstanceId
+  * AutoScalingGroupName
+  * FunctionName
+  * DBInstanceIdentifier
 * Metrics have statistics
-    * Average
-    * Sum
-    * Minimum
-    * Maximum
-    * SampleCount
+  * Average
+  * Sum
+  * Minimum
+  * Maximum
+  * SampleCount
 * Metrics have units
-    * Seconds
-    * Microseconds
-    * Milliseconds
-    * Bytes
-    * Bytes/Second
-    * Bits/Second
+  * Seconds
+  * Microseconds
+  * Milliseconds
+  * Bytes
+  * Bytes/Second
+  * Bits/Second
 * Up to 30 dimensions per metric
 * Metrics have timestamps
 * Can create CloudWatch dashboards of metrics
 * Can create CloudWatch Custom Metrics
-    * RAM
-    * CPU Credit Usage
-    * CPU Credit Balance
-    * Memory Utilization
-    * Disk Space Utilization
-    * Application-specific metrics
+  * RAM
+  * CPU Credit Usage
+  * CPU Credit Balance
+  * Memory Utilization
+  * Disk Space Utilization
+  * Application-specific metrics
 
 ### Streams
 
 * Stream CloudWatch metrics to a destination of your choice
-    * Near-real-time
-    * Low latency
+  * Near-real-time
+  * Low latency
 * Options
-    * Amazon Kinesis Data Firehose
-    * Amazon Kinesis Data Streams
-    * AWS Lambda
-    * Amazon S3
-    * Amazon Redshift
-    * Amazon Elasticsearch Service
-    * Amazon OpenSearch Service
-    * Amazon SNS
-    * Amazon SQS
-    * Amazon EventBridge
+  * Amazon Kinesis Data Firehose
+  * Amazon Kinesis Data Streams
+  * AWS Lambda
+  * Amazon S3
+  * Amazon Redshift
+  * Amazon Elasticsearch Service
+  * Amazon OpenSearch Service
+  * Amazon SNS
+  * Amazon SQS
+  * Amazon EventBridge
 * Third party service provider
-    * Datadog
-    * Dynatrace
-    * New Relic
-    * Splunk
-    * Sumo Logic
+  * Datadog
+  * Dynatrace
+  * New Relic
+  * Splunk
+  * Sumo Logic
 
 ## Logs
 

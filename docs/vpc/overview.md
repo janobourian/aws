@@ -6,8 +6,8 @@ You have complete control over your virtual networking environment, including se
 
 ## Key Features
 
-* **Virtual Private Cloud** 
-* **Subnets** 
+* **Virtual Private Cloud**
+* **Subnets**
 * **IP addressing**
 * **Route tables**
 * **Gateways and endpoints**
@@ -22,6 +22,7 @@ You have complete control over your virtual networking environment, including se
 When you create a VPC, you define a virtual network topology that closely resembles a traditional network that you might operate in your own data center. You can create subnets, route tables, and network gateways to control the flow of traffic within your VPC and between your VPC and the internet.
 
 Concepts:
+
 * VPC and Subnets
 * Default and nondefault VPCs
 * Route Tables
